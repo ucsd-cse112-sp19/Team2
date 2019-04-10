@@ -11,6 +11,10 @@ html, body {
     background-image: linear-gradient(to bottom, #1d152e, #1b142d, #19132c, #18122b, #16112a);
     background-repeat: no-repeat;
 }
+section {
+    text-align: center;
+    margin-bottom: 100px;
+}
 
 .team-title {
     text-align: center;
@@ -20,7 +24,6 @@ html, body {
 }
 
 .member-name {
-    text-align: center;
     font-size: 18px;
     margin-top: 5px;
     font-weight: 1000;
