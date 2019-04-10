@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Oxygen', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    background-image: linear-gradient(to bottom, #40679f, #2288b6, #24a8c1, #56c6c3, #90e2c2);
+    background-repeat: no-repeat;
+}
+
+.team-title {
+    text-align: center;
+    font-weight: 1000;
+    margin-bottom: 50px;
+}
+
+.member-name {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 1000;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
