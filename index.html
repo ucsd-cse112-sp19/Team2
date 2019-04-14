@@ -1,77 +1,121 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en-US">
 	<head>
+		<!-- Meta data -->
+		<meta name="Description" content="External hub for team MeatSpace. This is the homepage. Author: Team MeatSpace">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="theme-color" content="#1c142e">
+
+		<!-- favicon -->
+		<link rel="icon" type="image/png" href="/img/logo.png">
+
+		<!-- manifest -->
+		<link rel="manifest" href="/manifest.json">
 
 		<!--Styles-->
-		<link rel="stylesheet" type="text/css" href="styles.css">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="styles/styles.css">
 
-		<!--Fonts-->
-		<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-
+		<!-- Website Title -->
 		<title>Team 2 - MeatSpace</title>
 	</head>
 	<body>
 		<header>
+			<nav>
+				<ul>
+					<li>
+						<a href="#">MISSION</a>
+					</li>
+					<li>
+						<a href="#">TEAM MEMBERS</a>
+					</li>
+					<li>
+						<a href="#">PROJECT</a>
+					</li>
+					<li>
+						<a href="#">STYLE GUIDE</a>
+					</li>
+					<li>
+						<a href="#">DOCUMENTATION</a>
+					</li>
+				</ul>
+			</nav>
 			<h1 class="team-title">MeatSpace</h1>
 			<img id="logo" src="./img/logo.png" alt="logo">
 		</header>
-		<div class="container centered">
-			<div class="row">
-				<section class="col-sm-6 col-md-3 col-lg-2">
-					<img src="./img/faces/adam-face.png" alt="adam face">
+
+		<section id="mission-section">
+			<h1 class="section-title">MISSION</h1>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi numquam animi odit, ad necessitatibus veritatis quam, ipsam unde quo similique facere consequuntur dolorum error, amet voluptates voluptatibus corporis nemo reprehenderit.
+			</p>
+		</section>
+
+		<section>
+			<h1 class="section-title">TEAM MEMBERS</h1>
+			<div id="team-member-grid">
+				
+				<div id="team-member-1" class="team-member-div">
+					<img src="./img/faces/adam-face.png" alt="Adam Kabbara picture">
 					<h3 class="member-name">Adam Kabbara</h3>
-					<span>Lead <br> adamxkabbara@gmail.com</span>
-				</section>
-				<section class="col-sm-6 col-md-3 col-lg-2">
-					<img src="./img/faces/tim-face.png" alt="tim's face">
+					<span>Lead <br> <a href="mailto:adamxkabbara@gmail.com">adamxkabbara@gmail.com</a></span>
+				</div>
+
+				<div id="team-member-2" class="team-member-div">
+					<img src="./img/faces/tim-face.png" alt="Timothy Bian picture">
 					<h3 class="member-name">Timothy Bian</h3>
-    			    <span>Co-Lead <br> tbian@ucsd.edu</span>
-				</section>
-				<section class="col-sm-6 col-md-3 col-lg-2">
-					<img src="./img/faces/veronica-face.jpg" alt="veronica face">
+					<span>Co-Lead <br> <a href="mailto:tbian@ucsd.edu">tbian@ucsd.edu</a></span>
+				</div>
+				
+				<div id="team-member-3" class="team-member-div">
+					<img src="./img/faces/veronica-face.jpg" alt="Veronica Lin picture">
 					<h3 class="member-name">Veronica Lin</h3>
-					<span>Quality Assurance <br> velin@ucsd.edu</span>
-				</section>
-				<section class="col-sm-6 col-md-3 col-lg-2">
-					<img src="./img/faces/tony-face.png" alt="tony face">
+					<span>Quality Assurance <br> <a href="mailto:velin@ucsd.edu">velin@ucsd.edu</a></span>
+				</div>
+
+				<div id="team-member-4" class="team-member-div">
+					<img src="./img/faces/tony-face.png" alt="Tony Huang picture">
 					<h3 class="member-name">Tony Huang</h3>
-					<span>Quality Assurance<br> toh006@ucsd.edu</span>
-				</section>
-				<section class="col-sm-6 col-md-3 col-lg-2">
-					<img src="./img/faces/peter-face.jpg" alt="peter face">
+					<span>Quality Assurance<br> <a href="mailto:toh006@ucsd.edu">toh006@ucsd.edu</a></span>
+				</div>
+
+				<div id="team-member-5" class="team-member-div">
+					<img src="./img/faces/peter-face.jpg" alt="Peter Pi picture">
 					<h3 class="member-name">Shih-hung (Peter) Pi</h3>
-					<span>Tools & Utility <br> shpi@ucsd.edu</span>
-				</section>
-				<section class="col-sm-6 col-md-3 col-lg-2">
+					<span>Tools & Utility <br> <a href="mailto:shpi@ucsd.edu">shpi@ucsd.edu</a></span>
+				</div>
+
+				<div id="team-member-6" class="team-member-div">
 					<img src="./img/faces/christopher-face.jpg" alt="Christoper's Picture" title="Christopher (DevOps)">
 					<h3 class="member-name">Christopher Jensen</h3>
-					<span>DevOps <br> cajensen@ucsd.edu</span>
-				</section>
-				<section class="col-sm-6 col-md-3 col-lg-2">
-					<img src="./img/faces/alex-face.jpg" alt="alex face">
+					<span>DevOps <br> <a href="mailto:cajensen@ucsd.edu">cajensen@ucsd.edu</a></span>
+				</div>
+
+				<div id="team-member-7" class="team-member-div">
+					<img src="./img/faces/alex-face.jpg" alt="Alex's picture">
 					<h3 class="member-name">Alex Monji</h3>
-					<span>Coder <br> ammonji@ucsd.edu</span>
-				</section>
-				<section class="col-sm-6 col-md-3 col-lg-2">
-					<img src="./img/faces/aaron-face.jpg" alt="name face">
+					<span>Coder <br> <a href="mailto:ammonji@ucsd.edu">ammonji@ucsd.edu</a></span>
+				</div>
+
+				<div id="team-member-8" class="team-member-div">
+					<img src="./img/faces/aaron-face.jpg" alt="Aaron Brown picture">
 					<h3 class="member-name">Aaron Brown</h3>
-                    <span>Coder<br> amb012@ucsd.edu</span>
-				</section>
-				<section class="col-sm-6 col-md-3 col-lg-2">
-					<img src="./img/faces/justin-face.JPG" alt="name face">
+					<span>Coder<br> <a href="mailto:amb012@ucsd.edu">amb012@ucsd.edu</a></span>
+				</div>
+
+				<div id="team-member-9" class="team-member-div">
+					<img src="./img/faces/justin-face.JPG" alt="Justin Chen picture">
 					<h3 class="member-name">Justin Chen</h3>
-					<span>Coder<br> jsc065@ucsd.edu</span>
-				</section>
-				<section class="col-sm-6 col-md-3 col-lg-2">
-					<img src="./img/faces/curtis-face.jpg" alt="name face">
+					<span>Coder<br> <a href="mailto:jsc065@ucsd.edu">jsc065@ucsd.edu</a></span>
+				</div>
+				
+				<div id="team-member-10" class="team-member-div">
+					<img src="./img/faces/curtis-face.jpg" alt="Curtis Tong picture">
 					<h3 class="member-name">Curtis Tong</h3>
-					<span>Tools/Utility<br> cctong@ucsd.edu</span>
-				</section>
+					<span>Tools/Utility<br> <a href="mailto:cctong@ucsd.edu">cctong@ucsd.edu</a></span>
+				</div>
+
 			</div>
-		</div>
+		</section>
 	</body>
 </html>
