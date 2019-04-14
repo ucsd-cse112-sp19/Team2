@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Oxygen|Source+Sans+Pro');
 * {
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     margin: 0px;
     padding: 0px;
     font-family: 'Source Sans Pro', sans-serif;
@@ -8,17 +8,19 @@
 }
 
 html, body {
-    min-height: 100vh;
-    background-image: linear-gradient(to bottom, #1d152e, #1b142d, #19132c, #18122b, #16112a) ;
-    background-size:     cover;
-    background-repeat:   no-repeat;
-    background-position: center center;
+    background-color: whitesmoke;
+    /* min-height: 100vh; */
+    /* background-image: linear-gradient(to bottom, #1d152e, #1b142d, #19132c, #18122b, #16112a) ; */
+
+    /* background-size:     cover; */
+    /* background-repeat:   no-repeat; */
+    /* background-position: center center; */
 }
 header {
     height: 500px;
 }
 nav {
-    padding: 0;
+    padding: 10px 0 0 0;
 }
 nav ul li {
     display: inline-block;
@@ -94,6 +96,10 @@ span {
     font-weight: 700;
 }
 
+p {
+    font-size: 120%;
+}
+
 .team-member-div {
     text-align: center;
     width: 20vw;
@@ -120,6 +126,14 @@ span {
     grid-row-gap: 40px;
 }
 
+#team-member-1 img {
+    object-position: 0 0;
+}
+
+#team-member-6 img {
+    object-position: 35% 0;
+}
+
 /* Smartphones (landscape) ----------- */
 @media only screen and (max-width : 1000px) {
     .member-name {
@@ -127,6 +141,9 @@ span {
     }
     span {
         font-size: 70%;
+    }
+    section p {
+        text-align: center;
     }
 }
 
@@ -137,14 +154,17 @@ span {
         height: 400px;
     }
     #logo {
-        object-position: 36% 0;
+        width: 65%;
+        /* width: auto; */
+        /* object-position: % 0; */
+        /* width: 266px; */
     }
     nav ul {
         padding-left: 4px;
     }
     nav ul li a {
-        font-size: 70%;
-        padding: 0.8em;
+        font-size: 90%;
+        /* padding: 0.8em; */
     }
     #team-member-grid {
         grid-template-areas: "team-member-1 team-member-2" 
