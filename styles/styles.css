@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css?family=Oxygen|Source+Sans+Pro');
+* {
+    /* box-sizing: border-box; */
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #E65328;
+}
+
+html, body {
+    background-color: whitesmoke;
+    /* min-height: 100vh; */
+    /* background-image: linear-gradient(to bottom, #1d152e, #1b142d, #19132c, #18122b, #16112a) ; */
+    /* background-size:     cover; */
+    /* background-repeat:   no-repeat; */
+    /* background-position: center center; */
+}
+header {
+    height: 500px;
+}
+nav {
+    padding: 10px 0 0 0;
+}
+nav ul li {
+    display: inline-block;
+    padding: 1%;
+}
+nav ul li a {
+    display: inline-block;     
+    position: relative;    
+    z-index: 1;     
+    padding: 1em;     
+    margin: -1em;
+    text-decoration: none;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+nav ul li a:hover {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+section {
+    margin-bottom: 10%;
+}
+#mission-section {
+    padding: 0 20% 0 20%;
+}
+
+#logo {
+    width: 533px;
+    height: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+    object-position: 78% 0;
+}
+
+.team-title {
+    text-align: center;
+    font-weight: 1000;
+    letter-spacing: 3px;
+    font-size: 350%;
+    margin-top: 3%;
+}
+
+.section-title {
+    font-size: 250%;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+.member-name {
+    font-size: 150%;
+    margin-top: 5px;
+    font-weight: 1000;
+}
+
+span a {
+    text-decoration: none;
+}
+
+span {
+    font-size: 100%;
+    font-weight: 700;
+}
+
+p {
+    font-size: 120%;
+}
+
+.team-member-div {
+    text-align: center;
+    width: 20vw;
+    height: 20vw;
+}
+
+.team-member-div img {
+    width: 70%;
+    height: 70%;
+    object-fit: cover;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+}
+
+#team-member-grid {
+    display: grid;
+    grid-template-areas: "team-member-1 team-member-2 team-member-3"
+                         "team-member-4 team-member-5 team-member-6"
+                         "team-member-7 team-member-8 team-member-9"
+                         "team-member-10";
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    justify-items: center;
+    grid-row-gap: 40px;
+}
+
+#team-member-1 img {
+    object-position: 0 0;
+}
+
+#team-member-6 img {
+    object-position: 35% 0;
+}
+.rules {
+    font-size: 120%;
+    width: 50%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    list-style-type: disc;
+}
+.rules li {
+    margin-bottom: 5px;
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (max-width : 1000px) {
+    .member-name {
+        font-size: 90%;
+    }
+    span {
+        font-size: 70%;
+    }
+    section p {
+        text-align: center;
+    }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 600px) {
+    /* Styles */
+    header {
+        height: 400px;
+    }
+    #logo {
+        width: 65%;
+        /* width: auto; */
+        /* object-position: % 0; */
+        /* width: 266px; */
+    }
+    nav ul {
+        padding-left: 4px;
+    }
+    nav ul li a {
+        font-size: 90%;
+        /* padding: 0.8em; */
+    }
+    #team-member-grid {
+        grid-template-areas: "team-member-1 team-member-2" 
+                            "team-member-3 team-member-4" 
+                            "team-member-5 team-member-6"
+                            "team-member-7 team-member-8" 
+                            "team-member-9 team-member-10";
+        grid-template-columns: auto auto;
+        grid-template-rows: auto;
+    }
+    .team-member-div {
+        width: 50vw;
+        height: 50vw;
+
+    }
+    span {
+        font-size: 80%;
+    }
+    .member-name {
+        font-size: 100%;
+    }
+    .rules {
+        font-size: 80%;
+    }
+    
+    p {
+        font-size: 90%;
+    }
+}
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1224px) {
+/* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen  and (min-width : 1824px) {
+/* Styles */
+}
+    
