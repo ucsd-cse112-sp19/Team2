@@ -1,8 +1,8 @@
 language: node_js
 node_js: 
   - "stable"
-# script: npm test
-script: npm run-script generate-docs
+script: npm test
+# script: npm run-script generate-docs
 cache:
   directories:
     - "node_modules"
