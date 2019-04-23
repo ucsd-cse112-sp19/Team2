@@ -1,0 +1,7 @@
+{
+    "source": "./web_components",
+    "destination": "./docs",
+    "plugins": [
+      {"name": "esdoc-standard-plugin"}
+    ]
+  }

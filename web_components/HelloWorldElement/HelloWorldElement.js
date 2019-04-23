@@ -1,4 +1,6 @@
-/** A class representing a custom element*/
+/** 
+ * this is HelloWorldElement description
+ * */
 class HelloWorldElement extends HTMLElement {
     /**
      * Create an instance of HelloWorldElement
