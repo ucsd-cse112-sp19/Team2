@@ -1,0 +1,24 @@
+{
+  "name": "team2",
+  "version": "1.0.0",
+  "description": "A web comp1onent library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ucsd-cse112/Team2.git"
+  },
+  "author": "Christopher Jensen & Team MeatSpace",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ucsd-cse112/Team2/issues"
+  },
+  "homepage": "https://github.com/ucsd-cse112/Team2#readme",
+  "devDependencies": {
+    "jsdoc": "^3.5.5",
+    "minami": "^1.2.3"
+  }
+}
