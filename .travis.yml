@@ -11,7 +11,7 @@ deploy:
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   fileglob: true
-  file: ./docs/*
+  file: ./docs/**/*
   keep_history: true
   target_branch: ci-pipeline
   # on:
