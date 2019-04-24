@@ -1,4 +1,5 @@
 # Team MeatSpace (Team 2)
+[![Build Status](https://travis-ci.com/ucsd-cse112/Team2.svg?token=GDhf5VDFYPsMkr26iBEV&branch=ci-pipeline)](https://travis-ci.com/ucsd-cse112/Team2)
 ## Team Members
 - Adam Kabbara `Lead`
 - Timothy Bian `Co-Lead`
