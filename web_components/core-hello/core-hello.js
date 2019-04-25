@@ -40,7 +40,7 @@ tmpl.innerHTML = `
         </div>
     `;
 /**
- * this is the HelloWorldElement web component description
+ * core-hello web component description
  * @customelement core-hello
  * @description displays 'Hello World!'
  * @example <caption> Hello World! </caption>
