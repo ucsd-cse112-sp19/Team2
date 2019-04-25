@@ -5,3 +5,7 @@ script: npm test
 cache:
   directories:
     - "node_modules"
+notifications:
+  slack:
+    rooms:
+	  - cse112-sp19-team2:pPpMsfPCZOGxfjZDiXPzqo4X#builds
