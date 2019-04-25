@@ -1,5 +1,5 @@
 const rainbow = `
-    #main {
+    :host {
         background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
         background-size: 1800% 1800%;
         
@@ -32,17 +32,30 @@ const rainbow = `
 
 const tmpl = document.createElement("template");
 tmpl.innerHTML = `
-        <style></style>
-        <link rel="stylesheet" href="core-hello.css">
-        <div id="main">
-            <span id="main-text">Hello world, </span>
-            <slot></slot>
-        </div>
-    `;
+<style>
+:host {
+    font-family: var(--font-family, Helvetica);
+    font-size: var(--font-size, 50px);
+    background-color: var(--background-color, #9E9E9E);
+    width: var(--width);
+    height: var(--height);
+    margin: var(--margin, auto);
+    display: var(--display, block);
+    text-align: var(--text-align, center);
+}
+
+/* when "hidden" attribute applied, display nothing */
+:host([hidden]){
+    display: none;
+}
+</style>
+<span id="main-text">Hello world, </span>
+<slot></slot>
+`;
 /**
  * core-hello web component description
  * @customelement core-hello
- * @description displays 'Hello World!'
+ * @description displays 'Hello World, <input>!'
  * @example <caption> Hello World! </caption>
  * <core-hello rainbow lang="en">
  * Alex!
@@ -63,10 +76,28 @@ class CoreHelloElement extends HTMLElement {
   }
 
   /**
-   * Some comment
+   * tell component to call attributeChangedCallback method when the following attributes are found
    */
   static get observedAttributes() {
     return ["rainbow", "lang"];
+  }
+
+  /**
+   * Invoked when one of the custom element's attributes is added, removed, or changed.
+   * @param {string} name
+   * @param {string} oldVal
+   * @param {string} newVal
+   */
+  attributeChangedCallback(name, oldVal, newVal) {
+    console.info(`AttributeChangedCallback called for | ${name} |.`);
+    switch (name) {
+      case "rainbow":
+        this.updateStyle(this);
+        break;
+      case "lang":
+        this.updateLang(this, newVal);
+        break;
+    }
   }
 
   /**
@@ -109,24 +140,6 @@ class CoreHelloElement extends HTMLElement {
   }
 
   /**
-   * Invoked when one of the custom element's attributes is added, removed, or changed.
-   * @param {string} name
-   * @param {string} oldVal
-   * @param {string} newVal
-   */
-  attributeChangedCallback(name, oldVal, newVal) {
-    console.info(`AttributeChangedCallback called for | ${name} |.`);
-    switch (name) {
-      case "rainbow":
-        this.updateStyle(this);
-        break;
-      case "lang":
-        this.updateLang(this, newVal);
-        break;
-    }
-  }
-
-  /**
    * rainbow effect
    * @param {string} val
    */
@@ -138,8 +151,7 @@ class CoreHelloElement extends HTMLElement {
     }
   }
   /**
-   * I have no idea what this does
-   * add more comments
+   * gets the rainbow attribute, might be useful when interacting with outside javascript?
    */
   get rainbow() {
     return this.getAttribute("rainbow");
@@ -157,7 +169,7 @@ class CoreHelloElement extends HTMLElement {
     }
   }
   /**
-   * add comment
+   * gets the lang attribute
    */
   get lang() {
     return this.getAttribute("lang");
