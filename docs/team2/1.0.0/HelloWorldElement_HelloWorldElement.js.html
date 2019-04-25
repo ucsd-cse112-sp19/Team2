@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>hello-world - Documentation</title>
+    <title>HelloWorldElement/HelloWorldElement.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,111 +29,45 @@
 
 <div id="main">
     
-    <h1 class="page-title">hello-world</h1>
+    <h1 class="page-title">HelloWorldElement/HelloWorldElement.js</h1>
     
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-        hello-world
-        </h2>
-        
-            <div class="class-description"><p>this is the HelloWorldElement web component description</p></div>
-        
-    
-</header>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * this is the HelloWorldElement web component description
+ * @customelement hello-world
+ * @description displays 'Hello Web Component World!'
+ * @example &lt;caption> Hello World! &lt;/caption>
+ * &lt;hello-world>
+ *   &lt;h1>Hello Web Component World!&lt;/h1>
+ * &lt;/hello-world>
+ * */
+class HelloWorldElement extends HTMLElement {
+  /**
+   * Create an instance of HelloWorldElement
+   */
+  constructor() {
+    /** Call super constructor of HTMLElement class */
+    super();
+    /** create shadow DOM for element and attach it to this instance */
+    const shadowRoot = this.attachShadow({ mode: "open" });
+    const elementContent = `&lt;h1>Hello Web Component World!&lt;/h1>`;
 
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>displays 'Hello Web Component World!'</p><pre><code>&lt;hello-world &gt;</code></pre></div>
-        
+    /** set inner html of this instance of HelloWorldElement */
+    shadowRoot.innerHTML = elementContent;
+  }
+}
 
-        
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="HelloWorldElement_HelloWorldElement.js.html">HelloWorldElement/HelloWorldElement.js</a>, <a href="HelloWorldElement_HelloWorldElement.js.html#line10">line 10</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-        
-            <h3>Example</h3>
-            
-        <p class="code-caption"> Hello World! </p>
-    
-    <pre class="prettyprint"><code>&lt;hello-world>
-  &lt;h1>Hello Web Component World!&lt;/h1>
-&lt;/hello-world></code></pre>
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+window.customElements.define("hello-world", HelloWorldElement);
+</code></pre>
+        </article>
+    </section>
 
 
 
