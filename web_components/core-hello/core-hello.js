@@ -134,7 +134,8 @@ class CoreHelloElement extends HTMLElement {
     }
   }
   /**
-   * add comment
+   * I have no idea what this does
+   * add more comments
    */
   get rainbow() {
     return this.getAttribute("rainbow");
