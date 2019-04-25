@@ -2,17 +2,6 @@ language: node_js
 node_js: 
   - "stable"
 script: npm test
-# script: npm run-script generate-docs
 cache:
   directories:
     - "node_modules"
-# deploy:
-#   provider: pages
-#   skip_cleanup: true
-#   github_token: $GITHUB_TOKEN
-#   fileglob: true
-#   file: ./docs/**/*
-#   keep_history: true
-#   target_branch: ci-pipeline
-  # on:
-    # branch: ci-pipeline

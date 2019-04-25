@@ -5,16 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha",
-    "generate-jsdocs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
+    "generate-jsdocs": "./node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
     "generate-docs": "./node_modules/.bin/esdoc -c .esdoc.json",
     "lint": "./node_modules/.bin/eslint --fix web_components",
-    "pipe": "bash pipe.sh"
+    "pipe": "bash ./scripts/pipe.sh"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ucsd-cse112/Team2.git"
   },
-  "author": "Christopher Jensen & Team MeatSpace",
+  "author": "Team MeatSpace",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ucsd-cse112/Team2/issues"
