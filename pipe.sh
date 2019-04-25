@@ -3,4 +3,5 @@ npm run-script lint
 npm run-script generate-jsdocs
 git add -A
 git commit
+git pull origin $1
 git push origin $1
