@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Core-Hello Tests</title>
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/chai/chai.js"></script>
+    <script>mocha.setup('bdd')
+        var assert = chai.assert;
+    </script>
+    
+
+    <!-- load code you want to test here -->
+    <script href="../web_components/core-hello/core-hello.css"></script>
+    <script src="../web_components/core-hello/core-hello.js"></script>
+
+    <core-hello id="component"> Veronica </core-hello>
+
+    <!-- load your test files here -->
+    <script src="test.js"></script>
+    
+    <script>
+        mocha.run();
+    </script>
+  </body>
+</html>

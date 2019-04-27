@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha",
+    "mtest": "mocha-chrome ./test/hello-core-test.html",
+    "wintest" : "for %f in (./test/*.html) do mocha-chrome ./test/%f",
+    "lintest" : "mocha-chrome ./test/*.html",
     "generate-jsdocs": "./node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
     "generate-docs": "./node_modules/.bin/esdoc -c .esdoc.json",
     "lint": "./node_modules/.bin/eslint --fix web_components",
@@ -30,6 +33,10 @@
     "jsdoc": "^3.5.5",
     "minami": "^1.2.3",
     "mocha": "^6.1.4",
+    "mocha-chrome": "^2.0.0",
     "prettier": "1.17.0"
+  },
+  "dependencies": {
+    "chai": "^4.2.0"
   }
 }
