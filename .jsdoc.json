@@ -17,7 +17,10 @@
         "cleverLinks": false,
         "monospaceLinks": true,
         "useLongnameInNav": false,
-        "showInheritedInNav": true
+        "showInheritedInNav": true,
+        "default": {
+            "includeDate": false
+        }
     },
     "opts": {
         "destination": "./docs/",
