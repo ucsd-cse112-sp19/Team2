@@ -8,7 +8,8 @@
     "generate-jsdocs": "./node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
     "generate-docs": "./node_modules/.bin/esdoc -c .esdoc.json",
     "lint": "./node_modules/.bin/eslint --fix web_components",
-    "pipe": "bash ./scripts/pipe.sh"
+    "pipe": "cd scripts && pipe.sh",
+    "pipe-mac": "./scripts/pipe.sh"
   },
   "repository": {
     "type": "git",
