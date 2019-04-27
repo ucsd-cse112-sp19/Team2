@@ -4,7 +4,6 @@
   "description": "A web comp1onent library",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha",
     "mtest": "mocha-chrome ./test/hello-core-test.html",
     "wintest" : "for %f in (./test/*.html) do mocha-chrome ./test/%f",
     "lintest" : "mocha-chrome ./test/*.html",
