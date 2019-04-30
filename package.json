@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "A web comp1onent library",
   "main": "index.js",
+  "files": [
+    "/web_components"
+  ],
   "scripts": {
     "mtest": "mocha-chrome ./test/hello-core-test.html",
     "wintest": "for %f in (./test/*.html) do mocha-chrome ./test/%f",

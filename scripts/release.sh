@@ -5,5 +5,4 @@ git add -A
 git commit
 git tag -a $2  
 git pull origin $1
-git push origin $1
-git push origin $2
+git push --tags origin $1

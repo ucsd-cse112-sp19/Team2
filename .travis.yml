@@ -15,4 +15,4 @@ deploy:
   on:
     tags: true
     repo: ucsd-cse112/Team2
-    all_branches: true
+    branch: master
