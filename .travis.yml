@@ -1,18 +1,23 @@
 language: node_js
 node_js:
 - stable
-# script: npm run lintest
+script: npm run lintest
 cache:
   directories:
   - node_modules
 notifications:
   slack: cse112-sp19-team2:IXLkNzX29z3uu0hqeUn37atD
-deploy:
-  provider: npm
-  email: jensen.a.christopher@gmail.com
-  api_key:
-    secure: Q6SnESZtAV6CdPceHFxRHS+y1aYu99vhvBg/fbBTb/1ecpAe58V054LycHERkyJWv1lhCtv7TMaA7zWKHZJ9jIqZE2S9h1Mecg8+R0qcBDHozsX3AM8jrcVmM5XgmoqpZ7yHXAR2DZ9laYooL2IZEdfp1w4VY4RPEh17Oq9K1CEnUCOtIWY3xM7dN1iYieJIVnIrVqzq5nP2D6exJNOMVPfrVa4mssH5u6a/RpSHj3jDxbv+aFX0GbmxXVvNuM+7K93ZWzP9aOR640qwNchmKuml5M2jzuc9RgwXPRtCdWldjuP4yNCk/uTTLTP7Ls9kwZIH0zRb/tjFYQkW2FM/wKCPkD42s5qxh/QciEObThufWgBf7YM+5lf51p7WGNB+Uckow7hHK/4fAecYFyIaX9xCYjd60PUhC9+JHt6Be0Ej+RECuRx51UjTwl1lykcY3VQH50qFXN6OoM9DykcBuaP5JYhrIgQ983OdSp/NQTcguH90VC/stWJ6e54YE1nOBcMREi802FSjG96OT+iyATOnEFuK/MZVx7gLdqWRVd7GdJsdSYPffHHVC48We2n4tvP6HzsRaQJawmEe+xb1CD3l6WkNvLN+nWZWV1A61cA6bYMR6tcllFVHCAgBUN0NtX0Ur/yFkSRoCg2GdFCNMMtyc+gv9kjq8hH3jME/5c4=
-  on:
-    tags: true
-    repo: ucsd-cse112/Team2
-    all_branches: true
+stages:
+  - name: npm release
+    # require the branch name to be master
+    if: branch = master AND type = push
+    script: echo "Deploying to npm ..."
+    deploy:
+      provider: npm
+      email: jensen.a.christopher@gmail.com
+      api_key:
+        secure: Q6SnESZtAV6CdPceHFxRHS+y1aYu99vhvBg/fbBTb/1ecpAe58V054LycHERkyJWv1lhCtv7TMaA7zWKHZJ9jIqZE2S9h1Mecg8+R0qcBDHozsX3AM8jrcVmM5XgmoqpZ7yHXAR2DZ9laYooL2IZEdfp1w4VY4RPEh17Oq9K1CEnUCOtIWY3xM7dN1iYieJIVnIrVqzq5nP2D6exJNOMVPfrVa4mssH5u6a/RpSHj3jDxbv+aFX0GbmxXVvNuM+7K93ZWzP9aOR640qwNchmKuml5M2jzuc9RgwXPRtCdWldjuP4yNCk/uTTLTP7Ls9kwZIH0zRb/tjFYQkW2FM/wKCPkD42s5qxh/QciEObThufWgBf7YM+5lf51p7WGNB+Uckow7hHK/4fAecYFyIaX9xCYjd60PUhC9+JHt6Be0Ej+RECuRx51UjTwl1lykcY3VQH50qFXN6OoM9DykcBuaP5JYhrIgQ983OdSp/NQTcguH90VC/stWJ6e54YE1nOBcMREi802FSjG96OT+iyATOnEFuK/MZVx7gLdqWRVd7GdJsdSYPffHHVC48We2n4tvP6HzsRaQJawmEe+xb1CD3l6WkNvLN+nWZWV1A61cA6bYMR6tcllFVHCAgBUN0NtX0Ur/yFkSRoCg2GdFCNMMtyc+gv9kjq8hH3jME/5c4=
+      on:
+        tags: true
+        repo: ucsd-cse112/Team2
+        all_branches: true

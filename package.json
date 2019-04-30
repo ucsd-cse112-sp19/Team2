@@ -1,6 +1,6 @@
 {
-  "name": "team2",
-  "version": "1.0.0",
+  "name": "meatspace",
+  "version": "0.0.1",
   "description": "A web comp1onent library",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,8 @@
     "generate-jsdocs": "./node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
     "lint": "./node_modules/.bin/eslint --fix web_components",
     "pipe": "cd scripts && pipe.sh",
-    "pipe-mac": "./scripts/pipe.sh"
+    "pipe-mac": "./scripts/pipe.sh",
+    "pipe-release": "./scripts/release.sh"
   },
   "repository": {
     "type": "git",
