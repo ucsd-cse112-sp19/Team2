@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>live-editor</title>
+        <script type="module" src="./live-editor.js"></script>
+        
+    </head>
+    <body>
+        <live-editor file="./src.html">
+            <!-- alternatively, don't use a file -->
+            <script type="module" src="../core-hello/core-hello.js"></script>
+            <style>
+                core-hello {
+                    --font-family: "Times New Roman";
+                    --font-size: 30px;
+                    --background-color: lightblue;
+                    --width: 400px;
+                }
+            </style>
+            <body>
+                <core-hello rainbow lang="fr">Alex!</core-hello> 
+            </body>
+        </live-editor> 
+    </body>
+</html>

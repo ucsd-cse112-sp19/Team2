@@ -1,0 +1,17 @@
+/* default css for web component */
+:host {
+    font-family: var(--font-family, Helvetica);
+    font-size: var(--font-size, 100px);
+}
+
+/* when "hidden" attribute applied, display nothing */
+:host([hidden]){
+    display: none;
+}
+
+/* default css for main div */
+#main {
+    background-color: var(--background-color, #9E9E9E);
+    width: var(--width);
+    height: var(--height);
+}
