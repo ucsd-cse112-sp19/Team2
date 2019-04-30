@@ -1,5 +1,5 @@
 # Team MeatSpace (Team 2) Web Components
-![alt text](https://meat-space.org/img/logo.png "MeatSpace logo 1")
+![alt text](https://meat-space.org/img/logo.png "MeatSpace logo 1") <br/>
 [![Build Status](https://travis-ci.com/ucsd-cse112/Team2.svg?token=GDhf5VDFYPsMkr26iBEV&branch=ci-pipeline)](https://travis-ci.com/ucsd-cse112/Team2)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability) <br/>
 
