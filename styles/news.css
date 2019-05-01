@@ -79,6 +79,15 @@ section h2 {
     width: 30%;
     height: 400px;
 }
+.section-img-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    object-fit: cover;
+    /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); */
+    width: 10%;
+}
 .side-by-side {
     text-align: center;
 }
