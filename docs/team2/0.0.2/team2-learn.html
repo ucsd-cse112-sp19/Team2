@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>live-editor - Documentation</title>
+    <title>team2-learn - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">live-editor</h1>
+    <h1 class="page-title">team2-learn</h1>
     
 
     
@@ -42,10 +42,8 @@
 <header>
     
         <h2>
-        live-editor
+        team2-learn
         </h2>
-        
-            <div class="class-description"><p>live-editor web component description</p></div>
         
     
 </header>
@@ -54,10 +52,64 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>displays whatever html is input into the editor; can specify an html file to load in at startup</p><pre><code>&lt;live-editor &gt;</code></pre></div>
+            <div class="description"><p>A learning exercise to see how to interact with webcomponents dynamically via javascript; how to allow manipulation of a webcomponent's state for the user</p><pre><code>&lt;team2-learn items="[array]"&gt;</code></pre></div>
         
 
         
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>items</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>array</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array of elements to display as a vertical list.</p></td>
+        </tr>
+
+        
+
+    
+    </tbody>
+</table>
+
+
 
 
 <dl class="details">
@@ -89,12 +141,19 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="live-editor_live-editor.js.html">live-editor/live-editor.js</a>, <a href="live-editor_live-editor.js.html#line19">line 19</a>
+        <a href="team2-learn_team2-learn.js.html">team2-learn/team2-learn.js</a>, <a href="team2-learn_team2-learn.js.html#line22">line 22</a>
     </li></ul></dd>
     
 
     
 
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><p><a href="https://meat-space.org/web_components/team2-learn/team2-learn-demo.html">Demo</a> for working example.</p></li>
+        </ul>
+    </dd>
     
 
     
@@ -104,9 +163,7 @@
         
             <h3>Example</h3>
             
-        <p class="code-caption"> Display a specified html document </p>
-    
-    <pre class="prettyprint"><code>&lt;live-editor file="./src.html">&lt;/live-editor></code></pre>
+    <pre class="prettyprint"><code>&lt;body>     &lt;input/>&lt;button id="change-property">&lt;/button>     &lt;team2-learn id="team2-learn">&lt;/team2-learn>&lt;/body> &lt;script>     const button = document.querySelector("#change-property");     const input = document.querySelector("input");     const team2Learn = document.querySelector("#team2-learn");     button.addEventListener('click', () => {         team2Learn.items = [...team2Learn.items, input.value]; })&lt;/script></code></pre>
 
         
     
