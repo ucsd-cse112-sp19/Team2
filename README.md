@@ -43,5 +43,6 @@ Next, add the component into your HTML body
 ```
 <core-hello rainbow lang="en">this is a test!</core-hello>
 ```
-
+### Acknowledgment
+Thanks to [BrowserStack](http://browserstack.com/) for supporting open source projects like ours. 
 
