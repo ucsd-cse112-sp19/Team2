@@ -1,0 +1,11 @@
+{
+  "name": "t2-webcomponents",
+  "version": "1.0.7",
+  "description": "Test deployment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

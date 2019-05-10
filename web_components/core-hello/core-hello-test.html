@@ -1,3 +1,23 @@
+The component class, e.g. PaperSlider.java you get when using the component starter, see Integrating a Web Component is just a stub which handles the imports. There are multiple ways to interact with a web component but the typical pattern is:
+
+Use properties on the element to define how it should behave
+
+Listen to events on the element to get notified of when the user does something
+
+Call functions on the element to perform specific tasks such as open a popup
+
+Add sub elements to define child contents
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,8 +34,26 @@
             --background-color: lightblue;
             --width: 400px;
         }
+        button {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto;
+            display: block;
+        }
     </style>
     <body>
-        <core-hello rainbow lang="en">Meatspace!</core-hello> 
+        <core-hello id="core-hello" rainbow lang="en">Meatspace!</core-hello> 
+        <button id="change-attr"></button>
     </body>
+    <script>
+        const button = document.querySelector("#change-attr");
+        const coreHello = document.querySelector("#core-hello");
+        const languages = ["sp", "fr", "en"];
+        button.addEventListener('click', () => {
+            let randomLanguage = languages[Math.floor(Math.random()*languages.length)];
+            console.log(coreHello.lang, "->", randomLanguage);
+            coreHello.lang = randomLanguage;
+            
+        })
+    </script>
 </html>

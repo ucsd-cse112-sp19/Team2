@@ -16,7 +16,7 @@ template.innerHTML = `
  * @example <caption> Display a specified html document </caption>
  * <live-editor file="./src.html"></live-editor>
  * */
-class LiveEditorElement extends HTMLElement {
+export class LiveEditorElement extends HTMLElement {
   /**
    * Create an instance of LiveEditorElement
    */
