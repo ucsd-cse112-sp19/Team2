@@ -1,6 +1,6 @@
 {
-  "name": "t2-webcomponents",
-  "version": "1.0.7",
+  "name": "@meatspace/webcomponents",
+  "version": "1.0.8",
   "description": "Test deployment",
   "main": "index.js",
   "scripts": {
