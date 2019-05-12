@@ -3,16 +3,31 @@ template.innerHTML = `
 <style>
 :host {
     display: inline-block;
+    
+    /* special override-able css variables */
+    --background-color: #ffffff;
+    --text-color: #444444;
+    --border: 1px solid #cccccc;
+
+    --hover-background-color: #daeeff;
+    --focus-background-color: #daeeff;
+
+    --hover-text-color: #3388ff;
+    --focus-text-color: #3388ff;
+
+    --hover-border: 1px solid #daeeff;
+    --focus-border: 1px solid #bbccff;
+    --active-border: 1px solid #3388ff;
 }
 
 /* Default style if no type is specified */
-button {
+:host > button {
     display: inline-block;
-    background-color: #ffffff;
-    border: 1px solid #cccccc;
-    color: #444444; /* text color */
     width: 100%;
     height: 100%;
+    background-color: var(--background-color);
+    color:  var(--text-color); /* text color */
+    border: var(--border);
     outline: hidden; /* outline when focused, doesn't play nicely with round button/border-radius so hide it */
 }
 
@@ -44,10 +59,10 @@ button {
 
     /* Type = default */
     :host([type="default"]) > button:focus {
-        border: 1px solid #bbccff;
-        color: #3388ff;
+        border: var(--focus-border);
+        color: var(--focus-text-color);
         outline: none;
-        background-color: #daeeff;
+        background-color: var(--focus-background-color);
     }
 
 /* Actions: hover */
@@ -59,14 +74,14 @@ button {
     }
 
     @keyframes default-hover {
-        100% { background-color: #daeeff; }
-        100% { color: #3388ff; }
-        100% { border: 1px solid #daeeff; }
+        100% { background-color: var(--hover-background-color) }
+        100% { color: var(--hover-text-color) }
+        100% { border: var(--hover-border) }
     }
     @-webkit-keyframes default_hover {
-        100% { background-color: #daeeff; }
-        100% { color: #3388ff; }
-        100% { border: 1.5px solid #daeeff; }
+        100% { background-color: var(--hover-background-color) }
+        100% { color: var(--hover-text-color) }
+        100% { border: var(--hover-border) }
     }
 
 /* Actions: active/click */
@@ -77,10 +92,10 @@ button {
         animation: default_active .1s linear forwards;
     }
     @keyframes default_active {
-        100% { border: 1px solid #3388ff;  }
+        100% { border: var(--active-border)  }
     }
     @-webkit-keyframes default_active {
-        100% { border: 1px solid #3388ff;  }
+        100% { border: var(--active-border)  }
     }
 
 </style>
