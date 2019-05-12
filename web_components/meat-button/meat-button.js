@@ -26,8 +26,8 @@ button {
 
     /* if host element, i.e. <meat-button> has attribute size="small", apply this css to button*/
     :host([size="small"]) > button {
-        width: 60px;
-        height: 30px;
+        width: 80px;
+        height: 36px;
     }
 
     :host([size="medium"]) > button {
@@ -36,8 +36,8 @@ button {
     }
 
     :host([size="large"]) > button {
-        width: 120px;
-        height: 70px;
+        width: 100px;
+        height: 44px;
     }
 
 /* Actions: focus */
