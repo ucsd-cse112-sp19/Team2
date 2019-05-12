@@ -4,8 +4,8 @@ const { expect } = require('chai');
 describe('core-hello unit tests', () => {
     const driver = global.driver;
 
-    it('should go to meat-space.org and check the BrowserStack img alt attribute', async () => {
-        await driver.get('file://web_components/core-hello/core-hello-test.html');
+    it('should test attributes of core-hello', async () => {
+        await driver.get('./web_components/core-hello/core-hello-test.html');
         // await driver.get('https://meat-space.org/web_components/core-hello/core-hello-test.html');
         await (shadowRoot = driver.findElement(By.css('core-hello')));
         assert.equal(shadowRoot instanceof ShadowRoot, true);
