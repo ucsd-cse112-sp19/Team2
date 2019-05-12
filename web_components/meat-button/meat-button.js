@@ -11,8 +11,8 @@ button {
     background-color: #ffffff;
     border: 1px solid #cccccc;
     color: #444444; /* text color */
-    width: 90px;
-    height: 40px;
+    width: 100%;
+    height: 100%;
     outline: hidden; /* outline when focused, doesn't play nicely with round button/border-radius so hide it */
 }
 
@@ -24,18 +24,18 @@ button {
 
 /* Attribute: size */
 
-    /* if host element, i.e. <meat-button> has attribute size="small", apply this css to button*/
-    :host([size="small"]) > button {
+    /* if host element, i.e. <meat-button> has attribute size="small", apply this css */
+    :host([size="small"]) {
         width: 80px;
         height: 36px;
     }
 
-    :host([size="medium"]) > button {
+    :host([size="medium"]) {
         width: 90px;
         height: 40px;
     }
 
-    :host([size="large"]) > button {
+    :host([size="large"]) {
         width: 100px;
         height: 44px;
     }
@@ -94,6 +94,9 @@ button {
  * @example <meat-button></meat-button>
  * */
 export class MeatButtonElement extends HTMLElement {
+  /**
+   * Create an instance of MeatButtonElement
+   */
   constructor() {
     super();
     this.shadow = this.attachShadow({ mode: "open" });
@@ -120,6 +123,9 @@ export class MeatButtonElement extends HTMLElement {
 
   /*
    * Called whenever one of the attributes specified in observedAttributes() is changed
+   * @param {string} name
+   * @param {string} oldVal
+   * @param {string} newVal
    * */
   attributeChangedCallback(name, oldVal, newVal) {
     switch (name) {
