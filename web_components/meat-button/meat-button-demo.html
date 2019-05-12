@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>meat-button-demo</title>
+        <script type="module" src="./meat-button.js"></script>
+    </head>
+    <style>
+    </style>
+    <body>
+        <div>
+            <meat-button round type="default" size="medium">Default</meat-button>
+        </div>
+    </body>
+    <script>
+        const meatButton = document.querySelector('meat-button');
+        meatButton.addEventListener('click', () => {
+            console.log("user defined click method");
+        })
+    </script>
+</html>
