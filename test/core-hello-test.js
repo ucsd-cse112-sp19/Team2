@@ -1,7 +1,7 @@
 const { By } = require("selenium-webdriver");
 const { expect } = require("chai");
 const path = require("path");
-// const url = `file:///${path.join(__dirname, 'core-hello-test.html')}`;
+const assert = chai.assert; 
 
 async function getExtShadowRoot() {
   let shadowHost;
