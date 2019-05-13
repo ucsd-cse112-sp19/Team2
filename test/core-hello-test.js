@@ -33,7 +33,7 @@ describe("core-hello unit tests", () => {
     // const altAttribute = await driver.findElement(By.className('section-img-logo')).getAttribute('alt');
 
     // expect(altAttribute).to.equal('BrowserStack logo');
-    assert.equal(shadowElem.getAttribute('innerHTML'), "Hello world, ");
+    assert.equal(shadowElem.innerHTML, "Hello world, ");
   });
 
   after(async () => driver.quit());
