@@ -1,7 +1,7 @@
 const { By } = require("selenium-webdriver");
-const { expect } = require("chai");
+const { expect, assert } = require("chai");
 const path = require("path");
-const assert = chai.assert; 
+// const assert = chai.assert; 
 
 async function getExtShadowRoot() {
   let shadowHost;
