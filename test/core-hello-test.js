@@ -5,7 +5,7 @@ const path = require("path");
 
 async function getExtShadowRoot() {
   let shadowHost;
-  await (shadowHost = driver.findElement(By.css(CSS_SHADOW_HOST)));
+  await (shadowHost = driver.findElement(By.css('core-hello')));
   return driver.executeScript("return arguments[0].shadowRoot", shadowHost);
 }
 async function findShadowDomElement(shadowDomElement) {
