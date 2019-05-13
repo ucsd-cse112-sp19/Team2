@@ -26,9 +26,10 @@ describe("core-hello unit tests", () => {
       "http://localhost:8080/web_components/core-hello/core-hello-test.html"
     );
 
-    let shadowRoot = findShadowDomElement('core-hello');
+    // let shadowRoot = findShadowDomElement('core-hello');
+    let shadowRoot = getExtShadowRoot();
     assert.equal(shadowRoot instanceof ShadowRoot, true);
-    
+
     // const altAttribute = await driver.findElement(By.className('section-img-logo')).getAttribute('alt');
 
     // expect(altAttribute).to.equal('BrowserStack logo');
