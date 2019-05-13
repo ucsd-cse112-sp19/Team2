@@ -116,7 +116,7 @@ export class MeatInputElement extends HTMLElement {
           case "clearable":
             break;
           case "placeholder":
-            this.input.placeholder = this.textContent;
+            this.input.placeholder = newVal;
             break;
           case "limit":
             break;
