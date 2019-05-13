@@ -9,7 +9,7 @@ describe('core-hello unit tests', () => {
     it('should test attributes of core-hello', async () => {
         await driver.get('http://localhost:8080/web_components/core-hello/core-hello-test.html');
         // await driver.get('https://meat-space.org/web_components/core-hello/core-hello-test.html');
-        await (shadowRoot = driver.findElement(By.css('core-hello')));
+        await (shadowRoot = driver.findElement(By.cssSeletor('#core-hello')));
         assert.equal(shadowRoot instanceof ShadowRoot, true);
         // const altAttribute = await driver.findElement(By.className('section-img-logo')).getAttribute('alt');
 
