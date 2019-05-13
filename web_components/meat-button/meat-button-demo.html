@@ -14,7 +14,7 @@
     </style>
     <body>
         <div>
-            <meat-button round type="default" size="large" disabled>Default</meat-button>
+            <meat-button round type="default" size="medium" disabled>Default</meat-button>
         </div>
     </body>
     <script>
@@ -22,5 +22,10 @@
         meatButton.addEventListener('click', () => {
             console.log("user defined click method");
         })
+        
+        setTimeout(() => {
+            meatButton.size = 'large';
+            meatButton.disabled = false;
+        }, 1000);
     </script>
 </html>

@@ -3,11 +3,13 @@ template.innerHTML = `
 <style>
 :host {
     display: inline-block;
-    
+    width: 90px;
+    height: 40px;
+
     /* special override-able css variables */
 
     /* round */
-    --border-radius: 10px;
+    --border-radius: 100px;
 
     /* colors */
     --background-color: #ffffff;
@@ -60,6 +62,26 @@ button {
         height: 44px;
     }
 
+  /* Attribute: circle */
+    :host([circle]) > button {
+      border-radius: 50%;
+    }
+
+    :host([circle][size="small"]) > button {
+      width: 30px;
+      height: 30px;
+    }
+
+    :host([circle][size="medium"]) > button {
+        width: 40px;
+        height: 40px;
+    }
+
+    :host([circle][size="large"]) > button {
+      width: 50px;
+      height: 50px;
+  }
+
 /* Actions: focus */
 
     /* Type = default */
@@ -78,7 +100,7 @@ button {
         animation: default_hover .1s linear forwards;
     }
 
-    @keyframes default-hover {
+    @keyframes default_hover {
         100% { background-color: var(--hover-background-color) }
         100% { color: var(--hover-text-color) }
         100% { border: var(--hover-border) }
@@ -104,7 +126,7 @@ button {
     }
 
 </style>
-<button id="button"></button>
+<button id="button" type="reset"></button>
 `;
 
 /**
@@ -122,7 +144,6 @@ export class MeatButtonElement extends HTMLElement {
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
     this.button = this.shadow.querySelector("#button");
-
     this.addEventListener("click", this._onClick);
   }
 
@@ -130,6 +151,7 @@ export class MeatButtonElement extends HTMLElement {
    * Live-cycle method called when the custom element is loaded, often used for initialization
    */
   connectedCallback() {
+    // Need to get the content inbetween the <meat-button> tags into the button so it renders
     this.button.textContent = this.textContent;
   }
 
@@ -139,7 +161,15 @@ export class MeatButtonElement extends HTMLElement {
    * */
   static get observedAttributes() {
     /* <meat-button type="default" disabled></meat-button> */
-    return ["type", "disabled", "size", "round", "circle", "autofocus"];
+    return [
+      "type",
+      "disabled",
+      "size",
+      "round",
+      "circle",
+      "autofocus",
+      "native-type"
+    ];
   }
 
   /*
@@ -149,24 +179,87 @@ export class MeatButtonElement extends HTMLElement {
    * @param {string} newVal
    * */
   attributeChangedCallback(name, oldVal, newVal) {
-    console.log(name, oldVal, newVal);
-
     switch (name) {
       case "disabled":
-        if (newVal == "") {
-          this.button.disabled = true;
-        }
+        if (newVal == "") this.button.disabled = true;
+        else this.button.disabled = false;
         break;
       case "autofocus":
+        if (newVal == "") this.button.autofocus = true;
+        else this.button.autofocus = false;
         break;
+      case "native-type":
+        // doesn't actually work, need to figure out how to propogate event to form, but it's very complicated and I haven't found
+        // and reasonable solutions yet
+        // this.button.type = newVal;
+        break;
+    }
+  }
+
+  // getters and setters for attributes
+  get disabled() {
+    return this.hasAttribute("disabled");
+  }
+
+  set disabled(val) {
+    if (val) {
+      this.setAttribute("disabled", "");
+    } else {
+      this.removeAttribute("disabled");
+    }
+  }
+
+  get round() {
+    return this.hasAttribute("round");
+  }
+
+  set round(val) {
+    if (val) {
+      this.setAttribute("round", "");
+    } else {
+      this.removeAttribute("round");
+    }
+  }
+
+  get circle() {
+    return this.hasAttribute("circle");
+  }
+
+  set circle(val) {
+    if (val) {
+      this.setAttribute("circle", "");
+    } else {
+      this.removeAttribute("circle");
+    }
+  }
+
+  get size() {
+    return this.getAttribute("size");
+  }
+
+  set size(val) {
+    if (val) {
+      this.setAttribute("size", val);
+    } else {
+      this.removeAttribute("size");
+    }
+  }
+
+  get type() {
+    return this.getAttribute("type");
+  }
+
+  set type(val) {
+    if (val) {
+      this.setAttribute("type", val);
+    } else {
+      this.removeAttribute("type");
     }
   }
 
   /**
    * This is unnecessary for now, the user can just attach an event listener to <meat-button>
    * */
-  _onClick(evt) {
-    console.log("Our click method");
-  }
+  _onClick(evt, thisComponent) {}
 }
 window.customElements.define("meat-button", MeatButtonElement);
