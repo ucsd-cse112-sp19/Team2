@@ -87,9 +87,7 @@ export class MeatInputElement extends HTMLElement {
   /**
    * Live-cycle method called when the custom element is loaded, often used for initialization
    */
-  connectedCallback() {
-    this.input.placeholder.textContent = this.textContent;
-  }
+  connectedCallback() {}
 
   /**
    * Tell the webcomponent to observe these attributes, if any of them are added, changed, or removed, then
