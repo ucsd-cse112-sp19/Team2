@@ -5,6 +5,11 @@ template.innerHTML = `
     display: inline-block;
     
     /* special override-able css variables */
+
+    /* round */
+    --border-radius: 10px;
+
+    /* colors */
     --background-color: #ffffff;
     --text-color: #444444;
     --border: 1px solid #cccccc;
@@ -21,11 +26,11 @@ template.innerHTML = `
 }
 
 /* Default style if no type is specified */
-:host > button {
+button {
     display: inline-block;
     width: 100%;
     height: 100%;
-    background-color: var(--background-color);
+    background-color: inherit;
     color:  var(--text-color); /* text color */
     border: var(--border);
     outline: hidden; /* outline when focused, doesn't play nicely with round button/border-radius so hide it */
@@ -34,7 +39,7 @@ template.innerHTML = `
 /* Attribute: round */
     /* if host element, i.e. <meat-button> has attribute round, apply this css to button*/
     :host([round]) > button {
-        border-radius: 10px;
+        border-radius: var(--border-radius);
     }
 
 /* Attribute: size */
@@ -116,7 +121,7 @@ export class MeatButtonElement extends HTMLElement {
     super();
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
-    this.button = this.shadow.querySelector("button");
+    this.button = this.shadow.querySelector("#button");
 
     this.addEventListener("click", this._onClick);
   }
@@ -133,6 +138,7 @@ export class MeatButtonElement extends HTMLElement {
    * call attributeChangedCallback(name, oldVal, newVal)
    * */
   static get observedAttributes() {
+    /* <meat-button type="default" disabled></meat-button> */
     return ["type", "disabled", "size", "round", "circle", "autofocus"];
   }
 
@@ -143,8 +149,15 @@ export class MeatButtonElement extends HTMLElement {
    * @param {string} newVal
    * */
   attributeChangedCallback(name, oldVal, newVal) {
+    console.log(name, oldVal, newVal);
+
     switch (name) {
-      case "round":
+      case "disabled":
+        if (newVal == "") {
+          this.button.disabled = true;
+        }
+        break;
+      case "autofocus":
         break;
     }
   }
