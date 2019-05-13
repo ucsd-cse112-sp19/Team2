@@ -7,7 +7,7 @@ describe('core-hello unit tests', () => {
     const driver = global.driver;
 
     it('should test attributes of core-hello', async () => {
-        await driver.get('http://localhost:8080/test/core-hello-test.html');
+        await driver.get('http://localhost:8080/web_components/core-hello/core-hello-test.html');
         // await driver.get('https://meat-space.org/web_components/core-hello/core-hello-test.html');
         await (shadowRoot = driver.findElement(By.css('core-hello')));
         assert.equal(shadowRoot instanceof ShadowRoot, true);
