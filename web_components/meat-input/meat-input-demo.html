@@ -4,18 +4,20 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>meat-boilerplate-demo</title>
-        <script type="module" src="./meat-boilerplate.js"></script>
+        <title>meat-input-demo</title>
+        <script type="module" src="./meat-input.js"></script>
     </head>
     <style>
-        meat-boilerplate {
-            
+        meat-input {
+            --background-color: green;
         }
     </style>
     <body>
-        <meat-boilerplate></meat-boilerplate>
+        <div>
+            <meat-input size="small" placeholder>Enter Text...</meat-input>
+        </div>
     </body>
     <script>
-        const meatBoilerplate = document.querySelector('meat-boilerplate');
+        const meatInput = document.querySelector('meat-input');
     </script>
 </html>
