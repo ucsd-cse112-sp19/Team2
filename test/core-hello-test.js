@@ -28,7 +28,7 @@ describe("core-hello unit tests", () => {
 
     // let shadowRoot = findShadowDomElement('core-hello');
     let shadowRoot = getExtShadowRoot();
-    assert.equal(shadowRoot instanceof ShadowRoot, true);
+    assert.equal(shadowRoot instanceof WebKitShadowRoot, true);
 
     // const altAttribute = await driver.findElement(By.className('section-img-logo')).getAttribute('alt');
 
