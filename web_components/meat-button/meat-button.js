@@ -8,6 +8,8 @@ template.innerHTML = `
 
     /* special override-able css variables */
 
+    
+
     /* round */
     --border-radius: 100px;
 
@@ -27,15 +29,72 @@ template.innerHTML = `
     --active-border: 1px solid #3388ff;
 }
 
+/* define color scheme for default button */
+:host([type="default"]) {
+  /* colors */
+  --background-color: #ffffff;
+  --text-color: #444444;
+  --border: 1px solid #cccccc;
+
+  --hover-background-color: #daeeff;
+  --focus-background-color: #daeeff;
+  --active-background-color: #daeeff;
+
+  --hover-text-color: #3388ff;
+  --focus-text-color: #3388ff;
+
+  --hover-border: 1px solid #daeeff;
+  --focus-border: 1px solid #bbccff;
+  --active-border: 1px solid #3388ff;
+}
+
+/* define color scheme for primary button */
+:host([type="primary"]) {
+  /* colors */
+  --background-color: #40a5ff;
+  --text-color: #ffffff;
+  --border: 1px solid #40a5ff;
+
+  --hover-background-color: #65b5ff;
+  --focus-background-color: #65b5ff;
+  --active-background-color: #2285dd;
+
+  --hover-text-color: #ffffff;
+  --focus-text-color: #ffffff;
+
+  --hover-border: 1px solid #65b5ff;
+  --focus-border: 1px solid #65b5ff;
+  --active-border: 1px solid #2285dd;
+}
+
+:host([type="success"]) {
+  /* colors */
+  --background-color: #59c040;
+  --text-color: #ffffff;
+  --border: 1px solid #59c040;
+
+  --hover-background-color: #79cc69;
+  --focus-background-color: #79cc69;
+  --active-background-color: #50a050;
+
+  --hover-text-color: #ffffff;
+  --focus-text-color: #ffffff;
+
+  --hover-border: 1px solid #79cc69;
+  --focus-border: 1px solid #79cc69;
+  --active-border: 1px solid #50a050;
+}
+
 /* Default style if no type is specified */
 button {
     display: inline-block;
     width: 100%;
     height: 100%;
-    background-color: inherit;
+    background-color: var(--background-color);
     color:  var(--text-color); /* text color */
     border: var(--border);
-    outline: hidden; /* outline when focused, doesn't play nicely with round button/border-radius so hide it */
+    outline: none; /* outline when focused, doesn't play nicely with round button/border-radius so hide it; instead we create our own focus */
+    font-size: var(--font-size, 15px);
 }
 
 /* Attribute: round */
@@ -67,17 +126,24 @@ button {
       border-radius: 50%;
     }
 
-    :host([circle][size="small"]) > button {
+    /* default size for circle button */
+    :host([circle]) {
+      width: 40px;
+      height: 40px;
+    }
+
+    /* if size specified, use the following dimensions */
+    :host([circle][size="small"]) {
       width: 30px;
       height: 30px;
     }
 
-    :host([circle][size="medium"]) > button {
+    :host([circle][size="medium"]) {
         width: 40px;
         height: 40px;
     }
 
-    :host([circle][size="large"]) > button {
+    :host([circle][size="large"]) {
       width: 50px;
       height: 50px;
   }
@@ -85,7 +151,7 @@ button {
 /* Actions: focus */
 
     /* Type = default */
-    :host([type="default"]) > button:focus {
+    :host > button:focus {
         border: var(--focus-border);
         color: var(--focus-text-color);
         outline: none;
@@ -95,17 +161,17 @@ button {
 /* Actions: hover */
 
     /* Type = default */
-    :host([type="default"]) > button:hover {
-        -webkit-animation: default_hover .1s linear forwards;
-        animation: default_hover .1s linear forwards;
+    :host > button:hover {
+        -webkit-animation: hover .1s linear forwards;
+        animation: hover .1s linear forwards;
     }
 
-    @keyframes default_hover {
+    @keyframes hover {
         100% { background-color: var(--hover-background-color) }
         100% { color: var(--hover-text-color) }
         100% { border: var(--hover-border) }
     }
-    @-webkit-keyframes default_hover {
+    @-webkit-keyframes hover {
         100% { background-color: var(--hover-background-color) }
         100% { color: var(--hover-text-color) }
         100% { border: var(--hover-border) }
@@ -114,15 +180,17 @@ button {
 /* Actions: active/click */
 
     /* Type = default */
-    :host([type="default"]) > button:active {
-        -webkit-animation: default_active .1s linear forwards;
-        animation: default_active .1s linear forwards;
+    :host > button:active {
+        -webkit-animation: active .1s linear forwards;
+        animation: active .1s linear forwards;
     }
-    @keyframes default_active {
+    @keyframes active {
         100% { border: var(--active-border)  }
+        100% { background-color: var(--active-background-color)  }
     }
     @-webkit-keyframes default_active {
         100% { border: var(--active-border)  }
+        100% { background-color: var(--active-background-color)  }
     }
 
 </style>
