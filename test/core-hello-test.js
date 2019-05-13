@@ -1,7 +1,6 @@
 const { By } = require("selenium-webdriver");
 const { expect, assert } = require("chai");
 const path = require("path");
-// const assert = chai.assert; 
 
 async function getExtShadowRoot() {
   let shadowHost;
@@ -28,7 +27,8 @@ describe("core-hello unit tests", () => {
     );
     // await driver.get('https://meat-space.org/web_components/core-hello/core-hello-test.html');
     // await (shadowRoot = driver.findElement(By.css("#core-hello")));
-    const shadowRoot = findShadowDomElement('core-hello')
+    let shadowRoot;
+    await (shadowRoot = findShadowDomElement('core-hello'));
     assert.equal(shadowRoot instanceof ShadowRoot, true);
     // const altAttribute = await driver.findElement(By.className('section-img-logo')).getAttribute('alt');
 
