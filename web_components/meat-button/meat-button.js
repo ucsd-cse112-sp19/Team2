@@ -8,8 +8,6 @@ template.innerHTML = `
 
     /* special override-able css variables */
 
-    
-
     /* round */
     --border-radius: 100px;
 
@@ -257,9 +255,7 @@ export class MeatButtonElement extends HTMLElement {
         else this.button.autofocus = false;
         break;
       case "native-type":
-        // doesn't actually work, need to figure out how to propogate event to form, but it's very complicated and I haven't found
-        // and reasonable solutions yet
-        // this.button.type = newVal;
+        // assigning type to button doesn't work
         break;
     }
   }
@@ -328,6 +324,19 @@ export class MeatButtonElement extends HTMLElement {
   /**
    * This is unnecessary for now, the user can just attach an event listener to <meat-button>
    * */
-  _onClick(evt, thisComponent) {}
+  _onClick(evt, thisComponent) {
+    switch (this.getAttribute("native-type")) {
+      case "reset":
+        if (this.parentNode && this.parentNode.nodeName == "FORM") {
+          this.parentNode.reset();
+        }
+        break;
+      case "submit":
+        if (this.parentNode && this.parentNode.nodeName == "FORM") {
+          this.parentNode.submit();
+        }
+        break;
+    }
+  }
 }
 window.customElements.define("meat-button", MeatButtonElement);

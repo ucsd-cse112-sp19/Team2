@@ -8,8 +8,7 @@
         <script type="module" src="./meat-button.js"></script>
     </head>
     <style>
-        meat-button {
-        }
+
     </style>
     <body>
         <div>
@@ -20,6 +19,12 @@
             <meat-button round type="primary" circle size="large">+</meat-button>
             <meat-button round type="success" circle size="large">+</meat-button>
         </div>
+        <form action="/button-type">
+            <label for="name">Name</label><br>
+            <input name="name"><br><br>
+            <meat-button native-type="reset">Reset the form!</meat-button><br><br>
+            <meat-button native-type="submit">Submit</meat-button>
+        </form>
     </body>
     <script>
         const meatButton = document.querySelector('meat-button');
