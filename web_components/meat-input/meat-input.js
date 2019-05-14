@@ -44,6 +44,7 @@ placeholder {
 
 
 /* Attributes: */
+
 /* Size */
 :host([size = "small"]) {
     width: 100px;
@@ -58,10 +59,8 @@ placeholder {
     height: inherit;
 }
 
-
 /* Actions: */
 /* Focus */
-
 </style>
 <input id="input"></input>
 `;
@@ -78,7 +77,6 @@ export class MeatInputElement extends HTMLElement {
    */
   constructor() {
     super();
-    console.log('');
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
     this.input = this.shadow.querySelector("input");
@@ -94,7 +92,7 @@ export class MeatInputElement extends HTMLElement {
    * call attributeChangedCallback(name, oldVal, newVal)
    * */
   static get observedAttributes() {
-    return ["disabled", "clearable", "size", "limit", "placeholder"];
+    return ["disabled", "clearable", "size", "limit", "placeholder", "password"];
   }
 
   /*
@@ -117,6 +115,10 @@ export class MeatInputElement extends HTMLElement {
             this.input.placeholder = newVal;
             break;
           case "limit":
+            this.input.maxLength = newVal;
+            break;
+          case "password":
+            this.input.type = "password";
             break;
       }
   }
