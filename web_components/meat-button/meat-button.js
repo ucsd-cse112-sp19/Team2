@@ -349,7 +349,7 @@ export class MeatButtonElement extends HTMLElement {
       "disabled",
       "round",
       "size",
-      "type",
+      "type"
     ];
   }
 
