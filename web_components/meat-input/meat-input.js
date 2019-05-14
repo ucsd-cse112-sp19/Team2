@@ -80,6 +80,9 @@ export class MeatInputElement extends HTMLElement {
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
     this.input = this.shadow.querySelector("input");
+
+    // Defaults the input to type text.
+    this.input.type = "text";
   }
 
   /**
@@ -92,7 +95,13 @@ export class MeatInputElement extends HTMLElement {
    * call attributeChangedCallback(name, oldVal, newVal)
    * */
   static get observedAttributes() {
-    return ["disabled", "clearable", "size", "limit", "placeholder", "password"];
+    return ["disabled", 
+            "size", 
+            "limit", 
+            "placeholder", 
+            "password",
+            "value",
+            "readonly"];
   }
 
   /*
@@ -109,7 +118,13 @@ export class MeatInputElement extends HTMLElement {
                 this.input.disabled = true;
             }
             break;
-          case "clearable":
+          case "readonly":
+            if (newVal == "") {
+                this.input.readOnly = true;
+            }
+            break;
+          case "value":
+            this.input.value = newVal;
             break;
           case "placeholder":
             this.input.placeholder = newVal;
