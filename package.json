@@ -7,7 +7,7 @@
     "/web_components"
   ],
   "scripts": {
-    "test": "./node_modules/.bin/mocha test/seleniumDefaultTest.js --timeout 10000",
+    "test": "./node_modules/.bin/testcafe chrome test/testcafe-hello-core.js --timeout 10000",
     "runner": "node test/runner.js",
     "mtest": "mocha-chrome ./test/hello-core-test.html",
     "wintest": "for %f in (./test/*.html) do mocha-chrome ./test/%f",
@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/ucsd-cse112/Team2#readme",
   "devDependencies": {
+    "@wdio/cli": "^5.8.3",
     "chai": "^4.2.0",
     "chromedriver": "^2.41.0",
     "connect": "^3.6.6",
@@ -42,9 +43,12 @@
     "mocha-chrome": "^2.0.0",
     "prettier": "1.17.0",
     "selenium-webdriver": "^4.0.0-alpha.1",
-    "serve-static": "^1.14.1"
+    "serve-static": "^1.14.1",
+    "testcafe": "^1.1.4",
+    "wdio-webcomponents": "^1.1.0"
   },
   "dependencies": {
-    "acorn": "^6.1.1"
+    "acorn": "^6.1.1",
+    "nodejs": "0.0.0"
   }
 }
