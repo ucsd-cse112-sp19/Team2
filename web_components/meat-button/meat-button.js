@@ -1,12 +1,16 @@
 const template = document.createElement("template");
 template.innerHTML = `
 <style>
+/* define color scheme for default button */
 :host {
     display: inline-block;
+    position: relative;
     width: 90px;
     height: 40px;
 
     /* special override-able css variables */
+
+    --font-family: sans-serif;
 
     /* round */
     --border-radius: 100px;
@@ -27,8 +31,24 @@ template.innerHTML = `
     --active-border: 1px solid #3388ff;
 }
 
-/* define color scheme for default button */
-:host([type="default"]) {
+/* Default style if no type is specified */
+button {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-color);
+    color:  var(--text-color); /* text color */
+    border: var(--border);
+    outline: none; /* outline when focused, doesn't play nicely with round button/border-radius so hide it; instead we create our own focus */
+    font-size: var(--font-size, 15px);
+    font-family: var(--font-family);
+    vertical-align: top; /* this is important, word wrapping messes up positioning of button unless we have this */
+    margin: 0px;
+    padding: 0px;
+}
+
+/* define color scheme for white button */
+:host([color="white"]) {
   /* colors */
   --background-color: #ffffff;
   --text-color: #444444;
@@ -46,26 +66,88 @@ template.innerHTML = `
   --active-border: 1px solid #3388ff;
 }
 
-/* define color scheme for primary button */
-:host([type="primary"]) {
+:host([color="grey"]) {
   /* colors */
-  --background-color: #40a5ff;
+  --background-color: #777777;
   --text-color: #ffffff;
-  --border: 1px solid #40a5ff;
+  --border: 1px solid #777777;
 
-  --hover-background-color: #65b5ff;
-  --focus-background-color: #65b5ff;
-  --active-background-color: #2285dd;
+  --hover-background-color: #999999;
+  --focus-background-color: #999999;
+  --active-background-color: #555555;
 
   --hover-text-color: #ffffff;
   --focus-text-color: #ffffff;
 
-  --hover-border: 1px solid #65b5ff;
-  --focus-border: 1px solid #65b5ff;
-  --active-border: 1px solid #2285dd;
+  --hover-border: 1px solid #999999;
+  --focus-border: 1px solid #999999;
+  --active-border: 1px solid #555555;
 }
 
-:host([type="success"]) {
+/* define color scheme for red button */
+:host([color="red"]) {
+  /* colors */
+  --background-color: #cc5050;
+  --text-color: #ffffff;
+  --border: 1px solid #cc5050;
+
+  --hover-background-color: #e46060;
+  --focus-background-color: #e46060;
+  --active-background-color: #b03737;
+
+  --hover-text-color: #ffffff;
+  --focus-text-color: #ffffff;
+
+  --hover-border: 1px solid #e46060;
+  --focus-border: 1px solid #e46060;
+  --active-border: 1px solid #b03737;
+}
+
+/* define color scheme for orange button */
+:host([color="orange"]) {
+  /* colors */
+  --background-color: #df8a40;
+  --text-color: #ffffff;
+  --border: 1px solid #df8a40;
+
+  --hover-background-color: #dfaa70;
+  --focus-background-color: #dfaa70;
+  --active-background-color: #cf7a30;
+
+  --hover-text-color: #ffffff;
+  --focus-text-color: #ffffff;
+
+  --hover-border: 1px solid #dfaa70;
+  --focus-border: 1px solid #dfaa70;
+  --active-border: 1px solid #cf7a30;
+}
+
+/* define color scheme for yellow button */
+:host([color="yellow"]) {
+  /* colors */
+  --background-color: #eedd00;
+  --text-color: #ffffff;
+  --border: 1px solid #eedd00;
+  
+  --hover-background-color: #f6e690;
+  --focus-background-color: #f6e690;
+  --active-background-color: #ddcc00;
+
+  --hover-text-color: #ffffff;
+  --focus-text-color: #ffffff;
+
+  --hover-border: 1px solid #f6e690;
+  --focus-border: 1px solid #f6e690;
+  --active-border: 1px solid #ddcc00;
+}
+
+/* white text is hard to read against a yellow background, add some subtle text shadow */
+:host([color="yellow"]) > button {
+  text-shadow: 0 0 5px #c5b500, 0 0 10px #c5b500, 0 0 15px #eedd00;
+}
+
+/* define color scheme for green button */
+:host([color="green"]) {
   /* colors */
   --background-color: #59c040;
   --text-color: #ffffff;
@@ -83,16 +165,42 @@ template.innerHTML = `
   --active-border: 1px solid #50a050;
 }
 
-/* Default style if no type is specified */
-button {
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    background-color: var(--background-color);
-    color:  var(--text-color); /* text color */
-    border: var(--border);
-    outline: none; /* outline when focused, doesn't play nicely with round button/border-radius so hide it; instead we create our own focus */
-    font-size: var(--font-size, 15px);
+/* define color scheme for blue button */
+:host([color="blue"]) {
+  /* colors */
+  --background-color: #40a5ff;
+  --text-color: #ffffff;
+  --border: 1px solid #40a5ff;
+
+  --hover-background-color: #65b5ff;
+  --focus-background-color: #65b5ff;
+  --active-background-color: #2285dd;
+
+  --hover-text-color: #ffffff;
+  --focus-text-color: #ffffff;
+
+  --hover-border: 1px solid #65b5ff;
+  --focus-border: 1px solid #65b5ff;
+  --active-border: 1px solid #2285dd;
+}
+
+/* define color scheme for blue button */
+:host([color="purple"]) {
+  /* colors */
+  --background-color: #aa55aa;
+  --text-color: #ffffff;
+  --border: 1px solid #aa55aa;
+
+  --hover-background-color: #cc66cc;
+  --focus-background-color: #cc66cc;
+  --active-background-color: #994499;
+
+  --hover-text-color: #ffffff;
+  --focus-text-color: #ffffff;
+
+  --hover-border: 1px solid #cc66cc;
+  --focus-border: 1px solid #cc66cc;
+  --active-border: 1px solid #994499;
 }
 
 /* Attribute: round */
@@ -192,7 +300,7 @@ button {
     }
 
 </style>
-<button id="button" type="reset"></button>
+<button id="button"></button>
 `;
 
 /**
@@ -228,13 +336,13 @@ export class MeatButtonElement extends HTMLElement {
   static get observedAttributes() {
     /* <meat-button type="default" disabled></meat-button> */
     return [
-      "type",
-      "disabled",
-      "size",
-      "round",
-      "circle",
       "autofocus",
-      "native-type"
+      "color",
+      "circle",
+      "disabled",
+      "round",
+      "size",
+      "type",
     ];
   }
 
@@ -254,7 +362,7 @@ export class MeatButtonElement extends HTMLElement {
         if (newVal == "") this.button.autofocus = true;
         else this.button.autofocus = false;
         break;
-      case "native-type":
+      case "type":
         // assigning type to button doesn't work
         break;
     }
@@ -321,11 +429,23 @@ export class MeatButtonElement extends HTMLElement {
     }
   }
 
+  get color() {
+    return this.getAttribute("color");
+  }
+
+  set color(val) {
+    if (val) {
+      this.setAttribute("color", val);
+    } else {
+      this.removeAttribute("color");
+    }
+  }
+
   /**
    * This is unnecessary for now, the user can just attach an event listener to <meat-button>
    * */
   _onClick(evt, thisComponent) {
-    switch (this.getAttribute("native-type")) {
+    switch (this.getAttribute("type")) {
       case "reset":
         if (this.parentNode && this.parentNode.nodeName == "FORM") {
           this.parentNode.reset();
@@ -339,4 +459,5 @@ export class MeatButtonElement extends HTMLElement {
     }
   }
 }
+
 window.customElements.define("meat-button", MeatButtonElement);
