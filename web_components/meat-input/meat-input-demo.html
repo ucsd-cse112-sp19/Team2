@@ -8,16 +8,17 @@
         <script type="module" src="./meat-input.js"></script>
     </head>
     <style>
-        meat-input {
-            --background-color: green;
-        }
     </style>
     <body>
         <div>
-            <meat-input size="small" placeholder>Enter Text...</meat-input>
+            <meat-input id="meat1" size="small" placeholder="Enter Text..."></meat-input>
+            <meat-input id="meat2" size="medium" placeholder="Enter Text..."></meat-input>
         </div>
     </body>
     <script>
-        const meatInput = document.querySelector('meat-input');
+        const meatInput1 = document.querySelector('#meat1');
+        meatInput1.suggestions = ["test1", "test", "stuff", "meatspace"];
+        const meatInput2 = document.querySelector('#meat2');
+        meatInput2.suggestions = ["test", "stuff", "meatspace", "test1"];
     </script>
 </html>
