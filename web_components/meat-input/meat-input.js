@@ -129,7 +129,7 @@ export class MeatInputElement extends HTMLElement {
       this._currentFocus = 0;
     });
 
-    /* Close the autocomplete suggestion list whenever a click occurs */
+    /* Close the suggestion list whenever a click occurs */
     document.addEventListener("click", () => {
       this.suggestionContainer.innerHTML = "";
     });
@@ -139,6 +139,7 @@ export class MeatInputElement extends HTMLElement {
    * Live-cycle method called when the custom element is loaded, often used for initialization
    */
   connectedCallback() {
+    // User may have attempted to set suggestions before element loaded in, set them now.
     this._upgradeProperty('suggestions');
 
     // if this input is within a form, find the form and connect to it
@@ -177,6 +178,7 @@ export class MeatInputElement extends HTMLElement {
             "password",
             "value",
             "readonly",
+            "suggest",
             "autocomplete"
           ];
   }
@@ -211,6 +213,15 @@ export class MeatInputElement extends HTMLElement {
         case "password":
           this.input.type = "password";
           break;
+        case "autocomplete":
+          this.input.autocomplete = newVal;
+          break;
+        case "suggest":
+          // if autocomplete was not explicitely set and the user wants their own suggestions on, 
+          // then turn off autocomplete
+          if (!this.hasAttribute("autocomplete") && newVal == "on") {
+            this.input.autocomplete = "off";
+          }
       }
   }
 
@@ -335,9 +346,15 @@ export class MeatInputElement extends HTMLElement {
 
   /**
    * @param {string array} suggestions 
-   * Render list of autocomplete suggestions as dropdown list under input
+   * Render list of suggestions as dropdown list under input
    */
   _renderSuggestions(suggestions){
+
+    // if autocomplete is on or suggest is not on, don't render the suggestions list
+    if (!this.getAttribute("suggest") == "on" || this.getAttribute("autocomplete") == "on") {
+      return;
+    }
+    
     this.suggestionContainer.innerHTML = "";
 
     //const container = this.shadow.querySelector("#suggestionContainer");
@@ -422,6 +439,17 @@ export class MeatInputElement extends HTMLElement {
       this.setAttribute("password", "");
     else
       this.removeAttribute("password");
+  }
+
+  get suggest() {
+    return this.hasAttribute("suggest");
+  }
+
+  set suggest(val) {
+    if (val)
+      this.setAttribute("suggest", val);
+    else
+      this.removeAttribute("suggest");
   }
 }
 
