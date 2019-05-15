@@ -8,23 +8,40 @@
         <script type="module" src="./meat-input.js"></script>
     </head>
     <style>
+        button {
+            width: 70px;
+            height: 30px;
+        }
     </style>
     <body>
         <div>
-            <meat-input id="meat1" size="small" placeholder="Enter Text..."></meat-input>
-            <meat-input id="meat2" size="medium" placeholder="Enter Text..."></meat-input>
-            <meat-input 
-                size="medium" 
-                placeholder="Enter text..."
-                value="It's my boi, Peter!"
-                limit="10"
-                readonly>
-            </meat-input>
+            <form action="some_action.php">
+                <br>
+                <meat-input id="meat1" size="small" placeholder="Enter Text..."></meat-input>
+                <meat-input id="meat2" size="medium" placeholder="Enter Text..."></meat-input>
+                <meat-input 
+                    size="medium" 
+                    placeholder="This is a readonly input!"
+                    value="It's my boi, Peter!"
+                    limit="10"
+                    readonly>
+                </meat-input>
+                <br/><br/>
+                <label>Works with native Forms. Note: the third input is readonly</label><br>
+                <button type="reset">Reset</button>
+                <button type="submit">Submit</button>
+            </form>
+        </form>
         </div>
     </body>
     <script>
         const meatInput1 = document.querySelector('#meat1');
-        meatInput1.suggestions = ["test1", "test", "stuff", "meatspace"];
+        meatInput1.suggestions = ["test1", "test", "stuff", "meatspace", "myspace?", "unittest", "California", "Hawaii", "Maine", "New York", "Kansas", "Texas", "Idaho"];
+        meatInput1.addEventListener('keyup', (evt) => {
+            if (evt.keyCode === 13) {
+                console.log("Pressed enter:", evt.target.value);
+            }
+        })
         const meatInput2 = document.querySelector('#meat2');
         meatInput2.suggestions = ["test", "stuff", "meatspace", "test1"];
     </script>

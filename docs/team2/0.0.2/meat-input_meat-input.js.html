@@ -68,6 +68,7 @@ template.innerHTML = `
   --hover-border: 1px solid #daeeff;
   --focus-border: 1px solid #daeeff;
   --active-border: 1px solid #3388ff;
+
 }
 
 /* Default style if no type is specified */
@@ -156,56 +157,17 @@ export class MeatInputElement extends HTMLElement {
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
     this.input = this.shadow.querySelector("input");
-    this._currentFocus = 0;
+
+    this._currentFocus = 0; // 0 means focusing input, 1 would be the first autocomplete suggestion, 2 would be the second...
+
+    // when user types into the input, update internal state
     this.input.addEventListener('input', this._onInputChange);
+    // when user presses any keys while input is focused, call _switchFocus
     this.input.addEventListener("keydown", this._switchFocus);
-  }
-
-  _switchFocus = (evt) => {
-    if (evt.keyCode == 40) { // down
-      this._currentFocus++;
-    } else if (evt.keyCode == 38) { //up
-      this._currentFocus--;
-    } else if (evt.keyCode == 13) {
-
-    }
-    console.log(this._currentFocus);
-    if (this._currentFocus == 0) {
-      this.input.focus();
-      return;
-    }
-    const suggestion = this.shadow.querySelector(`#suggestion${this._currentFocus}`);
-    suggestion.focus();
-
-    if (evt.keyCode == 13) {
-      evt.preventDefault();  /*If the ENTER key is pressed, prevent the form from being submitted,*/
-      if (this._currentFocus > -1) {
-        /*and simulate a click on the "active" item:*/
-        if (suggestion) suggestion.click();
-      }
-    }
-    
-  }
-
-  _renderSuggestions(suggestions){
-    const container = this.shadow.querySelector("#suggestionContainer");
-    container.innerHTML = "";
-
-    //const container = this.shadow.querySelector("#suggestionContainer");
-    //container.innerHTML = "";
-    suggestions.forEach((suggestion, index) => {
-      const row = document.createElement("div");
-      row.id = "suggestion"+(index+1);
-      row.setAttribute('tabindex', (index+1));
-      row.className = "suggestion"
-      row.innerHTML = "&lt;strong>" + suggestion.substr(0, this.input.value.length) + "&lt;/strong>"
-      row.innerHTML += suggestion.substr(this.input.value.length);
-      row.addEventListener("click", evt => {
-        this.input.value = row.textContent;
-      });
-      row.addEventListener("keydown", this._switchFocus);
-      container.appendChild(row);
-    })
+    // if you click inside the input, you focus it, therefore should reflect that internally
+    this.input.addEventListener("mousedown", () => {
+      this._currentFocus = 0;
+    });
   }
 
   /**
@@ -284,6 +246,9 @@ export class MeatInputElement extends HTMLElement {
     }
   }
 
+  /**
+   * Sort suggestions alphanumerically for user convenience, make toggleable via attribute?
+   */
   _sortSuggestions = () => {
     this._suggestions = this._suggestions.sort(function (a, b) {
       //If characters get matched to the regular expression \D+\, push [infinity, "the first char"]
@@ -313,32 +278,163 @@ export class MeatInputElement extends HTMLElement {
 
       //otherwise, decide by the length
       return aMatches.length - bMatches.length;
-  });
+    });
+  }
+
+  /**
+   * @param {event} evt
+   * Allow user to use keyboard arrows to navigate up and down the list
+   */
+  _switchFocus = (evt) => {
+
+    // move focus up or down the list of suggestions
+    if (evt.keyCode == 40) { // down
+      this._currentFocus++;
+    } else if (evt.keyCode == 38) { //up
+      this._currentFocus--;
+    } 
+
+    // focus 0 means focusing the input
+    if (this._currentFocus == 0) {
+      this.input.focus();
+      return;
+    }
+
+    // get reference to suggestion item
+    const suggestion = this.shadow.querySelector(`#suggestion${this._currentFocus}`);
+
+    // if no suggestion, reached end of list, undo operation and return;
+    if (!suggestion) {
+      if (evt.keyCode == 40) { // down
+        this._currentFocus--;
+      } else if (evt.keyCode == 38) { //up
+        this._currentFocus++;
+      } 
+      return;
+    }
+
+    // focus the suggestion
+    suggestion.focus();
+
+    if (evt.keyCode == 13) {
+      evt.preventDefault();  /*If the ENTER key is pressed, prevent the form from being submitted,*/
+      if (this._currentFocus > -1) {
+        this.value = suggestion.value; // set host value to the suggestion so user can use the value in their event listener
+        this.input.value = suggestion.value; // set input value to the suggestion to reflect back visually
+      }
+    }  
   }
 
   /**
    * @param {object} evt 
-   * Suggest terms for user to select.
+   * Suggest terms for user to select whenever they input characters.
    */
   _onInputChange = (evt) => {
     if (!evt.target.value) {
       this._renderSuggestions([]);
       return;
     }
-    const regex = new RegExp(`^${evt.target.value}(.*?)`);
-    const matchedSuggestions = this._suggestions.filter((suggestion) => suggestion.match(regex));
+
+    // match all suggestions where the beginning is the same as the input and render
+    const regex = new RegExp(`^${evt.target.value}(.*?)`, 'i'); 
+    const matchedSuggestions = this._suggestions.filter((suggestion) => suggestion.match(regex)); 
     this._renderSuggestions(matchedSuggestions);
+    this.value = evt.target.value;
   }
 
+  /**
+   * @param {string array} suggestions 
+   * Render list of autocomplete suggestions as dropdown list under input
+   */
+  _renderSuggestions(suggestions){
+    const container = this.shadow.querySelector("#suggestionContainer");
+    container.innerHTML = "";
+
+    //const container = this.shadow.querySelector("#suggestionContainer");
+    //container.innerHTML = "";
+    suggestions.forEach((suggestion, index) => {
+      const row = document.createElement("div");
+      row.id = "suggestion"+(index+1);
+      row.setAttribute('tabindex', (index+1));
+      row.className = "suggestion";
+      row.value = suggestion;
+      row.innerHTML = "&lt;strong>" + suggestion.substr(0, this.input.value.length) + "&lt;/strong>" // bold the matching part
+      row.innerHTML += suggestion.substr(this.input.value.length); 
+      row.addEventListener("click", () => {
+        this.input.value = row.textContent;
+        this._currentFocus = index+1;
+      });
+      row.addEventListener("keydown", this._switchFocus);
+      container.appendChild(row);
+    })
+  }
+
+  /**
+   * Allow user to get list of autocomplete suggestions
+   */
   get suggestions() {
     return this._suggestions;
   }
 
+  /**
+   * @param {string array} val
+   * Allow user to set list of autocomplete suggestions
+   */
   set suggestions(val) {
     this._suggestions = val;
     this._sortSuggestions();
   }
+
+  /**
+   * The following methods are the usual get and set
+   * Get - allow user to retrieve value of the attribute
+   * Set - Allows uer to assign the value of the attribute
+   */
+  get size() {
+    return this.getAttribute("size");
+  }
+
+  set size(val) {
+    if (val)
+      this.setAttribute("size", val);
+    else
+      this.removeAttribute("size");
+  }
+
+  get limit() {
+    return this.getAttribute("limit");
+  }
+
+  set limit(val) {
+    if (val)
+      this.setAttribute("limit", val);
+    else
+      this.removeAttribute("limit");
+  }
+
+  get placeholder() {
+    return this.getAttribute("limit");
+  }
+
+  set placeholder(val) {
+    if (val)
+      this.setAttribute("placeholder", val);
+    else
+      this.removeAttribute("placeholder");
+  }
+
+  get password() {
+    return this.hasAttribute("password");
+  }
+
+  set password(val) {
+    if (val)
+      this.setAttribute("password", "");
+    else
+      this.removeAttribute("password");
+  }
 }
+
 window.customElements.define("meat-input", MeatInputElement);
 </code></pre>
         </article>
