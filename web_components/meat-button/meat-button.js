@@ -238,7 +238,6 @@ button {
       border-radius: 50%;
     }
 
-<<<<<<< HEAD
     /* default size for circle button */
     :host([circle]) {
       width: 40px;
@@ -247,27 +246,16 @@ button {
 
     /* if size specified, use the following dimensions */
     :host([circle][size="small"]) {
-=======
-    :host([circle][size="small"]) > button {
->>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
       width: 30px;
       height: 30px;
     }
 
-<<<<<<< HEAD
     :host([circle][size="medium"]) {
-=======
-    :host([circle][size="medium"]) > button {
->>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
         width: 40px;
         height: 40px;
     }
 
-<<<<<<< HEAD
     :host([circle][size="large"]) {
-=======
-    :host([circle][size="large"]) > button {
->>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
       width: 50px;
       height: 50px;
   }
@@ -290,11 +278,7 @@ button {
         animation: hover .1s linear forwards;
     }
 
-<<<<<<< HEAD
     @keyframes hover {
-=======
-    @keyframes default_hover {
->>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
         100% { background-color: var(--hover-background-color) }
         100% { color: var(--hover-text-color) }
         100% { border: var(--hover-border) }
@@ -365,7 +349,6 @@ export class MeatButtonElement extends HTMLElement {
   static get observedAttributes() {
     /* <meat-button type="default" disabled></meat-button> */
     return [
-<<<<<<< HEAD
       "autofocus",
       "color",
       "circle",
@@ -373,15 +356,6 @@ export class MeatButtonElement extends HTMLElement {
       "round",
       "size",
       "type"
-=======
-      "type",
-      "disabled",
-      "size",
-      "round",
-      "circle",
-      "autofocus",
-      "native-type"
->>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
     ];
   }
 
@@ -400,12 +374,9 @@ export class MeatButtonElement extends HTMLElement {
       case "autofocus":
         if (newVal == "") this.button.autofocus = true;
         else this.button.autofocus = false;
-<<<<<<< HEAD
         break;
       case "type":
         // assigning type to button doesn't work
-=======
->>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
         break;
       case "native-type":
         // doesn't actually work, need to figure out how to propogate event to form, but it's very complicated and I haven't found
@@ -552,7 +523,6 @@ export class MeatButtonElement extends HTMLElement {
   /**
    * This is unnecessary for now, the user can just attach an event listener to <meat-button>
    * */
-<<<<<<< HEAD
   _onClick(evt, thisComponent) {
     switch (this.getAttribute("type")) {
       case "reset":
@@ -567,9 +537,6 @@ export class MeatButtonElement extends HTMLElement {
         break;
     }
   }
-=======
-  _onClick(evt, thisComponent) {}
->>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
 }
 
 window.customElements.define("meat-button", MeatButtonElement);
