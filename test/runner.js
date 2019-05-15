@@ -7,8 +7,8 @@ createTestCafe('localhost', 1337, 1338)
         const runner = testcafe.createRunner();
 
         return runner
-            .src(['test/*.js'])
-            .browsers(['chrome']) 
+            .src(['test/testcafe-hello-core.js', 'test/testcafe-meat-button.js'])
+            .browsers(['chrome', 'browserstack:Chrome@74.0:Windows 10']) 
             .run();
     })
     .then(failedCount => {

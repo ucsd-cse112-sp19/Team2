@@ -7,7 +7,7 @@
     "/web_components"
   ],
   "scripts": {
-    "test": "./node_modules/.bin/testcafe chrome test/testcafe-hello-core.js --timeout 10000",
+    "test": "./node_modules/.bin/testcafe chrome ./test/testcafe-hello-core.js",
     "runner": "node test/runner.js",
     "mtest": "mocha-chrome ./test/hello-core-test.html",
     "wintest": "for %f in (./test/*.html) do mocha-chrome ./test/%f",
@@ -45,10 +45,10 @@
     "selenium-webdriver": "^4.0.0-alpha.1",
     "serve-static": "^1.14.1",
     "testcafe": "^1.1.4",
+    "testcafe-browser-provider-browserstack": "^1.8.0",
     "wdio-webcomponents": "^1.1.0"
   },
   "dependencies": {
-    "acorn": "^6.1.1",
-    "nodejs": "0.0.0"
+    "acorn": "^6.1.1"
   }
 }

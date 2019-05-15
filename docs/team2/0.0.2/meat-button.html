@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>core-hello - Documentation</title>
+    <title>meat-button - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">core-hello</h1>
+    <h1 class="page-title">meat-button</h1>
     
 
     
@@ -42,10 +42,10 @@
 <header>
     
         <h2>
-        core-hello
+        meat-button
         </h2>
         
-            <div class="class-description"><p>core-hello web component</p></div>
+            <div class="class-description"><p>meat-button webcomponent</p></div>
         
     
 </header>
@@ -54,7 +54,7 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>displays 'Hello World, <input>!'</p><pre><code>&lt;core-hello rainbow="[boolean]" lang="[string]"&gt;</code></pre></div>
+            <div class="description"><p>displays a stylized button</p><pre><code>&lt;meat-button autofocus="[boolean]" circle="[string]" disabled="[boolean]" round="[boolean]" size="[string]" type="[string]"&gt;</code></pre></div>
         
 
         
@@ -86,7 +86,7 @@
 
         <tr>
             
-                <td class="name"><code>rainbow</code></td>
+                <td class="name"><code>autofocus</code></td>
             
 
             <td class="type">
@@ -102,7 +102,7 @@
 
             
 
-            <td class="description last"><p>Enables a background rainbow effect.</p></td>
+            <td class="description last"><p>Enables button to automatically get focus when the page loads.</p></td>
         </tr>
 
         
@@ -111,7 +111,7 @@
 
         <tr>
             
-                <td class="name"><code>lang</code></td>
+                <td class="name"><code>circle</code></td>
             
 
             <td class="type">
@@ -127,7 +127,107 @@
 
             
 
-            <td class="description last"><p>Set language (English, French, Spanish). Default is English.</p></td>
+            <td class="description last"><p>Enables a circle shaped button.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>disabled</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>boolean</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Disables button from accepting events.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>round</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>boolean</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Enables a round shaped button.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>size</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Changes the size of the button.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Enables the specified type of button.</p></td>
         </tr>
 
         
@@ -168,7 +268,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core-hello_core-hello.js.html">core-hello/core-hello.js</a>, <a href="core-hello_core-hello.js.html#line67">line 67</a>
+        <a href="meat-button_meat-button.js.html">meat-button/meat-button.js</a>, <a href="meat-button_meat-button.js.html#line261">line 261</a>
     </li></ul></dd>
     
 
@@ -178,7 +278,7 @@
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
-            <li><p><a href="https://meat-space.org/web_components/core-hello/core-hello-test.html">Demo</a> for working example.</p></li>
+            <li><p><a href="https://meat-space.org/web_components/meat-button/meat-button-demo.html">Demo</a> for working example.</p></li>
         </ul>
     </dd>
     
@@ -190,9 +290,7 @@
         
             <h3>Example</h3>
             
-        <p class="code-caption"> Hello World! </p>
-    
-    <pre class="prettyprint"><code>&lt;core-hello rainbow lang="en">Alex!&lt;/core-hello></code></pre>
+    <pre class="prettyprint"><code>&lt;meat-button>&lt;/meat-button></code></pre>
 
         
     

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>meat-button-demo</title>
+        <script type="module" src="./meat-button.js"></script>
+    </head>
+    <style>
+        meat-button {}
+        form {
+            border: 1px solid #3388ff;
+            padding: 10px;
+            width: 200px;
+        }
+    </style>
+    <body>
+        <div>
+            <meat-button color="white"  size="large" round >White</meat-button>
+            <meat-button color="grey"   size="large" round >Grey</meat-button>
+            <meat-button color="red"    size="large" round >Red</meat-button>
+            <meat-button color="orange" size="large" round >Orange</meat-button>
+            <meat-button color="yellow" size="large" round >Yellow</meat-button>
+            <meat-button color="green"  size="large" round >Green</meat-button>
+            <meat-button color="blue"   size="large" round >Blue</meat-button>
+            <meat-button color="purple" size="large" round >Purple</meat-button><br/>
+            <br/>
+            <meat-button color="white"  size="large" round circle>+</meat-button>
+            <meat-button color="grey"   size="large" round circle>+</meat-button>
+            <meat-button color="red"    size="large" round circle>+</meat-button>
+            <meat-button color="orange" size="large" round circle>+</meat-button>
+            <meat-button color="yellow" size="large" round circle>+</meat-button>
+            <meat-button color="green"  size="large" round circle>+</meat-button>
+            <meat-button color="blue"   size="large" round circle>+</meat-button>
+            <meat-button color="purple" size="large" round circle>+</meat-button>
+        </div>
+        <br>
+        <form action="/some_action.php">
+            <label for="name">Example Form</label><br>
+            <input name="name"><br><br>
+            <meat-button type="reset">Reset the form!</meat-button>
+            <meat-button type="submit">Submit</meat-button>
+        </form>
+    </body>
+    <script>
+        const meatButton = document.querySelector('meat-button');
+        meatButton.addEventListener('click', () => {
+            console.log("user defined click method");
+        })
+    </script>
+</html>
