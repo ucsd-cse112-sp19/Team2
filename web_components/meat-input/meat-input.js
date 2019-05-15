@@ -95,7 +95,7 @@ placeholder {
 /* Actions: */
 /* Focus */
 </style>
-<input id="input"></input>
+<input id="input" type="text"></input>
 <div id="suggestionContainer"></div>
 `;
 
@@ -179,7 +179,15 @@ export class MeatInputElement extends HTMLElement {
    * call attributeChangedCallback(name, oldVal, newVal)
    * */
   static get observedAttributes() {
-    return ["disabled", "clearable", "size", "limit", "placeholder", "autocomplete", "password"];
+    return ["disabled", 
+            "size", 
+            "limit", 
+            "placeholder", 
+            "password",
+            "value",
+            "readonly",
+            "autocomplete"
+          ];
   }
 
   /*
@@ -196,7 +204,13 @@ export class MeatInputElement extends HTMLElement {
               this.input.disabled = true;
           }
           break;
-        case "clearable":
+        case "readonly":
+          if (newVal == "") {
+              this.input.readOnly = true;
+          }
+          break;
+        case "value":
+          this.input.value = newVal;
           break;
         case "placeholder":
           this.input.placeholder = newVal;
