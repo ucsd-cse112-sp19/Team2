@@ -4,14 +4,20 @@ template.innerHTML = `
 /* define color scheme for default button */
 :host {
     display: inline-block;
+<<<<<<< HEAD
     position: relative;
+=======
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
     width: 90px;
     height: 40px;
 
     /* special override-able css variables */
 
+<<<<<<< HEAD
     --font-family: sans-serif;
 
+=======
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
     /* round */
     --border-radius: 100px;
 
@@ -36,7 +42,7 @@ button {
     display: inline-block;
     width: 100%;
     height: 100%;
-    background-color: var(--background-color);
+    background-color: inherit;
     color:  var(--text-color); /* text color */
     border: var(--border);
     outline: none; /* outline when focused, doesn't play nicely with round button/border-radius so hide it; instead we create our own focus */
@@ -232,6 +238,7 @@ button {
       border-radius: 50%;
     }
 
+<<<<<<< HEAD
     /* default size for circle button */
     :host([circle]) {
       width: 40px;
@@ -240,16 +247,27 @@ button {
 
     /* if size specified, use the following dimensions */
     :host([circle][size="small"]) {
+=======
+    :host([circle][size="small"]) > button {
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
       width: 30px;
       height: 30px;
     }
 
+<<<<<<< HEAD
     :host([circle][size="medium"]) {
+=======
+    :host([circle][size="medium"]) > button {
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
         width: 40px;
         height: 40px;
     }
 
+<<<<<<< HEAD
     :host([circle][size="large"]) {
+=======
+    :host([circle][size="large"]) > button {
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
       width: 50px;
       height: 50px;
   }
@@ -272,7 +290,11 @@ button {
         animation: hover .1s linear forwards;
     }
 
+<<<<<<< HEAD
     @keyframes hover {
+=======
+    @keyframes default_hover {
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
         100% { background-color: var(--hover-background-color) }
         100% { color: var(--hover-text-color) }
         100% { border: var(--hover-border) }
@@ -300,7 +322,7 @@ button {
     }
 
 </style>
-<button id="button"></button>
+<button id="button" type="reset"></button>
 `;
 
 /**
@@ -343,6 +365,7 @@ export class MeatButtonElement extends HTMLElement {
   static get observedAttributes() {
     /* <meat-button type="default" disabled></meat-button> */
     return [
+<<<<<<< HEAD
       "autofocus",
       "color",
       "circle",
@@ -350,6 +373,15 @@ export class MeatButtonElement extends HTMLElement {
       "round",
       "size",
       "type"
+=======
+      "type",
+      "disabled",
+      "size",
+      "round",
+      "circle",
+      "autofocus",
+      "native-type"
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
     ];
   }
 
@@ -368,10 +400,79 @@ export class MeatButtonElement extends HTMLElement {
       case "autofocus":
         if (newVal == "") this.button.autofocus = true;
         else this.button.autofocus = false;
+<<<<<<< HEAD
         break;
       case "type":
         // assigning type to button doesn't work
+=======
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
         break;
+      case "native-type":
+        // doesn't actually work, need to figure out how to propogate event to form, but it's very complicated and I haven't found
+        // and reasonable solutions yet
+        // this.button.type = newVal;
+        break;
+    }
+  }
+
+  // getters and setters for attributes
+  get disabled() {
+    return this.hasAttribute("disabled");
+  }
+
+  set disabled(val) {
+    if (val) {
+      this.setAttribute("disabled", "");
+    } else {
+      this.removeAttribute("disabled");
+    }
+  }
+
+  get round() {
+    return this.hasAttribute("round");
+  }
+
+  set round(val) {
+    if (val) {
+      this.setAttribute("round", "");
+    } else {
+      this.removeAttribute("round");
+    }
+  }
+
+  get circle() {
+    return this.hasAttribute("circle");
+  }
+
+  set circle(val) {
+    if (val) {
+      this.setAttribute("circle", "");
+    } else {
+      this.removeAttribute("circle");
+    }
+  }
+
+  get size() {
+    return this.getAttribute("size");
+  }
+
+  set size(val) {
+    if (val) {
+      this.setAttribute("size", val);
+    } else {
+      this.removeAttribute("size");
+    }
+  }
+
+  get type() {
+    return this.getAttribute("type");
+  }
+
+  set type(val) {
+    if (val) {
+      this.setAttribute("type", val);
+    } else {
+      this.removeAttribute("type");
     }
   }
 
@@ -451,6 +552,7 @@ export class MeatButtonElement extends HTMLElement {
   /**
    * This is unnecessary for now, the user can just attach an event listener to <meat-button>
    * */
+<<<<<<< HEAD
   _onClick(evt, thisComponent) {
     switch (this.getAttribute("type")) {
       case "reset":
@@ -465,6 +567,9 @@ export class MeatButtonElement extends HTMLElement {
         break;
     }
   }
+=======
+  _onClick(evt, thisComponent) {}
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
 }
 
 window.customElements.define("meat-button", MeatButtonElement);

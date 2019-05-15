@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>meat-input-demo</title>
+        <script type="module" src="./meat-input.js"></script>
+    </head>
+    <style>
+        button {
+            width: 70px;
+            height: 30px;
+        }
+    </style>
+    <body>
+        <div>
+            <form action="some_action.php">
+                <div>
+                    <label>This input uses the browser's built in autocomplete. When you submit, the browser caches what you typed and will suggest it next time.</label><br>
+                    <label>Try typing something in amd submit. When you reload the page, you will see it in the suggestions when you try again.</label><br>
+                    <meat-input id="meat1" size="medium" placeholder="Autocomplete..." autocomplete="on"></meat-input>
+                    <br><label>This input uses the developer's suggestions, good for predefined values like states.</label><br>
+                    <label>You can use the arrow keys to navigate the list too.</label><br>
+                    <meat-input id="meat2" size="medium" placeholder="Predefined Suggestions..." suggest="on"></meat-input>
+                    <br><label>This input is read only and doesn't get reset by the reset button</label><br>
+                    <meat-input 
+                        size="medium" 
+                        placeholder="This is a readonly input!"
+                        value="It's my boi, Peter!"
+                        limit="10"
+                        readonly>
+                    </meat-input>
+                    <br/><br/>
+                    <label>&ltmeat-input&gt works with native Forms, even when nested inside other elements, like a bunch of divs. </label><br>
+                    <button type="reset">Reset</button>
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </form>
+        </div>
+    </body>
+    <script>
+        const meatInput1 = document.querySelector('#meat1');
+        meatInput1.suggestions = ["test1", "test", "stuff", "meatspace", "myspace?", "unittest", "California", "Hawaii", "Maine", "New York", "Kansas", "Texas", "Idaho"];
+        meatInput1.addEventListener('keyup', (evt) => {
+            if (evt.keyCode === 13) {
+                console.log("Pressed enter:", evt.target.value);
+            }
+        })
+        const meatInput2 = document.querySelector('#meat2');
+        meatInput2.suggestions = ["Alaska",
+                  "Alabama",
+                  "Arkansas",
+                  "American Samoa",
+                  "Arizona",
+                  "California",
+                  "Colorado",
+                  "Connecticut",
+                  "District of Columbia",
+                  "Delaware",
+                  "Florida",
+                  "Georgia",
+                  "Guam",
+                  "Hawaii",
+                  "Iowa",
+                  "Idaho",
+                  "Illinois",
+                  "Indiana",
+                  "Kansas",
+                  "Kentucky",
+                  "Louisiana",
+                  "Massachusetts",
+                  "Maryland",
+                  "Maine",
+                  "Michigan",
+                  "Minnesota",
+                  "Missouri",
+                  "Mississippi",
+                  "Montana",
+                  "North Carolina",
+                  "North Dakota",
+                  "Nebraska",
+                  "New Hampshire",
+                  "New Jersey",
+                  "New Mexico",
+                  "Nevada",
+                  "New York",
+                  "Ohio",
+                  "Oklahoma",
+                  "Oregon",
+                  "Pennsylvania",
+                  "Puerto Rico",
+                  "Rhode Island",
+                  "South Carolina",
+                  "South Dakota",
+                  "Tennessee",
+                  "Texas",
+                  "Utah",
+                  "Virginia",
+                  "Virgin Islands",
+                  "Vermont",
+                  "Washington",
+                  "Wisconsin",
+                  "West Virginia",
+                  "Wyoming"];
+        meatInput2.addEventListener('keyup', (evt) => {
+            if (evt.keyCode === 13) {
+                console.log("Pressed enter:", evt.target.value);
+            }
+        })
+    </script>
+</html>

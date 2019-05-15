@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="core-hello.html">core-hello</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="live-editor.html">live-editor</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-button.html">meat-button</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="team2-learn.html">team2-learn</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="core-hello.html">core-hello</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="live-editor.html">live-editor</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-boilerplate.html">meat-boilerplate</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-button.html">meat-button</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-input.html">meat-input</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="team2-learn.html">team2-learn</a></span></li>
 </nav>
 
 <div id="main">
@@ -45,14 +45,20 @@ template.innerHTML = `
 /* define color scheme for default button */
 :host {
     display: inline-block;
+<<<<<<< HEAD
     position: relative;
+=======
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
     width: 90px;
     height: 40px;
 
     /* special override-able css variables */
 
+<<<<<<< HEAD
     --font-family: sans-serif;
 
+=======
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
     /* round */
     --border-radius: 100px;
 
@@ -77,6 +83,7 @@ button {
     display: inline-block;
     width: 100%;
     height: 100%;
+<<<<<<< HEAD
     background-color: var(--background-color);
     color:  var(--text-color); /* text color */
     border: var(--border);
@@ -242,6 +249,12 @@ button {
   --hover-border: 1px solid #cc66cc;
   --focus-border: 1px solid #cc66cc;
   --active-border: 1px solid #994499;
+=======
+    background-color: inherit;
+    color:  var(--text-color); /* text color */
+    border: var(--border);
+    outline: hidden; /* outline when focused, doesn't play nicely with round button/border-radius so hide it */
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
 }
 
 /* Attribute: round */
@@ -273,6 +286,7 @@ button {
       border-radius: 50%;
     }
 
+<<<<<<< HEAD
     /* default size for circle button */
     :host([circle]) {
       width: 40px;
@@ -281,16 +295,27 @@ button {
 
     /* if size specified, use the following dimensions */
     :host([circle][size="small"]) {
+=======
+    :host([circle][size="small"]) > button {
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
       width: 30px;
       height: 30px;
     }
 
+<<<<<<< HEAD
     :host([circle][size="medium"]) {
+=======
+    :host([circle][size="medium"]) > button {
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
         width: 40px;
         height: 40px;
     }
 
+<<<<<<< HEAD
     :host([circle][size="large"]) {
+=======
+    :host([circle][size="large"]) > button {
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
       width: 50px;
       height: 50px;
   }
@@ -298,7 +323,11 @@ button {
 /* Actions: focus */
 
     /* Type = default */
+<<<<<<< HEAD
     :host > button:focus {
+=======
+    :host([type="default"]) > button:focus {
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
         border: var(--focus-border);
         color: var(--focus-text-color);
         outline: none;
@@ -313,12 +342,20 @@ button {
         animation: hover .1s linear forwards;
     }
 
+<<<<<<< HEAD
     @keyframes hover {
+=======
+    @keyframes default_hover {
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
         100% { background-color: var(--hover-background-color) }
         100% { color: var(--hover-text-color) }
         100% { border: var(--hover-border) }
     }
+<<<<<<< HEAD
     @-webkit-keyframes hover {
+=======
+    @-webkit-keyframes default_hover {
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
         100% { background-color: var(--hover-background-color) }
         100% { color: var(--hover-text-color) }
         100% { border: var(--hover-border) }
@@ -331,6 +368,7 @@ button {
         -webkit-animation: active .1s linear forwards;
         animation: active .1s linear forwards;
     }
+<<<<<<< HEAD
     @keyframes active {
         100% { border: var(--active-border)  }
         100% { background-color: var(--active-background-color)  }
@@ -338,10 +376,17 @@ button {
     @-webkit-keyframes default_active {
         100% { border: var(--active-border)  }
         100% { background-color: var(--active-background-color)  }
+=======
+    @keyframes default_active {
+        100% { border: var(--active-border)  }
+    }
+    @-webkit-keyframes default_active {
+        100% { border: var(--active-border)  }
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
     }
 
 &lt;/style>
-&lt;button id="button">&lt;/button>
+&lt;button id="button" type="reset">&lt;/button>
 `;
 
 /**
@@ -384,6 +429,7 @@ export class MeatButtonElement extends HTMLElement {
   static get observedAttributes() {
     /* &lt;meat-button type="default" disabled>&lt;/meat-button> */
     return [
+<<<<<<< HEAD
       "autofocus",
       "color",
       "circle",
@@ -391,6 +437,15 @@ export class MeatButtonElement extends HTMLElement {
       "round",
       "size",
       "type"
+=======
+      "type",
+      "disabled",
+      "size",
+      "round",
+      "circle",
+      "autofocus",
+      "native-type"
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
     ];
   }
 
@@ -410,8 +465,15 @@ export class MeatButtonElement extends HTMLElement {
         if (newVal == "") this.button.autofocus = true;
         else this.button.autofocus = false;
         break;
+<<<<<<< HEAD
       case "type":
         // assigning type to button doesn't work
+=======
+      case "native-type":
+        // doesn't actually work, need to figure out how to propogate event to form, but it's very complicated and I haven't found
+        // and reasonable solutions yet
+        // this.button.type = newVal;
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
         break;
     }
   }
@@ -474,6 +536,7 @@ export class MeatButtonElement extends HTMLElement {
       this.setAttribute("type", val);
     } else {
       this.removeAttribute("type");
+<<<<<<< HEAD
     }
   }
 
@@ -486,12 +549,15 @@ export class MeatButtonElement extends HTMLElement {
       this.setAttribute("color", val);
     } else {
       this.removeAttribute("color");
+=======
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
     }
   }
 
   /**
    * This is unnecessary for now, the user can just attach an event listener to &lt;meat-button>
    * */
+<<<<<<< HEAD
   _onClick(evt, thisComponent) {
     switch (this.getAttribute("type")) {
       case "reset":
@@ -506,6 +572,9 @@ export class MeatButtonElement extends HTMLElement {
         break;
     }
   }
+=======
+  _onClick(evt, thisComponent) {}
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
 }
 
 window.customElements.define("meat-button", MeatButtonElement);

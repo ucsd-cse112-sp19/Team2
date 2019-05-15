@@ -8,15 +8,21 @@
         <script type="module" src="./meat-button.js"></script>
     </head>
     <style>
+<<<<<<< HEAD
         meat-button {}
         form {
             border: 1px solid #3388ff;
             padding: 10px;
             width: 200px;
+=======
+        meat-button {
+            --background-color: green;
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
         }
     </style>
     <body>
         <div>
+<<<<<<< HEAD
             <meat-button color="white"  size="large" round >White</meat-button>
             <meat-button color="grey"   size="large" round >Grey</meat-button>
             <meat-button color="red"    size="large" round >Red</meat-button>
@@ -34,6 +40,9 @@
             <meat-button color="green"  size="large" round circle>+</meat-button>
             <meat-button color="blue"   size="large" round circle>+</meat-button>
             <meat-button color="purple" size="large" round circle>+</meat-button>
+=======
+            <meat-button round type="default" size="medium" disabled>Default</meat-button>
+>>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
         </div>
         <br>
         <form action="/some_action.php">
@@ -48,5 +57,10 @@
         meatButton.addEventListener('click', () => {
             console.log("user defined click method");
         })
+        
+        setTimeout(() => {
+            meatButton.size = 'large';
+            meatButton.disabled = false;
+        }, 1000);
     </script>
 </html>
