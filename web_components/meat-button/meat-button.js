@@ -36,7 +36,7 @@ button {
     display: inline-block;
     width: 100%;
     height: 100%;
-    background-color: inherit;
+    background-color: var(--background-color);
     color:  var(--text-color); /* text color */
     border: var(--border);
     outline: none; /* outline when focused, doesn't play nicely with round button/border-radius so hide it; instead we create our own focus */
