@@ -4,20 +4,14 @@ template.innerHTML = `
 /* define color scheme for default button */
 :host {
     display: inline-block;
-<<<<<<< HEAD
     position: relative;
-=======
->>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
     width: 90px;
     height: 40px;
 
     /* special override-able css variables */
 
-<<<<<<< HEAD
     --font-family: sans-serif;
 
-=======
->>>>>>> 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d
     /* round */
     --border-radius: 100px;
 
