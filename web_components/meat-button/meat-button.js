@@ -372,11 +372,6 @@ export class MeatButtonElement extends HTMLElement {
       case "type":
         // assigning type to button doesn't work
         break;
-      case "native-type":
-        // doesn't actually work, need to figure out how to propogate event to form, but it's very complicated and I haven't found
-        // and reasonable solutions yet
-        // this.button.type = newVal;
-        break;
     }
   }
 
