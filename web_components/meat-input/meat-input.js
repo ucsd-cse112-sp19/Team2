@@ -47,6 +47,7 @@ placeholder {
 
 
 /* Attributes: */
+
 /* Size */
 :host([size = "small"]) {
     width: 100px;
@@ -93,7 +94,6 @@ placeholder {
 
 /* Actions: */
 /* Focus */
-
 </style>
 <input id="input"></input>
 <div id="suggestionContainer"></div>
@@ -179,7 +179,7 @@ export class MeatInputElement extends HTMLElement {
    * call attributeChangedCallback(name, oldVal, newVal)
    * */
   static get observedAttributes() {
-    return ["disabled", "clearable", "size", "limit", "placeholder", "autocomplete"];
+    return ["disabled", "clearable", "size", "limit", "placeholder", "autocomplete", "password"];
   }
 
   /*
@@ -190,20 +190,24 @@ export class MeatInputElement extends HTMLElement {
    * */
   attributeChangedCallback(name, oldVal, newVal) {
     console.log(name, oldVal, newVal);
-    switch (name) {
-      case "disabled":
-        if (newVal == "") {
-          this.input.disabled = true;
-        }
-        break;
-      case "clearable":
-        break;
-      case "placeholder":
-        this.input.placeholder = newVal;
-        break;
-      case "limit":
-        break;
-    }
+      switch (name) {
+        case "disabled":
+          if (newVal == "") {
+              this.input.disabled = true;
+          }
+          break;
+        case "clearable":
+          break;
+        case "placeholder":
+          this.input.placeholder = newVal;
+          break;
+        case "limit":
+          this.input.maxLength = newVal;
+          break;
+        case "password":
+          this.input.type = "password";
+          break;
+      }
   }
 
   /** 
@@ -254,7 +258,7 @@ export class MeatInputElement extends HTMLElement {
 
       //otherwise, decide by the length
       return aMatches.length - bMatches.length;
-    });
+  });
   }
 
   /**
