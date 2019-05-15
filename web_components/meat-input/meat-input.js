@@ -85,7 +85,6 @@ placeholder {
 }
 
 .suggestion:hover {
-  background-color: var(--hover-background-color, #daeeff);
   border: var(--active-border);
 }
 
@@ -117,6 +116,7 @@ export class MeatInputElement extends HTMLElement {
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
     this.input = this.shadow.querySelector("input");
+    this.suggestionContainer = this.shadow.querySelector("#suggestionContainer");
 
     this._currentFocus = 0; // 0 means focusing input, 1 would be the first autocomplete suggestion, 2 would be the second...
 
@@ -129,7 +129,10 @@ export class MeatInputElement extends HTMLElement {
       this._currentFocus = 0;
     });
 
-    this.addEventListener("onreset", console.log("reset"));
+    /* Close the autocomplete suggestion list whenever a click occurs */
+    document.addEventListener("click", () => {
+      this.suggestionContainer.innerHTML = "";
+    });
   }
 
   /**
@@ -137,11 +140,14 @@ export class MeatInputElement extends HTMLElement {
    */
   connectedCallback() {
     this._upgradeProperty('suggestions');
+
+    // if this input is within a form, find the form and connect to it
     let parentNode = this.parentNode;
     while(parentNode) {
-      if (this.parentNode && this.parentNode.nodeName == "FORM") {
-        console.log(this.parentNode);
-        this.parentNode.addEventListener("reset", () => {
+      if (parentNode && parentNode.nodeName == "FORM") {
+
+        // form reset
+        parentNode.addEventListener("reset", () => {
           // Shouldn't change value of a readonly input
           if (this.hasAttribute("readonly"))
             return;
@@ -149,10 +155,11 @@ export class MeatInputElement extends HTMLElement {
           this.value = "";
         })
 
-        // submit
-        this.parentNode.addEventListener("submit", (evt) => {
-          evt.append(this.input);
+        // form submit
+        parentNode.addEventListener("submit", (evt) => {
+          parentNode.append(this.input);
         })
+        return;
       }
       parentNode = parentNode.parentNode;
     }
@@ -181,7 +188,6 @@ export class MeatInputElement extends HTMLElement {
    * @param {string} newVal
    * */
   attributeChangedCallback(name, oldVal, newVal) {
-    console.log(name, oldVal, newVal);
       switch (name) {
         case "disabled":
           if (newVal == "") {
@@ -297,12 +303,13 @@ export class MeatInputElement extends HTMLElement {
     // focus the suggestion
     suggestion.focus();
 
+    // enter key pressed
     if (evt.keyCode == 13) {
       evt.preventDefault();  /*If the ENTER key is pressed, prevent the form from being submitted,*/
       if (this._currentFocus > -1) {
         this.value = suggestion.value; // set host value to the suggestion so user can use the value in their event listener
         this.input.value = suggestion.value; // set input value to the suggestion to reflect back visually
-        this.shadow.querySelector("#suggestionContainer").innerHTML = "";
+        this.suggestionContainer.innerHTML = "";
         this._currentFocus = 0;
         this.input.focus();
       }
@@ -331,8 +338,7 @@ export class MeatInputElement extends HTMLElement {
    * Render list of autocomplete suggestions as dropdown list under input
    */
   _renderSuggestions(suggestions){
-    const container = this.shadow.querySelector("#suggestionContainer");
-    container.innerHTML = "";
+    this.suggestionContainer.innerHTML = "";
 
     //const container = this.shadow.querySelector("#suggestionContainer");
     //container.innerHTML = "";
@@ -347,10 +353,9 @@ export class MeatInputElement extends HTMLElement {
       row.addEventListener("click", () => {
         this.input.value = row.textContent;
         this._currentFocus = index+1;
-        container.innerHTML = "";
       });
       row.addEventListener("keydown", this._switchFocus);
-      container.appendChild(row);
+      this.suggestionContainer.appendChild(row);
     })
   }
 

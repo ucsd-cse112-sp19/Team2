@@ -16,6 +16,7 @@
     <body>
         <div>
             <form action="some_action.php">
+                <div>
                 <br>
                 <meat-input id="meat1" size="small" placeholder="Enter Text..."></meat-input>
                 <meat-input id="meat2" size="medium" placeholder="Enter Text..."></meat-input>
@@ -27,9 +28,10 @@
                     readonly>
                 </meat-input>
                 <br/><br/>
-                <label>Works with native Forms. Note: the third input is readonly</label><br>
+                <label>Works with native Forms, even when nested behind other elements. Note: the third input is readonly</label><br>
                 <button type="reset">Reset</button>
                 <button type="submit">Submit</button>
+                </div>
             </form>
         </form>
         </div>
@@ -43,6 +45,65 @@
             }
         })
         const meatInput2 = document.querySelector('#meat2');
-        meatInput2.suggestions = ["test", "stuff", "meatspace", "test1"];
+        meatInput2.suggestions = ["Alaska",
+                  "Alabama",
+                  "Arkansas",
+                  "American Samoa",
+                  "Arizona",
+                  "California",
+                  "Colorado",
+                  "Connecticut",
+                  "District of Columbia",
+                  "Delaware",
+                  "Florida",
+                  "Georgia",
+                  "Guam",
+                  "Hawaii",
+                  "Iowa",
+                  "Idaho",
+                  "Illinois",
+                  "Indiana",
+                  "Kansas",
+                  "Kentucky",
+                  "Louisiana",
+                  "Massachusetts",
+                  "Maryland",
+                  "Maine",
+                  "Michigan",
+                  "Minnesota",
+                  "Missouri",
+                  "Mississippi",
+                  "Montana",
+                  "North Carolina",
+                  "North Dakota",
+                  "Nebraska",
+                  "New Hampshire",
+                  "New Jersey",
+                  "New Mexico",
+                  "Nevada",
+                  "New York",
+                  "Ohio",
+                  "Oklahoma",
+                  "Oregon",
+                  "Pennsylvania",
+                  "Puerto Rico",
+                  "Rhode Island",
+                  "South Carolina",
+                  "South Dakota",
+                  "Tennessee",
+                  "Texas",
+                  "Utah",
+                  "Virginia",
+                  "Virgin Islands",
+                  "Vermont",
+                  "Washington",
+                  "Wisconsin",
+                  "West Virginia",
+                  "Wyoming"];
+        meatInput2.addEventListener('keyup', (evt) => {
+            if (evt.keyCode === 13) {
+                console.log("Pressed enter:", evt.target.value);
+            }
+        })
     </script>
 </html>
