@@ -7,7 +7,7 @@
     "/web_components"
   ],
   "scripts": {
-    "test": "./node_modules/.bin/mocha test/seleniumDefaultTest.js --timeout 10000",
+    "test": "echo no tests running",
     "runner": "node test/runner.js",
     "mtest": "mocha-chrome ./test/hello-core-test.html",
     "wintest": "for %f in (./test/*.html) do mocha-chrome ./test/%f",
