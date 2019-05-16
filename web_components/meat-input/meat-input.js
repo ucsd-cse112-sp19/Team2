@@ -11,7 +11,8 @@ template.innerHTML = `
   
   /* TODO: Determine needed variables. */
   --border-radius: 10px;
-  
+  --border-bottom: 1px solid #000000;
+
   /* Colors */
   --background-color: #ffffff;
   --text-color: #444444;
@@ -38,6 +39,7 @@ input {
   background-color: inherit;
   color: var(--text-color);
   border: var(--border);
+  border-bottom: var(--border-bottom);
   padding: 5px;
   outline: hidden; /* This may not be needed */
 }
@@ -94,7 +96,7 @@ placeholder {
 }
 
 /* Actions: */
-/* Focus */
+/* Hover */
 </style>
 <input id="input" type="text"></input>
 <div id="suggestionContainer"></div>
