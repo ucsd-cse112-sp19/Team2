@@ -1,0 +1,22 @@
+{
+    "tests": [
+      {
+        "file": "./test/seleniumDefaultTest.js",
+        "timeout": 30000
+      }
+    ],
+    "browsers": [
+      {
+        "browserName": "Chrome",
+        "browser_version": "68.0"
+      },
+      {
+        "browserName": "Firefox",
+        "browser_version": "61.0"
+      },
+      {
+        "browserName" : "Safari",
+        "browser_version" : "12.0"
+      }
+    ]
+  }

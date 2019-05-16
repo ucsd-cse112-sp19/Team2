@@ -32,19 +32,19 @@
     </nav>
 
     <div id="main">
-        <h1 class="page-title">meat-button</h1>
+        <h1 class="page-title">meat-input</h1>
         <section>
             <header>
-                <h2>meat-button</h2>
+                <h2>meat-input</h2>
                 <div class="class-description">
-                    <p>meat-button webcomponent</p>
+                    <p>meat-input webcomponent</p>
                 </div>
             </header>
             <article>
                 <div class="container-overview">
                 <div class="description">
-                    <p>displays a stylized button</p>
-                    <pre><code>&lt;meat-button autofocus="[boolean]" circle="[string]" disabled="[boolean]" round="[boolean]" size="[string]" type="[string]"&gt;</code></pre>
+                    <p>displays an input box</p>
+                    <pre><code>&lt;meat-input disabled="[boolean]" size="[string]" limit="[string]" placeholder="[string]" password="[boolean]" value="[string]" readonly="[boolean]" suggest="[on, off]" autocomplete="[on, off]"&gt;</code></pre>
                 </div>
                 <h5 class="subsection-title">Properties:</h5>  
                 <table class="props">
@@ -57,24 +57,6 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="name"><code>autofocus</code></td>
-                            <td class="type">
-                                <span class="param-type"><code>boolean</code></span> 
-                            </td>
-                            <td class="description last">
-                                <p>Enables button to automatically get focus when the page loads.</p>
-                            </td>
-                        </tr>
-                        <tr> 
-                            <td class="name"><code>circle</code></td>
-                            <td class="type">
-                                <span class="param-type"><code>string</code></span>
-                            </td>
-                            <td class="description last">
-                                <p>Enables a circle shaped button.</p>
-                            </td>
-                        </tr>
-                        <tr>
                             <td class="name">
                                 <code>disabled</code>
                             </td>
@@ -82,18 +64,7 @@
                                 <span class="param-type"><code>boolean</code></span>
                             </td>
                             <td class="description last">
-                                <p>Disables button from accepting events.</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="name">
-                                <code>round</code>
-                            </td>
-                            <td class="type">
-                                <span class="param-type"><code>boolean</code></span>
-                            </td>
-                            <td class="description last">
-                                <p>Enables a round shaped button.</p>
+                                <p>Disables input from accepting text.</p>
                             </td>
                         </tr>
                         <tr>
@@ -104,18 +75,73 @@
                                 <span class="param-type"><code>string</code></span>
                             </td>
                             <td class="description last">
-                                <p>Changes the size of the button.</p>
+                                <p>Changes the size of the input box.</p>
                             </td>
                         </tr>
                         <tr>
                             <td class="name">
-                                <code>type</code>
+                                <code>placeholder</code>
                             </td>
                             <td class="type">
                                 <span class="param-type"><code>string</code></span>
                             </td>
                             <td class="description last">
-                                <p>Enables the specified type of button.</p>
+                                <p>Placeholder showing what text this input can take.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <code>password</code>
+                            </td>
+                            <td class="type">
+                                <span class="param-type"><code>boolean</code></span>
+                            </td>
+                            <td class="description last">
+                                <p>Make the input a password field and replace text with asteriks.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <code>value</code>
+                            </td>
+                            <td class="type">
+                                <span class="param-type"><code>string</code></span>
+                            </td>
+                            <td class="description last">
+                                <p>Default text value within the input box.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <code>readonly</code>
+                            </td>
+                            <td class="type">
+                                <span class="param-type"><code>boolean</code></span>
+                            </td>
+                            <td class="description last">
+                                <p>Determines if the input box can be edited.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <code>suggest</code>
+                            </td>
+                            <td class="type">
+                                <span class="param-type"><code>on, off</code></span>
+                            </td>
+                            <td class="description last">
+                                <p>Determines if input box will display a predetermined suggestion list.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <code>autocomplete</code>
+                            </td>
+                            <td class="type">
+                                <span class="param-type"><code>on, off</code></span>
+                            </td>
+                            <td class="description last">
+                                <p>Determines if input box will use native browser capabilit to display user's previous inputs as suggestion.</p>
                             </td>
                         </tr>
                     </tbody>
@@ -125,14 +151,14 @@
                     <dd class="tag-source">
                         <ul class="dummy">
                             <li>
-                                <a href="meat-button_meat-button.js.html">meat-button/meat-button.js</a>, <a href="meat-button_meat-button.js.html#line319">line 319</a>
+                                <a href="meat-input_meat-input.js.html">meat-input/meat-input.js</a>, <a href="meat-input_meat-input.js.html#line109">line 109</a>
                             </li>
                         </ul>
                     </dd>
                     <dt class="tag-see">See:</dt>
                     <dd class="tag-see">
                         <ul>
-                            <li><p><a href="https://meat-space.org/web_components/meat-button/meat-button-demo.html">Demo</a> for working example.</p></li>
+                            <li><p><a href="https://meat-space.org/web_components/meat-input/meat-input-demo.html">Demo</a> for working example.</p></li>
                         </ul>
                     </dd>
                 </dl>
