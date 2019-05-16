@@ -300,7 +300,7 @@ button {
     }
 
 </style>
-<button id="button"></button>
+<button id="button" type="reset"></button>
 `;
 
 /**
@@ -372,6 +372,67 @@ export class MeatButtonElement extends HTMLElement {
       case "type":
         // assigning type to button doesn't work
         break;
+    }
+  }
+
+  // getters and setters for attributes
+  get disabled() {
+    return this.hasAttribute("disabled");
+  }
+
+  set disabled(val) {
+    if (val) {
+      this.setAttribute("disabled", "");
+    } else {
+      this.removeAttribute("disabled");
+    }
+  }
+
+  get round() {
+    return this.hasAttribute("round");
+  }
+
+  set round(val) {
+    if (val) {
+      this.setAttribute("round", "");
+    } else {
+      this.removeAttribute("round");
+    }
+  }
+
+  get circle() {
+    return this.hasAttribute("circle");
+  }
+
+  set circle(val) {
+    if (val) {
+      this.setAttribute("circle", "");
+    } else {
+      this.removeAttribute("circle");
+    }
+  }
+
+  get size() {
+    return this.getAttribute("size");
+  }
+
+  set size(val) {
+    if (val) {
+      this.setAttribute("size", val);
+    } else {
+      this.removeAttribute("size");
+    }
+  }
+
+  get type() {
+    return this.getAttribute("type");
+  }
+
+  set type(val) {
+    if (val) {
+      this.setAttribute("type", val);
+    } else {
+      this.removeAttribute("type");
     }
   }
 

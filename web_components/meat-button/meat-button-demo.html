@@ -48,5 +48,10 @@
         meatButton.addEventListener('click', () => {
             console.log("user defined click method");
         })
+        
+        setTimeout(() => {
+            meatButton.size = 'large';
+            meatButton.disabled = false;
+        }, 1000);
     </script>
 </html>
