@@ -112,6 +112,10 @@ export class MeatInputElement extends HTMLElement {
    */
   constructor() {
     super();
+    this._sortSuggestions = this._sortSuggestions.bind(this);
+    this._switchFocus = this._switchFocus.bind(this);
+    this._onInputChange = this._onInputChange.bind(this);
+    
     this._suggestions = [];
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
@@ -247,7 +251,8 @@ export class MeatInputElement extends HTMLElement {
   /**
    * Sort suggestions alphanumerically for user convenience, make toggleable via attribute?
    */
-  _sortSuggestions = () => {
+  //_sortSuggestions = () => {
+  _sortSuggestions() {
     this._suggestions = this._suggestions.sort(function (a, b) {
       //If characters get matched to the regular expression \D+\, push [infinity, "the first char"]
       //If numbers get matched to the regular expression \d+\, push [the numbers, ""]
@@ -277,14 +282,14 @@ export class MeatInputElement extends HTMLElement {
       //otherwise, decide by the length
       return aMatches.length - bMatches.length;
     });
-  }
+  };
 
   /**
    * @param {event} evt
    * Allow user to use keyboard arrows to navigate up and down the list
    */
-  _switchFocus = (evt) => {
-
+  //_switchFocus = (evt) => {
+  _switchFocus(evt) {
     // move focus up or down the list of suggestions
     if (evt.keyCode == 40) { // down
       this._currentFocus++;
@@ -331,7 +336,8 @@ export class MeatInputElement extends HTMLElement {
    * @param {object} evt 
    * Suggest terms for user to select whenever they input characters.
    */
-  _onInputChange = (evt) => {
+  //_onInputChange = (evt) => {
+  _onInputChange(evt) {
     if (!evt.target.value) {
       this._renderSuggestions([]);
       return;

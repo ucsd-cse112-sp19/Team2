@@ -322,6 +322,7 @@ export class MeatButtonElement extends HTMLElement {
    */
   constructor() {
     super();
+    this._parentForm;
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
     this.button = this.shadow.querySelector("#button");
@@ -334,6 +335,14 @@ export class MeatButtonElement extends HTMLElement {
   connectedCallback() {
     // Need to get the content inbetween the <meat-button> tags into the button so it renders
     this.button.textContent = this.textContent;
+    let parentNode = this.parentNode;
+    while(parentNode) {
+      if (parentNode && parentNode.nodeName == "FORM") {
+        this._parentForm = parentNode;
+        break;
+      }
+      parentNode = parentNode.parentNode;
+    }
   }
 
   /**
@@ -515,13 +524,13 @@ export class MeatButtonElement extends HTMLElement {
   _onClick(evt, thisComponent) {
     switch (this.getAttribute("type")) {
       case "reset":
-        if (this.parentNode && this.parentNode.nodeName == "FORM") {
-          this.parentNode.reset();
+        if (this._parentForm) {
+          this._parentForm.reset();
         }
         break;
       case "submit":
-        if (this.parentNode && this.parentNode.nodeName == "FORM") {
-          this.parentNode.submit();
+        if (this._parentForm) {
+          this._parentForm.submit();
         }
         break;
     }
