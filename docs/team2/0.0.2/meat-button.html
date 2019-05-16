@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -13,20 +14,20 @@
         var i;
 
         for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.maxHeight){
-            content.style.maxHeight = null;
-            } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-            } 
-            if (this.innerHTML === "Show Code") {
-            this.innerHTML = "Hide Code";
-            } else {
-            this.innerHTML = "Show Code";
-            }
-        });
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+                if (this.innerHTML === "Show Code") {
+                    this.innerHTML = "Hide Code";
+                } else {
+                    this.innerHTML = "Show Code";
+                }
+            });
         }
     </script>
     <!--[if lt IE 9]>
@@ -37,357 +38,403 @@
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
     <style>
         .collapsible {
-        background-color: white;
-        color: black;
-        cursor: pointer;
-        padding: 18px;
-        width: 100%;
-        text-align: left;
-        outline: none;
-        font-size: 15px;
+            background-color: white;
+            color: black;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
         }
-        .active, .collapsible:hover {
-        background-color: white;
+
+        .active,
+        .collapsible:hover {
+            background-color: white;
         }
+
         .content {
-        padding: 0px;
-        max-height: 0;
-        overflow: hidden;
-        background-color: white;
-        transition: max-height 0.2s ease-out;
+            padding: 0px;
+            max-height: 0;
+            overflow: hidden;
+            background-color: white;
+            transition: max-height 0.2s ease-out;
         }
+
         textarea {
             background-color: #fafafa;
             color: darkblue;
         }
     </style>
 </head>
+
 <body>
 
-<input type="checkbox" id="nav-trigger" class="nav-trigger" />
-<label for="nav-trigger" class="navicon-button x">
-  <div class="navicon"></div>
-</label>
+    <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <label for="nav-trigger" class="navicon-button x">
+        <div class="navicon"></div>
+    </label>
 
-<label for="nav-trigger" class="overlay"></label>
+    <label for="nav-trigger" class="overlay"></label>
 
-<nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="core-hello.html">core-hello</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="live-editor.html">live-editor</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-boilerplate.html">meat-boilerplate</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-button.html">meat-button</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-input.html">meat-input</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="team2-learn.html">team2-learn</a></span></li>
-</nav>
+    <nav>
+        <li class="nav-link nav-home-link"><a href="index.html">Home</a></li>
+        <li class="nav-heading">Externals</li>
+        <li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a
+                    href="core-hello.html">core-hello</a></span></li>
+        <li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a
+                    href="live-editor.html">live-editor</a></span></li>
+        <li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a
+                    href="meat-boilerplate.html">meat-boilerplate</a></span></li>
+        <li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a
+                    href="meat-button.html">meat-button</a></span></li>
+        <li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a
+                    href="meat-input.html">meat-input</a></span></li>
+        <li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a
+                    href="team2-learn.html">team2-learn</a></span></li>
+    </nav>
 
-<div id="main">
-    
-    <h1 class="page-title">meat-button</h1>
-    
+    <div id="main">
 
-    
+        <h1 class="page-title">meat-button</h1>
 
 
 
 
-<section>
 
-<header>
-    
-        <h2>
-        meat-button
-        </h2>
-        
-            <div class="class-description"><p>meat-button webcomponent</p></div>
-        
-    
-</header>
 
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>displays a stylized button</p><pre><code>&lt;meat-button autofocus="[boolean]" circle="[string]" disabled="[boolean]" round="[boolean]" size="[string]" type="[string]"&gt;</code></pre></div>
-        
 
-        
+        <section>
 
+            <header>
 
-    <h5 class="subsection-title">Properties:</h5>
+                <h2>
+                    meat-button
+                </h2>
 
-    
+                <div class="class-description">
+                    <p>meat-button webcomponent</p>
+                </div>
 
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
 
-        <th>Type</th>
+            </header>
 
-        
+            <article>
+                <div class="container-overview">
 
-        
 
-        <th class="last">Description</th>
-    </tr>
-    </thead>
+                    <div class="description">
+                        <p>displays a stylized button</p>
+                        <pre><code>&lt;meat-button autofocus="[boolean]" circle="[string]" disabled="[boolean]" round="[boolean]" size="[string]" type="[string]"&gt;</code></pre>
+                    </div>
 
-    <tbody>
-    
 
-        <tr>
-            
-                <td class="name"><code>autofocus</code></td>
-            
 
-            <td class="type">
-            
-                
-<span class="param-type"><code>boolean</code></span>
 
 
-            
-            </td>
+                    <h5 class="subsection-title">Properties:</h5>
 
-            
 
-            
 
-            <td class="description last"><p>Enables button to automatically get focus when the page loads.</p></td>
-        </tr>
+                    <table class="props">
+                        <thead>
+                            <tr>
 
-        
+                                <th>Name</th>
 
-    
 
-        <tr>
-            
-                <td class="name"><code>circle</code></td>
-            
+                                <th>Type</th>
 
-            <td class="type">
-            
-                
-<span class="param-type"><code>string</code></span>
 
 
-            
-            </td>
 
-            
 
-            
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
 
-            <td class="description last"><p>Enables a circle shaped button.</p></td>
-        </tr>
+                        <tbody>
 
-        
 
-        <tr>
-            
-                <td class="name"><code>color</code></td>
-            
+                            <tr>
 
-            <td class="type">
-            
-                
-<span class="param-type"><code>string</code></span>
+                                <td class="name"><code>autofocus</code></td>
 
 
-            
-            </td>
+                                <td class="type">
 
-            
 
-            
+                                    <span class="param-type"><code>boolean</code></span>
 
-            <td class="description last"><p>Sets the color of the button.</p></td>
-        </tr>
 
 
-        <tr>
-            
-                <td class="name"><code>disabled</code></td>
-            
+                                </td>
 
-            <td class="type">
-            
-                
-<span class="param-type"><code>boolean</code></span>
 
 
-            
-            </td>
 
-            
 
-            
+                                <td class="description last">
+                                    <p>Enables button to automatically get focus when the page loads.</p>
+                                </td>
+                            </tr>
 
-            <td class="description last"><p>Disables button from accepting events.</p></td>
-        </tr>
 
-        
 
-    
 
-        <tr>
-            
-                <td class="name"><code>round</code></td>
-            
 
-            <td class="type">
-            
-                
-<span class="param-type"><code>boolean</code></span>
+                            <tr>
 
+                                <td class="name"><code>circle</code></td>
 
-            
-            </td>
 
-            
+                                <td class="type">
 
-            
 
-            <td class="description last"><p>Enables a round shaped button.</p></td>
-        </tr>
+                                    <span class="param-type"><code>string</code></span>
 
-        
 
-    
 
-        <tr>
-            
-                <td class="name"><code>size</code></td>
-            
+                                </td>
 
-            <td class="type">
-            
-                
-<span class="param-type"><code>string</code></span>
 
 
-            
-            </td>
 
-            
 
-            
+                                <td class="description last">
+                                    <p>Enables a circle shaped button.</p>
+                                </td>
+                            </tr>
 
-            <td class="description last"><p>Changes the size of the button.</p></td>
-        </tr>
 
-        
 
-    
+                            <tr>
 
-        <tr>
-            
-                <td class="name"><code>type</code></td>
-            
+                                <td class="name"><code>color</code></td>
 
-            <td class="type">
-            
-                
-<span class="param-type"><code>string</code></span>
 
+                                <td class="type">
 
-            
-            </td>
 
-            
+                                    <span class="param-type"><code>string</code></span>
 
-            
 
-            <td class="description last"><p>Enables the specified type of button.</p></td>
-        </tr>
 
-        
+                                </td>
 
-    
-    </tbody>
-</table>
 
 
 
 
-<dl class="details">
+                                <td class="description last">
+                                    <p>Sets the color of the button.</p>
+                                </td>
+                            </tr>
 
-    
 
-    
+                            <tr>
 
-    
+                                <td class="name"><code>disabled</code></td>
 
-    
 
-    
+                                <td class="type">
 
-    
 
-    
+                                    <span class="param-type"><code>boolean</code></span>
 
-    
 
-    
 
-    
+                                </td>
 
-    
 
-    
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="meat-button_meat-button.js.html">meat-button/meat-button.js</a>, <a href="meat-button_meat-button.js.html#line319">line 319</a>
-    </li></ul></dd>
-    
 
-    
 
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><p><a href="../../../web_components/meat-button/meat-button-demo.html">Demo</a> for working example.</p></li>
-        </ul>
-    </dd>
-    
+                                <td class="description last">
+                                    <p>Disables button from accepting events.</p>
+                                </td>
+                            </tr>
 
-    
-</dl>
 
-    <h5 class="subsection-title">Basic Usage:</h5>
-    <h6>Customizable Style</h6>
-    <div>
-        <meat-button color="white"  size="large" round >White</meat-button>
-        <meat-button color="grey"   size="large" round >Grey</meat-button>
-        <meat-button color="red"    size="large" round >Red</meat-button>
-        <meat-button color="orange" size="large" round >Orange</meat-button>
-        <meat-button color="yellow" size="large" round >Yellow</meat-button>
-        <meat-button color="green"  size="large" round >Green</meat-button>
-        <meat-button color="blue"   size="large" round >Blue</meat-button>
-        <meat-button color="purple" size="large" round >Purple</meat-button><br/>
-        <br/>
-        <meat-button color="white"  size="large" round circle>+</meat-button>
-        <meat-button color="grey"   size="large" round circle>+</meat-button>
-        <meat-button color="red"    size="large" round circle>+</meat-button>
-        <meat-button color="orange" size="large" round circle>+</meat-button>
-        <meat-button color="yellow" size="large" round circle>+</meat-button>
-        <meat-button color="green"  size="large" round circle>+</meat-button>
-        <meat-button color="blue"   size="large" round circle>+</meat-button>
-        <meat-button color="purple" size="large" round circle>+</meat-button>
 
-        <meat-button color="white"  size="small" round >Small</meat-button>
-        <meat-button color="white"  size="medium" round >Medium</meat-button>
-        <meat-button color="white"  size="large" round >Large</meat-button>
 
-        <p>
-            Use <code>round</code>, <code>circle</code>, <code>color</code>, and <code>size</code> to define Button's style.
-        </p>
 
-    </div>
+                            <tr>
 
-    <button class="collapsible props">Show Code</button>
-    <div class="content">
-    <textarea class="props" readonly rows="19" cols="75" style="resize: none">
+                                <td class="name"><code>round</code></td>
+
+
+                                <td class="type">
+
+
+                                    <span class="param-type"><code>boolean</code></span>
+
+
+
+                                </td>
+
+
+
+
+
+                                <td class="description last">
+                                    <p>Enables a round shaped button.</p>
+                                </td>
+                            </tr>
+
+
+
+
+
+                            <tr>
+
+                                <td class="name"><code>size</code></td>
+
+
+                                <td class="type">
+
+
+                                    <span class="param-type"><code>string</code></span>
+
+
+
+                                </td>
+
+
+
+
+
+                                <td class="description last">
+                                    <p>Changes the size of the button.</p>
+                                </td>
+                            </tr>
+
+
+
+
+
+                            <tr>
+
+                                <td class="name"><code>type</code></td>
+
+
+                                <td class="type">
+
+
+                                    <span class="param-type"><code>string</code></span>
+
+
+
+                                </td>
+
+
+
+
+
+                                <td class="description last">
+                                    <p>Enables the specified type of button.</p>
+                                </td>
+                            </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+
+
+
+
+                    <dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source">
+                            <ul class="dummy">
+                                <li>
+                                    <a href="meat-button_meat-button.js.html">meat-button/meat-button.js</a>, <a
+                                        href="meat-button_meat-button.js.html#line319">line 319</a>
+                                </li>
+                            </ul>
+                        </dd>
+
+
+
+
+
+                        <dt class="tag-see">See:</dt>
+                        <dd class="tag-see">
+                            <ul>
+                                <li>
+                                    <p><a href="../../../web_components/meat-button/meat-button-demo.html">Demo</a> for
+                                        working example.</p>
+                                </li>
+                            </ul>
+                        </dd>
+
+
+
+                    </dl>
+
+                    <h5 class="subsection-title">Basic Usage:</h5>
+                    <h6>Customizable Style</h6>
+                    <div>
+                        <meat-button color="white" size="large" round>White</meat-button>
+                        <meat-button color="grey" size="large" round>Grey</meat-button>
+                        <meat-button color="red" size="large" round>Red</meat-button>
+                        <meat-button color="orange" size="large" round>Orange</meat-button>
+                        <meat-button color="yellow" size="large" round>Yellow</meat-button>
+                        <meat-button color="green" size="large" round>Green</meat-button>
+                        <meat-button color="blue" size="large" round>Blue</meat-button>
+                        <meat-button color="purple" size="large" round>Purple</meat-button><br />
+                        <br />
+                        <meat-button color="white" size="large" round circle>+</meat-button>
+                        <meat-button color="grey" size="large" round circle>+</meat-button>
+                        <meat-button color="red" size="large" round circle>+</meat-button>
+                        <meat-button color="orange" size="large" round circle>+</meat-button>
+                        <meat-button color="yellow" size="large" round circle>+</meat-button>
+                        <meat-button color="green" size="large" round circle>+</meat-button>
+                        <meat-button color="blue" size="large" round circle>+</meat-button>
+                        <meat-button color="purple" size="large" round circle>+</meat-button>
+
+                        <meat-button color="white" size="small" round>Small</meat-button>
+                        <meat-button color="white" size="medium" round>Medium</meat-button>
+                        <meat-button color="white" size="large" round>Large</meat-button>
+
+                        <p>
+                            Use <code>round</code>, <code>circle</code>, <code>color</code>, and <code>size</code> to
+                            define Button's style.
+                        </p>
+
+                    </div>
+
+                    <button class="collapsible props">Show Code</button>
+                    <div class="content">
+                        <textarea class="props" readonly rows="19" cols="75" style="resize: none">
     <meat-button color="white"  size="large" round >White</meat-button>
     <meat-button color="grey"   size="large" round >Grey</meat-button>
     <meat-button color="red"    size="large" round >Red</meat-button>
@@ -407,65 +454,66 @@
     <meat-button color="blue"   size="large" round circle>+</meat-button>
     <meat-button color="purple" size="large" round circle>+</meat-button>
     </textarea>
-    </div>
-    <br />
-    <h6>Disabled</h6>
-    <div>
-    <meat-button disabled color="white"  size="large" round >White</meat-button>
-    <meat-button color="white"   size="large" round >White</meat-button>
+                    </div>
+                    <br />
+                    <h6>Disabled</h6>
+                    <div>
+                        <meat-button disabled color="white" size="large" round>White</meat-button>
+                        <meat-button color="white" size="large" round>White</meat-button>
 
-    <p>
-        Use <code>disabled</code> to disable a button.
-    </p>
-    </div>
-    <button class="collapsible props">Show Code</button>
-    <div class="content">
-    <textarea class="props" readonly rows="3" cols="75" style="resize: none">
+                        <p>
+                            Use <code>disabled</code> to disable a button.
+                        </p>
+                    </div>
+                    <button class="collapsible props">Show Code</button>
+                    <div class="content">
+                        <textarea class="props" readonly rows="3" cols="75" style="resize: none">
     <meat-button disabled color="white"  size="large" round >White</meat-button>
     <meat-button color="white"   size="large" round >White</meat-button>
     </textarea>
+                    </div>
+                    <h3>Example</h3>
+
+                    <pre class="prettyprint"><code>&lt;meat-button>&lt;/meat-button></code></pre>
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </article>
+
+        </section>
+
+
+
+
     </div>
-            <h3>Example</h3>
-            
-    <pre class="prettyprint"><code>&lt;meat-button>&lt;/meat-button></code></pre>
 
-        
-    
-    </div>
+    <br class="clear">
 
-    
+    <footer>
+        Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> using the Minami theme.
+    </footer>
 
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
-
-
-
-
-</div>
-
-<br class="clear">
-
-<footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> using the Minami theme.
-</footer>
-
-<script>prettyPrint();</script>
-<script src="scripts/linenumber.js"></script>
+    <script>prettyPrint();</script>
+    <script src="scripts/linenumber.js"></script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -19,16 +20,30 @@
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
     <link type="text/css" rel="stylesheet" href="styles/codeexpand.css">
 </head>
+
 <body>
 
     <input type="checkbox" id="nav-trigger" class="nav-trigger" />
     <label for="nav-trigger" class="navicon-button x">
-        <div class="navicon"></div> 
+        <div class="navicon"></div>
     </label>
     <label for="nav-trigger" class="overlay"></label>
-    
+
     <nav>
-            <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="core-hello.html">core-hello</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="live-editor.html">live-editor</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-button.html">meat-button</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-input.html">meat-input</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="team2-learn.html">team2-learn</a></span></li>
+        <li class="nav-link nav-home-link"><a href="index.html">Home</a></li>
+        <li class="nav-heading">Externals</li>
+        <li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a
+                    href="core-hello.html">core-hello</a></span></li>
+        <li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a
+                    href="live-editor.html">live-editor</a></span></li>
+        <li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a
+                    href="meat-boilerplate.html">meat-boilerplate</a></span></li>
+        <li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a
+                    href="meat-button.html">meat-button</a></span></li>
+        <li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a
+                    href="meat-input.html">meat-input</a></span></li>
+        <li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a
+                    href="team2-learn.html">team2-learn</a></span></li>
     </nav>
 
     <div id="main">
@@ -42,152 +57,159 @@
             </header>
             <article>
                 <div class="container-overview">
-                <div class="description">
-                    <p>displays an input box</p>
-                    <pre><code>&lt;meat-input disabled="[boolean]" size="[string]" limit="[string]" placeholder="[string]" password="[boolean]" value="[string]" readonly="[boolean]" suggest="[on, off]" autocomplete="[on, off]"&gt;</code></pre>
-                </div>
-                <h5 class="subsection-title">Properties:</h5>  
-                <table class="props">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th class="last">Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="name">
-                                <code>disabled</code>
-                            </td>
-                            <td class="type">
-                                <span class="param-type"><code>boolean</code></span>
-                            </td>
-                            <td class="description last">
-                                <p>Disables input from accepting text.</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="name">
-                                <code>size</code>   
-                            </td>
-                            <td class="type">
-                                <span class="param-type"><code>string</code></span>
-                            </td>
-                            <td class="description last">
-                                <p>Changes the size of the input box.</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="name">
-                                <code>placeholder</code>
-                            </td>
-                            <td class="type">
-                                <span class="param-type"><code>string</code></span>
-                            </td>
-                            <td class="description last">
-                                <p>Placeholder showing what text this input can take.</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="name">
-                                <code>password</code>
-                            </td>
-                            <td class="type">
-                                <span class="param-type"><code>boolean</code></span>
-                            </td>
-                            <td class="description last">
-                                <p>Make the input a password field and replace text with asteriks.</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="name">
-                                <code>value</code>
-                            </td>
-                            <td class="type">
-                                <span class="param-type"><code>string</code></span>
-                            </td>
-                            <td class="description last">
-                                <p>Default text value within the input box.</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="name">
-                                <code>readonly</code>
-                            </td>
-                            <td class="type">
-                                <span class="param-type"><code>boolean</code></span>
-                            </td>
-                            <td class="description last">
-                                <p>Determines if the input box can be edited.</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="name">
-                                <code>suggest</code>
-                            </td>
-                            <td class="type">
-                                <span class="param-type"><code>on, off</code></span>
-                            </td>
-                            <td class="description last">
-                                <p>Determines if input box will display a predetermined suggestion list.</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="name">
-                                <code>autocomplete</code>
-                            </td>
-                            <td class="type">
-                                <span class="param-type"><code>on, off</code></span>
-                            </td>
-                            <td class="description last">
-                                <p>Determines if input box will use native browser capabilit to display user's previous inputs as suggestion.</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <dl class="details">
-                    <dt class="tag-source">Source:</dt>
-                    <dd class="tag-source">
-                        <ul class="dummy">
-                            <li>
-                                <a href="meat-input_meat-input.js.html">meat-input/meat-input.js</a>, <a href="meat-input_meat-input.js.html#line109">line 109</a>
-                            </li>
-                        </ul>
-                    </dd>
-                    <dt class="tag-see">See:</dt>
-                    <dd class="tag-see">
-                        <ul>
-                            <li><p><a href="https://meat-space.org/web_components/meat-input/meat-input-demo.html">Demo</a> for working example.</p></li>
-                        </ul>
-                    </dd>
-                </dl>
-                <h5 class="subsection-title">Basic Usage:</h5>
-                <div>
-                    <meat-button color="white"  size="large" round >White</meat-button>
-                    <meat-button color="grey"   size="large" round >Grey</meat-button>
-                    <meat-button color="red"    size="large" round >Red</meat-button>
-                    <meat-button color="orange" size="large" round >Orange</meat-button>
-                    <meat-button color="yellow" size="large" round >Yellow</meat-button>
-                    <meat-button color="green"  size="large" round >Green</meat-button>
-                    <meat-button color="blue"   size="large" round >Blue</meat-button>
-                    <meat-button color="purple" size="large" round >Purple</meat-button><br/>
-                    <br/>
-                    <meat-button color="white"  size="large" round circle>+</meat-button>
-                    <meat-button color="grey"   size="large" round circle>+</meat-button>
-                    <meat-button color="red"    size="large" round circle>+</meat-button>
-                    <meat-button color="orange" size="large" round circle>+</meat-button>
-                    <meat-button color="yellow" size="large" round circle>+</meat-button>
-                    <meat-button color="green"  size="large" round circle>+</meat-button>
-                    <meat-button color="blue"   size="large" round circle>+</meat-button>
-                    <meat-button color="purple" size="large" round circle>+</meat-button>
-                    <p>
-                        Use <code>round</code>, <code>circle</code>, <code>color</code>, and <code>size</code> to define Button's style.
-                    </p>
-                </div>
-                <button class="collapsible props">Show Code</button>
-                <div class="content">
-                    <textarea class="props" readonly rows="19" cols="75" style="resize: none">
+                    <div class="description">
+                        <p>displays an input box</p>
+                        <pre><code>&lt;meat-input disabled="[boolean]" size="[string]" limit="[string]" placeholder="[string]" password="[boolean]" value="[string]" readonly="[boolean]" suggest="[on, off]" autocomplete="[on, off]"&gt;</code></pre>
+                    </div>
+                    <h5 class="subsection-title">Properties:</h5>
+                    <table class="props">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="name">
+                                    <code>disabled</code>
+                                </td>
+                                <td class="type">
+                                    <span class="param-type"><code>boolean</code></span>
+                                </td>
+                                <td class="description last">
+                                    <p>Disables input from accepting text.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    <code>size</code>
+                                </td>
+                                <td class="type">
+                                    <span class="param-type"><code>string</code></span>
+                                </td>
+                                <td class="description last">
+                                    <p>Changes the size of the input box.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    <code>placeholder</code>
+                                </td>
+                                <td class="type">
+                                    <span class="param-type"><code>string</code></span>
+                                </td>
+                                <td class="description last">
+                                    <p>Placeholder showing what text this input can take.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    <code>password</code>
+                                </td>
+                                <td class="type">
+                                    <span class="param-type"><code>boolean</code></span>
+                                </td>
+                                <td class="description last">
+                                    <p>Make the input a password field and replace text with asteriks.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    <code>value</code>
+                                </td>
+                                <td class="type">
+                                    <span class="param-type"><code>string</code></span>
+                                </td>
+                                <td class="description last">
+                                    <p>Default text value within the input box.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    <code>readonly</code>
+                                </td>
+                                <td class="type">
+                                    <span class="param-type"><code>boolean</code></span>
+                                </td>
+                                <td class="description last">
+                                    <p>Determines if the input box can be edited.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    <code>suggest</code>
+                                </td>
+                                <td class="type">
+                                    <span class="param-type"><code>on, off</code></span>
+                                </td>
+                                <td class="description last">
+                                    <p>Determines if input box will display a predetermined suggestion list.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    <code>autocomplete</code>
+                                </td>
+                                <td class="type">
+                                    <span class="param-type"><code>on, off</code></span>
+                                </td>
+                                <td class="description last">
+                                    <p>Determines if input box will use native browser capabilit to display user's
+                                        previous inputs as suggestion.</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source">
+                            <ul class="dummy">
+                                <li>
+                                    <a href="meat-input_meat-input.js.html">meat-input/meat-input.js</a>, <a
+                                        href="meat-input_meat-input.js.html#line109">line 109</a>
+                                </li>
+                            </ul>
+                        </dd>
+                        <dt class="tag-see">See:</dt>
+                        <dd class="tag-see">
+                            <ul>
+                                <li>
+                                    <p><a
+                                            href="https://meat-space.org/web_components/meat-input/meat-input-demo.html">Demo</a>
+                                        for working example.</p>
+                                </li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <h5 class="subsection-title">Basic Usage:</h5>
+                    <div>
+                        <meat-button color="white" size="large" round>White</meat-button>
+                        <meat-button color="grey" size="large" round>Grey</meat-button>
+                        <meat-button color="red" size="large" round>Red</meat-button>
+                        <meat-button color="orange" size="large" round>Orange</meat-button>
+                        <meat-button color="yellow" size="large" round>Yellow</meat-button>
+                        <meat-button color="green" size="large" round>Green</meat-button>
+                        <meat-button color="blue" size="large" round>Blue</meat-button>
+                        <meat-button color="purple" size="large" round>Purple</meat-button><br />
+                        <br />
+                        <meat-button color="white" size="large" round circle>+</meat-button>
+                        <meat-button color="grey" size="large" round circle>+</meat-button>
+                        <meat-button color="red" size="large" round circle>+</meat-button>
+                        <meat-button color="orange" size="large" round circle>+</meat-button>
+                        <meat-button color="yellow" size="large" round circle>+</meat-button>
+                        <meat-button color="green" size="large" round circle>+</meat-button>
+                        <meat-button color="blue" size="large" round circle>+</meat-button>
+                        <meat-button color="purple" size="large" round circle>+</meat-button>
+                        <p>
+                            Use <code>round</code>, <code>circle</code>, <code>color</code>, and <code>size</code> to
+                            define Button's style.
+                        </p>
+                    </div>
+                    <button class="collapsible props">Show Code</button>
+                    <div class="content">
+                        <textarea class="props" readonly rows="19" cols="75" style="resize: none">
                         <meat-button color="white"  size="large" round >White</meat-button>
                         <meat-button color="grey"   size="large" round >Grey</meat-button>
                         <meat-button color="red"    size="large" round >Red</meat-button>
@@ -207,7 +229,7 @@
                         <meat-button color="blue"   size="large" round circle>+</meat-button>
                         <meat-button color="purple" size="large" round circle>+</meat-button>
                     </textarea>
-                </div>
+                    </div>
                     <h3>Example</h3>
                     <pre class="prettyprint"><code>&lt;meat-button>&lt;/meat-button></code></pre>
                 </div>
@@ -221,4 +243,5 @@
     <script>prettyPrint();</script>
     <script src="scripts/linenumber.js"></script>
 </body>
+
 </html>
