@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>core-hello - Documentation</title>
+    <title>team2-learn - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">core-hello</h1>
+    <h1 class="page-title">team2-learn</h1>
     
 
     
@@ -42,10 +42,8 @@
 <header>
     
         <h2>
-        core-hello
+        team2-learn
         </h2>
-        
-            <div class="class-description"><p>core-hello web component</p></div>
         
     
 </header>
@@ -54,7 +52,7 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>displays 'Hello World, <input>!'</p><pre><code>&lt;core-hello rainbow="[boolean]" lang="[string]"&gt;</code></pre></div>
+            <div class="description"><p>A learning exercise to see how to interact with webcomponents dynamically via javascript; how to allow manipulation of a webcomponent's state for the user</p><pre><code>&lt;team2-learn items="[array]"&gt;</code></pre></div>
         
 
         
@@ -86,13 +84,13 @@
 
         <tr>
             
-                <td class="name"><code>rainbow</code></td>
+                <td class="name"><code>items</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>boolean</code></span>
+<span class="param-type"><code>array</code></span>
 
 
             
@@ -102,32 +100,7 @@
 
             
 
-            <td class="description last"><p>Enables a background rainbow effect.</p></td>
-        </tr>
-
-        
-
-    
-
-        <tr>
-            
-                <td class="name"><code>lang</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>string</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Set language (English, French, Spanish). Default is English.</p></td>
+            <td class="description last"><p>Array of elements to display as a vertical list.</p></td>
         </tr>
 
         
@@ -168,7 +141,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core-hello_core-hello.js.html">core-hello/core-hello.js</a>, <a href="core-hello_core-hello.js.html#line67">line 67</a>
+        <a href="team2-learn_team2-learn.js.html">team2-learn/team2-learn.js</a>, <a href="team2-learn_team2-learn.js.html#line22">line 22</a>
     </li></ul></dd>
     
 
@@ -178,7 +151,7 @@
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
-            <li><p><a href="https://meat-space.org/web_components/core-hello/core-hello-test.html">Demo</a> for working example.</p></li>
+            <li><p><a href="https://meat-space.org/web_components/team2-learn/team2-learn-demo.html">Demo</a> for working example.</p></li>
         </ul>
     </dd>
     
@@ -190,9 +163,7 @@
         
             <h3>Example</h3>
             
-        <p class="code-caption"> Hello World! </p>
-    
-    <pre class="prettyprint"><code>&lt;core-hello rainbow lang="en">Alex!&lt;/core-hello></code></pre>
+    <pre class="prettyprint"><code>&lt;body>     &lt;input/>&lt;button id="change-property">&lt;/button>     &lt;team2-learn id="team2-learn">&lt;/team2-learn>&lt;/body> &lt;script>     const button = document.querySelector("#change-property");     const input = document.querySelector("input");     const team2Learn = document.querySelector("#team2-learn");     button.addEventListener('click', () => {         team2Learn.items = [...team2Learn.items, input.value]; })&lt;/script></code></pre>
 
         
     
