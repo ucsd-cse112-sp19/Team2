@@ -13,19 +13,25 @@
             width: 70px;
             height: 30px;
         }
+        label {
+            font-family: sans-serif;
+        }
+        meat-input {
+            border: 1px solid #000000;
+        }
     </style>
     <body>
-        <div>   
-            <form action="some_action.php">
-                <div style="text-align: center;">
-                    <label>This input uses the browser's built in autocomplete. When you submit, the browser caches what you typed and will suggest it next time.</label><br>
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 100vh;">   
+            <form action="some_action.php" style="background-color: #E6E6FA;">
+                <div style="border-style: groove; padding: 20px;">
+                    <br><label>This input uses the browser's built in autocomplete. When you submit, the browser caches what you typed and will suggest it next time.</label><br>
                     <label>Try typing something in amd submit. When you reload the page, you will see it in the suggestions when you try again.</label><br>
-                    <meat-input id="meat1" size="medium" placeholder="Autocomplete..." autocomplete="on"></meat-input>
+                    <br><meat-input id="meat1" size="medium" placeholder="Autocomplete..." autocomplete="on"></meat-input><br>
                     <br><label>This input uses the developer's suggestions, good for predefined values like states.</label><br>
                     <label>You can use the arrow keys to navigate the list too.</label><br>
-                    <meat-input id="meat2" size="medium" placeholder="Predefined Suggestions..." suggest="on"></meat-input>
+                    <br><meat-input id="meat2" size="medium" placeholder="Predefined Suggestions..." suggest="on"></meat-input><br>
                     <br><label>This input is read only and doesn't get reset by the reset button</label><br>
-                    <meat-input 
+                    <br><meat-input 
                         size="medium" 
                         placeholder="This is a readonly input!"
                         value="It's my boi, Peter!"
@@ -34,8 +40,9 @@
                     </meat-input>
                     <br/><br/>
                     <label>meat-input works with native Forms, even when nested inside other elements, like a bunch of divs. </label><br>
-                    <meat-button type="reset" color="red">Reset</meat-button>
-                    <meat-button type="submit" color="green">Submit</meat-button>
+                    <br><meat-button type="reset" color="red">Reset</meat-button>
+                    <meat-button type="submit" color="blue">Submit</meat-button>
+                    <br><label></label><br>
                 </div>
             </form>
         </form>
