@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>meat-input-demo</title>
         <script type="module" src="./meat-input.js"></script>
+        <script type="module" src="../meat-button/meat-button.js"></script>
     </head>
     <style>
         button {
@@ -14,9 +15,9 @@
         }
     </style>
     <body>
-        <div>
+        <div>   
             <form action="some_action.php">
-                <div>
+                <div style="text-align: center;">
                     <label>This input uses the browser's built in autocomplete. When you submit, the browser caches what you typed and will suggest it next time.</label><br>
                     <label>Try typing something in amd submit. When you reload the page, you will see it in the suggestions when you try again.</label><br>
                     <meat-input id="meat1" size="medium" placeholder="Autocomplete..." autocomplete="on"></meat-input>
@@ -32,9 +33,9 @@
                         readonly>
                     </meat-input>
                     <br/><br/>
-                    <label>&ltmeat-input&gt works with native Forms, even when nested inside other elements, like a bunch of divs. </label><br>
-                    <button type="reset">Reset</button>
-                    <button type="submit">Submit</button>
+                    <label>meat-input works with native Forms, even when nested inside other elements, like a bunch of divs. </label><br>
+                    <meat-button type="reset" color="red">Reset</meat-button>
+                    <meat-button type="submit" color="green">Submit</meat-button>
                 </div>
             </form>
         </form>
