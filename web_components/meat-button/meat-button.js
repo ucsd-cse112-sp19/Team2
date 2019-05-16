@@ -22,6 +22,7 @@ template.innerHTML = `
 
     --hover-background-color: #daeeff;
     --focus-background-color: #daeeff;
+    --active-background-color: #daeeff;
 
     --hover-text-color: #3388ff;
     --focus-text-color: #3388ff;
@@ -255,7 +256,6 @@ button {
   }
 
 /* Actions: focus */
-
     :host > button:focus {
         border: var(--focus-border);
         color: var(--focus-text-color);
@@ -264,7 +264,6 @@ button {
     }
 
 /* Actions: hover */
-
     :host(:not([disabled])) > button:hover {
         -webkit-animation: hover .1s linear forwards;
         animation: hover .1s linear forwards;
@@ -282,29 +281,26 @@ button {
     }
 
 /* Actions: active/click */
-
-    :host > button:active {
+    :host(:not([disabled])) > button:active {
         -webkit-animation: active .1s linear forwards;
         animation: active .1s linear forwards;
     }
     @keyframes active {
-        100% { border: var(--active-border)  }
         100% { background-color: var(--active-background-color)  }
+        100% { border: var(--active-border)  }
     }
-    @-webkit-keyframes default_active {
-        100% { border: var(--active-border)  }
+    @-webkit-keyframes active {
         100% { background-color: var(--active-background-color)  }
+        100% { border: var(--active-border)  }
     }
 
 /* Attribute: disabled */
-  /* if host element, i.e. <meat-button> has attribute round, apply this css to button*/
-  :host([disabled]) > button {
-    background-color: lightgrey; 
-    color: white;
-    cursor: not-allowed;
-  }
-
-
+    /* if host element, i.e. <meat-button> has attribute round, apply this css to button*/
+    :host([disabled]) > button {
+      background-color: lightgrey; 
+      color: white;
+      cursor: not-allowed;
+    }
 </style>
 <button id="button" type="reset"></button>
 `;
