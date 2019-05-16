@@ -17,7 +17,16 @@
         "sourceType": "module"
     },
     "rules": {
-        "prettier/prettier": "error"
+        "prettier/prettier": "error",
+        "require-jsdoc": ["error", {
+            "require": {
+                "FunctionDeclaration": false,
+                "MethodDefinition": false,
+                "ClassDeclaration": false,
+                "ArrowFunctionExpression": false,
+                "FunctionExpression": false
+            }
+        }]
     },
     "plugins": ["prettier"]
 }
