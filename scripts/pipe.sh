@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-read -p "branch name? " branchName
+read -p "branch name: " branchName
 git branch | grep -w $branchName
 
 if [ $? != 0 ]; then
