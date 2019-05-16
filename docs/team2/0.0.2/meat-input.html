@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <title>meat-button - Documentation</title>
+    <title>meat-input - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
     <script type="module" src="scripts/externals/codeexpand.js"></script>
-    <script type="module" src="../../../web_components/meat-button/meat-button.js"></script>
+    <script type="module" src="../../../web_components/meat-input/meat-input.js"></script>
 
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -185,53 +185,56 @@
                     </dl>
                     <h5 class="subsection-title">Basic Usage:</h5>
                     <div>
-                        <meat-button color="white" size="large" round>White</meat-button>
-                        <meat-button color="grey" size="large" round>Grey</meat-button>
-                        <meat-button color="red" size="large" round>Red</meat-button>
-                        <meat-button color="orange" size="large" round>Orange</meat-button>
-                        <meat-button color="yellow" size="large" round>Yellow</meat-button>
-                        <meat-button color="green" size="large" round>Green</meat-button>
-                        <meat-button color="blue" size="large" round>Blue</meat-button>
-                        <meat-button color="purple" size="large" round>Purple</meat-button><br />
-                        <br />
-                        <meat-button color="white" size="large" round circle>+</meat-button>
-                        <meat-button color="grey" size="large" round circle>+</meat-button>
-                        <meat-button color="red" size="large" round circle>+</meat-button>
-                        <meat-button color="orange" size="large" round circle>+</meat-button>
-                        <meat-button color="yellow" size="large" round circle>+</meat-button>
-                        <meat-button color="green" size="large" round circle>+</meat-button>
-                        <meat-button color="blue" size="large" round circle>+</meat-button>
-                        <meat-button color="purple" size="large" round circle>+</meat-button>
-                        <p>
-                            Use <code>round</code>, <code>circle</code>, <code>color</code>, and <code>size</code> to
-                            define Button's style.
-                        </p>
+                        <label>This input uses the browser's built in autocomplete. When you submit, the browser caches
+                            what you typed and will suggest it next time.</label><br>
+                        <label>Try typing something in amd submit. When you reload the page, you will see it in the
+                            suggestions when you try again.</label><br>
+                        <meat-input id="meat1" size="medium" placeholder="Autocomplete..." autocomplete="on">
+                        </meat-input>
+                        <br><label>This input uses the developer's suggestions, good for predefined values like
+                            states.</label><br>
+                        <label>You can use the arrow keys to navigate the list too.</label><br>
+                        <meat-input id="meat2" size="medium" placeholder="Predefined Suggestions..." suggest="on">
+                        </meat-input>
+                        <br><label>This input is read only and doesn't get reset by the reset button</label><br>
+                        <meat-input size="medium" placeholder="This is a readonly input!" value="It's my boi, Peter!"
+                            limit="10" readonly>
+                        </meat-input>
+                        <br /><br />
+                        <label>&ltmeat-input&gt works with native Forms, even when nested inside other elements, like a
+                            bunch of divs. </label><br>
+                        <button type="reset">Reset</button>
+                        <button type="submit">Submit</button>
+                    
                     </div>
+                    <br>
                     <button class="collapsible props">Show Code</button>
                     <div class="content">
                         <textarea class="props" readonly rows="19" cols="75" style="resize: none">
-                        <meat-button color="white"  size="large" round >White</meat-button>
-                        <meat-button color="grey"   size="large" round >Grey</meat-button>
-                        <meat-button color="red"    size="large" round >Red</meat-button>
-                        <meat-button color="orange" size="large" round >Orange</meat-button>
-                        <meat-button color="yellow" size="large" round >Yellow</meat-button>
-                        <meat-button color="green"  size="large" round >Green</meat-button>
-                        <meat-button color="blue"   size="large" round >Blue</meat-button>
-                        <meat-button color="purple" size="large" round >Purple</meat-button>
-                        <br/>
-                        <br/>
-                        <meat-button color="white"  size="large" round circle>+</meat-button>
-                        <meat-button color="grey"   size="large" round circle>+</meat-button>
-                        <meat-button color="red"    size="large" round circle>+</meat-button>
-                        <meat-button color="orange" size="large" round circle>+</meat-button>
-                        <meat-button color="yellow" size="large" round circle>+</meat-button>
-                        <meat-button color="green"  size="large" round circle>+</meat-button>
-                        <meat-button color="blue"   size="large" round circle>+</meat-button>
-                        <meat-button color="purple" size="large" round circle>+</meat-button>
+<label>This input uses the browser's built in autocomplete. When you submit, the browser caches 
+    what you typed and will suggest it next time.</label><br>
+<label>Try typing something in amd submit. When you reload the page, you will see it in the
+    suggestions when you try again.</label><br>
+<meat-input id="meat1" size="medium" placeholder="Autocomplete..." autocomplete="on">
+</meat-input>
+<br><label>This input uses the developer's suggestions, good for predefined values like
+    states.</label><br>
+<label>You can use the arrow keys to navigate the list too.</label><br>
+<meat-input id="meat2" size="medium" placeholder="Predefined Suggestions..." suggest="on">
+</meat-input>
+<br><label>This input is read only and doesn't get reset by the reset button</label><br>
+<meat-input size="medium" placeholder="This is a readonly input!" value="It's my boi, Peter!"
+    limit="10" readonly>
+</meat-input>
+<br /><br />
+<label>&ltmeat-input&gt works with native Forms, even when nested inside other elements, like a
+    bunch of divs. </label><br>
+<button type="reset">Reset</button>
+<button type="submit">Submit</button>
                     </textarea>
                     </div>
                     <h3>Example</h3>
-                    <pre class="prettyprint"><code>&lt;meat-button>&lt;/meat-button></code></pre>
+                    <pre class="prettyprint"><code>&lt;meat-input>&lt;/meat-input></code></pre>
                 </div>
             </article>
         </section>
