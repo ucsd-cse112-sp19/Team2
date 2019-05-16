@@ -338,7 +338,7 @@ export class MeatButtonElement extends HTMLElement {
     // Need to get the content inbetween the <meat-button> tags into the button so it renders
     this.button.textContent = this.textContent;
     let parentNode = this.parentNode;
-    while(parentNode) {
+    while (parentNode) {
       if (parentNode && parentNode.nodeName == "FORM") {
         this._parentForm = parentNode;
         break;
@@ -364,7 +364,7 @@ export class MeatButtonElement extends HTMLElement {
     ];
   }
 
-  /*
+  /**
    * Called whenever one of the attributes specified in observedAttributes() is changed
    * @param {string} name
    * @param {string} oldVal
@@ -386,7 +386,9 @@ export class MeatButtonElement extends HTMLElement {
     }
   }
 
-  // getters and setters for attributes
+  /**
+   * getters and setters for attributes
+   */
   get disabled() {
     return this.hasAttribute("disabled");
   }
@@ -520,7 +522,7 @@ export class MeatButtonElement extends HTMLElement {
     }
   }
 
-  /**
+  /*
    * This is unnecessary for now, the user can just attach an event listener to <meat-button>
    * */
   _onClick(evt, thisComponent) {
