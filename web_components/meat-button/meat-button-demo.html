@@ -6,13 +6,11 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>meat-button-demo</title>
         <script type="module" src="./meat-button.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <style>
         meat-button {
             
-        }
-        meat-button:active{
-            background-color: red;
         }
         form {
             border: 1px solid #3388ff;
@@ -22,7 +20,8 @@
     </style>
     <body>
         <div>
-            <meat-button color="white"  size="large" round >White</meat-button>
+            <meat-button color="white"  size="large" class="rounded">Using Rounded</meat-button>
+            <meat-button color="white"  size="large" round>White</meat-button>
             <meat-button color="grey"   size="large" round >Grey</meat-button>
             <meat-button color="red"    size="large" round >Red</meat-button>
             <meat-button color="orange" size="large" round >Orange</meat-button>

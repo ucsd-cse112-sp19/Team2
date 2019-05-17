@@ -13,7 +13,6 @@ template.innerHTML = `
     --font-family: sans-serif;
 
     /* round */
-    border-radius: 100px;
 
     /* colors */
     background-color: #ffffff;
@@ -38,6 +37,7 @@ button {
     width: 100%;
     height: 100%;
     background-color: inherit;
+    border-radius: inherit;
     color:  inherit; /* text color */
     border: inherit;
     outline: none; /* outline when focused, doesn't play nicely with round button/border-radius so hide it; instead we create our own focus */
@@ -206,8 +206,9 @@ button {
 
 /* Attribute: round */
     /* if host element, i.e. <meat-button> has attribute round, apply this css to button*/
-    :host([round]) > button {
-        border-radius: inherit;
+
+    :host([round]) {
+      border-radius: 100px;
     }
 
 /* Attribute: size */
