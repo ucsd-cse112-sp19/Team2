@@ -14,7 +14,8 @@
     "lint": "./node_modules/.bin/eslint --fix web_components",
     "pipe": "cd scripts && pipe.sh",
     "pipe-mac": "./scripts/pipe.sh",
-    "pipe-release": "./scripts/release.sh"
+    "pipe-release": "./scripts/release.sh",
+    "storybook": "start-storybook"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,10 @@
   },
   "homepage": "https://github.com/ucsd-cse112/Team2#readme",
   "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@storybook/addon-knobs": "^5.0.11",
+    "@storybook/html": "^5.0.11",
+    "babel-loader": "^8.0.5",
     "eslint": "^5.16.0",
     "eslint-config-google": "^0.12.0",
     "eslint-config-prettier": "^4.1.0",

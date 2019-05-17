@@ -13,12 +13,12 @@ template.innerHTML = `
     --font-family: sans-serif;
 
     /* round */
-    --border-radius: 100px;
+    border-radius: 100px;
 
     /* colors */
-    --background-color: #ffffff;
-    --text-color: #444444;
-    --border: 1px solid #cccccc;
+    background-color: #ffffff;
+    color: #444444;
+    border: 1px solid #cccccc;
 
     --hover-background-color: #daeeff;
     --focus-background-color: #daeeff;
@@ -37,9 +37,9 @@ button {
     display: inline-block;
     width: 100%;
     height: 100%;
-    background-color: var(--background-color);
-    color:  var(--text-color); /* text color */
-    border: var(--border);
+    background-color: inherit;
+    color:  inherit; /* text color */
+    border: inherit;
     outline: none; /* outline when focused, doesn't play nicely with round button/border-radius so hide it; instead we create our own focus */
     font-size: var(--font-size, 15px);
     font-family: var(--font-family);
@@ -51,9 +51,9 @@ button {
 /* define color scheme for white button */
 :host([color="white"]) {
   /* colors */
-  --background-color: #ffffff;
-  --text-color: #444444;
-  --border: 1px solid #cccccc;
+  background-color: #ffffff;
+  color: #444444;
+  border: 1px solid #cccccc;
 
   --hover-background-color: #daeeff;
   --focus-background-color: #daeeff;
@@ -69,9 +69,9 @@ button {
 
 :host([color="grey"]) {
   /* colors */
-  --background-color: #777777;
-  --text-color: #ffffff;
-  --border: 1px solid #777777;
+  background-color: #777777;
+  color: #ffffff;
+  border: 1px solid #777777;
 
   --hover-background-color: #999999;
   --focus-background-color: #999999;
@@ -88,9 +88,9 @@ button {
 /* define color scheme for red button */
 :host([color="red"]) {
   /* colors */
-  --background-color: #cc5050;
-  --text-color: #ffffff;
-  --border: 1px solid #cc5050;
+  background-color: #cc5050;
+  color: #ffffff;
+  border: 1px solid #cc5050;
 
   --hover-background-color: #e46060;
   --focus-background-color: #e46060;
@@ -107,9 +107,9 @@ button {
 /* define color scheme for orange button */
 :host([color="orange"]) {
   /* colors */
-  --background-color: #df8a40;
-  --text-color: #ffffff;
-  --border: 1px solid #df8a40;
+  background-color: #df8a40;
+  color: #ffffff;
+  border: 1px solid #df8a40;
 
   --hover-background-color: #dfaa70;
   --focus-background-color: #dfaa70;
@@ -126,9 +126,9 @@ button {
 /* define color scheme for yellow button */
 :host([color="yellow"]) {
   /* colors */
-  --background-color: #eedd00;
-  --text-color: #ffffff;
-  --border: 1px solid #eedd00;
+  background-color: #eedd00;
+  color: #ffffff;
+  border: 1px solid #eedd00;
   
   --hover-background-color: #f6e690;
   --focus-background-color: #f6e690;
@@ -150,9 +150,9 @@ button {
 /* define color scheme for green button */
 :host([color="green"]) {
   /* colors */
-  --background-color: #59c040;
-  --text-color: #ffffff;
-  --border: 1px solid #59c040;
+  background-color: #59c040;
+  color: #ffffff;
+  border: 1px solid #59c040;
 
   --hover-background-color: #79cc69;
   --focus-background-color: #79cc69;
@@ -169,9 +169,9 @@ button {
 /* define color scheme for blue button */
 :host([color="blue"]) {
   /* colors */
-  --background-color: #40a5ff;
-  --text-color: #ffffff;
-  --border: 1px solid #40a5ff;
+  background-color: #40a5ff;
+  color: #ffffff;
+  border: 1px solid #40a5ff;
 
   --hover-background-color: #65b5ff;
   --focus-background-color: #65b5ff;
@@ -188,9 +188,9 @@ button {
 /* define color scheme for blue button */
 :host([color="purple"]) {
   /* colors */
-  --background-color: #aa55aa;
-  --text-color: #ffffff;
-  --border: 1px solid #aa55aa;
+  background-color: #aa55aa;
+  color: #ffffff;
+  border: 1px solid #aa55aa;
 
   --hover-background-color: #cc66cc;
   --focus-background-color: #cc66cc;
@@ -207,7 +207,7 @@ button {
 /* Attribute: round */
     /* if host element, i.e. <meat-button> has attribute round, apply this css to button*/
     :host([round]) > button {
-        border-radius: var(--border-radius);
+        border-radius: inherit;
     }
 
 /* Attribute: size */
@@ -229,7 +229,7 @@ button {
     }
 
   /* Attribute: circle */
-    :host([circle]) > button {
+    :host([circle]) {
       border-radius: 50%;
     }
 
