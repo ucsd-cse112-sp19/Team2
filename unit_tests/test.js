@@ -1,8 +1,11 @@
 var assert = chai.assert; 
 let sr = document.getElementById('component').shadowRoot;
 let comp = document.getElementById('component');
+
 describe('core-hello basic requirements', function() { 
   /* Check if ShadowRoot Exists */ 
+  console.log("shadowroot");
+  console.log(comp);
   it ("shadowDOM should exist", function() { 
     assert.equal(sr instanceof ShadowRoot, true);
   })
@@ -14,7 +17,7 @@ describe('core-hello basic requirements', function() {
   /* Should Concat Hello World to Input */ 
   it ("should concat 'Hello world,' to {input}", function() { 
     let input = document.getElementById('component').innerHTML; 
-    assert.equal(sr.getElementById('main-text').innerHTML + input, "Hello world,  Veronica ");
+    assert.equal(sr.getElementById('main-text').innerHTML + input, "Hello world,  MeatSpace ");
   })
 
   /* Input has varying length */ 
@@ -57,11 +60,15 @@ describe('core-hello Language Functionality', function() {
   })
 }); 
 
+
 describe('core-hello Rainbow Functionality', function() { 
   /* Test rainbow attribute exists */ 
   it ("should have rainbow attribute", function() { 
     comp.setAttribute("rainbow", '');
     assert.equal(comp.hasAttribute("rainbow"), true);
+  })
+  it ("shadowDOM should exist", function() { 
+    assert.equal(sr instanceof ShadowRoot, true);
   })
 }); 
 

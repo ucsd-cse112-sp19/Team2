@@ -4,6 +4,7 @@
     <title>Core-Hello Tests</title>
     <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+   
   </head>
   <body>
     <div id="mocha"></div>
@@ -14,13 +15,14 @@
         var assert = chai.assert;
     </script>
     
-
     <!-- load code you want to test here -->
     <script href="../web_components/core-hello/core-hello.css"></script>
-    <script src="../web_components/core-hello/core-hello.js"></script>
-
-    <core-hello id="component"> Veronica </core-hello>
-
+    <script type="module" src="../web_components/core-hello/core-hello.js"></script>
+    <core-hello id="component"> MeatSpace </core-hello>
+    <script>
+      console.log("shadowroot");
+      console.log(document.getElementById('component').shadowRoot);
+    </script>
     <!-- load your test files here -->
     <script src="test.js"></script>
     

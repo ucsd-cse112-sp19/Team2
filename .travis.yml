@@ -1,13 +1,9 @@
 language: node_js
 node_js:
 - stable
-<<<<<<< HEAD
 script: 
 - node server.js &
 - npm run lintest && npm run runner
-=======
-# script: npm run lintest
->>>>>>> fb16b9a285cc563d110134f71e8450bbc94baa57
 cache:
   directories:
   - node_modules
