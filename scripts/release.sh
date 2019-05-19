@@ -29,11 +29,14 @@ else
   git add -A
   echo "commiting changes ..."
   git commit
+  echo "updating npm version number to $version ..."
+  npm version $verion
   echo "creating a git tag with verion number $version ..."
   git tag -a $version
   echo "pulling from $branchName ..."
   git pull origin $branchName
   echo "pushing to $branchName ..."
+  git push origin $branchName
   git push --tags origin $branchName
 fi
 echo "success!"
