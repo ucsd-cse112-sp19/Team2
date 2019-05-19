@@ -157,7 +157,7 @@ export class MeatInputElement extends HTMLElement {
   }
 
   /**
-   * @param {string} evt
+   * @param {string} prop
    * Aim to make webcomponents lazy.
    * A developer might attempt to set a property on your element before its definition has been loaded.
    * This will make sure the property is set when the element loads in.
@@ -334,7 +334,7 @@ export class MeatInputElement extends HTMLElement {
   }
 
   /**
-   * @param {string array} val
+   * @param {array} val
    * Allow user to set list of autocomplete suggestions
    */
   set suggestions(val) {

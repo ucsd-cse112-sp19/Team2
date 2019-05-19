@@ -22,6 +22,7 @@ template.innerHTML = `
 
     --hover-background-color: #daeeff;
     --focus-background-color: #daeeff;
+    --active-background-color: #daeeff;
 
     --hover-text-color: #3388ff;
     --focus-text-color: #3388ff;
@@ -255,8 +256,6 @@ button {
   }
 
 /* Actions: focus */
-
-    /* Type = default */
     :host > button:focus {
         border: var(--focus-border);
         color: var(--focus-text-color);
@@ -265,9 +264,7 @@ button {
     }
 
 /* Actions: hover */
-
-    /* Type = default */
-    :host > button:hover {
+    :host(:not([disabled])) > button:hover {
         -webkit-animation: hover .1s linear forwards;
         animation: hover .1s linear forwards;
     }
@@ -284,21 +281,26 @@ button {
     }
 
 /* Actions: active/click */
-
-    /* Type = default */
-    :host > button:active {
+    :host(:not([disabled])) > button:active {
         -webkit-animation: active .1s linear forwards;
         animation: active .1s linear forwards;
     }
     @keyframes active {
-        100% { border: var(--active-border)  }
         100% { background-color: var(--active-background-color)  }
+        100% { border: var(--active-border)  }
     }
-    @-webkit-keyframes default_active {
-        100% { border: var(--active-border)  }
+    @-webkit-keyframes active {
         100% { background-color: var(--active-background-color)  }
+        100% { border: var(--active-border)  }
     }
 
+/* Attribute: disabled */
+    /* if host element, i.e. <meat-button> has attribute round, apply this css to button*/
+    :host([disabled]) > button {
+      background-color: lightgrey; 
+      color: white;
+      cursor: not-allowed;
+    }
 </style>
 <button id="button" type="reset"></button>
 `;
@@ -362,7 +364,7 @@ export class MeatButtonElement extends HTMLElement {
     ];
   }
 
-  /*
+  /**
    * Called whenever one of the attributes specified in observedAttributes() is changed
    * @param {string} name
    * @param {string} oldVal
@@ -384,7 +386,9 @@ export class MeatButtonElement extends HTMLElement {
     }
   }
 
-  // getters and setters for attributes
+  /**
+   * getters and setters for attributes
+   */
   get disabled() {
     return this.hasAttribute("disabled");
   }
@@ -518,7 +522,7 @@ export class MeatButtonElement extends HTMLElement {
     }
   }
 
-  /**
+  /*
    * This is unnecessary for now, the user can just attach an event listener to <meat-button>
    * */
   _onClick(evt, thisComponent) {

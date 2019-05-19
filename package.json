@@ -7,6 +7,8 @@
     "/web_components"
   ],
   "scripts": {
+    "test": "echo no tests running",
+    "runner": "node test/runner.js",
     "mtest": "mocha-chrome ./test/hello-core-test.html",
     "wintest": "for %f in (./test/*.html) do mocha-chrome ./test/%f",
     "lintest": "mocha-chrome ./test/*.html",
@@ -14,7 +16,8 @@
     "lint": "./node_modules/.bin/eslint --fix web_components",
     "pipe": "cd scripts && pipe.sh",
     "pipe-mac": "./scripts/pipe.sh",
-    "pipe-release": "./scripts/release.sh"
+    "pipe-release-mac": "./scripts/release.sh",
+    "pipe-release": "cd scripts && release.sh"
   },
   "repository": {
     "type": "git",
@@ -35,10 +38,12 @@
     "minami": "^1.2.3",
     "mocha": "^6.1.4",
     "mocha-chrome": "^2.0.0",
-    "prettier": "1.17.0"
+    "prettier": "1.17.0",
+    "chai": "^4.2.0",
+    "selenium-webdriver": "^4.0.0-alpha.1",
+    "chromedriver": "^2.41.0"
   },
   "dependencies": {
-    "acorn": "^6.1.1",
-    "chai": "^4.2.0"
+    "acorn": "^6.1.1"
   }
 }
