@@ -24,6 +24,7 @@ export class MeatButtonElement extends HTMLElement {
    */
   constructor() {
     super();
+    this._parentForm;
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
     this.button = this.shadow.querySelector("#button");
@@ -45,6 +46,16 @@ export class MeatButtonElement extends HTMLElement {
       newLink.integrity = "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T";
       newLink.crossOrigin = "anonymous";
     }
+
+    // Look up dom tree for a parent form
+    let parentNode = this.parentNode;
+    while (parentNode) {
+      if (parentNode && parentNode.nodeName == "FORM") {
+        this._parentForm = parentNode;
+        break;
+      }
+      parentNode = parentNode.parentNode;
+    }
   }
 
   /**
@@ -65,7 +76,7 @@ export class MeatButtonElement extends HTMLElement {
     ];
   }
 
-  /*
+  /**
    * Called whenever one of the attributes specified in observedAttributes() is changed
    * @param {string} name
    * @param {string} oldVal
@@ -90,7 +101,9 @@ export class MeatButtonElement extends HTMLElement {
     }
   }
 
-  // getters and setters for attributes
+  /**
+   * getters and setters for attributes
+   */
   get disabled() {
     return this.hasAttribute("disabled");
   }
@@ -224,19 +237,19 @@ export class MeatButtonElement extends HTMLElement {
     }
   }
 
-  /**
+  /*
    * This is unnecessary for now, the user can just attach an event listener to <meat-button>
    * */
   _onClick(evt, thisComponent) {
     switch (this.getAttribute("type")) {
       case "reset":
-        if (this.parentNode && this.parentNode.nodeName == "FORM") {
-          this.parentNode.reset();
+        if (this._parentForm) {
+          this._parentForm.reset();
         }
         break;
       case "submit":
-        if (this.parentNode && this.parentNode.nodeName == "FORM") {
-          this.parentNode.submit();
+        if (this._parentForm) {
+          this._parentForm.submit();
         }
         break;
     }
