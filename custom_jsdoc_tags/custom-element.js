@@ -1,6 +1,3 @@
-"use strict";
-/* eslint-env commonjs, es6 */
-
 exports.defineTags = function(dictionary) {
   dictionary.defineTag("customelement", {
     mustHaveValue: true,
