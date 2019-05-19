@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="core-hello.html">CoreHelloElement</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="live-editor.html">LiveEditorElement</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="meat-boilerplate.html">MeatBoilerplateElement</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="meat-button.html">MeatButtonElement</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="meat-input.html">MeatInputElement</a></span></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="team2-learn.html">team2-learn</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="core-hello.html">CoreHelloElement</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="live-editor.html">LiveEditorElement</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="meat-boilerplate.html">MeatBoilerplateElement</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="meat-input.html">MeatInputElement</a></span></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-button.html">meat-button</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="team2-learn.html">team2-learn</a></span></li>
 </nav>
 
 <div id="main">
@@ -346,23 +346,20 @@ button {
 &lt;button id="button" type="reset">&lt;/button>
 `;
 
-/**
- * meat-button webcomponent
- * @customelement meat-button
- * @description displays a stylized button
- * @example &lt;meat-button>&lt;/meat-button>
- * @see [Demo]{@link https://meat-space.org/web_components/meat-button/meat-button-demo.html} for working example.
- * @property {boolean} autofocus -Enables button to automatically get focus when the page loads.
- * @property {string} circle -Enables a circle shaped button.
- * @property {boolean} disabled -Disables button from accepting events.
- * @property {boolean} round -Enables a round shaped button.
- * @property {string} size -Changes the size of the button.
- * @property {string} type -Enables the specified type of button.
- * */
 export class MeatButtonElement extends HTMLElement {
   /**
-   * Create an instance of MeatButtonElement
-   */
+   * meat-button webcomponent
+   * @customelement meat-button
+   * @description displays a stylized button
+   * @example &lt;meat-button>&lt;/meat-button>
+   * @see [Demo]{@link https://meat-space.org/web_components/meat-button/meat-button-demo.html} for working example.
+   * @property {boolean} autofocus -Enables button to automatically get focus when the page loads.
+   * @property {string} circle -Enables a circle shaped button.
+   * @property {boolean} disabled -Disables button from accepting events.
+   * @property {boolean} round -Enables a round shaped button.
+   * @property {string} size -Changes the size of the button.
+   * @property {string} type -Enables the specified type of button.
+   * */
   constructor() {
     super();
     this._parentForm;
