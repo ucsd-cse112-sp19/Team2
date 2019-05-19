@@ -16,13 +16,9 @@
     "lint": "./node_modules/.bin/eslint --fix web_components",
     "pipe": "cd scripts && pipe.sh",
     "pipe-mac": "./scripts/pipe.sh",
-<<<<<<< HEAD
-    "pipe-release": "./scripts/release.sh",
-    "storybook": "start-storybook"
-=======
     "pipe-release-mac": "./scripts/release.sh",
-    "pipe-release": "cd scripts && release.sh"
->>>>>>> fb16b9a285cc563d110134f71e8450bbc94baa57
+    "pipe-release": "cd scripts && release.sh",
+    "storybook": "start-storybook"
   },
   "repository": {
     "type": "git",
