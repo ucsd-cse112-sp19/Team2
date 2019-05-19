@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-        <li class="nav-link nav-home-link"><a href="index.html">Home</a><br><br><a href="examples.html">Examples</a></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="core-hello.html">CoreHelloElement</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="live-editor.html">LiveEditorElement</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="meat-boilerplate.html">MeatBoilerplateElement</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="meat-button.html">MeatButtonElement</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="meat-input.html">MeatInputElement</a></span></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="team2-learn.html">team2-learn</a></span></li>
 </nav>
 
 <div id="main">
@@ -48,11 +48,13 @@
 
 
     <section class="readme">
-        <article><h1>Team MeatSpace (Team 2) Web Components</h1><p><img src="https://meat-space.org/img/logo.png" alt="alt text" title="MeatSpace logo 1"> <br/>
+        <article><h1>Team MeatSpace (Team 2) Web Components</h1>
+<p><img src="https://meat-space.org/img/logo.png" alt="alt text" title="MeatSpace logo 1"> <br/>
 <a href="https://travis-ci.com/ucsd-cse112/Team2"><img src="https://travis-ci.com/ucsd-cse112/Team2.svg?token=GDhf5VDFYPsMkr26iBEV&amp;branch=ci-pipeline" alt="Build Status"></a>
 <a href="https://codeclimate.com/github/codeclimate/codeclimate/maintainability"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" alt="Maintainability"></a> <br/></p>
-<p>Team MeatSpace's web component library. </p>
-<h2>Team Members</h2><ul>
+<p>Team MeatSpace's web component library.</p>
+<h2>Team Members</h2>
+<ul>
 <li>Adam Kabbara <code>Lead</code></li>
 <li>Timothy Bian <code>Co-Lead</code></li>
 <li>Veronica Lin <code>Quality Assurance</code></li>
@@ -66,17 +68,28 @@
 <li>Xin Liu <code>DevOps</code></li>
 </ul>
 <p><a href="https://meat-space.org">meat-space.org</a></p>
-<h2>Getting Started</h2><p>The following instructions will get our web components installed and running locally on your machine.</p>
-<h3>Prerequisites</h3><ul>
+<h2>Getting Started</h2>
+<p>The following instructions will get our web components installed and running locally on your machine.</p>
+<h3>Prerequisites</h3>
+<ul>
 <li>Nodejs</li>
 <li>npm</li>
 </ul>
-<h3>Installing</h3><p>Assuming you have started a nodejs project, have a <code>package.json</code> file set up, and are in the root directory of your poject, run</p>
-<pre class="prettyprint source"><code>npm i team2</code></pre><h3>Usage &amp; Example</h3><p>In your HTML page <code>&lt;head&gt;</code> element, add a <code>&lt;script&gt;</code> tag like so</p>
-<pre class="prettyprint source"><code>&lt;script type=&quot;module&quot; src=&quot;./node_modules/team2/web_components/core-hello/core-hello.js&quot;>&lt;/script></code></pre><p>In the above example, <code>/core-hello/core-hello.js</code> is the path to the core-hello web component JavaScript file. 
+<h3>Installing</h3>
+<p>Assuming you have started a nodejs project, have a <code>package.json</code> file set up, and are in the root directory of your poject, run</p>
+<pre class="prettyprint source"><code>npm i team2
+</code></pre>
+<h3>Usage &amp; Example</h3>
+<p>In your HTML page <code>&lt;head&gt;</code> element, add a <code>&lt;script&gt;</code> tag like so</p>
+<pre class="prettyprint source"><code>&lt;script type=&quot;module&quot; src=&quot;./node_modules/team2/web_components/core-hello/core-hello.js&quot;>&lt;/script>
+</code></pre>
+<p>In the above example, <code>/core-hello/core-hello.js</code> is the path to the core-hello web component JavaScript file.
 If you want to use a different web component, you will have to change this part of the path appropriately.
 Next, add the component into your HTML body</p>
-<pre class="prettyprint source"><code>&lt;core-hello rainbow lang=&quot;en&quot;>this is a test!&lt;/core-hello></code></pre><h3>Acknowledgment</h3><p>Thanks to <a href="http://browserstack.com/">BrowserStack</a> for supporting open source projects like ours. </p></article>
+<pre class="prettyprint source"><code>&lt;core-hello rainbow lang=&quot;en&quot;>this is a test!&lt;/core-hello>
+</code></pre>
+<h3>Acknowledgment</h3>
+<p>Thanks to <a href="http://browserstack.com/">BrowserStack</a> for supporting open source projects like ours.</p></article>
     </section>
 
 
@@ -89,7 +102,7 @@ Next, add the component into your HTML body</p>
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.1</a> using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
