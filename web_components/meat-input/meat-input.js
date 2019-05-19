@@ -1,103 +1,7 @@
 const template = document.createElement("template");
 template.innerHTML = `
-<style>
-
-:host {
-
-  position: relative;
-  display: inline-block;
-
-  /* special override-able css variables */
-  
-  /* TODO: Determine needed variables. */
-  --border-radius: 10px;
-  --border-bottom: 1px solid #000000;
-
-  /* Colors */
-  --background-color: #ffffff;
-  --text-color: #444444;
-  --border: 1px solid #cccccc;
-  --placeholder-color: #add8e6
-
-  --hover-background-color: #daeeff;
-  --focus-background-color: #daeeff;
-
-  --hover-text-color: #3388ff;
-  --focus-text-color: #3388ff;
-  
-  --hover-border: 1px solid #daeeff;
-  --focus-border: 1px solid #daeeff;
-  --active-border: 1px solid #3388ff;
-
-}
-
-/* Default style if no type is specified */
-input {
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  background-color: inherit;
-  color: var(--text-color);
-  border: var(--border);
-  border-bottom: var(--border-bottom);
-  padding: 5px;
-  outline: hidden; /* This may not be needed */
-}
-
-placeholder {
-    color: var(--placeholder-color);
-}
-
-
-/* Attributes: */
-
-/* Size */
-:host([size = "small"]) {
-    width: 100px;
-    height: inherit;
-}
-:host([size = "medium"]) {
-    width: 200px;
-    height: inherit;
-}
-:host([size = "large"]) {
-    width: 300px;
-    height: inherit;
-}
-
-#suggestionContainer {
-  position: absolute;
-  border: 1px solid #d4d4d4;
-  border-bottom: none;
-  border-top: none;
-  z-index: 99;
-  /*position the autocomplete items to be the same width as the container:*/
-  top: 100%;
-  left: 0;
-  right: 0;
-}
-
-.suggestion {
-  padding-left: 5px;
-  cursor: pointer;
-  background-color: #fff; 
-  border-bottom: 1px solid #d4d4d4; 
-  font-family: sans-serif;
-  font-size: 15px
-}
-
-.suggestion:hover {
-  border: var(--active-border);
-}
-
-.suggestion:focus {
-  background-color: var(--hover-background-color, #daeeff);
-  border: var(--active-border);
-}
-
-/* Actions: */
-/* Hover */
-</style>
+<style></style>
+<link rel="stylesheet" href="/web_components/meat-input/meat-input.css"/>
 <input id="input" type="text"></input>
 <div id="suggestionContainer"></div>
 `;
@@ -117,17 +21,19 @@ export class MeatInputElement extends HTMLElement {
     this._sortSuggestions = this._sortSuggestions.bind(this);
     this._switchFocus = this._switchFocus.bind(this);
     this._onInputChange = this._onInputChange.bind(this);
-    
+
     this._suggestions = [];
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
     this.input = this.shadow.querySelector("input");
-    this.suggestionContainer = this.shadow.querySelector("#suggestionContainer");
+    this.suggestionContainer = this.shadow.querySelector(
+      "#suggestionContainer"
+    );
 
     this._currentFocus = 0; // 0 means focusing input, 1 would be the first autocomplete suggestion, 2 would be the second...
 
     // when user types into the input, update internal state
-    this.input.addEventListener('input', this._onInputChange);
+    this.input.addEventListener("input", this._onInputChange);
     // when user presses any keys while input is focused, call _switchFocus
     this.input.addEventListener("keydown", this._switchFocus);
     // if you click inside the input, you focus it, therefore should reflect that internally
@@ -146,26 +52,35 @@ export class MeatInputElement extends HTMLElement {
    */
   connectedCallback() {
     // User may have attempted to set suggestions before element loaded in, set them now.
-    this._upgradeProperty('suggestions');
+    this._upgradeProperty("suggestions");
+
+    // if user specifies bootstrap, link style to bootstrap
+    if (this.hasAttribute("bootstrap")) {
+      const newLink = this.shadow.querySelector("link"); // link stylesheet to bootstrap's stylesheet
+      newLink.rel = "stylesheet";
+      newLink.href =
+        "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
+      newLink.integrity =
+        "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T";
+      newLink.crossOrigin = "anonymous";
+    }
 
     // if this input is within a form, find the form and connect to it
     let parentNode = this.parentNode;
-    while(parentNode) {
+    while (parentNode) {
       if (parentNode && parentNode.nodeName == "FORM") {
-
         // form reset
         parentNode.addEventListener("reset", () => {
           // Shouldn't change value of a readonly input
-          if (this.hasAttribute("readonly"))
-            return;
+          if (this.hasAttribute("readonly")) return;
           this.input.value = "";
           this.value = "";
-        })
+        });
 
         // form submit
-        parentNode.addEventListener("submit", (evt) => {
+        parentNode.addEventListener("submit", evt => {
           parentNode.append(this.input);
-        })
+        });
         return;
       }
       parentNode = parentNode.parentNode;
@@ -177,16 +92,19 @@ export class MeatInputElement extends HTMLElement {
    * call attributeChangedCallback(name, oldVal, newVal)
    * */
   static get observedAttributes() {
-    return ["disabled", 
-            "size", 
-            "limit", 
-            "placeholder", 
-            "password",
-            "value",
-            "readonly",
-            "suggest",
-            "autocomplete"
-          ];
+    return [
+      "disabled",
+      "size",
+      "limit",
+      "placeholder",
+      "password",
+      "value",
+      "readonly",
+      "suggest",
+      "autocomplete",
+      "bootstrap",
+      "type"
+    ];
   }
 
   /*
@@ -196,50 +114,57 @@ export class MeatInputElement extends HTMLElement {
    * @param {string} newVal
    * */
   attributeChangedCallback(name, oldVal, newVal) {
-      switch (name) {
-        case "disabled":
-          if (newVal == "") {
-              this.input.disabled = true;
-          }
-          break;
-        case "readonly":
-          if (newVal == "") {
-              this.input.readOnly = true;
-          }
-          break;
-        case "value":
-          this.input.value = newVal;
-          break;
-        case "placeholder":
-          this.input.placeholder = newVal;
-          break;
-        case "limit":
-          this.input.maxLength = newVal;
-          break;
-        case "password":
-          this.input.type = "password";
-          break;
-        case "autocomplete":
-          this.input.autocomplete = newVal;
-          break;
-        case "suggest":
-          // if autocomplete was not explicitely set and the user wants their own suggestions on, 
-          // then turn off autocomplete
-          if (!this.hasAttribute("autocomplete") && newVal == "on") {
-            this.input.autocomplete = "off";
-          }
-      }
+    switch (name) {
+      case "disabled":
+        if (newVal == "") {
+          this.input.disabled = true;
+        }
+        break;
+      case "readonly":
+        if (newVal == "") {
+          this.input.readOnly = true;
+        }
+        break;
+      case "value":
+        this.input.value = newVal;
+        break;
+      case "placeholder":
+        this.input.placeholder = newVal;
+        break;
+      case "limit":
+        this.input.maxLength = newVal;
+        break;
+      case "password":
+        this.input.type = "password";
+        break;
+      case "autocomplete":
+        this.input.autocomplete = newVal;
+        break;
+      case "suggest":
+        // if autocomplete was not explicitely set and the user wants their own suggestions on,
+        // then turn off autocomplete
+        if (!this.hasAttribute("autocomplete") && newVal == "on") {
+          this.input.autocomplete = "off";
+        }
+        break;
+      case "type":
+        this.input.type = newVal;
+        break;
+      case "bootstrap":
+        this.input.className = newVal;
+        break;
+    }
   }
 
-  /** 
-   * @param {string} evt 
+  /**
+   * @param {string} evt
    * Aim to make webcomponents lazy.
-   * A developer might attempt to set a property on your element before its definition has been loaded. 
+   * A developer might attempt to set a property on your element before its definition has been loaded.
    * This will make sure the property is set when the element loads in.
-  */
+   */
   _upgradeProperty(prop) {
     if (this.hasOwnProperty(prop)) {
-      let value = this[prop];
+      const value = this[prop];
       delete this[prop];
       this[prop] = value;
     }
@@ -253,51 +178,57 @@ export class MeatInputElement extends HTMLElement {
   /**
    * Sort suggestions alphanumerically for user convenience, make toggleable via attribute?
    */
-  //_sortSuggestions = () => {
+  // _sortSuggestions = () => {
   _sortSuggestions() {
-    this._suggestions = this._suggestions.sort(function (a, b) {
-      //If characters get matched to the regular expression \D+\, push [infinity, "the first char"]
-      //If numbers get matched to the regular expression \d+\, push [the numbers, ""]
-      let aMatches = []; 
-      let bMatches = [];
-      a.replace(/(\d+)|(\D+)/g, function(_, $1, $2) { aMatches.push([$1 || Infinity, $2 || ""]) });       
-      b.replace(/(\d+)|(\D+)/g, function(_, $1, $2) { bMatches.push([$1 || Infinity, $2 || ""]) });
+    this._suggestions = this._suggestions.sort(function(a, b) {
+      // If characters get matched to the regular expression \D+\, push [infinity, "the first char"]
+      // If numbers get matched to the regular expression \d+\, push [the numbers, ""]
+      const aMatches = [];
+      const bMatches = [];
+      a.replace(/(\d+)|(\D+)/g, function(_, $1, $2) {
+        aMatches.push([$1 || Infinity, $2 || ""]);
+      });
+      b.replace(/(\d+)|(\D+)/g, function(_, $1, $2) {
+        bMatches.push([$1 || Infinity, $2 || ""]);
+      });
 
-      //Go through the array and compare either the number or the character depending on what got matched earlier, if we end up comparing chracters and numbers, number 
-      //takes priority because the chararacter group's first element in its array is infinity, similarly, the second element in the number group's array is ""
+      // Go through the array and compare either the number or the character depending on what got matched earlier, if we end up comparing chracters and numbers, number
+      // takes priority because the chararacter group's first element in its array is infinity, similarly, the second element in the number group's array is ""
       let index = 0;
       let aGroup = null;
       let bGroup = null;
       let result = null;
-      while(aMatches[index] != null && bMatches[index] != null) {      
-          aGroup = aMatches[index];
-          bGroup = bMatches[index];
-          // compare each group
-          result = (aGroup[0] - bGroup[0]) || aGroup[1].localeCompare(bGroup[1]);
-          // if the comparison is unequal, then just return the result
-          index++;
-          if (result != 0) {
-              return result;
-          }
+      while (aMatches[index] != null && bMatches[index] != null) {
+        aGroup = aMatches[index];
+        bGroup = bMatches[index];
+        // compare each group
+        result = aGroup[0] - bGroup[0] || aGroup[1].localeCompare(bGroup[1]);
+        // if the comparison is unequal, then just return the result
+        index++;
+        if (result != 0) {
+          return result;
+        }
       }
 
-      //otherwise, decide by the length
+      // otherwise, decide by the length
       return aMatches.length - bMatches.length;
     });
-  };
+  }
 
   /**
    * @param {event} evt
    * Allow user to use keyboard arrows to navigate up and down the list
    */
-  //_switchFocus = (evt) => {
+  // _switchFocus = (evt) => {
   _switchFocus(evt) {
     // move focus up or down the list of suggestions
-    if (evt.keyCode == 40) { // down
+    if (evt.keyCode == 40) {
+      // down
       this._currentFocus++;
-    } else if (evt.keyCode == 38) { //up
+    } else if (evt.keyCode == 38) {
+      // up
       this._currentFocus--;
-    } 
+    }
 
     // focus 0 means focusing the input
     if (this._currentFocus == 0) {
@@ -306,15 +237,19 @@ export class MeatInputElement extends HTMLElement {
     }
 
     // get reference to suggestion item
-    const suggestion = this.shadow.querySelector(`#suggestion${this._currentFocus}`);
+    const suggestion = this.shadow.querySelector(
+      `#suggestion${this._currentFocus}`
+    );
 
     // if no suggestion, reached end of list, undo operation and return;
     if (!suggestion) {
-      if (evt.keyCode == 40) { // down
+      if (evt.keyCode == 40) {
+        // down
         this._currentFocus--;
-      } else if (evt.keyCode == 38) { //up
+      } else if (evt.keyCode == 38) {
+        // up
         this._currentFocus++;
-      } 
+      }
       return;
     }
 
@@ -323,7 +258,7 @@ export class MeatInputElement extends HTMLElement {
 
     // enter key pressed
     if (evt.keyCode == 13) {
-      evt.preventDefault();  /*If the ENTER key is pressed, prevent the form from being submitted,*/
+      evt.preventDefault(); /* If the ENTER key is pressed, prevent the form from being submitted,*/
       if (this._currentFocus > -1) {
         this.value = suggestion.value; // set host value to the suggestion so user can use the value in their event listener
         this.input.value = suggestion.value; // set input value to the suggestion to reflect back visually
@@ -331,14 +266,14 @@ export class MeatInputElement extends HTMLElement {
         this._currentFocus = 0;
         this.input.focus();
       }
-    }  
+    }
   }
 
   /**
-   * @param {object} evt 
+   * @param {object} evt
    * Suggest terms for user to select whenever they input characters.
    */
-  //_onInputChange = (evt) => {
+  // _onInputChange = (evt) => {
   _onInputChange(evt) {
     if (!evt.target.value) {
       this._renderSuggestions([]);
@@ -346,42 +281,49 @@ export class MeatInputElement extends HTMLElement {
     }
 
     // match all suggestions where the beginning is the same as the input and render
-    const regex = new RegExp(`^${evt.target.value}(.*?)`, 'i'); 
-    const matchedSuggestions = this._suggestions.filter((suggestion) => suggestion.match(regex)); 
+    const regex = new RegExp(`^${evt.target.value}(.*?)`, "i");
+    const matchedSuggestions = this._suggestions.filter(suggestion =>
+      suggestion.match(regex)
+    );
     this._renderSuggestions(matchedSuggestions);
     this.value = evt.target.value;
   }
 
   /**
-   * @param {string array} suggestions 
+   * @param {string array} suggestions
    * Render list of suggestions as dropdown list under input
    */
-  _renderSuggestions(suggestions){
-
+  _renderSuggestions(suggestions) {
     // if autocomplete is on or suggest is not on, don't render the suggestions list
-    if (!this.getAttribute("suggest") == "on" || this.getAttribute("autocomplete") == "on") {
+    if (
+      !this.getAttribute("suggest") == "on" ||
+      this.getAttribute("autocomplete") == "on"
+    ) {
       return;
     }
-    
+
     this.suggestionContainer.innerHTML = "";
 
-    //const container = this.shadow.querySelector("#suggestionContainer");
-    //container.innerHTML = "";
+    // const container = this.shadow.querySelector("#suggestionContainer");
+    // container.innerHTML = "";
     suggestions.forEach((suggestion, index) => {
       const row = document.createElement("div");
-      row.id = "suggestion"+(index+1);
-      row.setAttribute('tabindex', (index+1));
+      row.id = "suggestion" + (index + 1);
+      row.setAttribute("tabindex", index + 1);
       row.className = "suggestion";
       row.value = suggestion;
-      row.innerHTML = "<strong>" + suggestion.substr(0, this.input.value.length) + "</strong>" // bold the matching part
-      row.innerHTML += suggestion.substr(this.input.value.length); 
+      row.innerHTML =
+        "<strong>" +
+        suggestion.substr(0, this.input.value.length) +
+        "</strong>"; // bold the matching part
+      row.innerHTML += suggestion.substr(this.input.value.length);
       row.addEventListener("click", () => {
         this.input.value = row.textContent;
-        this._currentFocus = index+1;
+        this._currentFocus = index + 1;
       });
       row.addEventListener("keydown", this._switchFocus);
       this.suggestionContainer.appendChild(row);
-    })
+    });
   }
 
   /**
@@ -410,10 +352,8 @@ export class MeatInputElement extends HTMLElement {
   }
 
   set size(val) {
-    if (val)
-      this.setAttribute("size", val);
-    else
-      this.removeAttribute("size");
+    if (val) this.setAttribute("size", val);
+    else this.removeAttribute("size");
   }
 
   get limit() {
@@ -421,10 +361,8 @@ export class MeatInputElement extends HTMLElement {
   }
 
   set limit(val) {
-    if (val)
-      this.setAttribute("limit", val);
-    else
-      this.removeAttribute("limit");
+    if (val) this.setAttribute("limit", val);
+    else this.removeAttribute("limit");
   }
 
   get placeholder() {
@@ -432,10 +370,8 @@ export class MeatInputElement extends HTMLElement {
   }
 
   set placeholder(val) {
-    if (val)
-      this.setAttribute("placeholder", val);
-    else
-      this.removeAttribute("placeholder");
+    if (val) this.setAttribute("placeholder", val);
+    else this.removeAttribute("placeholder");
   }
 
   get password() {
@@ -443,10 +379,8 @@ export class MeatInputElement extends HTMLElement {
   }
 
   set password(val) {
-    if (val)
-      this.setAttribute("password", "");
-    else
-      this.removeAttribute("password");
+    if (val) this.setAttribute("password", "");
+    else this.removeAttribute("password");
   }
 
   get suggest() {
@@ -454,10 +388,8 @@ export class MeatInputElement extends HTMLElement {
   }
 
   set suggest(val) {
-    if (val)
-      this.setAttribute("suggest", val);
-    else
-      this.removeAttribute("suggest");
+    if (val) this.setAttribute("suggest", val);
+    else this.removeAttribute("suggest");
   }
 }
 

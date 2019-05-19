@@ -336,7 +336,7 @@ export class MeatButtonElement extends HTMLElement {
     // Need to get the content inbetween the <meat-button> tags into the button so it renders
     this.button.textContent = this.textContent;
     let parentNode = this.parentNode;
-    while(parentNode) {
+    while (parentNode) {
       if (parentNode && parentNode.nodeName == "FORM") {
         this._parentForm = parentNode;
         break;
