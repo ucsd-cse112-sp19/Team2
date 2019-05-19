@@ -1,8 +1,7 @@
 import { Selector } from 'testcafe'; // first import testcafe selectors
 
 fixture `Running tests for core-hello`// declare the fixture
-    .page `https://meat-space.org/web_components/core-hello/core-hello-test.html`;  // specify the start page
-
+    .page `../web_components/core-hello/core-hello-test.html`;
 
 test("Adds 'Hello world,' to string", async t => {
     const shadowInput = await Selector(() => document.querySelector('core-hello').shadowRoot.querySelector('#main-text'));
@@ -30,7 +29,6 @@ test("Check that tag-name is core-hello", async t => {
 
 test("Check for rainbow attribute", async t => {
     const component = await Selector(() => document.querySelector('core-hello'));
-    //component.getAttribute()
 
     await t
         .expect(component.hasAttribute("rainbow")).eql(true);
