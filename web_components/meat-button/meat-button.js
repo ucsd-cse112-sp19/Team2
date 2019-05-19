@@ -40,10 +40,12 @@ export class MeatButtonElement extends HTMLElement {
 
     // if user specifies bootstrap, link style to bootstrap
     if (this.hasAttribute("bootstrap")) {
-      const newLink = this.shadow.querySelector('link'); // link stylesheet to bootstrap's stylesheet
+      const newLink = this.shadow.querySelector("link"); // link stylesheet to bootstrap's stylesheet
       newLink.rel = "stylesheet";
-      newLink.href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
-      newLink.integrity = "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T";
+      newLink.href =
+        "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
+      newLink.integrity =
+        "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T";
       newLink.crossOrigin = "anonymous";
     }
 
@@ -72,7 +74,7 @@ export class MeatButtonElement extends HTMLElement {
       "round",
       "size",
       "type",
-      "bootstrap",
+      "bootstrap"
     ];
   }
 
