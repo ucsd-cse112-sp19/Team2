@@ -1,11 +1,14 @@
 {
-  "name": "team2",
-  "version": "2.0.0",
-  "description": "A web comp1onent library",
+  "name": "@meatspace/webcomponents",
+  "version": "0.0.2",
+  "description": "A web component library",
   "main": "index.js",
   "files": [
     "/web_components"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "echo no tests running",
     "runner": "node test/runner.js",
@@ -24,11 +27,11 @@
     "url": "git+https://github.com/ucsd-cse112/Team2.git"
   },
   "author": "Team MeatSpace",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ucsd-cse112/Team2/issues"
   },
-  "homepage": "https://github.com/ucsd-cse112/Team2#readme",
+  "homepage": "https://meat-space.org",
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-google": "^0.12.0",
