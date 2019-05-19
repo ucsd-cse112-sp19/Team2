@@ -102,16 +102,13 @@ placeholder {
 <div id="suggestionContainer"></div>
 `;
 
-/**
- * meat-input webcomponent
- * @customelement meat-input
- * @description displays a stylized input field
- * @example <meat-input></meat-input>
- * */
 export class MeatInputElement extends HTMLElement {
   /**
-   * Create an instance of MeatInputElement
-   */
+   * meat-input webcomponent
+   * @customelement meat-input
+   * @description displays a stylized input field
+   * @example <meat-input></meat-input>
+   * */
   constructor() {
     super();
     this._sortSuggestions = this._sortSuggestions.bind(this);

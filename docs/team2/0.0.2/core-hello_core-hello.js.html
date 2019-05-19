@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="core-hello.html">CoreHelloElement</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="live-editor.html">LiveEditorElement</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="meat-boilerplate.html">MeatBoilerplateElement</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="meat-input.html">MeatInputElement</a></span></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-button.html">meat-button</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="team2-learn.html">team2-learn</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="core-hello.html">core-hello</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="live-editor.html">live-editor</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-boilerplate.html">meat-boilerplate</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-button.html">meat-button</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-input.html">meat-input</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="team2-learn.html">team2-learn</a></span></li>
 </nav>
 
 <div id="main">
@@ -93,22 +93,20 @@ tmpl.innerHTML = `
 &lt;span id="main-text">Hello world, &lt;/span>
 &lt;slot>&lt;/slot>
 `;
-/**
- * core-hello web component
- * @customelement core-hello
- * @description displays 'Hello World, &lt;input>!'
- * @example &lt;caption> Hello World! &lt;/caption>
- * &lt;core-hello rainbow lang="en">
- * Alex!
- * &lt;/core-hello>
- * @see [Demo]{@link https://meat-space.org/web_components/core-hello/core-hello-test.html} for working example.
- * @property {boolean} rainbow -Enables a background rainbow effect.
- * @property {string} lang -Set language (English, French, Spanish). Default is English.
- * */
+
 export class CoreHelloElement extends HTMLElement {
   /**
-   * Create an instance of CoreHelloElement
-   */
+   * core-hello web component
+   * @customelement core-hello
+   * @description displays 'Hello World, &lt;input>!'
+   * @example &lt;caption> Hello World! &lt;/caption>
+   * &lt;core-hello rainbow lang="en">
+   * Alex!
+   * &lt;/core-hello>
+   * @see [Demo]{@link https://meat-space.org/web_components/core-hello/core-hello-test.html} for working example.
+   * @property {boolean} rainbow -Enables a background rainbow effect.
+   * @property {string} lang -Set language (English, French, Spanish). Default is English.
+   * */
   constructor() {
     console.info("Constructing core-hello!");
     super();

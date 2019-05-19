@@ -9,17 +9,14 @@ template.innerHTML = `
     </div>
 `;
 
-/**
- * live-editor web component description
- * @customelement live-editor
- * @description displays whatever html is input into the editor; can specify an html file to load in at startup
- * @example <caption> Display a specified html document </caption>
- * <live-editor file="./src.html"></live-editor>
- * */
 export class LiveEditorElement extends HTMLElement {
   /**
-   * Create an instance of LiveEditorElement
-   */
+   * live-editor web component description
+   * @customelement live-editor
+   * @description displays whatever html is input into the editor; can specify an html file to load in at startup
+   * @example <caption> Display a specified html document </caption>
+   * <live-editor file="./src.html"></live-editor>
+   * */
   constructor() {
     super();
     this._keyup = this._keyup.bind(this);
