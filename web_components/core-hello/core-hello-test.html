@@ -14,8 +14,28 @@
             --background-color: lightblue;
             --width: 400px;
         }
+        button {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto;
+            display: block;
+        }
     </style>
     <body>
         <core-hello id="core-hello" rainbow lang="en">Meatspace!</core-hello> 
+<<<<<<< HEAD
+=======
+        <button id="change-attr"></button>
+>>>>>>> fb16b9a285cc563d110134f71e8450bbc94baa57
     </body>
+    <script>
+        const button = document.querySelector("#change-attr");
+        const coreHello = document.querySelector("#core-hello");
+        const languages = ["sp", "fr", "en"];
+        button.addEventListener('click', () => {
+            let randomLanguage = languages[Math.floor(Math.random()*languages.length)];
+            console.log(coreHello.lang, "->", randomLanguage);
+            coreHello.lang = randomLanguage;   
+        })
+    </script>
 </html>
