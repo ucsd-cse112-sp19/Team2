@@ -382,6 +382,10 @@ export class MeatButtonElement extends HTMLElement {
         break;
       case "type":
         // assigning type to button doesn't work
+        if (newVal == "submit") this.button.type = 'submit';
+        else if (newVal == "reset") this.button.type = 'reset';
+        // not sure if this is a good way to handle our errors
+        else console.log("error on button type");
         break;
     }
   }
