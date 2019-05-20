@@ -6,6 +6,56 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>meat-button-demo</title>
         <script type="module" src="./meat-button.js"></script>
+        <script type="module">
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+    
+            for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight){
+                content.style.maxHeight = null;
+                } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                } 
+                if (this.innerHTML === "Show Code") {
+                this.innerHTML = "Hide Code";
+                } else {
+                this.innerHTML = "Show Code";
+                }
+            });
+            }
+        </script>
+        <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+        <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+        <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+        <style>
+            .collapsible {
+            background-color: white;
+            color: black;
+            cursor: pointer;
+            padding: 18px;
+            width: 50%;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            }
+            .active, .collapsible:hover {
+            background-color: white;
+            }
+            .content {
+            padding: 0px;
+            max-height: 0;
+            overflow: hidden;
+            background-color: white;
+            transition: max-height 0.2s ease-out;
+            }
+            textarea {
+                background-color: #fafafa;
+                color: darkblue;
+            }
+        </style>
     </head>
     <style>
         meat-button {}
@@ -39,12 +89,51 @@
             <meat-button color="white"  size="large" round >Not Disabled</meat-button>
         </div>
         <br>
+        <button class="collapsible props">Show Code</button>
+    <div class="content">
+    <textarea class="props" readonly rows="10" style="resize: none; width: 49%">
+<meat-button color="white"  size="large" round >White</meat-button>
+<meat-button color="grey"   size="large" round >Grey</meat-button>
+<meat-button color="red"    size="large" round >Red</meat-button>
+<meat-button color="orange" size="large" round >Orange</meat-button>
+<meat-button color="yellow" size="large" round >Yellow</meat-button>
+<meat-button color="green"  size="large" round >Green</meat-button>
+<meat-button color="blue"   size="large" round >Blue</meat-button>
+<meat-button color="purple" size="large" round >Purple</meat-button><br/>
+<br/>
+<meat-button color="white"  size="large" round circle>+</meat-button>
+<meat-button color="grey"   size="large" round circle>+</meat-button>
+<meat-button color="red"    size="large" round circle>+</meat-button>
+<meat-button color="orange" size="large" round circle>+</meat-button>
+<meat-button color="yellow" size="large" round circle>+</meat-button>
+<meat-button color="green"  size="large" round circle>+</meat-button>
+<meat-button color="blue"   size="large" round circle>+</meat-button>
+<meat-button color="purple" size="large" round circle>+</meat-button>
+<br/><br/>
+<meat-button color="white"  size="large" round disabled >Disabled</meat-button>
+<meat-button color="white"  size="large" round >Not Disabled</meat-button>
+    </textarea>
+    </div>
+    <br />
         <form action="/some_action.php">
             <label for="name">Example Form</label><br>
             <input name="name"><br><br>
             <meat-button type="reset">Reset the form!</meat-button>
             <meat-button type="submit">Submit</meat-button>
         </form>
+        <br />
+        <button class="collapsible props">Show Code</button>
+    <div class="content">
+    <textarea class="props" readonly rows="10" style="resize: none; width: 49%">
+<form action="/some_action.php">
+    <label for="name">Example Form</label><br>
+    <input name="name"><br><br>
+    <meat-button type="reset">Reset the form!</meat-button>
+    <meat-button type="submit">Submit</meat-button>
+</form>
+    </textarea>
+    </div>
+        
     </body>
     <script>
         const meatButton = document.querySelector('meat-button');
@@ -57,4 +146,5 @@
             meatButton.disabled = false;
         }, 1000);
     </script>
+    
 </html>
