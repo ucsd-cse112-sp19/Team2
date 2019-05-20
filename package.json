@@ -10,7 +10,7 @@
     "test": "./node_modules/.bin/testcafe chrome ./test/testcafe-hello-core.js",
     "runner": "node test/runner.js",
     "local-runner": "node -r dotenv/config test/runner.js",
-    "mtest": "mocha-chrome ./unit_tests/hello-core-test.html",
+    "mtest": "./node_modules/.bin/mocha-chrome ./unit_tests/hello-core-test.html",
     "wintest": "for %f in (./unit_tests/*.html) do mocha-chrome ./test/%f",
     "lintest": "mocha-chrome ./unit_tests/*.html",
     "generate-jsdocs": "./node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
