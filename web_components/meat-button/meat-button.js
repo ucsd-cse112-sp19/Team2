@@ -7,31 +7,23 @@ template.innerHTML = `
     position: relative;
     width: 90px;
     height: 40px;
-
     /* special override-able css variables */
-
     --font-family: sans-serif;
-
     /* round */
     --border-radius: 100px;
-
     /* colors */
     --background-color: #ffffff;
     --text-color: #444444;
     --border: 1px solid #cccccc;
-
     --hover-background-color: #daeeff;
     --focus-background-color: #daeeff;
     --active-background-color: #daeeff;
-
     --hover-text-color: #3388ff;
     --focus-text-color: #3388ff;
-
     --hover-border: 1px solid #daeeff;
     --focus-border: 1px solid #bbccff;
     --active-border: 1px solid #3388ff;
 }
-
 /* Default style if no type is specified */
 button {
     display: inline-block;
@@ -47,82 +39,65 @@ button {
     margin: 0px;
     padding: 0px;
 }
-
 /* define color scheme for white button */
 :host([color="white"]) {
   /* colors */
   --background-color: #ffffff;
   --text-color: #444444;
   --border: 1px solid #cccccc;
-
   --hover-background-color: #daeeff;
   --focus-background-color: #daeeff;
   --active-background-color: #daeeff;
-
   --hover-text-color: #3388ff;
   --focus-text-color: #3388ff;
-
   --hover-border: 1px solid #daeeff;
   --focus-border: 1px solid #bbccff;
   --active-border: 1px solid #3388ff;
 }
-
 :host([color="grey"]) {
   /* colors */
   --background-color: #777777;
   --text-color: #ffffff;
   --border: 1px solid #777777;
-
   --hover-background-color: #999999;
   --focus-background-color: #999999;
   --active-background-color: #555555;
-
   --hover-text-color: #ffffff;
   --focus-text-color: #ffffff;
-
   --hover-border: 1px solid #999999;
   --focus-border: 1px solid #999999;
   --active-border: 1px solid #555555;
 }
-
 /* define color scheme for red button */
 :host([color="red"]) {
   /* colors */
   --background-color: #cc5050;
   --text-color: #ffffff;
   --border: 1px solid #cc5050;
-
   --hover-background-color: #e46060;
   --focus-background-color: #e46060;
   --active-background-color: #b03737;
-
   --hover-text-color: #ffffff;
   --focus-text-color: #ffffff;
-
   --hover-border: 1px solid #e46060;
   --focus-border: 1px solid #e46060;
   --active-border: 1px solid #b03737;
 }
-
 /* define color scheme for orange button */
 :host([color="orange"]) {
   /* colors */
   --background-color: #df8a40;
   --text-color: #ffffff;
   --border: 1px solid #df8a40;
-
   --hover-background-color: #dfaa70;
   --focus-background-color: #dfaa70;
   --active-background-color: #cf7a30;
-
   --hover-text-color: #ffffff;
   --focus-text-color: #ffffff;
-
   --hover-border: 1px solid #dfaa70;
   --focus-border: 1px solid #dfaa70;
   --active-border: 1px solid #cf7a30;
 }
-
 /* define color scheme for yellow button */
 :host([color="yellow"]) {
   /* colors */
@@ -133,128 +108,102 @@ button {
   --hover-background-color: #f6e690;
   --focus-background-color: #f6e690;
   --active-background-color: #ddcc00;
-
   --hover-text-color: #ffffff;
   --focus-text-color: #ffffff;
-
   --hover-border: 1px solid #f6e690;
   --focus-border: 1px solid #f6e690;
   --active-border: 1px solid #ddcc00;
 }
-
 /* white text is hard to read against a yellow background, add some subtle text shadow */
 :host([color="yellow"]) > button {
   text-shadow: 0 0 5px #c5b500, 0 0 10px #c5b500, 0 0 15px #eedd00;
 }
-
 /* define color scheme for green button */
 :host([color="green"]) {
   /* colors */
   --background-color: #59c040;
   --text-color: #ffffff;
   --border: 1px solid #59c040;
-
   --hover-background-color: #79cc69;
   --focus-background-color: #79cc69;
   --active-background-color: #50a050;
-
   --hover-text-color: #ffffff;
   --focus-text-color: #ffffff;
-
   --hover-border: 1px solid #79cc69;
   --focus-border: 1px solid #79cc69;
   --active-border: 1px solid #50a050;
 }
-
 /* define color scheme for blue button */
 :host([color="blue"]) {
   /* colors */
   --background-color: #40a5ff;
   --text-color: #ffffff;
   --border: 1px solid #40a5ff;
-
   --hover-background-color: #65b5ff;
   --focus-background-color: #65b5ff;
   --active-background-color: #2285dd;
-
   --hover-text-color: #ffffff;
   --focus-text-color: #ffffff;
-
   --hover-border: 1px solid #65b5ff;
   --focus-border: 1px solid #65b5ff;
   --active-border: 1px solid #2285dd;
 }
-
 /* define color scheme for blue button */
 :host([color="purple"]) {
   /* colors */
   --background-color: #aa55aa;
   --text-color: #ffffff;
   --border: 1px solid #aa55aa;
-
   --hover-background-color: #cc66cc;
   --focus-background-color: #cc66cc;
   --active-background-color: #994499;
-
   --hover-text-color: #ffffff;
   --focus-text-color: #ffffff;
-
   --hover-border: 1px solid #cc66cc;
   --focus-border: 1px solid #cc66cc;
   --active-border: 1px solid #994499;
 }
-
 /* Attribute: round */
     /* if host element, i.e. <meat-button> has attribute round, apply this css to button*/
     :host([round]) > button {
         border-radius: var(--border-radius);
     }
-
 /* Attribute: size */
-
     /* if host element, i.e. <meat-button> has attribute size="small", apply this css */
     :host([size="small"]) {
         width: 80px;
         height: 36px;
     }
-
     :host([size="medium"]) {
         width: 90px;
         height: 40px;
     }
-
     :host([size="large"]) {
         width: 100px;
         height: 44px;
     }
-
   /* Attribute: circle */
     :host([circle]) > button {
       border-radius: 50%;
     }
-
     /* default size for circle button */
     :host([circle]) {
       width: 40px;
       height: 40px;
     }
-
     /* if size specified, use the following dimensions */
     :host([circle][size="small"]) {
       width: 30px;
       height: 30px;
     }
-
     :host([circle][size="medium"]) {
         width: 40px;
         height: 40px;
     }
-
     :host([circle][size="large"]) {
       width: 50px;
       height: 50px;
   }
-
 /* Actions: focus */
     :host > button:focus {
         border: var(--focus-border);
@@ -262,13 +211,11 @@ button {
         outline: none;
         background-color: var(--focus-background-color);
     }
-
 /* Actions: hover */
     :host(:not([disabled])) > button:hover {
         -webkit-animation: hover .1s linear forwards;
         animation: hover .1s linear forwards;
     }
-
     @keyframes hover {
         100% { background-color: var(--hover-background-color) }
         100% { color: var(--hover-text-color) }
@@ -279,7 +226,6 @@ button {
         100% { color: var(--hover-text-color) }
         100% { border: var(--hover-border) }
     }
-
 /* Actions: active/click */
     :host(:not([disabled])) > button:active {
         -webkit-animation: active .1s linear forwards;
@@ -293,7 +239,6 @@ button {
         100% { background-color: var(--active-background-color)  }
         100% { border: var(--active-border)  }
     }
-
 /* Attribute: disabled */
     /* if host element, i.e. <meat-button> has attribute round, apply this css to button*/
     :host([disabled]) > button {

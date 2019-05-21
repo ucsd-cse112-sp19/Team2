@@ -3,6 +3,10 @@
       {
         "file": "./test/seleniumDefaultTest.js",
         "timeout": 30000
+      },
+      {
+        "file": "./test/core-hello-test.js", 
+        "timeout": 30000
       }
     ],
     "browsers": [

@@ -1,7 +1,8 @@
 language: node_js
 node_js:
 - stable
-# script: npm run lintest
+script: 
+- npm run lintest && npm run runner
 cache:
   directories:
   - node_modules
