@@ -3,7 +3,7 @@ node_js:
 - stable
 script: 
 - node server.js &
-- npm run lintest && run runner
+- npm run lintest && npm run runner
 cache:
   directories:
   - node_modules
