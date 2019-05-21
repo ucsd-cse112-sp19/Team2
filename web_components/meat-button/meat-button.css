@@ -291,7 +291,7 @@ button {
 
 /* Attribute: disabled */
 /* if host element, i.e. <meat-button> has attribute round, apply this css to button*/
-:host([disabled]) {
+:host([disabled]) > button {
     background-color: lightgrey; 
     color: white;
     cursor: not-allowed;
