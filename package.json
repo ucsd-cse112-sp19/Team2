@@ -33,18 +33,18 @@
   },
   "homepage": "https://meat-space.org",
   "devDependencies": {
+    "chai": "^4.2.0",
+    "chromedriver": "^2.41.0",
     "eslint": "^5.16.0",
     "eslint-config-google": "^0.12.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-prettier": "^3.0.1",
-    "jsdoc": "^3.5.5",
+    "jsdoc": "^3.6.2",
     "minami": "^1.2.3",
     "mocha": "^6.1.4",
     "mocha-chrome": "^2.0.0",
     "prettier": "1.17.0",
-    "chai": "^4.2.0",
-    "selenium-webdriver": "^4.0.0-alpha.1",
-    "chromedriver": "^2.41.0"
+    "selenium-webdriver": "^4.0.0-alpha.1"
   },
   "dependencies": {
     "acorn": "^6.1.1"
