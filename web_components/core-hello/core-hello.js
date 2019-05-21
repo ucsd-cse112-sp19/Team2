@@ -43,7 +43,6 @@ tmpl.innerHTML = `
     display: var(--display, block);
     text-align: var(--text-align, center);
 }
-
 /* when "hidden" attribute applied, display nothing */
 :host([hidden]){
     display: none;
@@ -64,7 +63,7 @@ tmpl.innerHTML = `
  * @property {boolean} rainbow -Enables a background rainbow effect.
  * @property {string} lang -Set language (English, French, Spanish). Default is English.
  * */
-export class CoreHelloElement extends HTMLElement {
+class CoreHelloElement extends HTMLElement {
   /**
    * Create an instance of CoreHelloElement
    */
