@@ -42,7 +42,8 @@
     "mocha": "^6.1.4",
     "mocha-chrome": "^2.0.0",
     "prettier": "1.17.0",
-    "selenium-webdriver": "^4.0.0-alpha.1"
+    "selenium-webdriver": "^4.0.0-alpha.1",
+    "testcafe": "^1.1.4"
   },
   "dependencies": {
     "acorn": "^6.1.1",
