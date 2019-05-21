@@ -49,7 +49,7 @@ template.innerHTML = `
  * @customelement meat-boilerplate
  * @description A boilerplate for starting new webcomponents
  * @example &lt;meat-boilerplate>&lt;/meat-boilerplate>
- * */
+ */
 export class MeatBoilerplateElement extends HTMLElement {
   /**
    * Create an instance of MeatButtonElement
@@ -68,17 +68,17 @@ export class MeatBoilerplateElement extends HTMLElement {
   /**
    * Tell the webcomponent to observe these attributes, if any of them are added, changed, or removed, then
    * call attributeChangedCallback(name, oldVal, newVal)
-   * */
+   */
   static get observedAttributes() {
     return [];
   }
 
-  /*
+  /**
    * Called whenever one of the attributes specified in observedAttributes() is changed
    * @param {string} name
    * @param {string} oldVal
    * @param {string} newVal
-   * */
+   */
   attributeChangedCallback(name, oldVal, newVal) {}
 }
 window.customElements.define("meat-boilerplate", MeatBoilerplateElement);

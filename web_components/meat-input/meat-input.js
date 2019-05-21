@@ -1,103 +1,7 @@
 const template = document.createElement("template");
 template.innerHTML = `
-<style>
-
-:host {
-
-  position: relative;
-  display: inline-block;
-
-  /* special override-able css variables */
-  
-  /* TODO: Determine needed variables. */
-  --border-radius: 10px;
-  --border-bottom: 1px solid #000000;
-
-  /* Colors */
-  --background-color: #ffffff;
-  --text-color: #444444;
-  --border: 1px solid #cccccc;
-  --placeholder-color: #add8e6
-
-  --hover-background-color: #daeeff;
-  --focus-background-color: #daeeff;
-
-  --hover-text-color: #3388ff;
-  --focus-text-color: #3388ff;
-  
-  --hover-border: 1px solid #daeeff;
-  --focus-border: 1px solid #daeeff;
-  --active-border: 1px solid #3388ff;
-
-}
-
-/* Default style if no type is specified */
-input {
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  background-color: inherit;
-  color: var(--text-color);
-  border: var(--border);
-  border-bottom: var(--border-bottom);
-  padding: 5px;
-  outline: hidden; /* This may not be needed */
-}
-
-placeholder {
-    color: var(--placeholder-color);
-}
-
-
-/* Attributes: */
-
-/* Size */
-:host([size = "small"]) {
-    width: 100px;
-    height: inherit;
-}
-:host([size = "medium"]) {
-    width: 200px;
-    height: inherit;
-}
-:host([size = "large"]) {
-    width: 300px;
-    height: inherit;
-}
-
-#suggestionContainer {
-  position: absolute;
-  border: 1px solid #d4d4d4;
-  border-bottom: none;
-  border-top: none;
-  z-index: 99;
-  /*position the autocomplete items to be the same width as the container:*/
-  top: 100%;
-  left: 0;
-  right: 0;
-}
-
-.suggestion {
-  padding-left: 5px;
-  cursor: pointer;
-  background-color: #fff; 
-  border-bottom: 1px solid #d4d4d4; 
-  font-family: sans-serif;
-  font-size: 15px
-}
-
-.suggestion:hover {
-  border: var(--active-border);
-}
-
-.suggestion:focus {
-  background-color: var(--hover-background-color, #daeeff);
-  border: var(--active-border);
-}
-
-/* Actions: */
-/* Hover */
-</style>
+<style></style>
+<link rel="stylesheet" href="/web_components/meat-input/meat-input.css"/>
 <input id="input" type="text"></input>
 <div id="suggestionContainer"></div>
 `;
@@ -150,6 +54,17 @@ export class MeatInputElement extends HTMLElement {
     // User may have attempted to set suggestions before element loaded in, set them now.
     this._upgradeProperty("suggestions");
 
+    // if user specifies bootstrap, link style to bootstrap
+    if (this.hasAttribute("bootstrap")) {
+      const newLink = this.shadow.querySelector("link"); // link stylesheet to bootstrap's stylesheet
+      newLink.rel = "stylesheet";
+      newLink.href =
+        "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
+      newLink.integrity =
+        "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T";
+      newLink.crossOrigin = "anonymous";
+    }
+
     // if this input is within a form, find the form and connect to it
     let parentNode = this.parentNode;
     while (parentNode) {
@@ -186,7 +101,9 @@ export class MeatInputElement extends HTMLElement {
       "value",
       "readonly",
       "suggest",
-      "autocomplete"
+      "autocomplete",
+      "bootstrap",
+      "type"
     ];
   }
 
@@ -229,6 +146,13 @@ export class MeatInputElement extends HTMLElement {
         if (!this.hasAttribute("autocomplete") && newVal == "on") {
           this.input.autocomplete = "off";
         }
+        break;
+      case "type":
+        this.input.type = newVal;
+        break;
+      case "bootstrap":
+        this.input.className = newVal;
+        break;
     }
   }
 
@@ -366,7 +290,7 @@ export class MeatInputElement extends HTMLElement {
   }
 
   /**
-   * @param {array} suggestions
+   * @param {string array} suggestions
    * Render list of suggestions as dropdown list under input
    */
   _renderSuggestions(suggestions) {
