@@ -2,8 +2,7 @@ language: node_js
 node_js:
 - stable
 script: 
-- node server.js &
-- npm run lintest && npm run runner
+- npm run runner
 cache:
   directories:
   - node_modules
