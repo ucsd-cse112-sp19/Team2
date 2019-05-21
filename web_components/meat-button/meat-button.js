@@ -326,7 +326,7 @@ export class MeatButtonElement extends HTMLElement {
         else this.button.autofocus = false;
         break;
       case "type":
-        // assigning type to button doesn't work
+        this.button.type = newVal;
         break;
     }
   }

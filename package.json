@@ -31,24 +31,18 @@
   },
   "homepage": "https://github.com/ucsd-cse112/Team2#readme",
   "devDependencies": {
-    "@wdio/cli": "^5.8.3",
     "chai": "^4.2.0",
     "chromedriver": "^2.41.0",
-    "connect": "^3.6.6",
     "eslint": "^5.16.0",
     "eslint-config-google": "^0.12.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-prettier": "^3.0.1",
-    "jsdoc": "^3.5.5",
+    "jsdoc": "^3.6.2",
     "minami": "^1.2.3",
     "mocha": "^6.1.4",
     "mocha-chrome": "^2.0.0",
     "prettier": "1.17.0",
-    "selenium-webdriver": "^4.0.0-alpha.1",
-    "serve-static": "^1.14.1",
-    "testcafe": "^1.1.4",
-    "testcafe-browser-provider-browserstack": "^1.8.0",
-    "wdio-webcomponents": "^1.1.0"
+    "selenium-webdriver": "^4.0.0-alpha.1"
   },
   "dependencies": {
     "acorn": "^6.1.1",
