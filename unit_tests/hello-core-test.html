@@ -11,13 +11,13 @@
     <script src="../node_modules/mocha/mocha.js"></script>
     <script src="../node_modules/chai/chai.js"></script>
     <script>
+        var assert = chai.assert;
         mocha.setup('bdd')
-            var assert = chai.assert;
-        </script>
+    </script>
     
     <!-- load code you want to test here -->
     <script href="../web_components/core-hello/core-hello.css"></script>
-    <script type="module" src="../web_components/core-hello/core-hello.js"></script>
+    <script src="../web_components/core-hello/core-hello.js"></script>
     <core-hello id="component"> MeatSpace </core-hello>
 
 
@@ -25,9 +25,7 @@
      <script src="test.js"></script>
       
     <script>
-        window.customElements.whenDefined('core-hello').then(() => {
           mocha.run();
-        })
     </script>
   </body>
 </html>

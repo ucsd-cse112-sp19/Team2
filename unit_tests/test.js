@@ -1,13 +1,7 @@
 var assert = chai.assert; 
-
-let comp = document.getElementById('component');
 let sr = document.getElementById('component').shadowRoot;
-
+let comp = document.getElementById('component');
 describe('core-hello basic requirements', function() { 
-  beforeEach(function() {
-    comp = document.getElementById('component');
-    sr = document.getElementById('component').shadowRoot;
-  });
   /* Check if ShadowRoot Exists */ 
   it ("shadowDOM should exist", function() { 
     assert.equal(sr instanceof ShadowRoot, true);
@@ -15,18 +9,18 @@ describe('core-hello basic requirements', function() {
 
   /* Should Add 'Hello world,' */ 
   it ("should add 'Hello world,' to string", function() { 
-    assert.equal(sr.getElementById('main-text').innerText, "Hello world, ");
+    assert.equal(sr.getElementById('main-text').innerHTML, "Hello world, ");
   })
   /* Should Concat Hello World to Input */ 
   it ("should concat 'Hello world,' to {input}", function() { 
     let input = document.getElementById('component').innerHTML; 
-    assert.equal(sr.getElementById('main-text').innerText + input, "Hello world,  MeatSpace ");
+    assert.equal(sr.getElementById('main-text').innerHTML + input, "Hello world,  MeatSpace ");
   })
 
   /* Input has varying length */ 
   it ("should concat 'Hello world,' to {multi-worded input}", function() { 
     document.getElementById('component').innerHTML = " Multiple Words Value";
-    assert.equal(sr.getElementById('main-text').innerText + document.getElementById('component').innerHTML, "Hello world,  Multiple Words Value");
+    assert.equal(sr.getElementById('main-text').innerHTML + document.getElementById('component').innerHTML, "Hello world,  Multiple Words Value");
   })
 
   /* Check Tag Name */ 
@@ -49,12 +43,6 @@ describe('core-hello basic requirements', function() {
 }); 
 
 describe('core-hello Language Functionality', function() { 
-  beforeEach(function() {
-    comp = document.getElementById('component');
-    sr = document.getElementById('component').shadowRoot;
-  });
-
-  let sr = document.getElementById('component').shadowRoot;
   it ("should output language in spanish", function() { 
     comp.setAttribute("lang", 'sp');
     assert.equal(sr.getElementById('main-text').innerHTML, "Hola mundo, ");
@@ -71,26 +59,14 @@ describe('core-hello Language Functionality', function() {
 
 
 describe('core-hello Rainbow Functionality', function() { 
-    beforeEach(function() {
-    comp = document.getElementById('component');
-    sr = document.getElementById('component').shadowRoot;
-  });
-
   /* Test rainbow attribute exists */ 
   it ("should have rainbow attribute", function() { 
     comp.setAttribute("rainbow", '');
     assert.equal(comp.hasAttribute("rainbow"), true);
   })
-  it ("shadowDOM should exist", function() { 
-    assert.equal(sr instanceof ShadowRoot, true);
-  })
 }); 
 
 describe('CSS tests', function() { 
-  beforeEach(function() {
-    comp = document.getElementById('component');
-    sr = document.getElementById('component').shadowRoot;
-  });
   /* Test color styling */ 
   it ("Text should turn white when adding color to style", function() { 
     comp.style.color = "white"
