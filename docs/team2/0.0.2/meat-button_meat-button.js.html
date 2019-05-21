@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="core-hello.html">CoreHelloElement</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="live-editor.html">LiveEditorElement</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="meat-boilerplate.html">MeatBoilerplateElement</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="meat-button.html">MeatButtonElement</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="meat-input.html">MeatInputElement</a></span></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="team2-learn.html">team2-learn</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="core-hello.html">core-hello</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="live-editor.html">live-editor</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-boilerplate.html">meat-boilerplate</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-button.html">meat-button</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-input.html">meat-input</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="team2-learn.html">team2-learn</a></span></li>
 </nav>
 
 <div id="main">
@@ -63,7 +63,6 @@ template.innerHTML = `
 
     --hover-background-color: #daeeff;
     --focus-background-color: #daeeff;
-    --active-background-color: #daeeff;
 
     --hover-text-color: #3388ff;
     --focus-text-color: #3388ff;
@@ -297,6 +296,8 @@ button {
   }
 
 /* Actions: focus */
+
+    /* Type = default */
     :host > button:focus {
         border: var(--focus-border);
         color: var(--focus-text-color);
@@ -305,7 +306,9 @@ button {
     }
 
 /* Actions: hover */
-    :host(:not([disabled])) > button:hover {
+
+    /* Type = default */
+    :host > button:hover {
         -webkit-animation: hover .1s linear forwards;
         animation: hover .1s linear forwards;
     }
@@ -322,26 +325,21 @@ button {
     }
 
 /* Actions: active/click */
-    :host(:not([disabled])) > button:active {
+
+    /* Type = default */
+    :host > button:active {
         -webkit-animation: active .1s linear forwards;
         animation: active .1s linear forwards;
     }
     @keyframes active {
-        100% { background-color: var(--active-background-color)  }
         100% { border: var(--active-border)  }
+        100% { background-color: var(--active-background-color)  }
     }
-    @-webkit-keyframes active {
-        100% { background-color: var(--active-background-color)  }
+    @-webkit-keyframes default_active {
         100% { border: var(--active-border)  }
+        100% { background-color: var(--active-background-color)  }
     }
 
-/* Attribute: disabled */
-    /* if host element, i.e. &lt;meat-button> has attribute round, apply this css to button*/
-    :host([disabled]) > button {
-      background-color: lightgrey; 
-      color: white;
-      cursor: not-allowed;
-    }
 &lt;/style>
 &lt;button id="button" type="reset">&lt;/button>
 `;
@@ -365,7 +363,6 @@ export class MeatButtonElement extends HTMLElement {
    */
   constructor() {
     super();
-    this._parentForm;
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
     this.button = this.shadow.querySelector("#button");
@@ -378,14 +375,6 @@ export class MeatButtonElement extends HTMLElement {
   connectedCallback() {
     // Need to get the content inbetween the &lt;meat-button> tags into the button so it renders
     this.button.textContent = this.textContent;
-    let parentNode = this.parentNode;
-    while (parentNode) {
-      if (parentNode &amp;&amp; parentNode.nodeName == "FORM") {
-        this._parentForm = parentNode;
-        break;
-      }
-      parentNode = parentNode.parentNode;
-    }
   }
 
   /**
@@ -405,7 +394,7 @@ export class MeatButtonElement extends HTMLElement {
     ];
   }
 
-  /**
+  /*
    * Called whenever one of the attributes specified in observedAttributes() is changed
    * @param {string} name
    * @param {string} oldVal
@@ -423,17 +412,11 @@ export class MeatButtonElement extends HTMLElement {
         break;
       case "type":
         // assigning type to button doesn't work
-        if (newVal == "submit") this.button.type = 'submit';
-        else if (newVal == "reset") this.button.type = 'reset';
-        // not sure if this is a good way to handle our errors
-        else console.log("error on button type");
         break;
     }
   }
 
-  /**
-   * getters and setters for attributes
-   */
+  // getters and setters for attributes
   get disabled() {
     return this.hasAttribute("disabled");
   }
@@ -567,19 +550,19 @@ export class MeatButtonElement extends HTMLElement {
     }
   }
 
-  /*
+  /**
    * This is unnecessary for now, the user can just attach an event listener to &lt;meat-button>
    * */
   _onClick(evt, thisComponent) {
     switch (this.getAttribute("type")) {
       case "reset":
-        if (this._parentForm) {
-          this._parentForm.reset();
+        if (this.parentNode &amp;&amp; this.parentNode.nodeName == "FORM") {
+          this.parentNode.reset();
         }
         break;
       case "submit":
-        if (this._parentForm) {
-          this._parentForm.submit();
+        if (this.parentNode &amp;&amp; this.parentNode.nodeName == "FORM") {
+          this.parentNode.submit();
         }
         break;
     }
@@ -599,7 +582,7 @@ window.customElements.define("meat-button", MeatButtonElement);
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
