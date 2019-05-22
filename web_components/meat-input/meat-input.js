@@ -108,6 +108,16 @@ export class MeatInputElement extends HTMLElement {
    * @customelement meat-input
    * @description displays a stylized input field
    * @example <meat-input></meat-input>
+   * @see [local_Demo]{@link http://127.0.0.1:5501/web_components/meat-input/meat-input-demo.html} for local examples.
+   * @see [Demo]{@link https://meat-space.org/web_components/meat-input/meat-input-demo.html} for working example.
+   * @property {boolean} disabled -Disable input from accepting text.
+   * @property {string} size -Changes the size of the input box.
+   * @property {string} placeholder -Placeholder showing what text this input can take.
+   * @property {boolean} password -Make the input a password field and replace text with asteriks.
+   * @property {string} value -Default text value within the input box.
+   * @property {boolean} readOnly -Determines if the input box can be edited.
+   * @property {on, off} suggest -Determines if input box will display a predetermined suggestion list.
+   * @property {on, off} autocomplete -Determines if input box will use native browser capabilit to display user's previous inputs as suggestion.
    * */
   constructor() {
     super();
