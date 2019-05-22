@@ -53,7 +53,7 @@
             }
             textarea {
                 background-color: #fafafa;
-                color: darkblue;
+                color: rgb(59, 59, 187);
             }
         </style>
         <script type="module" src="../meat-input/meat-input.js"></script>
@@ -115,6 +115,52 @@
             <meat-button bootstrap="btn btn-light">Light</meat-button>
             <meat-button bootstrap="btn btn-dark">Dark</meat-button>
             <br><br>
+
+            <button class="collapsible props">Show Code</button>
+    <div class="content">
+    <textarea class="props" readonly rows="10" style="resize: none; width: 50%">
+    <meat-button color="white"  size="large">White</meat-button>
+    <meat-button color="grey"   size="large">Grey</meat-button>
+    <meat-button color="red"    size="large">Red</meat-button>
+    <meat-button color="orange" size="large">Orange</meat-button>
+    <meat-button color="yellow" size="large">Yellow</meat-button>
+    <meat-button color="green"  size="large">Green</meat-button>
+    <meat-button color="blue"   size="large">Blue</meat-button>
+    <meat-button color="purple" size="large">Purple</meat-button>
+    <br />
+    <br/>
+    <meat-button color="white"  size="large" round >White</meat-button>
+    <meat-button color="grey"   size="large" round >Grey</meat-button>
+    <meat-button color="red"    size="large" round >Red</meat-button>
+    <meat-button color="orange" size="large" round >Orange</meat-button>
+    <meat-button color="yellow" size="large" round >Yellow</meat-button>
+    <meat-button color="green"  size="large" round >Green</meat-button>
+    <meat-button color="blue"   size="large" round >Blue</meat-button>
+    <meat-button color="purple" size="large" round >Purple</meat-button>
+    <br/>
+    <br/>
+    <meat-button color="white"  size="large" round circle>+</meat-button>
+    <meat-button color="grey"   size="large" round circle>+</meat-button>
+    <meat-button color="red"    size="large" round circle>+</meat-button>
+    <meat-button color="orange" size="large" round circle>+</meat-button>
+    <meat-button color="yellow" size="large" round circle>+</meat-button>
+    <meat-button color="green"  size="large" round circle>+</meat-button>
+    <meat-button color="blue"   size="large" round circle>+</meat-button>
+    <meat-button color="purple" size="large" round circle>+</meat-button>
+    <br><br>
+    <label>Bootstrap Support</label><br/>
+    <meat-button bootstrap="btn btn-primary">Primary</meat-button>
+    <meat-button bootstrap="btn btn-secondary">Secondary</meat-button>
+    <meat-button bootstrap="btn btn-success">Success</meat-button>
+    <meat-button bootstrap="btn btn-danger">Danger</meat-button>
+    <meat-button bootstrap="btn btn-warning">Warning</meat-button>
+    <meat-button bootstrap="btn btn-info">Info</meat-button>
+    <meat-button bootstrap="btn btn-light">Light</meat-button>
+    <meat-button bootstrap="btn btn-dark">Dark</meat-button>
+    <br><br>
+    </textarea>
+    </div>
+    <br />
             <label>With forms</label><br/>
             <form action="/some_action.php">
                 <label for="name">Example Form</label><br>
@@ -122,6 +168,19 @@
                 <meat-button type="reset">Reset the form!</meat-button>
                 <meat-button type="submit">Submit</meat-button>
             </form>
+            <br />
+            <button class="collapsible props">Show Code</button>
+    <div class="content">
+    <textarea class="props" readonly rows="10" style="resize: none; width: 50%">
+    <form action="/some_action.php">
+        <label for="name">Example Form</label><br>
+        <input name="name"><br><br>
+        <meat-button type="reset">Reset the form!</meat-button>
+        <meat-button type="submit">Submit</meat-button>
+    </form>
+    </textarea>
+    </div>
+    <br />
         </div>
     </body>
     <script>

@@ -8,6 +8,56 @@
         <script type="module" src="./meat-input.js"></script>
         <script type="module" src="../meat-button/meat-button.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script type="module">
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+    
+            for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight){
+                content.style.maxHeight = null;
+                } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                } 
+                if (this.innerHTML === "Show Code") {
+                this.innerHTML = "Hide Code";
+                } else {
+                this.innerHTML = "Show Code";
+                }
+            });
+            }
+        </script>
+        <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+        <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+        <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+        <style>
+            .collapsible {
+            background-color: white;
+            color: black;
+            cursor: pointer;
+            padding: 18px;
+            width: 50%;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            }
+            .active, .collapsible:hover {
+            background-color: white;
+            }
+            .content {
+            padding: 0px;
+            max-height: 0;
+            overflow: hidden;
+            background-color: white;
+            transition: max-height 0.2s ease-out;
+            }
+            textarea {
+                background-color: #fafafa;
+                color: rgb(59, 59, 187);
+            }
+        </style>
     </head>
     <style>
         .meat-input-fullwidth {
@@ -39,6 +89,31 @@
             <meat-input size="medium" placeholder="Disabled" autocomplete="off" disabled></meat-input> disabled <br> 
         </div>
         
+        <br />
+        <button class="collapsible props">Show Code</button>
+        <div class="content">
+            <textarea class="props" readonly rows="10" style="resize: none; width: 50%">
+    <label>Basic Input:</label>
+    <br>
+    <meat-input size="small" placeholder="Small" autocomplete="off"></meat-input> size="small" <br> 
+    <meat-input size="medium" placeholder="Medium" autocomplete="off"></meat-input> size="medium" <br> 
+    <meat-input size="large" placeholder="Large" autocomplete="off"></meat-input> size="large" <br> 
+    <br>
+    <label>Limit</label><br>
+    <meat-input size="medium" placeholder="Limit" autocomplete="off" limit=10></meat-input> limit=10 <br> 
+    <br>
+    <label>Password Input</label><br>
+    <meat-input size="medium" placeholder="Password" autocomplete="off" password></meat-input> password <br> 
+    <br>
+    <label>Readonly</label><br>
+    <meat-input size="medium" placeholder="Readonly" autocomplete="off" readonly></meat-input> readonly <br> 
+    <br> 
+    <label>Disabled</label><br>
+    <meat-input size="medium" placeholder="Disabled" autocomplete="off" disabled></meat-input> disabled <br> 
+            </textarea>
+        </div>
+        <br />
+
         <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 80vh;">   
             <form action="some_action.php" style="background-color: #F2F2FA;">
                 <div style="border-style: groove; padding: 40px;">
@@ -61,6 +136,29 @@
             </form>
         </div>
 
+        <br />
+        <button class="collapsible props">Show Code</button>
+        <div class="content">
+            <textarea class="props" readonly rows="10" style="resize: none; width: 50%">
+    <label>Using with Forms</label><br>
+    <br><label>This input uses the browser's built in autocomplete. When you submit, the browser caches what you typed and will suggest it next time.</label><br>
+    <label>Try typing something in amd submit. When you reload the page, you will see it in the suggestions when you try again.</label><br>
+    <br><meat-input class="meat-input-fullwidth" id="meat1" placeholder="Autocomplete..." autocomplete="on"></meat-input><br>
+    <br><label>This input uses the developer's suggestions, good for predefined values like states.</label><br>
+    <label>You can use the arrow keys to navigate the list too.</label><br>
+    <br><meat-input class="meat-input-fullwidth" id="meat2" placeholder="Predefined Suggestions..." suggest="on"></meat-input><br>
+    <br><label>This input is read only and doesn't get reset by the reset button</label><br>
+    <br><meat-input class="meat-input-fullwidth" placeholder="This is a readonly input!" value="It's my boi, Peter!" readonly>
+    </meat-input>
+    <br/><br/>
+    <label>meat-input works with native Forms, even when nested inside other elements, like a bunch of divs. </label><br>
+    <br><meat-button type="reset" color="red">Reset</meat-button>
+    <meat-button type="submit" color="blue">Submit</meat-button>
+    <br><label></label><br>
+            </textarea>
+        </div>
+        <br />
+
         <form style="margin: 20px; border-style: groove; padding: 20px;">
             <label>Bootstrap Support</label><br>
             <div class="form-group">
@@ -79,6 +177,29 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
+        <br />
+        <button class="collapsible props">Show Code</button>
+        <div class="content">
+            <textarea class="props" readonly rows="10" style="resize: none; width: 50%">
+    <label>Bootstrap Support</label><br>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <meat-input type="email" bootstrap="form-control" placeholder="Enter email"></meat-input>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <meat-input type="password" bootstrap="form-control" placeholder="Password"></meat-input>
+    </div>
+    <div class="form-check">
+        <meat-input type="checkbox" bootstrap="form-check-input"></meat-input>
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+            </textarea>
+        </div>
+        <br />
+
         <form style="margin: 20px; border-style: groove; padding: 20px;">
             <label>Actual Bootstrap</label><br>
             <div class="form-group">
@@ -96,6 +217,29 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+
+        <br />
+        <button class="collapsible props">Show Code</button>
+        <div class="content">
+            <textarea class="props" readonly rows="10" style="resize: none; width: 50%">
+    <label>Actual Bootstrap</label><br>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" placeholder="Password">
+    </div>
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input"></input>
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+            </textarea>
+        </div>
+        <br />
 
     </body>
     <script>
