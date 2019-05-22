@@ -56,17 +56,32 @@
                 color: darkblue;
             }
         </style>
+        <script type="module" src="../meat-input/meat-input.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <style>
-        meat-button {}
+        meat-button {
+            
+        }
         form {
             border: 1px solid #3388ff;
             padding: 10px;
-            width: 200px;
+            width: 230px;
         }
     </style>
     <body>
-        <div>
+        <div style="padding: 10px">
+            <label>Basic buttons</label><br/>
+            <meat-button color="white"  size="large" >White</meat-button>
+            <meat-button color="grey"   size="large" >Grey</meat-button>
+            <meat-button color="red"    size="large" >Red</meat-button>
+            <meat-button color="orange" size="large" >Orange</meat-button>
+            <meat-button color="yellow" size="large" >Yellow</meat-button>
+            <meat-button color="green"  size="large" >Green</meat-button>
+            <meat-button color="blue"   size="large" >Blue</meat-button>
+            <meat-button color="purple" size="large" >Purple</meat-button>
+            <br><br>
+            <label>Round buttons</label><br/>
             <meat-button color="white"  size="large" round >White</meat-button>
             <meat-button color="grey"   size="large" round >Grey</meat-button>
             <meat-button color="red"    size="large" round >Red</meat-button>
@@ -74,77 +89,46 @@
             <meat-button color="yellow" size="large" round >Yellow</meat-button>
             <meat-button color="green"  size="large" round >Green</meat-button>
             <meat-button color="blue"   size="large" round >Blue</meat-button>
-            <meat-button color="purple" size="large" round >Purple</meat-button><br/>
-            <br/>
-            <meat-button color="white"  size="large" round circle>+</meat-button>
-            <meat-button color="grey"   size="large" round circle>+</meat-button>
-            <meat-button color="red"    size="large" round circle>+</meat-button>
-            <meat-button color="orange" size="large" round circle>+</meat-button>
-            <meat-button color="yellow" size="large" round circle>+</meat-button>
-            <meat-button color="green"  size="large" round circle>+</meat-button>
-            <meat-button color="blue"   size="large" round circle>+</meat-button>
-            <meat-button color="purple" size="large" round circle>+</meat-button>
-            <br/><br/>
-            <meat-button color="white"  size="large" round disabled >Disabled</meat-button>
-            <meat-button color="white"  size="large" round >Not Disabled</meat-button>
+            <meat-button color="purple" size="large" round >Purple</meat-button>
+            <br><br>
+            <label>Circle buttons</label><br/>
+            <meat-button color="white"  size="large" circle>+</meat-button>
+            <meat-button color="grey"   size="large" circle>+</meat-button>
+            <meat-button color="red"    size="large" circle>+</meat-button>
+            <meat-button color="orange" size="large" circle>+</meat-button>
+            <meat-button color="yellow" size="large" circle>+</meat-button>
+            <meat-button color="green"  size="large" circle>+</meat-button>
+            <meat-button color="blue"   size="large" circle>+</meat-button>
+            <meat-button color="purple" size="large" circle>+</meat-button>
+            <br><br>
+            <label>Disabled</label><br/>
+            <meat-button color="white" size="large" round disabled >Disabled</meat-button>
+            <meat-button color="white" size="large" round >Not Disabled</meat-button>
+            <br><br>
+            <label>Bootstrap Support</label><br/>
+            <meat-button bootstrap="btn btn-primary">Primary</meat-button>
+            <meat-button bootstrap="btn btn-secondary">Secondary</meat-button>
+            <meat-button bootstrap="btn btn-success">Success</meat-button>
+            <meat-button bootstrap="btn btn-danger">Danger</meat-button>
+            <meat-button bootstrap="btn btn-warning">Warning</meat-button>
+            <meat-button bootstrap="btn btn-info">Info</meat-button>
+            <meat-button bootstrap="btn btn-light">Light</meat-button>
+            <meat-button bootstrap="btn btn-dark">Dark</meat-button>
+            <br><br>
+            <label>With forms</label><br/>
+            <form action="/some_action.php">
+                <label for="name">Example Form</label><br>
+                <input name="name"><br><br>
+                <meat-button type="reset">Reset the form!</meat-button>
+                <meat-button type="submit">Submit</meat-button>
+            </form>
         </div>
-        <br>
-        <button class="collapsible props">Show Code</button>
-    <div class="content">
-    <textarea class="props" readonly rows="10" style="resize: none; width: 49%">
-<meat-button color="white"  size="large" round >White</meat-button>
-<meat-button color="grey"   size="large" round >Grey</meat-button>
-<meat-button color="red"    size="large" round >Red</meat-button>
-<meat-button color="orange" size="large" round >Orange</meat-button>
-<meat-button color="yellow" size="large" round >Yellow</meat-button>
-<meat-button color="green"  size="large" round >Green</meat-button>
-<meat-button color="blue"   size="large" round >Blue</meat-button>
-<meat-button color="purple" size="large" round >Purple</meat-button><br/>
-<br/>
-<meat-button color="white"  size="large" round circle>+</meat-button>
-<meat-button color="grey"   size="large" round circle>+</meat-button>
-<meat-button color="red"    size="large" round circle>+</meat-button>
-<meat-button color="orange" size="large" round circle>+</meat-button>
-<meat-button color="yellow" size="large" round circle>+</meat-button>
-<meat-button color="green"  size="large" round circle>+</meat-button>
-<meat-button color="blue"   size="large" round circle>+</meat-button>
-<meat-button color="purple" size="large" round circle>+</meat-button>
-<br/><br/>
-<meat-button color="white"  size="large" round disabled >Disabled</meat-button>
-<meat-button color="white"  size="large" round >Not Disabled</meat-button>
-    </textarea>
-    </div>
-    <br />
-        <form action="/some_action.php">
-            <label for="name">Example Form</label><br>
-            <input name="name"><br><br>
-            <meat-button type="reset">Reset the form!</meat-button>
-            <meat-button type="submit">Submit</meat-button>
-        </form>
-        <br />
-        <button class="collapsible props">Show Code</button>
-    <div class="content">
-    <textarea class="props" readonly rows="10" style="resize: none; width: 49%">
-<form action="/some_action.php">
-    <label for="name">Example Form</label><br>
-    <input name="name"><br><br>
-    <meat-button type="reset">Reset the form!</meat-button>
-    <meat-button type="submit">Submit</meat-button>
-</form>
-    </textarea>
-    </div>
-        
     </body>
     <script>
         const meatButton = document.querySelector('meat-button');
         meatButton.addEventListener('click', () => {
             console.log("user defined click method");
         })
-        
-        setTimeout(() => {
-            meatButton.size = 'large';
-            meatButton.disabled = false;
-        }, 1000);
     </script>
     
 </html>

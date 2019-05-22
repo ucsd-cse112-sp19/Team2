@@ -7,6 +7,10 @@
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
+    <script type="module" src="scripts/externals/codeexpand.js"></script>
+    <script type="module" src="../../../web_components/meat-input/meat-input.js"></script>
+    <script type="module" src="../../../web_components/meat-button/meat-button.js"></script>
+
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -16,335 +20,333 @@
 </head>
 <body>
 
-<input type="checkbox" id="nav-trigger" class="nav-trigger" />
-<label for="nav-trigger" class="navicon-button x">
-  <div class="navicon"></div>
-</label>
-
-<label for="nav-trigger" class="overlay"></label>
-
-<nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="core-hello.html">core-hello</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="live-editor.html">live-editor</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-boilerplate.html">meat-boilerplate</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-button.html">meat-button</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-input.html">meat-input</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="team2-learn.html">team2-learn</a></span></li>
-</nav>
-
-<div id="main">
-    
-    <h1 class="page-title">meat-input</h1>
-    
-
-    
-
-
-
-
-<section>
-
-<header>
-    
-        <h2>
-        meat-input
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>displays a stylized input field</p><pre><code>&lt;meat-input disabled="[boolean]" size="[string]" placeholder="[string]" password="[boolean]" value="[string]" readOnly="[boolean]" suggest="[boolean]" autocomplete="[boolean]"&gt;</code></pre></div>
-        
-
-        
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>disabled</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>boolean</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Disable input from accepting text.</p></td>
-        </tr>
-
-        
-
-    
-
-        <tr>
-            
-                <td class="name"><code>size</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>string</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Changes the size of the input box.</p></td>
-        </tr>
-
-        
-
-    
-
-        <tr>
-            
-                <td class="name"><code>placeholder</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>string</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Placeholder showing what text this input can take.</p></td>
-        </tr>
-
-        
-
-    
-
-        <tr>
-            
-                <td class="name"><code>password</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>boolean</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Make the input a password field and replace text with asteriks.</p></td>
-        </tr>
-
-        
-
-    
-
-        <tr>
-            
-                <td class="name"><code>value</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>string</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Default text value within the input box.</p></td>
-        </tr>
-
-        
-
-    
-
-        <tr>
-            
-                <td class="name"><code>readOnly</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>boolean</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Determines if the input box can be edited.</p></td>
-        </tr>
-
-        
-
-    
-
-        <tr>
-            
-                <td class="name"><code>suggest</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>boolean</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Determines if input box will display a predetermined suggestion list.</p></td>
-        </tr>
-
-        
-
-    
-
-        <tr>
-            
-                <td class="name"><code>autocomplete</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>boolean</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Determines if input box will use native browser capabilit to display user's previous inputs as suggestion.</p></td>
-        </tr>
-
-        
-
-    
-    </tbody>
-</table>
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="meat-input_meat-input.js.html">meat-input/meat-input.js</a>, <a href="meat-input_meat-input.js.html#line122">line 122</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><p><a href="http://127.0.0.1:5501/web_components/meat-input/meat-input-demo.html">local_Demo</a> for local examples.</p></li>
-        
-            <li><p><a href="https://meat-space.org/web_components/meat-input/meat-input-demo.html">Demo</a> for working example.</p></li>
-        </ul>
-    </dd>
-    
-
-    
-</dl>
-
-
-        
-            <h3>Example</h3>
-            
-    <pre class="prettyprint"><code>&lt;meat-input>&lt;/meat-input></code></pre>
-
-        
-    
+    <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <label for="nav-trigger" class="navicon-button x">
+        <div class="navicon"></div>
+    </label>
+    <label for="nav-trigger" class="overlay"></label>
+
+    <nav>
+        <li class="nav-link nav-home-link"><a href="index.html">Home</a></li>
+        <li class="nav-heading">Externals</li>
+        <li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a
+                    href="core-hello.html">core-hello</a></span></li>
+        <li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a
+                    href="live-editor.html">live-editor</a></span></li>
+        <li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a
+                    href="meat-boilerplate.html">meat-boilerplate</a></span></li>
+        <li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a
+                    href="meat-button.html">meat-button</a></span></li>
+        <li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a
+                    href="meat-input.html">meat-input</a></span></li>
+        <li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a
+                    href="team2-learn.html">team2-learn</a></span></li>
+    </nav>
+
+    <div id="main">
+        <h1 class="page-title">meat-input</h1>
+        <section>
+            <header>
+                <h2>meat-input</h2>
+                <div class="class-description">
+                    <p>meat-input webcomponent</p>
+                </div>
+            </header>
+            <article>
+                <div class="container-overview">
+                    <div class="description">
+                        <p>displays an input box</p>
+                        <pre><code>&lt;meat-input disabled="[boolean]" size="[string]" limit="[string]" placeholder="[string]" password="[boolean]" value="[string]" readonly="[boolean]" suggest="[on, off]" autocomplete="[on, off]"&gt;</code></pre>
+                    </div>
+                    <h5 class="subsection-title">Properties:</h5>
+                    <table class="props">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th class="last">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="name">
+                                    <code>disabled</code>
+                                </td>
+                                <td class="type">
+                                    <span class="param-type"><code>boolean</code></span>
+                                </td>
+                                <td class="description last">
+                                    <p>Disables input from accepting text.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    <code>size</code>
+                                </td>
+                                <td class="type">
+                                    <span class="param-type"><code>string</code></span>
+                                </td>
+                                <td class="description last">
+                                    <p>Changes the size of the input box.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    <code>placeholder</code>
+                                </td>
+                                <td class="type">
+                                    <span class="param-type"><code>string</code></span>
+                                </td>
+                                <td class="description last">
+                                    <p>Placeholder showing what text this input can take.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    <code>password</code>
+                                </td>
+                                <td class="type">
+                                    <span class="param-type"><code>boolean</code></span>
+                                </td>
+                                <td class="description last">
+                                    <p>Make the input a password field and replace text with asteriks.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    <code>value</code>
+                                </td>
+                                <td class="type">
+                                    <span class="param-type"><code>string</code></span>
+                                </td>
+                                <td class="description last">
+                                    <p>Default text value within the input box.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    <code>readonly</code>
+                                </td>
+                                <td class="type">
+                                    <span class="param-type"><code>boolean</code></span>
+                                </td>
+                                <td class="description last">
+                                    <p>Determines if the input box can be edited.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    <code>suggest</code>
+                                </td>
+                                <td class="type">
+                                    <span class="param-type"><code>on, off</code></span>
+                                </td>
+                                <td class="description last">
+                                    <p>Determines if input box will display a predetermined suggestion list.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    <code>autocomplete</code>
+                                </td>
+                                <td class="type">
+                                    <span class="param-type"><code>on, off</code></span>
+                                </td>
+                                <td class="description last">
+                                    <p>Determines if input box will use native browser capabilit to display user's
+                                        previous inputs as suggestion.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    <code>bootstrap</code>
+                                </td>
+                                <td class="type">
+                                    <span class="param-type"><code>string</code></span>
+                                </td>
+                                <td class="description last">
+                                    <p>Enable BootStrap styles and apply specified css classes.</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dl class="details">
+                        <dt class="tag-source">Source:</dt>
+                        <dd class="tag-source">
+                            <ul class="dummy">
+                                <li>
+                                    <a href="meat-input_meat-input.js.html">meat-input/meat-input.js</a>, <a
+                                        href="meat-input_meat-input.js.html#line109">line 109</a>
+                                </li>
+                            </ul>
+                        </dd>
+                        <dt class="tag-see">See:</dt>
+                        <dd class="tag-see">
+                            <ul>
+                                <li>
+                                    <p><a
+                                            href="https://meat-space.org/web_components/meat-input/meat-input-demo.html">Demo</a>
+                                        for working example.</p>
+                                </li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <h5 class="subsection-title">Basic Usage:</h5>
+                    <label>meat-input in a native form</label><br>
+                    <form style="margin: 20px; border-style: groove; padding: 20px;">
+                        <label>This input uses the browser's built in autocomplete. When you submit, the browser caches
+                            what you typed and will suggest it next time.</label><br>
+                        <label>Try typing something in and submit. When you reload the page, you will see it in the
+                            suggestions when you try again.</label><br>
+                        <meat-input id="meat1" size="medium" placeholder="Autocomplete..." autocomplete="on">
+                        </meat-input>
+                        <br><label>This input uses the developer's suggestions, good for predefined values like
+                            states.</label><br>
+                        <label>You can use the arrow keys to navigate the list too.</label><br>
+                        <meat-input id="meat2" size="medium" placeholder="Predefined Suggestions..." suggest="on">
+                        </meat-input>
+                        <br><label>This input is read only and doesn't get reset by the reset button</label><br>
+                        <meat-input size="medium" placeholder="This is a readonly input!" value="It's my boi, Peter!"
+                            limit="10" readonly>
+                        </meat-input>
+                        <br /><br />
+                        <label>meat-input works with native Forms, even when nested inside other elements, like a
+                            bunch of divs. </label><br>
+                        <meat-button size="medium" color="red" type="reset" >Reset</meat-button>
+                        <meat-button size="medium" color="blue" type="submit" >Submit</meat-button>
+                    </form>
+                    <label>Bootstrap Support</label><br>
+                    <form style="margin: 20px; border-style: groove; padding: 20px;">
+                        <label>This input uses the browser's built in autocomplete. When you submit, the browser caches what you typed and will suggest it next time.</label><br>
+                        <label>Try typing something in and submit. When you reload the page, you will see it in thesuggestions when you try again.</label><br>
+                        <meat-input id="meat3" size="medium" bootstrap="form-control" placeholder="Autocomplete..." autocomplete="on"></meat-input><br>
+                        <label>This input uses the developer's suggestions, good for predefined values like states.</label><br>
+                        <label>You can use the arrow keys to navigate the list too.</label><br>
+                        <meat-input id="meat4" size="medium" bootstrap="form-control" placeholder="Predefined Suggestions..." suggest="on"></meat-input><br>
+                        <label>This input is read only and doesn't get reset by the reset button</label><br>
+                        <meat-input size="medium" bootstrap="form-control" placeholder="This is a readonly input!" value="It's my boi, Peter!"
+                            limit="10" readonly>
+                        </meat-input>
+                        <br /><br />
+                        <label>meat-input works with native Forms, even when nested inside other elements, like a bunch of divs. </label><br>
+                        <meat-button size="medium" color="red" type="reset" >Reset</meat-button>
+                        <meat-button size="medium" color="blue" type="submit" >Submit</meat-button>
+                    </form>
+                    <br>
+                    <button class="collapsible props">Show Code</button>
+                    <div class="content">
+                        <textarea class="props" readonly rows="19" cols="75" style="resize: none">
+<form style="margin: 20px; border-style: groove; padding: 20px;">
+    <label>This input uses the browser's built in autocomplete. When you submit, the browser caches what you typed and will suggest it next time.</label><br>
+    <label>Try typing something in and submit. When you reload the page, you will see it in thesuggestions when you try again.</label><br>
+    <meat-input id="meat1" size="medium" placeholder="Autocomplete..." autocomplete="on"></meat-input><br>
+    <label>This input uses the developer's suggestions, good for predefined values like states.</label><br>
+    <label>You can use the arrow keys to navigate the list too.</label><br>
+    <meat-input id="meat2" size="medium" placeholder="Predefined Suggestions..." suggest="on"></meat-input><br>
+    <label>This input is read only and doesn't get reset by the reset button</label><br>
+    <meat-input size="medium" placeholder="This is a readonly input!" value="It's my boi, Peter!"
+        limit="10" readonly>
+    </meat-input>
+    <br /><br />
+    <label>meat-input works with native Forms, even when nested inside other elements, like a bunch of divs. </label><br>
+    <meat-button size="medium" color="red" type="reset" >Reset</meat-button>
+    <meat-button size="medium" color="blue" type="submit" >Submit</meat-button>
+</form>
+<label>Bootstrap Support</label><br>
+<form style="margin: 20px; border-style: groove; padding: 20px;">
+    <label>This input uses the browser's built in autocomplete. When you submit, the browser caches what you typed and will suggest it next time.</label><br>
+    <label>Try typing something in and submit. When you reload the page, you will see it in thesuggestions when you try again.</label><br>
+    <meat-input id="meat3" size="medium" bootstrap="form-control" placeholder="Autocomplete..." autocomplete="on"></meat-input><br>
+    <label>This input uses the developer's suggestions, good for predefined values like states.</label><br>
+    <label>You can use the arrow keys to navigate the list too.</label><br>
+    <meat-input id="meat4" size="medium" bootstrap="form-control" placeholder="Predefined Suggestions..." suggest="on"></meat-input><br>
+    <label>This input is read only and doesn't get reset by the reset button</label><br>
+    <meat-input size="medium" bootstrap="form-control" placeholder="This is a readonly input!" value="It's my boi, Peter!"
+        limit="10" readonly>
+    </meat-input>
+    <br /><br />
+    <label>meat-input works with native Forms, even when nested inside other elements, like a bunch of divs. </label><br>
+    <meat-button size="medium" color="red" type="reset" >Reset</meat-button>
+    <meat-button size="medium" color="blue" type="submit" >Submit</meat-button>
+</form>
+                    </textarea>
+                    </div>
+                    <h3>Example</h3>
+                    <pre class="prettyprint"><code>&lt;meat-input>&lt;/meat-input></code></pre>
+                </div>
+            </article>
+        </section>
     </div>
+    <br class="clear">
+    <footer>
+        Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> using the Minami theme.
+    </footer>
+    <script>prettyPrint();</script>
+    <script src="scripts/linenumber.js"></script>
+    <script>
+        
+        const meatInput2 = document.querySelector('#meat2');
+        const meatInput4 = document.querySelector('#meat4');
+        const suggestions =  ["Alaska",
+                  "Alabama",
+                  "Arkansas",
+                  "American Samoa",
+                  "Arizona",
+                  "California",
+                  "Colorado",
+                  "Connecticut",
+                  "District of Columbia",
+                  "Delaware",
+                  "Florida",
+                  "Georgia",
+                  "Guam",
+                  "Hawaii",
+                  "Iowa",
+                  "Idaho",
+                  "Illinois",
+                  "Indiana",
+                  "Kansas",
+                  "Kentucky",
+                  "Louisiana",
+                  "Massachusetts",
+                  "Maryland",
+                  "Maine",
+                  "Michigan",
+                  "Minnesota",
+                  "Missouri",
+                  "Mississippi",
+                  "Montana",
+                  "North Carolina",
+                  "North Dakota",
+                  "Nebraska",
+                  "New Hampshire",
+                  "New Jersey",
+                  "New Mexico",
+                  "Nevada",
+                  "New York",
+                  "Ohio",
+                  "Oklahoma",
+                  "Oregon",
+                  "Pennsylvania",
+                  "Puerto Rico",
+                  "Rhode Island",
+                  "South Carolina",
+                  "South Dakota",
+                  "Tennessee",
+                  "Texas",
+                  "Utah",
+                  "Virginia",
+                  "Virgin Islands",
+                  "Vermont",
+                  "Washington",
+                  "Wisconsin",
+                  "West Virginia",
+                  "Wyoming"];
+
+        meatInput2.suggestions = suggestions;
+        meatInput4.suggestions = suggestions;
+    </script>
+</body>
 
     
 

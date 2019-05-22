@@ -43,7 +43,6 @@ tmpl.innerHTML = `
     display: var(--display, block);
     text-align: var(--text-align, center);
 }
-
 /* when "hidden" attribute applied, display nothing */
 :host([hidden]){
     display: none;

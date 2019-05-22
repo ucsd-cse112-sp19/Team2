@@ -1,9 +1,50 @@
-const template = document.createElement("template");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>meat-input/meat-input.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="core-hello.html">core-hello</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="live-editor.html">live-editor</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-boilerplate.html">meat-boilerplate</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-button.html">meat-button</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-input.html">meat-input</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="team2-learn.html">team2-learn</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">meat-input/meat-input.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const template = document.createElement("template");
 template.innerHTML = `
-<style></style>
-<link rel="stylesheet" href="/web_components/meat-input/meat-input.css"/>
-<input id="input" type="text"></input>
-<div id="suggestionContainer"></div>
+&lt;style>&lt;/style>
+&lt;link rel="stylesheet" href="/web_components/meat-input/meat-input.css"/>
+&lt;input id="input" type="text">&lt;/input>
+&lt;div id="suggestionContainer">&lt;/div>
 `;
 
 export class MeatInputElement extends HTMLElement {
@@ -11,7 +52,7 @@ export class MeatInputElement extends HTMLElement {
    * meat-input webcomponent
    * @customelement meat-input
    * @description displays a stylized input field
-   * @example <meat-input></meat-input>
+   * @example &lt;meat-input>&lt;/meat-input>
    * @see [local_Demo]{@link http://127.0.0.1:5501/web_components/meat-input/meat-input-demo.html} for local examples.
    * @see [Demo]{@link https://meat-space.org/web_components/meat-input/meat-input-demo.html} for working example.
    * @property {boolean} disabled -Disable input from accepting text.
@@ -75,7 +116,7 @@ export class MeatInputElement extends HTMLElement {
     // if this input is within a form, find the form and connect to it
     let parentNode = this.parentNode;
     while (parentNode) {
-      if (parentNode && parentNode.nodeName == "FORM") {
+      if (parentNode &amp;&amp; parentNode.nodeName == "FORM") {
         // form reset
         parentNode.addEventListener("reset", () => {
           // Shouldn't change value of a readonly input
@@ -150,7 +191,7 @@ export class MeatInputElement extends HTMLElement {
       case "suggest":
         // if autocomplete was not explicitely set and the user wants their own suggestions on,
         // then turn off autocomplete
-        if (!this.hasAttribute("autocomplete") && newVal == "on") {
+        if (!this.hasAttribute("autocomplete") &amp;&amp; newVal == "on") {
           this.input.autocomplete = "off";
         }
         break;
@@ -205,7 +246,7 @@ export class MeatInputElement extends HTMLElement {
       let aGroup = null;
       let bGroup = null;
       let result = null;
-      while (aMatches[index] != null && bMatches[index] != null) {
+      while (aMatches[index] != null &amp;&amp; bMatches[index] != null) {
         aGroup = aMatches[index];
         bGroup = bMatches[index];
         // compare each group
@@ -320,9 +361,9 @@ export class MeatInputElement extends HTMLElement {
       row.className = "suggestion";
       row.value = suggestion;
       row.innerHTML =
-        "<strong>" +
+        "&lt;strong>" +
         suggestion.substr(0, this.input.value.length) +
-        "</strong>"; // bold the matching part
+        "&lt;/strong>"; // bold the matching part
       row.innerHTML += suggestion.substr(this.input.value.length);
       row.addEventListener("click", () => {
         this.input.value = row.textContent;
@@ -401,3 +442,22 @@ export class MeatInputElement extends HTMLElement {
 }
 
 window.customElements.define("meat-input", MeatInputElement);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.1</a> using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

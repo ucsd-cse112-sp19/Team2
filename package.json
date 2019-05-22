@@ -1,49 +1,61 @@
 {
-  "name": "team2",
+  "name": "@meatspace/webcomponents",
   "version": "0.0.2",
-  "description": "A web comp1onent library",
+  "description": "A web component library",
   "main": "index.js",
   "files": [
     "/web_components"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "test": "echo no tests running",
+    "test": "./node_modules/.bin/testcafe chrome ./test/testcafe-hello-core.js",
     "runner": "node test/runner.js",
-    "mtest": "mocha-chrome ./test/hello-core-test.html",
-    "wintest": "for %f in (./test/*.html) do mocha-chrome ./test/%f",
-    "lintest": "mocha-chrome ./test/*.html",
+    "local-runner": "node -r dotenv/config test/runner.js",
+    "mtest": "./node_modules/.bin/mocha-chrome ./unit_tests/hello-core-test.html",
+    "wintest": "for %f in (./unit_tests/*.html) do mocha-chrome ./test/%f",
+    "lintest": "mocha-chrome ./unit_tests/*.html",
     "generate-jsdocs": "./node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
     "lint": "./node_modules/.bin/eslint --fix web_components",
     "pipe": "cd scripts && pipe.sh",
     "pipe-mac": "./scripts/pipe.sh",
     "pipe-release-mac": "./scripts/release.sh",
-    "pipe-release": "cd scripts && release.sh"
+    "pipe-release": "cd scripts && release.sh",
+    "storybook": "start-storybook"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ucsd-cse112/Team2.git"
   },
   "author": "Team MeatSpace",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ucsd-cse112/Team2/issues"
   },
-  "homepage": "https://github.com/ucsd-cse112/Team2#readme",
+  "homepage": "https://meat-space.org",
   "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@storybook/addon-knobs": "^5.0.11",
+    "@storybook/html": "^5.0.11",
+    "babel-loader": "^8.0.5",
+    "chai": "^4.2.0",
+    "chromedriver": "^2.41.0",
     "eslint": "^5.16.0",
     "eslint-config-google": "^0.12.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-prettier": "^3.0.1",
-    "jsdoc": "^3.5.5",
+    "jsdoc": "^3.6.2",
     "minami": "^1.2.3",
     "mocha": "^6.1.4",
     "mocha-chrome": "^2.0.0",
     "prettier": "1.17.0",
-    "chai": "^4.2.0",
     "selenium-webdriver": "^4.0.0-alpha.1",
-    "chromedriver": "^2.41.0"
+    "testcafe": "^1.1.4",
+    "testcafe-browser-provider-browserstack": "^1.8.0"
   },
   "dependencies": {
-    "acorn": "^6.1.1"
+    "acorn": "^6.1.1",
+    "dotenv": "^8.0.0"
   }
 }

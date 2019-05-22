@@ -14,7 +14,7 @@ describe('core-hello basic requirements', function() {
   /* Should Concat Hello World to Input */ 
   it ("should concat 'Hello world,' to {input}", function() { 
     let input = document.getElementById('component').innerHTML; 
-    assert.equal(sr.getElementById('main-text').innerHTML + input, "Hello world,  Veronica ");
+    assert.equal(sr.getElementById('main-text').innerHTML + input, "Hello world,  MeatSpace ");
   })
 
   /* Input has varying length */ 
@@ -56,6 +56,7 @@ describe('core-hello Language Functionality', function() {
     assert.equal(sr.getElementById('main-text').innerHTML, "Bonjour le monde, ");
   })
 }); 
+
 
 describe('core-hello Rainbow Functionality', function() { 
   /* Test rainbow attribute exists */ 

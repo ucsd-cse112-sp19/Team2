@@ -52,7 +52,7 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>displays a stylized button</p><pre><code>&lt;meat-button autofocus="[boolean]" circle="[string]" disabled="[boolean]" round="[boolean]" size="[string]" type="[string]"&gt;</code></pre></div>
+            <div class="description"><p>displays a stylized button</p><pre><code>&lt;meat-button autofocus="[boolean]" circle="[boolean]" disabled="[boolean]" round="[boolean]" size="[string]" type="[string]"&gt;</code></pre></div>
         
 
         
@@ -115,7 +115,7 @@
             <td class="type">
             
                 
-<span class="param-type"><code>string</code></span>
+<span class="param-type"><code>boolean</code></span>
 
 
             
@@ -128,9 +128,6 @@
             <td class="description last"><p>Enables a circle shaped button.</p></td>
         </tr>
 
-        
-
-    
 
         <tr>
             
@@ -178,7 +175,26 @@
             <td class="description last"><p>Enables a round shaped button.</p></td>
         </tr>
 
-        
+        <tr>
+            
+                <td class="name"><code>color</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Sets the color of the button.</p></td>
+        </tr>        
 
     
 
@@ -225,7 +241,15 @@
 
             
 
-            <td class="description last"><p>Enables the specified type of button.</p></td>
+            <td class="description last"><p>Set native type of button.</p></td>
+        </tr>
+
+        <tr>
+            <td class="name"><code>bootstrap</code></td>
+            <td class="type">      
+                <span class="param-type"><code>string</code></span>
+            </td>
+            <td class="description last"><p>Enable BootStrap styles and apply specified css classes.</p></td>
         </tr>
 
         
@@ -286,8 +310,118 @@
     
 </dl>
 
+    <h5 class="subsection-title">Basic Usage:</h5>
+    <h6>Customizable Style</h6>
+    <div>
+        <meat-button color="white"  size="large">White</meat-button>
+        <meat-button color="grey"   size="large">Grey</meat-button>
+        <meat-button color="red"    size="large">Red</meat-button>
+        <meat-button color="orange" size="large">Orange</meat-button>
+        <meat-button color="yellow" size="large">Yellow</meat-button>
+        <meat-button color="green"  size="large">Green</meat-button>
+        <meat-button color="blue"   size="large">Blue</meat-button>
+        <meat-button color="purple" size="large">Purple</meat-button>
+        <br />
+        <br/>
+        <meat-button color="white"  size="large" round >White</meat-button>
+        <meat-button color="grey"   size="large" round >Grey</meat-button>
+        <meat-button color="red"    size="large" round >Red</meat-button>
+        <meat-button color="orange" size="large" round >Orange</meat-button>
+        <meat-button color="yellow" size="large" round >Yellow</meat-button>
+        <meat-button color="green"  size="large" round >Green</meat-button>
+        <meat-button color="blue"   size="large" round >Blue</meat-button>
+        <meat-button color="purple" size="large" round >Purple</meat-button><br/>
+        <br/>
+        <meat-button color="white"  size="large" round circle>+</meat-button>
+        <meat-button color="grey"   size="large" round circle>+</meat-button>
+        <meat-button color="red"    size="large" round circle>+</meat-button>
+        <meat-button color="orange" size="large" round circle>+</meat-button>
+        <meat-button color="yellow" size="large" round circle>+</meat-button>
+        <meat-button color="green"  size="large" round circle>+</meat-button>
+        <meat-button color="blue"   size="large" round circle>+</meat-button>
+        <meat-button color="purple" size="large" round circle>+</meat-button>
 
-        
+        <meat-button color="white"  size="small" round >Small</meat-button>
+        <meat-button color="white"  size="medium" round >Medium</meat-button>
+        <meat-button color="white"  size="large" round >Large</meat-button>
+        <br><br>
+        <label>Bootstrap Support</label><br/>
+        <meat-button bootstrap="btn btn-primary">Primary</meat-button>
+        <meat-button bootstrap="btn btn-secondary">Secondary</meat-button>
+        <meat-button bootstrap="btn btn-success">Success</meat-button>
+        <meat-button bootstrap="btn btn-danger">Danger</meat-button>
+        <meat-button bootstrap="btn btn-warning">Warning</meat-button>
+        <meat-button bootstrap="btn btn-info">Info</meat-button>
+        <meat-button bootstrap="btn btn-light">Light</meat-button>
+        <meat-button bootstrap="btn btn-dark">Dark</meat-button>
+        <br><br>
+        <p>
+            Use <code>round</code>, <code>circle</code>, <code>color</code>, and <code>size</code> to define Button's style.
+        </p>
+
+    </div>
+
+    <button class="collapsible props">Show Code</button>
+    <div class="content">
+    <textarea class="props" readonly rows="29" cols="75" style="resize: none">
+    <meat-button color="white"  size="large">White</meat-button>
+    <meat-button color="grey"   size="large">Grey</meat-button>
+    <meat-button color="red"    size="large">Red</meat-button>
+    <meat-button color="orange" size="large">Orange</meat-button>
+    <meat-button color="yellow" size="large">Yellow</meat-button>
+    <meat-button color="green"  size="large">Green</meat-button>
+    <meat-button color="blue"   size="large">Blue</meat-button>
+    <meat-button color="purple" size="large">Purple</meat-button>
+    <br />
+    <br/>
+    <meat-button color="white"  size="large" round >White</meat-button>
+    <meat-button color="grey"   size="large" round >Grey</meat-button>
+    <meat-button color="red"    size="large" round >Red</meat-button>
+    <meat-button color="orange" size="large" round >Orange</meat-button>
+    <meat-button color="yellow" size="large" round >Yellow</meat-button>
+    <meat-button color="green"  size="large" round >Green</meat-button>
+    <meat-button color="blue"   size="large" round >Blue</meat-button>
+    <meat-button color="purple" size="large" round >Purple</meat-button>
+    <br/>
+    <br/>
+    <meat-button color="white"  size="large" round circle>+</meat-button>
+    <meat-button color="grey"   size="large" round circle>+</meat-button>
+    <meat-button color="red"    size="large" round circle>+</meat-button>
+    <meat-button color="orange" size="large" round circle>+</meat-button>
+    <meat-button color="yellow" size="large" round circle>+</meat-button>
+    <meat-button color="green"  size="large" round circle>+</meat-button>
+    <meat-button color="blue"   size="large" round circle>+</meat-button>
+    <meat-button color="purple" size="large" round circle>+</meat-button>
+    <br><br>
+    <label>Bootstrap Support</label><br/>
+    <meat-button bootstrap="btn btn-primary">Primary</meat-button>
+    <meat-button bootstrap="btn btn-secondary">Secondary</meat-button>
+    <meat-button bootstrap="btn btn-success">Success</meat-button>
+    <meat-button bootstrap="btn btn-danger">Danger</meat-button>
+    <meat-button bootstrap="btn btn-warning">Warning</meat-button>
+    <meat-button bootstrap="btn btn-info">Info</meat-button>
+    <meat-button bootstrap="btn btn-light">Light</meat-button>
+    <meat-button bootstrap="btn btn-dark">Dark</meat-button>
+    <br><br>
+    </textarea>
+    </div>
+    <br />
+    <h6>Disabled</h6>
+    <div>
+    <meat-button disabled color="white"  size="large" round >Disabled</meat-button>
+    <meat-button color="white"   size="large" round >Not Disabled</meat-button>
+
+    <p>
+        Use <code>disabled</code> to disable a button.
+    </p>
+    </div>
+    <button class="collapsible props">Show Code</button>
+    <div class="content">
+    <textarea class="props" readonly rows="3" cols="75" style="resize: none">
+    <meat-button disabled color="white"  size="large" round >Disabled</meat-button>
+    <meat-button color="white"   size="large" round >Not Disabled</meat-button>
+    </textarea>
+    </div>
             <h3>Example</h3>
             
     <pre class="prettyprint"><code>&lt;meat-button>&lt;/meat-button></code></pre>
