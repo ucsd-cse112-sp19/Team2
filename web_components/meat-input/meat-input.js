@@ -116,8 +116,8 @@ export class MeatInputElement extends HTMLElement {
    * @property {boolean} password -Make the input a password field and replace text with asteriks.
    * @property {string} value -Default text value within the input box.
    * @property {boolean} readOnly -Determines if the input box can be edited.
-   * @property {on, off} suggest -Determines if input box will display a predetermined suggestion list.
-   * @property {on, off} autocomplete -Determines if input box will use native browser capabilit to display user's previous inputs as suggestion.
+   * @property {boolean} suggest -Determines if input box will display a predetermined suggestion list.
+   * @property {boolean} autocomplete -Determines if input box will use native browser capabilit to display user's previous inputs as suggestion.
    * */
   constructor() {
     super();
