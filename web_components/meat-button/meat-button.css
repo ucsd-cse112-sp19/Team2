@@ -29,188 +29,86 @@
 }
 
 /* Bootstrap Support */
+
+/* basic button styling */
+:host([bootstrap~="btn"]) > button {
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
 /* Primary Button */
-:host([bootstrap="btn btn-primary"]) > button {
+:host([bootstrap~="btn-primary"]) > button {
   /* btn btn-primary styling */
   color: #fff;
   background-color: #007bff;
   border-color: #007bff;
-
-  /* basic button styling */
-  font-weight: 400;
-  text-align: center;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 /* Secondary Button */
-:host([bootstrap="btn btn-secondary"]) > button {
+:host([bootstrap~="btn-secondary"]) > button {
   /* btn btn-secondary styling */
   color: #fff;
   background-color: #6c757d;
   border-color: #6c757d;
-
-  /* basic button styling */
-  font-weight: 400;
-  text-align: center;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 /* Success Button */
-:host([bootstrap="btn btn-success"]) > button {
+:host([bootstrap~="btn-success"]) > button {
   /* btn btn-success styling */
   color: #fff;
   background-color: #28a745;
   border-color: #28a745;
-
-  /* basic button styling */
-  font-weight: 400;
-  text-align: center;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 /* Info Button */
-:host([bootstrap="btn btn-info"]) > button {
+:host([bootstrap~="btn-info"]) > button {
   /* btn btn-info styling */
   color: #fff;
   background-color: #17a2b8;
   border-color: #17a2b8;
-
-  /* basic button styling */
-  font-weight: 400;
-  text-align: center;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 /* Warning Button */
-:host([bootstrap="btn btn-warning"]) > button {
+:host([bootstrap~="btn-warning"]) > button {
   /* btn btn-warning styling */
   color: #212529;
   background-color: #ffc107;
   border-color: #ffc107;
-
-  /* basic button styling */
-  font-weight: 400;
-  text-align: center;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 /* Danger Button */
-:host([bootstrap="btn btn-danger"]) > button {
+:host([bootstrap~="btn-danger"]) > button {
   /* btn btn-danger styling */
   color: #fff;
   background-color: #dc3545;
   border-color: #dc3545;
-
-  /* basic button styling */
-  font-weight: 400;
-  text-align: center;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 /* Light Button */
-:host([bootstrap="btn btn-light"]) > button {
+:host([bootstrap~="btn-light"]) > button {
   /* btn btn-light styling */
   color: #212529;
   background-color: #f8f9fa;
   border-color: #f8f9fa;
-
-  /* basic button styling */
-  font-weight: 400;
-  text-align: center;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 /* Dark Button */
-:host([bootstrap="btn btn-dark"]) > button {
+:host([bootstrap~="btn-dark"]) > button {
   /* btn btn-dark styling */
   color: #fff;
   background-color: #343a40;
   border-color: #343a40;
-
-  /* basic button styling */
-  font-weight: 400;
-  text-align: center;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 /* TODO: Primary Hover */
