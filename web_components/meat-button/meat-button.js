@@ -24,6 +24,7 @@ export class MeatButtonElement extends HTMLElement {
    */
   constructor() {
     super();
+    this._submitButton;
     this._parentForm;
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
@@ -58,6 +59,10 @@ export class MeatButtonElement extends HTMLElement {
       }
       parentNode = parentNode.parentNode;
     }
+
+    this._submitButton =  document.createElement( 'button' );
+    this._submitButton.type = "hidden";
+    this.appendChild(this._submitButton);
   }
 
   /**
@@ -251,7 +256,7 @@ export class MeatButtonElement extends HTMLElement {
         break;
       case "submit":
         if (this._parentForm) {
-          this._parentForm.submit();
+          this._submitButton.click();
         }
         break;
     }
