@@ -1,5 +1,5 @@
 /* define color scheme for default button */
-:host {
+:host > button{
     display: inline-block;
     position: relative;
     width: 90px;
@@ -28,34 +28,214 @@
     --active-border: 1px solid #3388ff;
 }
 
-/* Default style if no type is specified */
-button {
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
+/* Bootstrap Support */
+/* Primary Button */
+:host([bootstrap="btn btn-primary"]) > button {
+  /* btn btn-primary styling */
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
 
-    background-color: inherit;
-    border-radius: inherit;
-    color:  inherit; /* text color */
-    border: inherit;
-    outline: inherit; /* outline when focused, doesn't play nicely with round button/border-radius so hide it; instead we create our own focus */
-    font-size: inherit;
-    font-family: inherit;
-    vertical-align: inherit; /* this is important, word wrapping messes up positioning of button unless we have this */
+  /* basic button styling */
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+/* Secondary Button */
+:host([bootstrap="btn btn-secondary"]) > button {
+  /* btn btn-secondary styling */
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+
+  /* basic button styling */
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Success Button */
+:host([bootstrap="btn btn-success"]) > button {
+  /* btn btn-success styling */
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+
+  /* basic button styling */
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Info Button */
+:host([bootstrap="btn btn-info"]) > button {
+  /* btn btn-info styling */
+  color: #fff;
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+
+  /* basic button styling */
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Warning Button */
+:host([bootstrap="btn btn-warning"]) > button {
+  /* btn btn-warning styling */
+  color: #212529;
+  background-color: #ffc107;
+  border-color: #ffc107;
+
+  /* basic button styling */
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Danger Button */
+:host([bootstrap="btn btn-danger"]) > button {
+  /* btn btn-danger styling */
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+
+  /* basic button styling */
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Light Button */
+:host([bootstrap="btn btn-light"]) > button {
+  /* btn btn-light styling */
+  color: #212529;
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+
+  /* basic button styling */
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Dark Button */
+:host([bootstrap="btn btn-dark"]) > button {
+  /* btn btn-dark styling */
+  color: #fff;
+  background-color: #343a40;
+  border-color: #343a40;
+
+  /* basic button styling */
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* TODO: Primary Hover */
+/* :host([bootstrap="btn btn-primary"]) > button:focus { */
+  /* btn btn-primary hover styling */
+  /* color: #fff; */
+  /* background-color: #0069d9; */
+  /* border-color: #0062cc; */
+
+/*
+:host([bootstrap="btn btn-primary"]) > button {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+} */
 
 /* Attribute: round */
 /* if host element, i.e. <meat-button> has attribute round, apply this css to button*/
 
-:host([round]) {
+:host([round]) > button {
     border-radius: 100px;
 }
 
 /* Attribute: circle */
-:host([circle]) {
+:host([circle]) > button {
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -63,39 +243,39 @@ button {
 
 /* Attribute: size */
 /* if host element, i.e. <meat-button> has attribute size="small", apply this css */
-:host([size="small"]) {
+:host([size="small"]) > button {
     width: 80px;
     height: 36px;
 }
 
-:host([size="medium"]) {
+:host([size="medium"]) > button {
     width: 90px;
     height: 40px;
 }
 
-:host([size="large"]) {
+:host([size="large"]) > button {
     width: 100px;
     height: 44px;
 }
 
 /* if size specified, use the following dimensions */
-:host([circle][size="small"]) {
+:host([circle][size="small"]) > button {
     width: 30px;
     height: 30px;
 }
 
-:host([circle][size="medium"]) {
+:host([circle][size="medium"]) > button {
     width: 40px;
     height: 40px;
 }
 
-:host([circle][size="large"]) {
+:host([circle][size="large"]) > button {
     width: 50px;
     height: 50px;
 }
 
 /* define color scheme for white button */
-:host([color="white"]) {
+:host([color="white"]) > button {
   /* colors */
   background-color: #ffffff;
   color: #444444;
@@ -113,7 +293,7 @@ button {
   --active-border: 1px solid #3388ff;
 }
 
-:host([color="grey"]) {
+:host([color="grey"]) > button {
   /* colors */
   background-color: #777777;
   color: #ffffff;
@@ -132,7 +312,7 @@ button {
 }
 
 /* define color scheme for red button */
-:host([color="red"]) {
+:host([color="red"]) > button {
   /* colors */
   background-color: #cc5050;
   color: #ffffff;
@@ -151,7 +331,7 @@ button {
 }
 
 /* define color scheme for orange button */
-:host([color="orange"]) {
+:host([color="orange"]) > button {
   /* colors */
   background-color: #df8a40;
   color: #ffffff;
@@ -170,7 +350,7 @@ button {
 }
 
 /* define color scheme for yellow button */
-:host([color="yellow"]) {
+:host([color="yellow"]) > button {
   /* colors */
   background-color: #eedd00;
   color: #ffffff;
@@ -194,7 +374,7 @@ button {
 }
 
 /* define color scheme for green button */
-:host([color="green"]) {
+:host([color="green"]) > button {
   /* colors */
   background-color: #59c040;
   color: #ffffff;
@@ -213,7 +393,7 @@ button {
 }
 
 /* define color scheme for blue button */
-:host([color="blue"]) {
+:host([color="blue"]) > button {
   /* colors */
   background-color: #40a5ff;
   color: #ffffff;
@@ -232,7 +412,7 @@ button {
 }
 
 /* define color scheme for blue button */
-:host([color="purple"]) {
+:host([color="purple"]) > button {
   /* colors */
   background-color: #aa55aa;
   color: #ffffff;

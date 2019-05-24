@@ -17,6 +17,7 @@ template.innerHTML = `
  * @property {boolean} round -Enables a round shaped button.
  * @property {string} size -Changes the size of the button.
  * @property {string} type -Enables the specified type of button.
+ * @property {string} bootstrap -Enables bootstrap as styling of the button.
  * */
 export class MeatButtonElement extends HTMLElement {
   /**
@@ -40,15 +41,15 @@ export class MeatButtonElement extends HTMLElement {
     this.button.textContent = this.textContent;
 
     // if user specifies bootstrap, link style to bootstrap
-    if (this.hasAttribute("bootstrap")) {
-      const newLink = this.shadow.querySelector("link"); // link stylesheet to bootstrap's stylesheet
-      newLink.rel = "stylesheet";
-      newLink.href =
-        "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
-      newLink.integrity =
-        "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T";
-      newLink.crossOrigin = "anonymous";
-    }
+    // if (this.hasAttribute("bootstrap")) {
+    //   const newLink = this.shadow.querySelector("link"); // link stylesheet to bootstrap's stylesheet
+    //   newLink.rel = "stylesheet";
+    //   newLink.href =
+    //     "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
+    //   newLink.integrity =
+    //     "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T";
+    //   newLink.crossOrigin = "anonymous";
+    // }
 
     // Look up dom tree for a parent form
     let parentNode = this.parentNode;
