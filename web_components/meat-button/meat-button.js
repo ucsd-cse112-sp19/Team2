@@ -60,7 +60,7 @@ export class MeatButtonElement extends HTMLElement {
       parentNode = parentNode.parentNode;
     }
 
-    this._submitButton =  document.createElement( 'button' );
+    this._submitButton = document.createElement("button");
     this._submitButton.type = "hidden";
     this.appendChild(this._submitButton);
   }
