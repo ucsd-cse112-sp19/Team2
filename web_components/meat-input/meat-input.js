@@ -64,27 +64,6 @@ export class MeatInputElement extends HTMLElement {
         "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T";
       newLink.crossOrigin = "anonymous";
     }
-
-    // if this input is within a form, find the form and connect to it
-    let parentNode = this.parentNode;
-    while (parentNode) {
-      if (parentNode && parentNode.nodeName == "FORM") {
-        // form reset
-        parentNode.addEventListener("reset", () => {
-          // Shouldn't change value of a readonly input
-          if (this.hasAttribute("readonly")) return;
-          this.input.value = "";
-          this.value = "";
-        });
-
-        // form submit
-        parentNode.addEventListener("submit", evt => {
-          parentNode.append(this.input);
-        });
-        return;
-      }
-      parentNode = parentNode.parentNode;
-    }
   }
 
   /**
