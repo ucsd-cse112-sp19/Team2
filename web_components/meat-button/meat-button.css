@@ -25,20 +25,20 @@ button {
     vertical-align: inherit;
     
     /* css that needs to be exposed through css variables */
-    --background-color: #ffffff;
-    --border: 1px solid #cccccc;
+    background-color: var(--background-color, #ffffff);
+    border: var(--border, 1px solid #cccccc);
 
-    --hover-background-color: #daeeff;
-    --focus-background-color: #daeeff;
-    --active-background-color: #daeeff;
-
-    --hover-color: #3388ff;
-    --focus-color: #3388ff;
-    --active-color: #3388ff;
-
-    --hover-border: 1px solid #daeeff;
-    --focus-border: 1px solid #bbccff;
-    --active-border: 1px solid #3388ff;
+    --hover-background-color-fin: var(--hover-background-color, #daeeff);
+    --focus-background-color-fin: var(--focus-background-color, #daeeff);
+    --active-background-color-fin: var(--active-background-color, #daeeff);
+  
+    --hover-color-fin: var(--hover-color, #3388ff);
+    --focus-color-fin: var(--focus-color, #3388ff);
+    --active-color-fin: var(--active-color, #3388ff);
+  
+    --hover-border-fin: var(--hover-border, 1px solid #bbccff);
+    --focus-border-fin: var(--focus-border, 1px solid #bbccff);
+    --active-border-fin: var(--focus-border, 1px solid #3388ff); 
 }
 
 /* Bootstrap Support */
@@ -438,21 +438,21 @@ button {
 /* define color scheme for white button */
 :host([color="white"]) > button {
   /* colors */
-  background-color: #ffffff;
   color: #444444;
+  background-color: #ffffff;
   border: 1px solid #cccccc;
 
-  --hover-background-color: #daeeff;
-  --focus-background-color: #daeeff;
-  --active-background-color: #daeeff;
+  --hover-background-color-fin: #daeeff;
+  --focus-background-color-fin: #daeeff;
+  --active-background-color-fin: #daeeff;
 
-  --hover-color: #3388ff;
-  --focus-color: #3388ff;
-  --active-color: #3388ff;
+  --hover-color-fin: #3388ff;
+  --focus-color-fin: #3388ff;
+  --active-color-fin: #3388ff;
 
-  --hover-border: 1px solid #daeeff;
-  --focus-border: 1px solid #bbccff;
-  --active-border: 1px solid #3388ff;
+  --hover-border-fin: 1px solid #bbccff;
+  --focus-border-fin: 1px solid #bbccff;
+  --active-border-fin: 1px solid #3388ff;
 }
 
 :host([color="grey"]) > button {
@@ -461,17 +461,17 @@ button {
   color: #ffffff;
   border: 1px solid #777777;
 
-  --hover-background-color: #999999;
-  --focus-background-color: #999999;
-  --active-background-color: #555555;
+  --hover-background-color-fin: #999999;
+  --focus-background-color-fin: #999999;
+  --active-background-color-fin: #555555;
 
-  --hover-color: #ffffff;
-  --focus-color: #ffffff;
-  --active-color: #ffffff;
+  --hover-color-fin: #ffffff;
+  --focus-color-fin: #ffffff;
+  --active-color-fin: #ffffff;
 
-  --hover-border: 1px solid #999999;
-  --focus-border: 1px solid #999999;
-  --active-border: 1px solid #555555;
+  --hover-border-fin: 1px solid #999999;
+  --focus-border-fin: 1px solid #999999;
+  --active-border-fin: 1px solid #555555;
 }
 
 /* define color scheme for red button */
@@ -481,17 +481,17 @@ button {
   color: #ffffff;
   border: 1px solid #cc5050;
 
-  --hover-background-color: #e46060;
-  --focus-background-color: #e46060;
-  --active-background-color: #b03737;
+  --hover-background-color-fin: #e46060;
+  --focus-background-color-fin: #e46060;
+  --active-background-color-fin: #b03737;
 
-  --hover-color: #ffffff;
-  --focus-color: #ffffff;
-  --active-color: #ffffff;
+  --hover-color-fin: #ffffff;
+  --focus-color-fin: #ffffff;
+  --active-color-fin: #ffffff;
 
-  --hover-border: 1px solid #e46060;
-  --focus-border: 1px solid #e46060;
-  --active-border: 1px solid #b03737;
+  --hover-border-fin: 1px solid #e46060;
+  --focus-border-fin: 1px solid #e46060;
+  --active-border-fin: 1px solid #b03737;
 }
 
 /* define color scheme for orange button */
@@ -501,17 +501,17 @@ button {
   color: #ffffff;
   border: 1px solid #df8a40;
 
-  --hover-background-color: #dfaa70;
-  --focus-background-color: #dfaa70;
-  --active-background-color: #cf7a30;
+  --hover-background-color-fin: #dfaa70;
+  --focus-background-color-fin: #dfaa70;
+  --active-background-color-fin: #cf7a30;
 
-  --hover-color: #ffffff;
-  --focus-color: #ffffff;
-  --active-color: #ffffff;
+  --hover-color-fin: #ffffff;
+  --focus-color-fin: #ffffff;
+  --active-color-fin: #ffffff;
 
-  --hover-border: 1px solid #dfaa70;
-  --focus-border: 1px solid #dfaa70;
-  --active-border: 1px solid #cf7a30;
+  --hover-border-fin: 1px solid #dfaa70;
+  --focus-border-fin: 1px solid #dfaa70;
+  --active-border-fin: 1px solid #cf7a30;
 }
 
 /* define color scheme for yellow button */
@@ -521,17 +521,17 @@ button {
   color: #444444;
   border: 1px solid #ffee00;
   
-  --hover-background-color: #ffe75e;
-  --focus-background-color: #ffe75e;
-  --active-background-color: #dbc903;
+  --hover-background-color-fin: #ffe75e;
+  --focus-background-color-fin: #ffe75e;
+  --active-background-color-fin: #dbc903;
 
-  --hover-color: #444444;
-  --focus-color: #444444;
-  --active-color: #444444;
+  --hover-color-fin: #444444;
+  --focus-color-fin: #444444;
+  --active-color-fin: #444444;
 
-  --hover-border: 1px solid #ffe75e;
-  --focus-border: 1px solid #ffe75e;
-  --active-border: 1px solid #dbc903;
+  --hover-border-fin: 1px solid #ffe75e;
+  --focus-border-fin: 1px solid #ffe75e;
+  --active-border-fin: 1px solid #dbc903;
 }
 
 /* define color scheme for green button */
@@ -541,80 +541,80 @@ button {
   color: #ffffff;
   border: 1px solid #59c040;
 
-  --hover-background-color: #79cc69;
-  --focus-background-color: #79cc69;
-  --active-background-color: #50a050;
+  --hover-background-color-fin: #79cc69;
+  --focus-background-color-fin: #79cc69;
+  --active-background-color-fin: #50a050;
 
-  --hover-color: #ffffff;
-  --focus-color: #ffffff;
-  --active-color: #ffffff;
+  --hover-color-fin: #ffffff;
+  --focus-color-fin: #ffffff;
+  --active-color-fin: #ffffff;
 
-  --hover-border: 1px solid #79cc69;
-  --focus-border: 1px solid #79cc69;
-  --active-border: 1px solid #50a050;
+  --hover-border-fin: 1px solid #79cc69;
+  --focus-border-fin: 1px solid #79cc69;
+  --active-border-fin: 1px solid #50a050;
 }
 
 /* define color scheme for blue button */
 :host([color="blue"]) > button {
   /* colors */
-  background-color: #40a5ff;
   color: #ffffff;
+  background-color:#40a5ff;
   border: 1px solid #40a5ff;
 
-  --hover-background-color: #65b5ff;
-  --focus-background-color: #65b5ff;
-  --active-background-color: #2285dd;
+  --hover-background-color-fin: #65b5ff;
+  --focus-background-color-fin: #65b5ff;
+  --active-background-color-fin: #2285dd;
 
-  --hover-color: #ffffff;
-  --focus-color: #ffffff;
-  --active-color: #ffffff;
+  --hover-color-fin: #ffffff;
+  --focus-color-fin: #ffffff;
+  --active-color-fin: #ffffff;
 
-  --hover-border: 1px solid #65b5ff;
-  --focus-border: 1px solid #65b5ff;
-  --active-border: 1px solid #2285dd;
+  --hover-border-fin: 1px solid #65b5ff;
+  --focus-border-fin: 1px solid #65b5ff;
+  --active-border-fin: 1px solid #2285dd;
 }
 
 
 /* define color scheme for blue button */
 :host([color="purple"]) > button {
   /* colors */
-  background-color: #aa55aa;
   color: #ffffff;
+  background-color: #aa55aa;
   border: 1px solid #aa55aa;
+  
+  --hover-background-color-fin: #cc66cc;
+  --focus-background-color-fin: #cc66cc;
+  --active-background-color-fin: #994499;
 
-  --hover-background-color: #cc66cc;
-  --focus-background-color: #cc66cc;
-  --active-background-color: #994499;
+  --hover-color-fin: #ffffff;
+  --focus-color-fin: #ffffff;
+  --active-color-fin: #ffffff;
 
-  --hover-color: #ffffff;
-  --focus-color: #ffffff;
-  --active-color: #ffffff;
-
-  --hover-border: 1px solid #cc66cc;
-  --focus-border: 1px solid #cc66cc;
-  --active-border: 1px solid #994499;
+  --hover-border-fin: 1px solid #cc66cc;
+  --focus-border-fin: 1px solid #cc66cc;
+  --active-border-fin: 1px solid #994499;
 }
 
-:host(:not([disabled])) > button:hover {
-  background-color: var(--hover-background-color);
-  color: var(--hover-color);
-  border: var(--hover-border);
+/* hover focus active */
+:host(:not([disabled]):not([bootstrap])) > button:hover {
+  background-color: var(--hover-background-color-fin);
+  color: var(--hover-color-fin);
+  border: var(--hover-border-fin);
 }
 
-:host > button:focus {
-  background-color: var(--focus-background-color);
-  color: var(--focus-color);
-  border: var(--focus-border);
+:host(:not([disabled]):not([bootstrap])) > button:focus {
+  background-color: var(--focus-background-color-fin);
+  color: var(--focus-color-fin);
+  border: var(--focus-border-fin);
 }
 
-:host > button:active {
-  background-color: var(--active-background-color);
-  color: var(--active-color);
-  border: var(--active-border);
+:host(:not([disabled]):not([bootstrap])) > button:active {
+  background-color: var(--active-background-color-fin);
+  color: var(--active-color-fin);
+  border: var(--active-border-fin);
 }
 
 /* Attribute: disabled */
-/* if host element, i.e. <meat-button> has attribute round, apply this css to button*/
 :host(:not([bootstrap])[disabled]) > button {
     opacity: 0.65;
     cursor: not-allowed;
