@@ -1,27 +1,40 @@
+/* host */
+:host {
+  font-family: sans-serif;
+  color: #444444;
+  width: 90px;
+  height: 40px;
+  font-size: 15px;
+  vertical-align: top;
+}
+
 /* define color scheme for default button */
-:host > button{
+button {
+    /* css that button must have */
     display: inline-block;
     position: relative;
-    width: 90px;
-    height: 40px;
-
-
-    font-family: sans-serif;
-    background-color: #ffffff;
-    color: #444444;
-    border: 1px solid #cccccc;
-    font-size: 15px;
     outline: none;
-    vertical-align: top;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border 0.15s ease-in-out;
 
-    /* special override-able css variables */
+    /* css that can be safely defined on the host */
+    width: inherit;
+    height: inherit;
+    font-family: inherit;
+    color: inherit;
+    font-size: inherit;
+    vertical-align: inherit;
+    
+    /* css that needs to be exposed through css variables */
+    --background-color: #ffffff;
+    --border: 1px solid #cccccc;
 
     --hover-background-color: #daeeff;
     --focus-background-color: #daeeff;
     --active-background-color: #daeeff;
 
-    --hover-text-color: #3388ff;
-    --focus-text-color: #3388ff;
+    --hover-color: #3388ff;
+    --focus-color: #3388ff;
+    --active-color: #3388ff;
 
     --hover-border: 1px solid #daeeff;
     --focus-border: 1px solid #bbccff;
@@ -433,8 +446,9 @@
   --focus-background-color: #daeeff;
   --active-background-color: #daeeff;
 
-  --hover-text-color: #3388ff;
-  --focus-text-color: #3388ff;
+  --hover-color: #3388ff;
+  --focus-color: #3388ff;
+  --active-color: #3388ff;
 
   --hover-border: 1px solid #daeeff;
   --focus-border: 1px solid #bbccff;
@@ -451,8 +465,9 @@
   --focus-background-color: #999999;
   --active-background-color: #555555;
 
-  --hover-text-color: #ffffff;
-  --focus-text-color: #ffffff;
+  --hover-color: #ffffff;
+  --focus-color: #ffffff;
+  --active-color: #ffffff;
 
   --hover-border: 1px solid #999999;
   --focus-border: 1px solid #999999;
@@ -470,8 +485,9 @@
   --focus-background-color: #e46060;
   --active-background-color: #b03737;
 
-  --hover-text-color: #ffffff;
-  --focus-text-color: #ffffff;
+  --hover-color: #ffffff;
+  --focus-color: #ffffff;
+  --active-color: #ffffff;
 
   --hover-border: 1px solid #e46060;
   --focus-border: 1px solid #e46060;
@@ -489,8 +505,9 @@
   --focus-background-color: #dfaa70;
   --active-background-color: #cf7a30;
 
-  --hover-text-color: #ffffff;
-  --focus-text-color: #ffffff;
+  --hover-color: #ffffff;
+  --focus-color: #ffffff;
+  --active-color: #ffffff;
 
   --hover-border: 1px solid #dfaa70;
   --focus-border: 1px solid #dfaa70;
@@ -500,25 +517,21 @@
 /* define color scheme for yellow button */
 :host([color="yellow"]) > button {
   /* colors */
-  background-color: #eedd00;
-  color: #ffffff;
-  border: 1px solid #eedd00;
+  background-color: #ffee00;
+  color: #444444;
+  border: 1px solid #ffee00;
   
-  --hover-background-color: #f6e690;
-  --focus-background-color: #f6e690;
-  --active-background-color: #ddcc00;
+  --hover-background-color: #ffe75e;
+  --focus-background-color: #ffe75e;
+  --active-background-color: #dbc903;
 
-  --hover-text-color: #ffffff;
-  --focus-text-color: #ffffff;
+  --hover-color: #444444;
+  --focus-color: #444444;
+  --active-color: #444444;
 
-  --hover-border: 1px solid #f6e690;
-  --focus-border: 1px solid #f6e690;
-  --active-border: 1px solid #ddcc00;
-}
-
-/* white text is hard to read against a yellow background, add some subtle text shadow */
-:host([color="yellow"]) > button {
-  text-shadow: 0 0 5px #c5b500, 0 0 10px #c5b500, 0 0 15px #eedd00;
+  --hover-border: 1px solid #ffe75e;
+  --focus-border: 1px solid #ffe75e;
+  --active-border: 1px solid #dbc903;
 }
 
 /* define color scheme for green button */
@@ -532,8 +545,9 @@
   --focus-background-color: #79cc69;
   --active-background-color: #50a050;
 
-  --hover-text-color: #ffffff;
-  --focus-text-color: #ffffff;
+  --hover-color: #ffffff;
+  --focus-color: #ffffff;
+  --active-color: #ffffff;
 
   --hover-border: 1px solid #79cc69;
   --focus-border: 1px solid #79cc69;
@@ -551,13 +565,15 @@
   --focus-background-color: #65b5ff;
   --active-background-color: #2285dd;
 
-  --hover-text-color: #ffffff;
-  --focus-text-color: #ffffff;
+  --hover-color: #ffffff;
+  --focus-color: #ffffff;
+  --active-color: #ffffff;
 
   --hover-border: 1px solid #65b5ff;
   --focus-border: 1px solid #65b5ff;
   --active-border: 1px solid #2285dd;
 }
+
 
 /* define color scheme for blue button */
 :host([color="purple"]) > button {
@@ -570,58 +586,37 @@
   --focus-background-color: #cc66cc;
   --active-background-color: #994499;
 
-  --hover-text-color: #ffffff;
-  --focus-text-color: #ffffff;
+  --hover-color: #ffffff;
+  --focus-color: #ffffff;
+  --active-color: #ffffff;
 
   --hover-border: 1px solid #cc66cc;
   --focus-border: 1px solid #cc66cc;
   --active-border: 1px solid #994499;
 }
 
-
-/* Actions: focus */
-/* :host(:not([disabled])) > button:focus {
-    border: var(--focus-border);
-    color: var(--focus-text-color);
-    background-color: var(--focus-background-color);
-} */
-
-/* Actions: hover */
-/* :host(:not([disabled])) > button:hover {
-    -webkit-animation: hover .1s linear forwards;
-    animation: hover .1s linear forwards;
+:host(:not([disabled])) > button:hover {
+  background-color: var(--hover-background-color);
+  color: var(--hover-color);
+  border: var(--hover-border);
 }
 
-@keyframes hover {
-    100% { background-color: var(--hover-background-color) }
-    100% { color: var(--hover-text-color) }
-    100% { border: var(--hover-border) }
+:host > button:focus {
+  background-color: var(--focus-background-color);
+  color: var(--focus-color);
+  border: var(--focus-border);
 }
-@-webkit-keyframes hover {
-    100% { background-color: var(--hover-background-color) }
-    100% { color: var(--hover-text-color) }
-    100% { border: var(--hover-border) }
-} */
 
-/* Actions: active/click */
-/* :host(:not([disabled])) > button:active {
-    -webkit-animation: active .1s linear forwards;
-    animation: active .1s linear forwards;
+:host > button:active {
+  background-color: var(--active-background-color);
+  color: var(--active-color);
+  border: var(--active-border);
 }
-@keyframes active {
-    100% { background-color: var(--active-background-color)  }
-    100% { border: var(--active-border)  }
-}
-@-webkit-keyframes active {
-    100% { background-color: var(--active-background-color)  }
-    100% { border: var(--active-border)  }
-} */
 
 /* Attribute: disabled */
 /* if host element, i.e. <meat-button> has attribute round, apply this css to button*/
 :host(:not([bootstrap])[disabled]) > button {
-    background-color: lightgrey; 
-    color: white;
+    opacity: 0.65;
     cursor: not-allowed;
 }
 
