@@ -41,9 +41,11 @@
   user-select: none;
   border: 1px solid transparent;
   padding: 0.375rem 0.75rem;
+  /* font-size: 15px; */
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0.25rem;
+  cursor: pointer;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -55,12 +57,50 @@
   border-color: #007bff;
 }
 
+/* Primary Hover */
+:host([bootstrap~="btn-primary"]) > button:hover {
+  /* btn btn-primary hover styling */
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+/* Primary Focus */
+:host([bootstrap~="btn-primary"]) > button:focus {
+  /* btn btn-primary focus styling */
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+
+
+
 /* Secondary Button */
 :host([bootstrap~="btn-secondary"]) > button {
   /* btn btn-secondary styling */
   color: #fff;
   background-color: #6c757d;
   border-color: #6c757d;
+  /* padding-right: 88px; */
+}
+
+/* Secondary Hover */
+:host([bootstrap~="btn-secondary"]) > button:hover {
+  /* btn btn-secondary hover styling */
+  color: #fff;
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+/* Secondary Focus */
+:host([bootstrap~="btn-secondary"]) > button:focus {
+  /* btn btn-secondary focus styling */
+  color: #fff;
+  background-color: #5a6268;
+  border-color: #545b62;
+  box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);
 }
 
 /* Success Button */
@@ -71,12 +111,46 @@
   border-color: #28a745;
 }
 
+/* Success Hover */
+:host([bootstrap~="btn-success"]) > button:hover {
+  /* btn btn-success hover styling */
+  color: #fff;
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+/* Success Focus */
+:host([bootstrap~="btn-success"]) > button:focus {
+  /* btn btn-success focus styling */
+  color: #fff;
+  background-color: #218838;
+  border-color: #1e7e34;
+  box-shadow: 0 0 0 0.2rem rgba(72, 180, 97, 0.5);
+}
+
 /* Info Button */
 :host([bootstrap~="btn-info"]) > button {
   /* btn btn-info styling */
   color: #fff;
   background-color: #17a2b8;
   border-color: #17a2b8;
+}
+
+/* Info Hover */
+:host([bootstrap~="btn-info"]) > button:hover {
+  /* btn btn-info hover styling */
+  color: #fff;
+  background-color: #138496;
+  border-color: #117a8b;
+}
+
+/* Info Focus */
+:host([bootstrap~="btn-info"]) > button:focus {
+  /* btn btn-info focus styling */
+  color: #fff;
+  background-color: #138496;
+  border-color: #117a8b;
+  box-shadow: 0 0 0 0.2rem rgba(58, 176, 195, 0.5);
 }
 
 /* Warning Button */
@@ -87,12 +161,46 @@
   border-color: #ffc107;
 }
 
+/* Warning Hover */
+:host([bootstrap~="btn-warning"]) > button:hover {
+  /* btn btn-warning hover styling */
+  color: #212529;
+  background-color: #e0a800;
+  border-color: #d39e00;
+}
+
+/* Warning Focus */
+:host([bootstrap~="btn-warning"]) > button:focus {
+  /* btn btn-warning focus styling */
+  color: #212529;
+  background-color: #e0a800;
+  border-color: #d39e00;
+  box-shadow: 0 0 0 0.2rem rgba(222, 170, 12, 0.5);
+}
+
 /* Danger Button */
 :host([bootstrap~="btn-danger"]) > button {
   /* btn btn-danger styling */
   color: #fff;
   background-color: #dc3545;
   border-color: #dc3545;
+}
+
+/* Danger Hover */
+:host([bootstrap~="btn-danger"]) > button:hover {
+  /* btn btn-danger hover styling */
+  color: #fff;
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+/* Danger Focus */
+:host([bootstrap~="btn-danger"]) > button:focus {
+  /* btn btn-danger focus styling */
+  color: #fff;
+  background-color: #c82333;
+  border-color: #bd2130;
+  box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5);
 }
 
 /* Light Button */
@@ -103,6 +211,23 @@
   border-color: #f8f9fa;
 }
 
+/* Light Hover */
+:host([bootstrap~="btn-light"]) > button:hover {
+  /* btn btn-light hover styling */
+  color: #212529;
+  background-color: #e2e6ea;
+  border-color: #dae0e5;
+}
+
+/* Light Focus */
+:host([bootstrap~="btn-light"]) > button:focus {
+  /* btn btn-light focus styling */
+  color: #212529;
+  background-color: #e2e6ea;
+  border-color: #dae0e5;
+  box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
+}
+
 /* Dark Button */
 :host([bootstrap~="btn-dark"]) > button {
   /* btn btn-dark styling */
@@ -111,19 +236,22 @@
   border-color: #343a40;
 }
 
-/* TODO: Primary Hover */
-/* :host([bootstrap="btn btn-primary"]) > button:focus { */
-  /* btn btn-primary hover styling */
-  /* color: #fff; */
-  /* background-color: #0069d9; */
-  /* border-color: #0062cc; */
-
-/*
-:host([bootstrap="btn btn-primary"]) > button {
+/* Dark Hover */
+:host([bootstrap~="btn-dark"]) > button:hover {
+  /* btn btn-dark hover styling */
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
-} */
+  background-color: #23272b;
+  border-color: #1d2124;
+}
+
+/* Dark Focus */
+:host([bootstrap~="btn-dark"]) > button:focus {
+  /* btn btn-dark focus styling */
+  color: #fff;
+  background-color: #23272b;
+  border-color: #1d2124;
+  box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);
+}
 
 /* Attribute: round */
 /* if host element, i.e. <meat-button> has attribute round, apply this css to button*/
@@ -330,14 +458,14 @@
 
 
 /* Actions: focus */
-:host(:not([disabled])) > button:focus {
+/* :host(:not([disabled])) > button:focus {
     border: var(--focus-border);
     color: var(--focus-text-color);
     background-color: var(--focus-background-color);
-}
+} */
 
 /* Actions: hover */
-:host(:not([disabled])) > button:hover {
+/* :host(:not([disabled])) > button:hover {
     -webkit-animation: hover .1s linear forwards;
     animation: hover .1s linear forwards;
 }
@@ -351,7 +479,7 @@
     100% { background-color: var(--hover-background-color) }
     100% { color: var(--hover-text-color) }
     100% { border: var(--hover-border) }
-}
+} */
 
 /* Actions: active/click */
 :host(:not([disabled])) > button:active {
