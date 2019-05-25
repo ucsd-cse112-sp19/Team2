@@ -290,7 +290,7 @@ export class MeatInputElement extends HTMLElement {
   }
 
   /**
-   * @param {string array} suggestions
+   * @param {array} suggestions
    * Render list of suggestions as dropdown list under input
    */
   _renderSuggestions(suggestions) {

@@ -23,7 +23,7 @@ exports.handlers = {
   newDoclet: function(e) {
     const parameters = e.doclet.customelements;
     if (parameters) {
-      e.doclet.kind = "external";
+      e.doclet.kind = "Web Components";
       e.doclet.name = e.doclet.longname = e.doclet.customelements
         .map(a => `${a.name}`)
         .join(", ");
@@ -33,7 +33,14 @@ exports.handlers = {
         .map(
           a =>
             `&lt;${a.name} ${(e.doclet.properties || [])
-              .map(b => `${b.name}="[${b.type.names.join(", ")}]"`)
+              .map(b => {
+                if (b.type.names.join(", ") == "attribute") {
+                  return `${b.name}`;
+                } 
+                else {
+                  return `${b.name}="[${b.type.names.join(", ")}]"`;
+                }
+              })
               .join(" ")}&gt;`
         )
         .join("\n")}</code></pre>`;
