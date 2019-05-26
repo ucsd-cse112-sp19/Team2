@@ -54,17 +54,6 @@ export class MeatInputElement extends HTMLElement {
     // User may have attempted to set suggestions before element loaded in, set them now.
     this._upgradeProperty("suggestions");
 
-    // if user specifies bootstrap, link style to bootstrap
-    if (this.hasAttribute("bootstrap")) {
-      const newLink = this.shadow.querySelector("link"); // link stylesheet to bootstrap's stylesheet
-      newLink.rel = "stylesheet";
-      newLink.href =
-        "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
-      newLink.integrity =
-        "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T";
-      newLink.crossOrigin = "anonymous";
-    }
-
     // if this input is within a form, find the form and connect to it
     let parentNode = this.parentNode;
     while (parentNode) {
@@ -149,9 +138,6 @@ export class MeatInputElement extends HTMLElement {
         break;
       case "type":
         this.input.type = newVal;
-        break;
-      case "bootstrap":
-        this.input.className = newVal;
         break;
     }
   }
@@ -366,7 +352,7 @@ export class MeatInputElement extends HTMLElement {
   }
 
   get placeholder() {
-    return this.getAttribute("limit");
+    return this.getAttribute("placeholder");
   }
 
   set placeholder(val) {

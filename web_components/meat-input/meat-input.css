@@ -176,7 +176,7 @@ input:active {
     opacity: 1;
 }
 
-:host([bootstrap~="form-control::placeholder"]) > input {
+:host([bootstrap~="form-control"]) > input::placeholder {
     color: #6c757d;
     opacity: 1;
 }
