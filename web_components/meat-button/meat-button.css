@@ -518,20 +518,20 @@ button {
 :host([color="yellow"]) > button {
   /* colors */
   color: var(--color,#444444);
-  background-color: var(--background-color, #ffee00);
-  border: var(--border, 1px solid #ffee00);
+  background-color: var(--background-color, #ffe600);
+  border: var(--border, 1px solid #ffe600);
 
-  --hover-background-color-fin: var(--hover-background-color, #ffe75e);
-  --focus-background-color-fin: var(--focus-background-color, #ffe75e);
-  --active-background-color-fin: var(--active-background-color, #dbc903);
+  --hover-background-color-fin: var(--hover-background-color, #ffed86);
+  --focus-background-color-fin: var(--focus-background-color, #ffed86);
+  --active-background-color-fin: var(--active-background-color, #e9d200);
 
   --hover-color-fin: var(--hover-color, #444444);
   --focus-color-fin: var(--focus-color, #444444);
   --active-color-fin: var(--active-color, #444444);
 
-  --hover-border-fin: var(--hover-border, 1px solid #ffe75e);
-  --focus-border-fin: var(--focus-border, 1px solid #ffe75e);
-  --active-border-fin: var(--active-border, 1px solid #dbc903);
+  --hover-border-fin: var(--hover-border, 1px solid #ffed86);
+  --focus-border-fin: var(--focus-border, 1px solid #ffed86);
+  --active-border-fin: var(--active-border, 1px solid #e9d200);
 }
 
 /* define color scheme for green button */
