@@ -1,0 +1,62 @@
+:host {
+    display: inline-block;
+    position: relative;
+    color: black;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+    font-family: inherit;
+}
+
+a[color="white"] {
+    text-decoration: none;
+    color: white;
+}
+
+a[color="grey"] {
+    color: #777777;
+}
+
+a[color="red"] {
+    color: #cc5050;
+}
+
+a[color="orange"] {
+    color: #df8a40;
+}
+
+a[color="yellow"] {
+    color: #ffe600;
+}
+
+a[color="green"] {
+    color: #59c040;
+}
+
+a[color="blue"] {
+    color: #40a5ff;
+}
+
+a[color="purple"] {
+    color: #aa55aa;
+}
+
+a[disabled] {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+a[underline="always"] {
+    text-decoration: underline;
+}
+
+a[underline="hover"]:hover {
+    text-decoration: underline;
+}
+
+
+

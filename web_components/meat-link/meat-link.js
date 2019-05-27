@@ -2,7 +2,7 @@ const template = document.createElement("template");
 template.innerHTML = `
 <style></style>
 <link rel="stylesheet" href="/web_components/meat-link/meat-link.css"/>
-<a id="a" type="reset"></a>
+<a></a>
 `;
 
 /**
@@ -19,7 +19,7 @@ export class MeatLinkElement extends HTMLElement {
     super();
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
-    this.link = this.shadow.querySelector("#a");
+    this.link = this.shadow.querySelector("a");
   }
 
   /**
@@ -34,7 +34,15 @@ export class MeatLinkElement extends HTMLElement {
    * call attributeChangedCallback(name, oldVal, newVal)
    */
   static get observedAttributes() {
-    return ["type", "href", "disabled", "underline", "icon", "bootstrap"];
+    return [
+      "type",
+      "color",
+      "href",
+      "disabled",
+      "underline",
+      "icon",
+      "bootstrap"
+    ];
   }
 
   /**
@@ -46,19 +54,82 @@ export class MeatLinkElement extends HTMLElement {
   attributeChangedCallback(name, oldVal, newVal) {
     switch (name) {
       case "disabled":
-        if (newVal == "") this.link.disabled = true;
-        else this.link.disabled = false;
+        this.link.setAttribute("disabled", newVal);
+        this.link.disabled = newVal;
         break;
+      case "underline":
+        this.link.setAttribute("underline", newVal);
       case "href":
         this.link.href = newVal;
         break;
       case "type":
         this.link.type = newVal;
         break;
+      case "color":
+        this.link.setAttribute("color", newVal);
+        break;
       case "bootstrap":
+        this.link.setAttribute("bootstrap", newVal);
         this.link.className = newVal;
         break;
     }
+  }
+
+  /**
+   * Getters and Setters
+   */
+  get color() {
+    return this.getAttribute("color");
+  }
+
+  set color(val) {
+    if (val) this.setAttribute("color", val);
+    else this.removeAttribute("color");
+  }
+
+  get underline() {
+    return this.getAttribute("underline");
+  }
+
+  set underline(val) {
+    if (val) this.setAttribute("underline", val);
+    else this.removeAttribute("underline");
+  }
+
+  get type() {
+    return this.getAttribute("type");
+  }
+
+  set type(val) {
+    if (val) this.setAttribute("type", val);
+    else this.removeAttribute("type");
+  }
+
+  get href() {
+    return this.getAttribute("href");
+  }
+
+  set href(val) {
+    if (val) this.setAttribute("href", val);
+    else this.removeAttribute("href");
+  }
+
+  get bootstrap() {
+    return this.getAttribute("bootstrap");
+  }
+
+  set bootstrap(val) {
+    if (val) this.setAttribute("bootstrap", val);
+    else this.removeAttribute("bootstrap");
+  }
+
+  get disabled() {
+    return this.hasAttribute("disabled");
+  }
+
+  set disabled(val) {
+    if (val) this.setAttribute("disabled", val);
+    else this.removeAttribute("disabled");
   }
 }
 window.customElements.define("meat-link", MeatLinkElement);
