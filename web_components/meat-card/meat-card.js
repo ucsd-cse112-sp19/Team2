@@ -1,16 +1,16 @@
 const template = document.createElement("template");
 template.innerHTML = `
 <style></style>
-<link rel="stylesheet" href="/web_components/meat-boilerplate/meat-boilerplate.css"/>
+<link rel="stylesheet" href="/web_components/meat-card/meat-card.css"/>
 `;
 
 /**
- * meat-boilerplate webcomponent
- * @customelement meat-boilerplate
- * @description A boilerplate for starting new webcomponents
- * @example <meat-boilerplate></meat-boilerplate>
+ * meat-card webcomponent
+ * @customelement meat-card
+ * @description A reusable card with replaceable markup.
+ * @example <meat-card></meat-card>
  */
-export class MeatBoilerplateElement extends HTMLElement {
+export class MeatCardElement extends HTMLElement {
   /**
    * Create an instance of MeatButtonElement
    */
@@ -41,4 +41,4 @@ export class MeatBoilerplateElement extends HTMLElement {
    */
   attributeChangedCallback(name, oldVal, newVal) {}
 }
-window.customElements.define("meat-boilerplate", MeatBoilerplateElement);
+window.customElements.define("meat-card", MeatCardElement);
