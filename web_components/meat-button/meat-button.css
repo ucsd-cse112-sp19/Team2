@@ -40,8 +40,6 @@ button {
   /* css that needs to be exposed through css variables */
   background-color: var(--background-color, #ffffff);
   border: var(--border, 1px solid #cccccc);
-  color: var(--color, #444444);
-
 }
 
 /* Bootstrap Support */
