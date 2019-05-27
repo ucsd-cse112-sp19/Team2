@@ -17,6 +17,40 @@ a {
     font-family: inherit;
 }
 
+/* if not disabled, display underline on hover */
+a:not([disabled]):hover {
+    text-decoration: underline;
+}
+
+/* if no color specified, turn blue on hover */
+a:not([color]):hover {
+    color: #40a5ff;
+}
+
+/* lighten on hover */
+a:not([disabled])[color]:hover {
+    opacity: .8;
+}
+
+/* underline */
+a[underline="never"]:hover {
+    text-decoration: none;
+}
+
+a[underline="always"] {
+    text-decoration: underline;
+}
+
+a[underline="hover"]:hover {
+    text-decoration: underline;
+}
+
+/* disabled */
+a[disabled] {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
 a[color="white"] {
     text-decoration: none;
     color: white;
@@ -50,18 +84,7 @@ a[color="purple"] {
     color: #aa55aa;
 }
 
-a[disabled] {
-    opacity: 0.65;
-    cursor: not-allowed;
-}
-
-a[underline="always"] {
-    text-decoration: underline;
-}
-
-a[underline="hover"]:hover {
-    text-decoration: underline;
-}
+/* ================ bootstrap =================== bootstrap ================== bootstrap ================= */
 
 a[bootstrap] {
     color: #007bff;
