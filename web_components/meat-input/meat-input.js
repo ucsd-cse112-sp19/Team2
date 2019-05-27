@@ -136,6 +136,13 @@ export class MeatInputElement extends HTMLElement {
           this.input.autocomplete = "off";
         }
         break;
+      case "size":
+        this.input.setAttribute("size", newVal);
+        break;
+      case "bootstrap":
+        this.input.setAttribute("bootstrap", newVal);
+        this.input.className = newVal;
+        break;
       case "type":
         this.input.type = newVal;
         break;
