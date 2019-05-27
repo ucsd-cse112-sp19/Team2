@@ -6,10 +6,10 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>meat-link-demo</title>
         <script type="module" src="./meat-link.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <style>
         meat-link {
-            font-size: 20px;
         }
         label {
             font-size: 30px;
@@ -22,51 +22,105 @@
     <body>
         <label>color</label><br>
         <meat-link href="#">Default</meat-link>
-        <meat-link class="black-background" color="white" href="#">White</meat-link>
-        <meat-link color="grey" href="#">Grey</meat-link>
-        <meat-link color="red" href="#">Red</meat-link>
-        <meat-link color="orange" href="#">Orange</meat-link>
-        <meat-link class="black-background" color="yellow" href="#">Yellow</meat-link>
-        <meat-link color="green" href="#">Green</meat-link>
-        <meat-link color="blue" href="#">Blue</meat-link>
-        <meat-link color="purple" href="#">Purple</meat-link>
+        <meat-link href="#" color="white" class="black-background" >White</meat-link>
+        <meat-link href="#" color="grey">Grey</meat-link>
+        <meat-link href="#" color="red">Red</meat-link>
+        <meat-link href="#" color="orange">Orange</meat-link>
+        <meat-link href="#" color="yellow" class="black-background">Yellow</meat-link>
+        <meat-link href="#" color="green">Green</meat-link>
+        <meat-link href="#" color="blue">Blue</meat-link>
+        <meat-link href="#" color="purple">Purple</meat-link>
         <br>
         <br><label>disabled</label><br>
         <meat-link disabled href="#">Default</meat-link>
-        <meat-link disabled class="black-background" color="white" href="#">White</meat-link>
-        <meat-link disabled color="grey" href="#">Grey</meat-link>
-        <meat-link disabled color="red" href="#">Red</meat-link>
-        <meat-link disabled color="orange" href="#">Orange</meat-link>
-        <meat-link disabled class="black-background" color="yellow" href="#">Yellow</meat-link>
-        <meat-link disabled color="green" href="#">Green</meat-link>
-        <meat-link disabled color="blue" href="#">Blue</meat-link>
-        <meat-link disabled color="purple" href="#">Purple</meat-link>
+        <meat-link disabled href="#" color="white" class="black-background" >White</meat-link>
+        <meat-link disabled href="#" color="grey">Grey</meat-link>
+        <meat-link disabled href="#" color="red">Red</meat-link>
+        <meat-link disabled href="#" color="orange">Orange</meat-link>
+        <meat-link disabled href="#" color="yellow" class="black-background">Yellow</meat-link>
+        <meat-link disabled href="#" color="green">Green</meat-link>
+        <meat-link disabled href="#" color="blue">Blue</meat-link>
+        <meat-link disabled href="#" color="purple">Purple</meat-link>
         <br>
         <br><label>underline="always"</label><br>
-        <meat-link underline="always" href="#">Default</meat-link>
-        <meat-link underline="always" class="black-background" color="white" href="#">White</meat-link>
-        <meat-link underline="always" color="grey" href="#">Grey</meat-link>
-        <meat-link underline="always" color="red" href="#">Red</meat-link>
-        <meat-link underline="always" color="orange" href="#">Orange</meat-link>
-        <meat-link underline="always" class="black-background" color="yellow" href="#">Yellow</meat-link>
-        <meat-link underline="always" color="green" href="#">Green</meat-link>
-        <meat-link underline="always" color="blue" href="#">Blue</meat-link>
-        <meat-link underline="always" color="purple" href="#">Purple</meat-link>
+        <meat-link underline="always" href="#" >Default</meat-link>
+        <meat-link underline="always" href="#" color="white" class="black-background">White</meat-link>
+        <meat-link underline="always" href="#" color="grey">Grey</meat-link>
+        <meat-link underline="always" href="#" color="red">Red</meat-link>
+        <meat-link underline="always" href="#" color="orange">Orange</meat-link>
+        <meat-link underline="always" href="#" color="yellow" class="black-background">Yellow</meat-link>
+        <meat-link underline="always" href="#" color="green">Green</meat-link>
+        <meat-link underline="always" href="#" color="blue">Blue</meat-link>
+        <meat-link underline="always" href="#" color="purple">Purple</meat-link>
         <br>
         <br><label>underline="hover"</label><br>
-        <meat-link underline="hover" href="#">Default</meat-link>
-        <meat-link underline="hover" class="black-background" color="white" href="#">White</meat-link>
-        <meat-link underline="hover" color="grey" href="#">Grey</meat-link>
-        <meat-link underline="hover" color="red" href="#">Red</meat-link>
-        <meat-link underline="hover" color="orange" href="#">Orange</meat-link>
-        <meat-link underline="hover" class="black-background" color="yellow" href="#">Yellow</meat-link>
-        <meat-link underline="hover" color="green" href="#">Green</meat-link>
-        <meat-link underline="hover" color="blue" href="#">Blue</meat-link>
-        <meat-link underline="hover" color="purple" href="#">Purple</meat-link>
+        <meat-link underline="hover" href="#" >Default</meat-link>
+        <meat-link underline="hover" href="#" color="white" class="black-background">White</meat-link>
+        <meat-link underline="hover" href="#" color="grey">Grey</meat-link>
+        <meat-link underline="hover" href="#" color="red">Red</meat-link>
+        <meat-link underline="hover" href="#" color="orange">Orange</meat-link>
+        <meat-link underline="hover" href="#" color="yellow" class="black-background">Yellow</meat-link>
+        <meat-link underline="hover" href="#" color="green">Green</meat-link>
+        <meat-link underline="hover" href="#" color="blue">Blue</meat-link>
+        <meat-link underline="hover" href="#" color="purple">Purple</meat-link>
+        <br>
+        <br><label>bootstrap</label><br>
+        <meat-link bootstrap href="#">bootstrap</meat-link>
+        <meat-link bootstrap="nav-link" href="#">nav-link</meat-link>
+        <meat-link bootstrap="navbar-brand" href="#">navbar-brand</meat-link>
+        <meat-link bootstrap="nav-link dropdown-toggle" href="#">nav-link dropdown-toggle</meat-link>
+        <meat-link bootstrap="dropdown-item" href="#">dropdown-item</meat-link>
         <br><br>
         <meat-link underline="hover" href="https://element.eleme.io/#/en-US/component/link">
             9 out of 10 doctors hate this one simple trick! Click Here
         </meat-link>
+
+        <div style="margin: 100px 100px 50px 100px; border: 1px solid black; padding: 50px;">
+            <label>Bootstrap Example</label><br>
+            <nav id="navbar-example2" class="navbar navbar-light bg-light">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#fat">@fat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#mdo">@mdo</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#one">one</a>
+                            <a class="dropdown-item" href="#two">two</a>
+                            <div role="separator" class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#three">three</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            </div>
+            <div style="margin: 0px 100px 100px 100px; border: 1px solid black; padding: 50px;">
+                <label>Using Meat-Link</label><br>
+                <nav id="navbar-example2" class="navbar navbar-light bg-light">
+                    <meat-link bootstrap="navbar-brand" href="#">Navbar</meat-link>
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <meat-link bootstrap="nav-link" href="#fat">@fat</meat-link>
+                        </li>
+                        <li class="nav-item">
+                            <meat-link bootstrap="nav-link" href="#mdo">@mdo</meat-link>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <meat-link bootstrap="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</meat-link>
+                            <div class="dropdown-menu">
+                                <meat-link bootstrap="dropdown-item" href="#one">one</meat-link>
+                                <meat-link bootstrap="dropdown-item" href="#two">two</meat-link>
+                                <div role="separator" class="dropdown-divider"></div>
+                                <meat-link bootstrap="dropdown-item" href="#three">three</meat-link>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
     </body>
     <script>
         const meatLink = document.querySelector('meat-link');
