@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>core-hello</title>
         <script type="module" src="./core-hello.js"></script>
+        <script type="module" src="/web_components/meat-button/meat-button.js"></script>
     </head>
     <style>
         core-hello {
@@ -23,7 +24,7 @@
     </style>
     <body>
         <core-hello id="core-hello" rainbow lang="en">Meatspace!</core-hello> 
-        <button id="change-attr"></button>
+        <meat-button id="change-attr"></meat-button>
     </body>
     <script>
         const button = document.querySelector("#change-attr");

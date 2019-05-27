@@ -6,7 +6,6 @@ template.innerHTML = `
 <div id="suggestionContainer"></div>
 `;
 
-
 export class MeatInputElement extends HTMLElement {
   /**
    * meat-input webcomponent

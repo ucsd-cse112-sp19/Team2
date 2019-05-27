@@ -53,7 +53,7 @@ tmpl.innerHTML = `
 `;
 
 class CoreHelloElement extends HTMLElement {
-    /**
+  /**
    * core-hello web component
    * @customelement core-hello
    * @description displays 'Hello World, <input>!'

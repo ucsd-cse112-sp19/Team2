@@ -9,9 +9,8 @@ template.innerHTML = `
     </div>
 `;
 
-
 export class LiveEditorElement extends HTMLElement {
-    /**
+  /**
    * live-editor web component description
    * @customelement live-editor
    * @description displays whatever html is input into the editor; can specify an html file to load in at startup

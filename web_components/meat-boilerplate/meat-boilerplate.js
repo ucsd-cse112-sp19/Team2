@@ -4,7 +4,7 @@ template.innerHTML = `
 `;
 
 export class MeatBoilerplateElement extends HTMLElement {
-    /**
+  /**
    * meat-boilerplate webcomponent
    * @customelement meat-boilerplate
    * @description A boilerplate for starting new webcomponents

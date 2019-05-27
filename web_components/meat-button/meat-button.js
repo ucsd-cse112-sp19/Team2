@@ -6,7 +6,7 @@ template.innerHTML = `
 `;
 
 export class MeatButtonElement extends HTMLElement {
-    /**
+  /**
    * meat-button webcomponent
    * @customelement meat-button
    * @description The meat-button web component displays a stylized button
