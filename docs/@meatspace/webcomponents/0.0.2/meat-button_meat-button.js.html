@@ -1,8 +1,49 @@
-const template = document.createElement("template");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>meat-button/meat-button.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="core-hello.html">core-hello</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="live-editor.html">live-editor</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-boilerplate.html">meat-boilerplate</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-button.html">meat-button</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-input.html">meat-input</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="team2-learn.html">team2-learn</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">meat-button/meat-button.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const template = document.createElement("template");
 template.innerHTML = `
-  <style></style>
-  <link rel="stylesheet" href="/web_components/meat-button/meat-button.css"/>
-  <button id="button" type="reset"></button>
+  &lt;style>&lt;/style>
+  &lt;link rel="stylesheet" href="/web_components/meat-button/meat-button.css"/>
+  &lt;button id="button" type="reset">&lt;/button>
 `;
 
 export class MeatButtonElement extends HTMLElement {
@@ -10,7 +51,7 @@ export class MeatButtonElement extends HTMLElement {
    * meat-button webcomponent
    * @customelement meat-button
    * @description The meat-button web component displays a stylized button
-   * @example <meat-button></meat-button>
+   * @example &lt;meat-button>&lt;/meat-button>
    * @see [Demo]{@link https://meat-space.org/web_components/meat-button/meat-button-demo.html} for working example.
    * @property {attribute} autofocus -Enables button to automatically get focus when the page loads.
    * @property {attribute} circle -Enables a circle shaped button.
@@ -33,7 +74,7 @@ export class MeatButtonElement extends HTMLElement {
    * Live-cycle method called when the custom element is loaded, often used for initialization
    */
   connectedCallback() {
-    // Need to get the content inbetween the <meat-button> tags into the button so it renders
+    // Need to get the content inbetween the &lt;meat-button> tags into the button so it renders
     this.button.textContent = this.textContent;
 
     // if user specifies bootstrap, link style to bootstrap
@@ -50,7 +91,7 @@ export class MeatButtonElement extends HTMLElement {
     // Look up dom tree for a parent form
     let parentNode = this.parentNode;
     while (parentNode) {
-      if (parentNode && parentNode.nodeName == "FORM") {
+      if (parentNode &amp;&amp; parentNode.nodeName == "FORM") {
         this._parentForm = parentNode;
         break;
       }
@@ -63,7 +104,7 @@ export class MeatButtonElement extends HTMLElement {
    * call attributeChangedCallback(name, oldVal, newVal)
    * */
   static get observedAttributes() {
-    /* <meat-button type="default" disabled></meat-button> */
+    /* &lt;meat-button type="default" disabled>&lt;/meat-button> */
     return [
       "autofocus",
       "color",
@@ -238,7 +279,7 @@ export class MeatButtonElement extends HTMLElement {
   }
 
   /*
-   * This is unnecessary for now, the user can just attach an event listener to <meat-button>
+   * This is unnecessary for now, the user can just attach an event listener to &lt;meat-button>
    * */
   _onClick(evt, thisComponent) {
     switch (this.getAttribute("type")) {
@@ -257,3 +298,22 @@ export class MeatButtonElement extends HTMLElement {
 }
 
 window.customElements.define("meat-button", MeatButtonElement);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
