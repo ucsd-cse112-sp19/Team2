@@ -48,3 +48,11 @@
 <meat-button bootstrap="btn btn-light">Light</meat-button>
 <meat-button bootstrap="btn btn-dark">Dark</meat-button>
 ```
+
+| Attributes | Description                                                   | Type    | Accepted Values | Default |
+|------------|---------------------------------------------------------------|---------|-----------------|---------|
+| autofocus  | Enables button to automatically get focus when the page loads.| boolean |                 | false   |
+| circle     | Enables a circle shaped button.                               | boolean |                 | false   |
+| round      | Enables a round shaped button.                                | boolean |                 | false   |
+| size       | Changes the size of the button.                               | string  |                 |         |
+| type       | Sets the button type.                                         | string  | primary/warning/danger|   |
