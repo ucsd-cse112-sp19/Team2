@@ -4,7 +4,8 @@
   color: var(--dark-grey);
   width: 90px;
   height: 40px;
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 500;
   vertical-align: top;
 
   /* special css variables */
@@ -36,6 +37,7 @@ button {
   color: var(--color, inherit);
   font-size: inherit;
   vertical-align: inherit;
+  font-weight: inherit;
   
   /* css that needs to be exposed through css variables */
   background-color: var(--background-color, var(--white));
