@@ -5,7 +5,7 @@
     min-height: 250px;
     border: 1px solid #AAAAAA;
     border-radius: 5px;
-    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.15);
     background-color: inherit;
     font-family: sans-serif;
     vertical-align: top;
@@ -35,7 +35,7 @@
 
 /* box shadow */
 :host([shadow="always"]) {
-    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.15);
 }
 
 :host([shadow="hover"]) {
@@ -43,7 +43,7 @@
 }
 
 :host([shadow="hover"]:hover) {
-    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.15);
     background-color: white;
 }
 
