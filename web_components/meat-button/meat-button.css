@@ -87,9 +87,6 @@ button {
 /* Primary Focus */
 :host([bootstrap~="btn-primary"]) > button:focus {
   /* btn btn-primary focus styling */
-  color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
   box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
 }
 
@@ -102,7 +99,7 @@ button {
 
 /* Primary Active */
 :host(:not([disabled])[bootstrap~="btn-primary"]) > button:active {
-  /* btn btn-primary focus styling */
+  /* btn btn-primary active styling */
   color: #fff;
   background-color: #0062cc;
   border-color: #005cbf;
@@ -128,9 +125,6 @@ button {
 /* Secondary Focus */
 :host([bootstrap~="btn-secondary"]) > button:focus {
   /* btn btn-secondary focus styling */
-  color: #fff;
-  background-color: #5a6268;
-  border-color: #545b62;
   box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);
 }
 
@@ -143,7 +137,7 @@ button {
 
 /* Secondary Active */
 :host(:not([disabled])[bootstrap~="btn-secondary"]) > button:active {
-  /* btn btn-secondary focus styling */
+  /* btn btn-secondary active styling */
   color: #fff;
   background-color: #545b62;
   border-color: #4e555b;
@@ -168,9 +162,6 @@ button {
 /* Success Focus */
 :host([bootstrap~="btn-success"]) > button:focus {
   /* btn btn-success focus styling */
-  color: #fff;
-  background-color: #218838;
-  border-color: #1e7e34;
   box-shadow: 0 0 0 0.2rem rgba(72, 180, 97, 0.5);
 }
 
@@ -183,7 +174,7 @@ button {
 
 /* Success Active */
 :host(:not([disabled])[bootstrap~="btn-success"]) > button:active {
-  /* btn btn-success focus styling */
+  /* btn btn-success active styling */
   color: #fff;
   background-color: #1e7e34;
   border-color: #1c7430;
@@ -208,9 +199,6 @@ button {
 /* Info Focus */
 :host([bootstrap~="btn-info"]) > button:focus {
   /* btn btn-info focus styling */
-  color: #fff;
-  background-color: #138496;
-  border-color: #117a8b;
   box-shadow: 0 0 0 0.2rem rgba(58, 176, 195, 0.5);
 }
 
@@ -223,7 +211,7 @@ button {
 
 /* Info Active */
 :host(:not([disabled])[bootstrap~="btn-info"]) > button:active {
-  /* btn btn-info focus styling */
+  /* btn btn-info active styling */
   color: #fff;
   background-color: #117a8b;
   border-color: #10707f;
@@ -248,9 +236,6 @@ button {
 /* Warning Focus */
 :host([bootstrap~="btn-warning"]) > button:focus {
   /* btn btn-warning focus styling */
-  color: #212529;
-  background-color: #e0a800;
-  border-color: #d39e00;
   box-shadow: 0 0 0 0.2rem rgba(222, 170, 12, 0.5);
 }
 
@@ -263,7 +248,7 @@ button {
 
 /* Warning Active */
 :host(:not([disabled])[bootstrap~="btn-warning"]) > button:active {
-  /* btn btn-warning focus styling */
+  /* btn btn-warning active styling */
   color: #212529;
   background-color: #d39e00;
   border-color: #c69500;
@@ -288,9 +273,6 @@ button {
 /* Danger Focus */
 :host([bootstrap~="btn-danger"]) > button:focus {
   /* btn btn-danger focus styling */
-  color: #fff;
-  background-color: #c82333;
-  border-color: #bd2130;
   box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5);
 }
 
@@ -303,7 +285,7 @@ button {
 
 /* Danger Active */
 :host(:not([disabled])[bootstrap~="btn-danger"]) > button:active {
-  /* btn btn-danger focus styling */
+  /* btn btn-danger active styling */
   color: #fff;
   background-color: #bd2130;
   border-color: #b21f2d;
@@ -328,9 +310,6 @@ button {
 /* Light Focus */
 :host([bootstrap~="btn-light"]) > button:focus {
   /* btn btn-light focus styling */
-  color: #212529;
-  background-color: #e2e6ea;
-  border-color: #dae0e5;
   box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
 }
 
@@ -343,7 +322,7 @@ button {
 
 /* Light Active */
 :host(:not([disabled])[bootstrap~="btn-light"]) > button:active {
-  /* btn btn-light focus styling */
+  /* btn btn-light active styling */
   color: #212529;
   background-color: #dae0e5;
   border-color: #d3d9df;
@@ -368,9 +347,6 @@ button {
 /* Dark Focus */
 :host([bootstrap~="btn-dark"]) > button:focus {
   /* btn btn-dark focus styling */
-  color: #fff;
-  background-color: #23272b;
-  border-color: #1d2124;
   box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);
 }
 
@@ -383,7 +359,7 @@ button {
 
 /* Dark Active */
 :host(:not([disabled])[bootstrap~="btn-dark"]) > button:active {
-  /* btn btn-dark focus styling */
+  /* btn btn-dark active styling */
   color: #fff;
   background-color: #1d2124;
   border-color: #171a1d;
