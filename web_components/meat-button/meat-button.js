@@ -1,6 +1,7 @@
 const template = document.createElement("template");
 template.innerHTML = `
   <style></style>
+  <link rel="stylesheet" href="/web_components/common.css"/>
   <link rel="stylesheet" href="/web_components/meat-button/meat-button.css"/>
   <button id="button" type="reset"></button>
 `;
