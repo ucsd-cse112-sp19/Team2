@@ -9,6 +9,7 @@
         <script type="module" src="../meat-button/meat-button.js"></script>
         <script type="module" src="../meat-link/meat-link.js"></script>
         <script type="module" src="./meat-card.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <style>
         meat-card {
@@ -108,6 +109,32 @@
                     <div>
                         <meat-link color="blue" href="https://element.eleme.io/#/en-US/component/card">Click here to go to Element's Card Docs</meat-link>
                     </div>
+                </div>
+            </meat-card>
+            <br>
+            <label>Bootstrap Support</label><br>
+            <div class="card" style="display: inline-flex; width: 18rem;">
+                <img class="card-img-top" src="/img//faces/Thomas_Powell_ZingChart.png" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Bootstrap Card</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <meat-card class="card" style="display: inline-flex; width: 18rem;" bootstrap>
+                <img slot="header" class="card-img-top" src="/img//faces/Thomas_Powell_ZingChart.png" alt="Card image cap">
+                <div slot="body" class="card-body">
+                  <h5 class="card-title">meat-card with Bootstrap</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </meat-card>
+            <meat-card class="card" shadow="hover" style="display: inline-flex; width: 18rem;" bootstrap>
+                <img slot="header" class="card-img-top" src="/img//faces/Thomas_Powell_ZingChart.png" alt="Card image cap">
+                <div slot="body" class="card-body">
+                  <h5 class="card-title">meat-card with Bootstrap and shadow="hover"</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </meat-card>
         </div>
