@@ -6,20 +6,20 @@
     border: 1px solid #AAAAAA;
     border-radius: 5px;
     box-shadow: 0 2px 12px 0 rgba(0,0,0,.15);
-    background-color: inherit;
+    background-color: white;
     font-family: sans-serif;
     vertical-align: top;
 }
 
 /* header default css */
 :host(:not([bootstrap])) ::slotted([slot="header"])  {
+    display: flex;
+    position: relative;
     font-size: 20px;
     box-sizing: border-box;
-    display: flex;
-    width: 100%;
     padding: 15px;
-    border-top-left-radius: inherit;
-    border-top-right-radius: inherit;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
     border-bottom: 1px solid #AAAAAA;
@@ -29,7 +29,7 @@
 }
 
 /* body default css */
-:host(:not([bootstrap])) ::slotted([slot="body"]) {
+:host(:not([bootstrap]))::slotted([slot="body"]) {
     padding: 15px;
 }
 
