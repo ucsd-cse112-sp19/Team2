@@ -1,4 +1,4 @@
-# MeatSpace button component
+# MeatSpace Button Component
 
 ## Basic usage
 [](https://meat-space.org/web_components/meat-button/meat-button-demo.html ':include :type=iframe width=100% height=800px')
@@ -48,11 +48,13 @@
 <meat-button bootstrap="btn btn-light">Light</meat-button>
 <meat-button bootstrap="btn btn-dark">Dark</meat-button>
 ```
-
+## Attributes
 | Attributes | Description                                                   | Type    | Accepted Values | Default |
 |------------|---------------------------------------------------------------|---------|-----------------|---------|
 | autofocus  | Enables button to automatically get focus when the page loads.| boolean |                 | false   |
 | circle     | Enables a circle shaped button.                               | boolean |                 | false   |
 | round      | Enables a round shaped button.                                | boolean |                 | false   |
-| size       | Changes the size of the button.                               | string  |                 |         |
+| size       | Changes the size of the button.                               | string  | small/medium/large |  |
 | type       | Sets the button type.                                         | string  | primary/warning/danger|   |
+| disabled   | Disables button from accepting events. | boolean |  | false | 
+| bootstrap  | Assign this attribute boostrap class names. Use this attribute to style buttons with bootstrap.| string | ex: btn btn-primary | |

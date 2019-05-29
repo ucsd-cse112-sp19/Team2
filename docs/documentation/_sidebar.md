@@ -1,7 +1,12 @@
+- Development
+  - [Installation](installation.md)
+  - [Quick Start](quick.md)
+  
 - Web Component Showroom
 
   - [core-hello](core-hello.md)
   - [meat-button](meat-button.md)
+  - [meat-input](meat-input.md)
 
 - API Documentation
 
