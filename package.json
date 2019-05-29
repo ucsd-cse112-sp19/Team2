@@ -15,7 +15,7 @@
     "mtest": "./node_modules/.bin/mocha-headless-chrome -f ./unit_tests/meat-input.html",
     "wintest": "for %f in (./unit_tests/*.html) do ./node_modules/.bin/mocha-headless-chrome -f (./unit_tests/%f)",
     "lintest": "./node_modules/.bin/mocha-headless-chrome -f ./unit_tests/*.html -a no-sandbox",
-    "temptest": "cd ./unit_tests && npm run all",
+    "utest": "cd ./unit_tests && npm run all",
     "generate-jsdocs": "./node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
     "lint": "./node_modules/.bin/eslint --fix web_components",
     "pipe": "cd scripts && pipe.sh",
