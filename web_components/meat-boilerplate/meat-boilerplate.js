@@ -4,15 +4,12 @@ template.innerHTML = `
 <link rel="stylesheet" href="/web_components/meat-boilerplate/meat-boilerplate.css"/>
 `;
 
-/**
- * meat-boilerplate webcomponent
- * @customelement meat-boilerplate
- * @description A boilerplate for starting new webcomponents
- * @example <meat-boilerplate></meat-boilerplate>
- */
 export class MeatBoilerplateElement extends HTMLElement {
   /**
-   * Create an instance of MeatButtonElement
+   * meat-boilerplate webcomponent
+   * @customelement meat-boilerplate
+   * @description A boilerplate for starting new webcomponents
+   * @example <meat-boilerplate></meat-boilerplate>
    */
   constructor() {
     super();

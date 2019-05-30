@@ -1,9 +1,9 @@
-# Team MeatSpace (Team 2) Web Components
+# MeatSpace Web Components
 ![alt text](https://meat-space.org/img/logo.png "MeatSpace logo 1") <br/>
 [![Build Status](https://travis-ci.org/ucsd-cse112/Team2.svg?branch=master)](https://travis-ci.org/ucsd-cse112/Team2)
 [![Maintainability](https://api.codeclimate.com/v1/badges/2a07d0e8d29fd216bc41/maintainability)](https://codeclimate.com/repos/5cc77286629ff0026e00188a/maintainability) <br/>
 
-Team MeatSpace's web component library. 
+MeatSpace web component library. 
 
 ## Team Members
 - Adam Kabbara `Lead`
@@ -18,7 +18,7 @@ Team MeatSpace's web component library.
 - Christopher Jensen `DevOps`
 - Xin Liu `DevOps`
 
-[meat-space.org](https://meat-space.org)
+## [meat-space.org](https://meat-space.org)
 
 ## Getting Started
 The following instructions will get our web components installed and running locally on your machine.
@@ -45,4 +45,5 @@ Next, add the component into your HTML body
 ```
 ### Acknowledgment
 Thanks to [BrowserStack](http://browserstack.com/) for supporting open source projects like ours. 
+
 

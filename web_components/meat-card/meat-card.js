@@ -6,15 +6,12 @@ template.innerHTML = `
 <slot id="body" name="body"></slot>
 `;
 
-/**
- * meat-card webcomponent
- * @customelement meat-card
- * @description A reusable card with replaceable markup.
- * @example <meat-card></meat-card>
- */
 export class MeatCardElement extends HTMLElement {
   /**
-   * Create an instance of MeatButtonElement
+   * meat-card webcomponent
+   * @customelement meat-card
+   * @description A reusable card with replaceable markup.
+   * @example <meat-card></meat-card>
    */
   constructor() {
     super();

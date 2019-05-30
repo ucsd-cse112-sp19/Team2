@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>meat-button/meat-button.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="core-hello.html">core-hello</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="live-editor.html">live-editor</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-boilerplate.html">meat-boilerplate</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-button.html">meat-button</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-card.html">meat-card</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-input.html">meat-input</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-link.html">meat-link</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="team2-learn.html">team2-learn</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">meat-button/meat-button.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const template = document.createElement("template");
+template.innerHTML = `
+  &lt;style>&lt;/style>
+  &lt;link rel="stylesheet" href="/web_components/common.css"/>
+  &lt;link rel="stylesheet" href="/web_components/meat-button/meat-button.css"/>
+  &lt;button id="button" type="reset">&lt;/button>
+`;
+
+export class MeatButtonElement extends HTMLElement {
+  /**
+   * meat-button webcomponent
+   * @customelement meat-button
+   * @description displays a stylized button
+   * @example &lt;meat-button>&lt;/meat-button>
+   * @see [Demo]{@link https://meat-space.org/web_components/meat-button/meat-button-demo.html} for working example.
+   * @property {attribute} autofocus -Enables button to automatically get focus when the page loads.
+   * @property {string} bootstrap -Enables bootstrap as styling of the button.
+   * @property {attribute} circle -Enables a circle shaped button.
+   * @property {attribute} disabled -Disables button from accepting events.
+   * @property {attribute} round -Enables a round shaped button.
+   * @property {string} size -Changes the size of the button.
+   * @property {string} type -Enables the specified type of button.
+   * */
+  constructor() {
+    super();
+    this._submitButton;
+    this._parentForm;
+    this.shadow = this.attachShadow({ mode: "open" });
+    this.shadow.appendChild(template.content.cloneNode(true));
+    this.button = this.shadow.querySelector("#button");
+    this.addEventListener("click", this._onClick);
+  }
+
+  /**
+   * Live-cycle method called when the custom element is loaded, often used for initialization
+   */
+  connectedCallback() {
+    // Need to get the content inbetween the &lt;meat-button> tags into the button so it renders
+    this.button.textContent = this.textContent;
+
+    // Look up dom tree for a parent form
+    let parentNode = this.parentNode;
+    while (parentNode) {
+      if (parentNode &amp;&amp; parentNode.nodeName == "FORM") {
+        this._parentForm = parentNode;
+        break;
+      }
+      parentNode = parentNode.parentNode;
+    }
+
+    this._submitButton = document.createElement("button");
+    this._submitButton.type = "hidden";
+    this.appendChild(this._submitButton);
+  }
+
+  /**
+   * Tell the webcomponent to observe these attributes, if any of them are added, changed, or removed, then
+   * call attributeChangedCallback(name, oldVal, newVal)
+   * */
+  static get observedAttributes() {
+    /* &lt;meat-button type="default" disabled>&lt;/meat-button> */
+    return [
+      "autofocus",
+      "color",
+      "circle",
+      "disabled",
+      "round",
+      "size",
+      "type",
+      "bootstrap"
+    ];
+  }
+
+  /**
+   * Called whenever one of the attributes specified in observedAttributes() is changed
+   * @param {string} name
+   * @param {string} oldVal
+   * @param {string} newVal
+   * */
+  attributeChangedCallback(name, oldVal, newVal) {
+    switch (name) {
+      case "disabled":
+        if (newVal == "") this.button.disabled = true;
+        else this.button.disabled = false;
+        break;
+      case "autofocus":
+        if (newVal == "") this.button.autofocus = true;
+        else this.button.autofocus = false;
+        break;
+      case "type":
+        this.button.type = newVal;
+        break;
+      case "bootstrap":
+        this.button.className = newVal;
+        break;
+    }
+  }
+
+  /**
+   * getters and setters for attributes
+   */
+  get disabled() {
+    return this.hasAttribute("disabled");
+  }
+
+  set disabled(val) {
+    if (val) {
+      this.setAttribute("disabled", "");
+    } else {
+      this.removeAttribute("disabled");
+    }
+  }
+
+  get round() {
+    return this.hasAttribute("round");
+  }
+
+  set round(val) {
+    if (val) {
+      this.setAttribute("round", "");
+    } else {
+      this.removeAttribute("round");
+    }
+  }
+
+  get circle() {
+    return this.hasAttribute("circle");
+  }
+
+  set circle(val) {
+    if (val) {
+      this.setAttribute("circle", "");
+    } else {
+      this.removeAttribute("circle");
+    }
+  }
+
+  get size() {
+    return this.getAttribute("size");
+  }
+
+  set size(val) {
+    if (val) {
+      this.setAttribute("size", val);
+    } else {
+      this.removeAttribute("size");
+    }
+  }
+
+  get type() {
+    return this.getAttribute("type");
+  }
+
+  set type(val) {
+    if (val) {
+      this.setAttribute("type", val);
+    } else {
+      this.removeAttribute("type");
+    }
+  }
+
+  // getters and setters for attributes
+  get disabled() {
+    return this.hasAttribute("disabled");
+  }
+
+  set disabled(val) {
+    if (val) {
+      this.setAttribute("disabled", "");
+    } else {
+      this.removeAttribute("disabled");
+    }
+  }
+
+  get round() {
+    return this.hasAttribute("round");
+  }
+
+  set round(val) {
+    if (val) {
+      this.setAttribute("round", "");
+    } else {
+      this.removeAttribute("round");
+    }
+  }
+
+  get circle() {
+    return this.hasAttribute("circle");
+  }
+
+  set circle(val) {
+    if (val) {
+      this.setAttribute("circle", "");
+    } else {
+      this.removeAttribute("circle");
+    }
+  }
+
+  get size() {
+    return this.getAttribute("size");
+  }
+
+  set size(val) {
+    if (val) {
+      this.setAttribute("size", val);
+    } else {
+      this.removeAttribute("size");
+    }
+  }
+
+  get type() {
+    return this.getAttribute("type");
+  }
+
+  set type(val) {
+    if (val) {
+      this.setAttribute("type", val);
+    } else {
+      this.removeAttribute("type");
+    }
+  }
+
+  get color() {
+    return this.getAttribute("color");
+  }
+
+  set color(val) {
+    if (val) {
+      this.setAttribute("color", val);
+    } else {
+      this.removeAttribute("color");
+    }
+  }
+
+  /*
+   * This is unnecessary for now, the user can just attach an event listener to &lt;meat-button>
+   * */
+  _onClick(evt, thisComponent) {
+    switch (this.getAttribute("type")) {
+      case "reset":
+        if (this._parentForm) {
+          this._parentForm.reset();
+        }
+        break;
+      case "submit":
+        if (this._parentForm) {
+          this._submitButton.click();
+        }
+        break;
+    }
+  }
+}
+
+window.customElements.define("meat-button", MeatButtonElement);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
