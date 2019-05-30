@@ -12,7 +12,7 @@
   "scripts": {
     "runner": "node test/runner.js",
     "local-runner": "node -r dotenv/config test/runner.js",
-    "mtest": "./node_modules/.bin/mocha-headless-chrome -f ./unit_tests/meat-input.html",
+    "mtest": "./node_modules/.bin/mocha-headless-chrome -f ./unit_tests/meat-input.html || exit 0",
     "wintest": "for %f in (./unit_tests/*.html) do ./node_modules/.bin/mocha-headless-chrome -f (./unit_tests/%f)",
     "lintest": "./node_modules/.bin/mocha-headless-chrome -f ./unit_tests/*.html -a no-sandbox",
     "utest": "cd ./unit_tests && npm run all",
