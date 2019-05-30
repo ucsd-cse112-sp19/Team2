@@ -53,7 +53,7 @@
 
 /* Experimental image support */ 
 /*
-:host([img]) > #headerContainer  {
+:host([img]) {
     display: flex;
     justify-content: center;
     align-items: center;
