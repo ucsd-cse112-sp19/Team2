@@ -1,9 +1,8 @@
 language: node_js
 node_js:
 - stable
-before_install:
-- npm install -g testcafe-reporter-slack
 script: 
+- npm install -g testcafe-reporter-slack
 - npm run lintest && npm run runner
 cache:
   directories:
