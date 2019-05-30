@@ -6,16 +6,25 @@ template.innerHTML = `
 <div id="suggestionContainer"></div>
 `;
 
-/**
- * meat-input webcomponent
- * @customelement meat-input
- * @description displays a stylized input field
- * @example <meat-input></meat-input>
- * */
 export class MeatInputElement extends HTMLElement {
   /**
-   * Create an instance of MeatInputElement
-   */
+   * meat-input webcomponent
+   * @customelement meat-input
+   * @description displays a stylized input field
+   * @example <meat-input></meat-input>
+   * @see [Demo]{@link https://meat-space.org/web_components/meat-input/meat-button-demo.html} for working example. 
+   * @property {attribute} autocomplete -Enables autocomplete by caching previous input.
+   * @property {string} bootstrap -Enables bootstrap as styling of the button.
+   * @property {attribute} disabled -Disables input from accepting events.
+   * @property {integer} limit -Restricts how many characters can be entered in the input.
+   * @property {attribute} password -Format input as a password field.
+   * @property {string} placeholder -Describes what goes into the input initially.
+   * @property {attribute} readonly -Disables input from being written.
+   * @property {string} size -Determines the size of the input box.
+   * @property {attribute} suggest -Enables the dropdown of suggestions for the input.
+   * @property {string} type -Describes the type of input.
+   * @property {string} value -The contents of the input.
+   * */
   constructor() {
     super();
     this._sortSuggestions = this._sortSuggestions.bind(this);

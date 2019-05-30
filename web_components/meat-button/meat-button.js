@@ -6,24 +6,21 @@ template.innerHTML = `
   <button id="button" type="reset"></button>
 `;
 
-/**
- * meat-button webcomponent
- * @customelement meat-button
- * @description displays a stylized button
- * @example <meat-button></meat-button>
- * @see [Demo]{@link https://meat-space.org/web_components/meat-button/meat-button-demo.html} for working example.
- * @property {boolean} autofocus -Enables button to automatically get focus when the page loads.
- * @property {string} circle -Enables a circle shaped button.
- * @property {boolean} disabled -Disables button from accepting events.
- * @property {boolean} round -Enables a round shaped button.
- * @property {string} size -Changes the size of the button.
- * @property {string} type -Enables the specified type of button.
- * @property {string} bootstrap -Enables bootstrap as styling of the button.
- * */
 export class MeatButtonElement extends HTMLElement {
   /**
-   * Create an instance of MeatButtonElement
-   */
+   * meat-button webcomponent
+   * @customelement meat-button
+   * @description displays a stylized button
+   * @example <meat-button></meat-button>
+   * @see [Demo]{@link https://meat-space.org/web_components/meat-button/meat-button-demo.html} for working example.
+   * @property {attribute} autofocus -Enables button to automatically get focus when the page loads.
+   * @property {string} bootstrap -Enables bootstrap as styling of the button.
+   * @property {attribute} circle -Enables a circle shaped button.
+   * @property {attribute} disabled -Disables button from accepting events.
+   * @property {attribute} round -Enables a round shaped button.
+   * @property {string} size -Changes the size of the button.
+   * @property {string} type -Enables the specified type of button.
+   * */
   constructor() {
     super();
     this._submitButton;

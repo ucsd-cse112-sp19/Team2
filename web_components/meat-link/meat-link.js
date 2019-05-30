@@ -5,16 +5,21 @@ template.innerHTML = `
 <a></a>
 `;
 
-/**
- * meat-link webcomponent
- * @customelement meat-link
- * @description displays a stylized link
- * @example <meat-link></meat-link>
- */
 export class MeatLinkElement extends HTMLElement {
   /**
-   * Create an instance of MeatLinkElement
-   */
+  * meat-link webcomponent
+  * @customelement meat-link
+  * @description displays a stylized link
+  * @example <meat-link></meat-link>
+  * @see [Demo]{@link https://meat-space.org/web_components/meat-link/meat-link-demo.html} for working example.
+  * @property {string} bootstrap -Enables bootstrap as styling of the button.
+  * @property {string} color -Specifies the color of the link.
+  * @property {attribute} disabled -Disables the link from accepting events.
+  * @property {string} href -The location of where the link redirects.
+  * @property {string} icon -Class that specifies the icon image for the link.
+  * @property {string} type -Specifies the type of the media that the link points to.
+  * @property {attribute} underline -Underlines the link.
+  */
   constructor() {
     super();
     this.shadow = this.attachShadow({ mode: "open" });
