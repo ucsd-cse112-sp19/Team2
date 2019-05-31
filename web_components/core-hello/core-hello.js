@@ -52,7 +52,7 @@ tmpl.innerHTML = `
 <slot></slot>
 `;
 
-class CoreHelloElement extends HTMLElement {
+export class CoreHelloElement extends HTMLElement {
   /**
    * core-hello web component
    * @customelement core-hello

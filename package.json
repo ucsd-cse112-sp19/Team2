@@ -1,10 +1,11 @@
 {
   "name": "@meatspace/webcomponents",
-  "version": "0.0.2",
+  "version": "1.1.4",
   "description": "A web component library",
   "main": "index.js",
   "files": [
-    "/web_components"
+    "/web_components",
+    "bundle.js"
   ],
   "publishConfig": {
     "access": "public"
@@ -24,6 +25,7 @@
     "pipe-release": "cd scripts && release.sh",
     "storybook": "start-storybook"
   },
+  "unpkg": "bundle.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ucsd-cse112/Team2.git"
