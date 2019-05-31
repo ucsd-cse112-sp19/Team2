@@ -8,30 +8,14 @@
         <script type="module" src="./meat-input.js"></script>
         <script type="module" src="../meat-button/meat-button.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script type="module">
-            var coll = document.getElementsByClassName("collapsible");
-            var i;
-    
-            for (i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var content = this.nextElementSibling;
-                if (content.style.maxHeight){
-                content.style.maxHeight = null;
-                } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-                } 
-                if (this.innerHTML === "Show Code") {
-                this.innerHTML = "Hide Code";
-                } else {
-                this.innerHTML = "Show Code";
-                }
-            });
-            }
-        </script>
+        <script type="module" src="../css-for-demo/showcode_button.js"></script>
+
         <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
         <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+        <link type="text/css" rel="stylesheet" href="../css-for-demo/showcode_style.css">
+
+
         <style>
             .collapsible {
             background-color: white;
