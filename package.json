@@ -10,12 +10,12 @@
     "access": "public"
   },
   "scripts": {
-    "test": "./node_modules/.bin/testcafe chrome ./test/testcafe-hello-core.js",
     "runner": "node test/runner.js",
     "local-runner": "node -r dotenv/config test/runner.js",
-    "mtest": "./node_modules/.bin/mocha-chrome ./unit_tests/hello-core.html",
-    "wintest": "for %f in (./unit_tests/*.html) do mocha-chrome ./test/%f",
-    "lintest": "mocha-chrome ./unit_tests/*.html",
+    "mtest": "./node_modules/.bin/mocha-headless-chrome -f ./unit_tests/meat-input.html || exit 0",
+    "wintest": "for %f in (./unit_tests/*.html) do ./node_modules/.bin/mocha-headless-chrome -f (./unit_tests/%f)",
+    "lintest": "./node_modules/.bin/mocha-headless-chrome -f ./unit_tests/*.html -a no-sandbox",
+    "utest": "cd ./unit_tests && npm run all",
     "generate-jsdocs": "./node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
     "lint": "./node_modules/.bin/eslint --fix web_components",
     "pipe": "cd scripts && pipe.sh",
@@ -49,7 +49,10 @@
     "minami": "^1.2.3",
     "mocha": "^6.1.4",
     "mocha-chrome": "^2.0.0",
+    "mocha-headless-chrome": "^2.0.2",
+    "npm-run-all": "^4.1.5",
     "prettier": "1.17.0",
+    "puppeteer": "^1.17.0",
     "selenium-webdriver": "^4.0.0-alpha.1",
     "testcafe": "^1.1.4",
     "testcafe-browser-provider-browserstack": "^1.8.0"

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Meat-Input Unit Test</title>
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+   
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/chai/chai.js"></script>
+    <script>
+        var assert = chai.assert;
+        mocha.setup('bdd');
+    </script>
+    
+    <!-- load code you want to test here -->
+    <script type="module" href="../web_components/meat-input/meat-input-test.css"></script>
+    <script type="module" src="../web_components/meat-input/meat-input.js"></script>
+
+    <meat-input size="small" placeholder="Small" autocomplete="off"></meat-input> 
+     <!-- load your test files here -->
+     <script src="meat-input-test.js"></script>
+
+    <script class="mocha-exec">
+         if (navigator.userAgent.indexOf('PhantomJS') < 0) {
+            mocha.run();
+         }
+    </script>
+  </body>
+</html>
