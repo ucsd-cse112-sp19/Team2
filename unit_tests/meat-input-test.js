@@ -1,12 +1,18 @@
 var assert = chai.assert; 
 let sr = document.querySelector("meat-input").shadowRoot; 
 let comp = document.querySelector("meat-input"); 
-
-describe('meat-input basic requirements', function() { 
+beforeEach(function() { 
+    
+    
+})
+describe('meat-input basic requirements', async() => { 
     it ("shadowDOM should exist", function(done) { 
+        setTimeout(function() { 
             sr = document.querySelector("meat-input").shadowRoot; 
-            assert.equal(document.querySelector("meat-input").shadowRoot instanceof ShadowRoot, true);
-            done();
+            assert.equal(sr instanceof ShadowRoot, true);
+ 
+        }, 0)
+        done();
     })
 
     it ("should have tag named meat-input", function() { 
@@ -14,7 +20,20 @@ describe('meat-input basic requirements', function() {
         assert.equal(tagName, 'MEAT-INPUT');
     })
 });
+describe('Placeholder attributes', function() { 
+    /* Placeholder */
 
+    it ("placeholder attribute should exist", function(done) { 
+        comp.setAttribute("disabled", false);
+        comp.setAttribute("placeholder", "meat-space");
+        assert.equal(comp.hasAttribute("placeholder"), true);
+        done()
+    })
+    it ("placeholder should be meat-space", function() { 
+        assert.equal(comp.getAttribute("placeholder"), "meat-space");
+    })
+
+});
 describe('disabled attributes', function() { 
     /*Disabled*/
     it ("disabled attribute should exist", function(done) { 
@@ -22,7 +41,7 @@ describe('disabled attributes', function() {
         assert.equal(comp.hasAttribute("disabled"), true);
         done();
     })
-/*
+
     it ("css of cursor should be not-allowed", function(done) { 
         var style;
         setTimeout(function() { 
@@ -36,7 +55,7 @@ describe('disabled attributes', function() {
         done();
 
  
-    })*/
+    })
 
     comp.setAttribute("value", "meat-input")
     it ("value attribute should exist", function() { 
@@ -62,11 +81,12 @@ describe('Misc attributes', function() {
 }); 
 describe('Size attributes', function() { 
         /* Size */ 
-        /*
+        
         it ("size attribute should not accept numeric value", function(done) { 
             comp.setAttribute("size", 100); 
             assert.equal(comp.hasAttribute("size"), false);
-        })*/
+            done();
+        })
         it ("size attribute should be small", function(done) { 
             comp.setAttribute("size", "small");
             assert.equal(comp.getAttribute("size"), "small");
@@ -79,23 +99,11 @@ describe('Size attributes', function() {
         })
 });
 
-describe('Placeholder attributes', function() { 
-    /* Placeholder */
 
-    it ("placeholder attribute should exist", function(done) { 
-        comp.setAttribute("placeholder", "meat-space");
-        assert.equal(comp.hasAttribute("placeholder"), true);
-        done()
-    })
-    it ("placeholder should be meat-space", function() { 
-        assert.equal(comp.getAttribute("placeholder"), "meat-space");
-    })
 
-});
-/*
 describe('Password attributes', function() { 
    comp.setAttribute("password", true);
    it ("password attribute should exist", function() { 
        assert.equal(comp.hasAttribute("password"), true);
    })
-})*/
+})
