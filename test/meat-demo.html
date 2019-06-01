@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>meat-demo</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Heebo|Raleway|Roboto|Yantramanav&display=swap" rel="stylesheet">
+        <script href="../web_components/core-hello/core-hello.css"></script>
+        <script src="../web_components/core-hello/core-hello.js"></script>
+
+        <script href="../web_components/meat-input/meat-input.css"></script>
+        <script type="module" src="../web_components/meat-input/meat-input.js"></script>
+
+        <script href="../web_components/meat-button/meat-button.css"></script>
+        <script type="module" src="../web_components/meat-button/meat-button.js"></script>
+
+        <script href="../web_components/meat-card/meat-card.css"></script>
+        <script type="module" src="../web_components/meat-card/meat-card.js"></script>
+
+        <script href="../web_components/meat-link/meat-link.css"></script>
+        <script type="module" src="../web_components/meat-link/meat-link.js"></script>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <style>
+        body {
+            
+        }
+        #main { 
+            background-image: url("ice.jpg");
+            background-size: cover; 
+        }
+        h1 { 
+            font-family: 'Heebo'; 
+            text-align: center; 
+            color: #322c2c;
+            letter-spacing: 6px;
+            font-size: 60px;
+          
+        }
+        p { 
+            font-family: 'Heebo'; 
+            text-align: center; 
+            color:#322c2c;
+            font-size: 20px;
+
+        }
+        .meat-input-fullwidth {
+            width: 100%;
+            height: 40px;
+        }
+
+        .btn-primary { 
+            background-color: #729379;
+            border-color: #729379;
+        }
+        label {
+            font-family: 'Heebo', sans-serif;
+        }
+        #header { 
+            background-color: #ffffff3b;
+            padding-top: 250px;
+            padding-bottom: 100px;  
+        }
+        #nav { 
+            text-align: center;
+            --background-color: #e4d0d000;
+            font-size: 20px;
+            margin: 2px;
+            padding-top: 20px;
+
+        }
+        #header meat-button { 
+            padding-right: 40px;
+            padding-left: 40px;
+            --hover-color: #5b6573;
+        }
+        #navb { 
+            background-color: #e4d0d000;
+        }
+  
+        #start { 
+            padding-top: 30px;
+            padding-bottom: 30px;
+            align-content: center;
+            padding-left: 10%;
+
+        }
+        #start meat-card { 
+            margin: 30px;
+            font-size: 30px;
+            font-family: 'Heebo';
+            background-color: #f8f7f7a8;
+            text-align: center;
+            color: #322c2c;
+            border-color: black;
+        }
+        #start .card-img-top { 
+            height: 300px;
+        }
+        #break1 { 
+            background-image: url("onion.jpg");
+    
+            background-size: cover;
+            padding: 120px;
+            background-position: center;
+        }
+        .face { 
+            max-height: 150px;
+            min-height: 150px;
+            max-width: 189px;
+            min-width: 189px;
+        }
+        #team { 
+            background-image: url("tomato.jpg");
+            background-size: cover;
+            background-position: center;
+            padding-top: 120px;
+            padding-bottom: 100px;
+        }
+        #team meat-card { 
+            min-width:150px;
+            max-width: 200px;
+            margin: 30px;
+            min-height: max-content;
+            background-color: #f8f7f7a8;
+        }
+        #team meat-card .card-body { 
+            padding: .25rem;
+            flex: 1 1 auto;
+        }
+    </style>
+    <body>
+        <div id="main">
+        <div id="header"> 
+          <h1> meatspace </h1>  
+          <p>start your recipe with meat-components</p>
+          <div id="nav">
+                <meat-button> tour </meat-button>
+                <meat-button> login </meat-button>
+                <meat-button> menu </meat-button>
+            </div> 
+        </div>
+    <div id="start"> 
+        <meat-card style="margin-top: 120px;" shadow="hover">
+                <div slot="header">
+                        <div style="text-align:center;"> step 1 - find your ingredients </div>>
+                    </div>
+                <div slot="body" class="card-body">
+                    <meat-link style="color:#22262a; font-size:20px;" href="http://www.meat-space.org"> pick your components from meat-space.org </meat-link>
+                </div>
+        </meat-card>
+        <meat-card shadow="hover">
+                <div slot="body" class="card-body">
+                 <img class="card-img-top" src="./cooked.jpg" alt="Card image cap">
+                </div>
+        </meat-card>
+        <meat-card style="margin-top: 120px;" shadow="hover">
+                <div slot="header">
+                        <div style="text-align:center;"> step 2 - get cooking </div>>
+                    </div>
+                <div slot="body" class="card-body">
+                    <div style="font-size: 20px"> &lt; meat-component &gt; &lt; /meat-component &gt; </div>
+                </div>
+        </meat-card>
+    </div>
+    <div id="break1">
+        <h1> it's simple and intuitive </h1> 
+        <p> get started with us! </p> 
+
+        <form style="margin: 20px; padding: 20px; text-align: center;">
+                <h2> it will be quick </h2><br>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <meat-input type="email" bootstrap="form-control" placeholder="Enter email"></meat-input>
+                    <small id="emailHelp" class="form-text text-muted">Don't worry! We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <meat-input type="password" bootstrap="form-control" placeholder="Password"></meat-input>
+                </div>
+                <button color="white" type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+    </div>
+</div>   
+<div id="team">
+<h1 text-align:center> meat the chefs </h1> 
+        <meat-card shadow="hover">
+                <div slot="body" class="card-body">
+                <img class="face" src="../website/img/faces/adam-face.png" alt="Card image cap">
+                <div style="text-align:center;"> <b> Executive Chef </b> <br> Adam Kabbara </div> 
+                </div>
+        </meat-card>
+        <meat-card shadow="hover">
+                <div slot="body" class="card-body">
+                 <img class="face" src="../website/img/faces/tim-face.png" alt="Card image cap">
+                 <div style="text-align:center;"> <b> Head Chef </b> <br> Timothy Bian </div> 
+                </div>
+            </meat-card>
+        <meat-card shadow="hover">
+                <div slot="body" class="card-body">
+                 <img class="face" src="../website/img/faces/aaron-face.jpg" alt="Card image cap">
+                 <div style="text-align:center;"> <b>Coding Chef</b> <br> Aaron Brown </div> 
+                </div>
+        </meat-card>
+        <meat-card shadow="hover">
+                <div slot="body" class="card-body">
+                 <img class="face" src="../website/img/faces/alex-face.jpg" alt="Card image cap">
+                 <div style="text-align:center;"> <b>Coding Chef</b> <br> Alex Monji</div> 
+                </div>
+            </meat-card>
+        <meat-card shadow="hover">
+                <div slot="body" class="card-body">
+                 <img class="face" src="../website/img/faces/christopher-face.jpg" alt="Card image cap">
+                 <div style="text-align:center;"> <b>DevOps Chef</b> <br> Christopher Jensen</div> 
+                </div>
+        </meat-card>
+        <meat-card shadow="hover">
+                <div slot="body" class="card-body">
+                 <img class="face" src="../website/img/faces/xin-face.jpg" alt="Card image cap">
+                 <div style="text-align:center;"> <b>DevOps Chef</b> <br> Xin Liu</div> 
+                </div>
+        </meat-card>
+        <meat-card shadow="hover">
+                <div slot="body" class="card-body">
+                 <img class="face" src="../website/img/faces/curtis-face.jpg" alt="Card image cap">
+                 <div style="text-align:center;"> <b>Tools & Utility Chef</b> <br>Curtis Tong</div> 
+                </div>
+        </meat-card>
+        <meat-card shadow="hover">
+                <div slot="body" class="card-body">
+                 <img class="face" src="../website/img/faces/peter-face.jpg" alt="Card image cap">
+                 <div style="text-align:center;"> <b>Tools & Utility Chef</b> <br> Peter Pi </div> 
+                </div>
+        </meat-card>
+        <meat-card shadow="hover">
+                <div slot="body" class="card-body">
+                 <img class="face" src="../website/img/faces/justin-face.jpg" alt="Card image cap">
+                 <div style="text-align:center;"> <b>Coding Chef</b> <br> Justin Chen</div> 
+                </div>
+        </meat-card>
+        
+        <meat-card shadow="hover">
+                <div slot="body" class="card-body">
+                 <img class="face" src="../website/img/faces/tony-face.png" alt="Card image cap">
+                 <div style="text-align:center;"> <b>Quality Assurance Chef</b> <br> Tony Huang</div> 
+                </div>
+        </meat-card>
+       
+        <meat-card shadow="hover">
+                <div slot="body" class="card-body">
+                 <img class="face" src="../website/img/faces/veronica-face.jpg" alt="Card image cap">
+                 <div style="text-align:center;"> <b>Quality Assurance Chef</b> <br> Veronica Lin</div> 
+                </div>
+        </meat-card>
+     
+</div>
+    </body>
+ 
+</html>
