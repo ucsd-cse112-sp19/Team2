@@ -33,4 +33,5 @@ else
   git push origin $branchName
 fi
 echo "success!"
+read -n 1 -s -r -p "Press any key to continue..."
 exit 
