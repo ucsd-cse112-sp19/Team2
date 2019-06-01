@@ -31,7 +31,7 @@ export class MeatCardElement extends HTMLElement {
    * call attributeChangedCallback(name, oldVal, newVal)
    */
   static get observedAttributes() {
-    return ["shadow"];
+    return ["shadow", "draggable"];
   }
 
   /**
@@ -44,6 +44,46 @@ export class MeatCardElement extends HTMLElement {
     switch (name) {
       case "shadow":
         break;
+      case "draggable":
+        dragElement(this);
+        break;
+    }
+  }
+
+  /**
+   * Makes the card element draggable
+   */
+  dragElement(elem) {
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    elem.onmousedown = dragMouseDown;
+
+    function dragMouseDown(e) {
+      e = e || window.event;
+      e.preventDefault();
+      // get mouse cursor position
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      elem.onmouseup = closeDragElement;
+      elem.onmousemove = elementDrag;
+    }
+
+    function elementDrag(e) {
+      e = e || window.event;
+      e.preventDefault();
+      // calculate new cursor position
+      pos1 = pos3 - e.clientX;
+      pos2 = pos4 - e.clientY;
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      // set element's new position
+      elem.style.top = (elem.offsetTop - pos2) + "px";
+      elem.style.left = (elem.offsetLeft - pos1) + "px";
+    }
+
+    function closeDragElement() {
+      //stop moving when mouse is released
+      elem.onmouseup = null;
+      elem.onmousemove = null;
     }
   }
 
