@@ -10,11 +10,16 @@ template.innerHTML = `
 </div>
 `;
 
-const referrerPolicies = ["no-referrer", "no-referrer-when-downgrade",
-                          "origin", "origin-when-cross-origin", "unsafe-url"];
+const referrerPolicies = [
+  "no-referrer",
+  "no-referrer-when-downgrade",
+  "origin",
+  "origin-when-cross-origin",
+  "unsafe-url"
+];
 
-const fillStyles = ["fill", "contain", "cover", "none", "scale-down"]
-                          
+const fillStyles = ["fill", "contain", "cover", "none", "scale-down"];
+
 export class MeatImageElement extends HTMLElement {
   /**
    * meat-boilerplate webcomponent
@@ -26,7 +31,7 @@ export class MeatImageElement extends HTMLElement {
     super();
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
-  
+
     this.image = this.shadow.querySelector("#imageElement");
     this.imageContainer = this.shadow.querySelector("#imageContainer");
 
@@ -38,16 +43,15 @@ export class MeatImageElement extends HTMLElement {
    * Live-cycle method called when the custom element is loaded, often used for initialization
    */
   connectedCallback() {
-
-    //TODO: find a way to make placeholder disappear upon loading
+    // TODO: find a way to make placeholder disappear upon loading
     this.image.addEventListener("load", function() {
-      //do not show placeholder slot
+      // do not show placeholder slot
       console.log("loaded");
     });
 
-    //TODO: display error plcaeholder upon image error
+    // TODO: display error plcaeholder upon image error
     this.image.addEventListener("error", function() {
-      //show only error slot
+      // show only error slot
     });
   }
 
@@ -56,14 +60,7 @@ export class MeatImageElement extends HTMLElement {
    * call attributeChangedCallback(name, oldVal, newVal)
    */
   static get observedAttributes() {
-    return [
-      "src",
-      "fit",
-      "alt",
-      "referrerpolicy",
-      "lazy",
-      "scrollcontainer"
-    ];
+    return ["src", "fit", "alt", "referrerpolicy", "lazy", "scrollcontainer"];
   }
 
   /**
@@ -73,20 +70,20 @@ export class MeatImageElement extends HTMLElement {
    * @param {string} newVal
    */
   attributeChangedCallback(name, oldVal, newVal) {
-    switch(name) {
+    switch (name) {
       case "src":
         this.image.src = newVal;
         break;
       case "fit":
-        if(fillStyles.includes(newVal)) {
+        if (fillStyles.includes(newVal)) {
           this.image.setAttribute("style", `object-fit: ${newVal};`);
-        } 
+        }
         break;
       case "alt":
         this.image.alt = newVal;
         break;
       case "referrerpolicy":
-        if(referrerPolicies.includes(newVal)) {
+        if (referrerPolicies.includes(newVal)) {
           this.image.setAttribute("referrerpolicy", newVal);
         }
         break;
