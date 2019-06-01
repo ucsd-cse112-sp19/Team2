@@ -92,56 +92,5 @@ export class MeatImageElement extends HTMLElement {
         break;
     }
   }
-
-  /*
-  get src() {
-    return this.getAttribute("src");
-  }
-
-  set src(val) {
-    if (val) {
-      this.setAttribute("src", val);
-    } else {
-      this.removeAttribute("src");
-    }
-  }
-
-  get alt() {
-    return this.hasAttribute("alt");
-  }
-
-  set alt(val) {
-    if (val) {
-      this.setAttribute("alt", val);
-    } else {
-      this.removeAttribute("alt");
-    }
-  }
-
-  get style() {
-    return this.getAttribute("style");
-  }
-
-  set style(val) {
-    console.log("asdsad")
-    if (val) {
-      this.setAttribute("style", val);
-    } else {
-      this.removeAttribute("fit");
-    }
-  }
-  
-  get referrerpolicy() {
-    return this.getAttribute("referrerpolicy");
-  }
-
-  set referrerpolicy(val) {
-    if(val) {
-      this.setAttribute("referrerpolicy", val);
-    } else {
-      this.removeAttribute("referrerpolicy");
-    }
-  }
-  */
 }
 window.customElements.define("meat-image", MeatImageElement);
