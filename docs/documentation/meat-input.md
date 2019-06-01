@@ -33,6 +33,6 @@
 | value      | Default text value within the input box. | string | user defined | | 
 | readonly   | Determines if the input box can be edited. | boolean | | false | 
 | suggest    | Determines if input box will display a predetermined suggestion list. | string | on/off | off |
-| autocomplete| Determines if input box will use native browser capability to display user's previous inputs as suggestion. | string | on\off | off |
+| autocomplete| Determines if input box will use native browser capability to display user's previous inputs as suggestion. | string | on/off | off |
 | bootstrap | Enable BootStrap styles and apply specified css classes. | string | bootstrap class names | | 
 

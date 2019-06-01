@@ -12,7 +12,9 @@ export class MeatCardElement extends HTMLElement {
    * @customelement meat-card
    * @description A reusable card with replaceable markup.
    * @example <meat-card></meat-card>
-   */
+   * @see [Demo]{@link https://meat-space.org/web_components/meat-card/meat-card-demo.html} for working example.
+   * @property {attribute} shadow -Specifies a "shadow" around the card.
+   * */
   constructor() {
     super();
     this.shadowDOM = this.attachShadow({ mode: "open" });
