@@ -19,6 +19,13 @@ export class MeatCardElement extends HTMLElement {
     super();
     this.shadowDOM = this.attachShadow({ mode: "open" });
     this.shadowDOM.appendChild(template.content.cloneNode(true));
+
+    this.drag_start = this.drag_start.bind(this);
+    this.addEventListener('dragstart', this.drag_start, false);
+    //this.drag_over = this.drag_over.bind(this);
+    //this.drop = this.drop.bind(this);
+    document.body.addEventListener('dragover', this.drag_over, false);
+    document.body.addEventListener('drop', this.drop, false);
   }
 
   /**
@@ -35,6 +42,29 @@ export class MeatCardElement extends HTMLElement {
   }
 
   /**
+   * Makes the card element draggable
+   */
+  drag_start(event) {
+    console.log("Drag started");
+    var style = window.getComputedStyle(event.target, null);
+    event.dataTransfer.setData("text/plain",  (parseInt(style.getPropertyValue("left"),10) - event.clientX) + ',' + (parseInt(style.getPropertyValue("top"),10) - event.clientY));
+  }
+
+  drop(event) {
+    console.log("Drop started");
+    var offset = event.dataTransfer.getData("text/plain").split(',');
+    this.style.left = (event.clientX + parseInt(offset[0],10)) + 'px';
+    this.style.top = (event.clientY + parseInt(offset[1],10)) + 'px';
+    event.preventDefault();
+    return false;
+  }
+
+  drag_over(event) {
+    event.preventDefault();
+    return false;
+  }
+
+  /**
    * Called whenever one of the attributes specified in observedAttributes() is changed
    * @param {string} name
    * @param {string} oldVal
@@ -45,45 +75,7 @@ export class MeatCardElement extends HTMLElement {
       case "shadow":
         break;
       case "draggable":
-        dragElement(this);
         break;
-    }
-  }
-
-  /**
-   * Makes the card element draggable
-   */
-  dragElement(elem) {
-    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    elem.onmousedown = dragMouseDown;
-
-    function dragMouseDown(e) {
-      e = e || window.event;
-      e.preventDefault();
-      // get mouse cursor position
-      pos3 = e.clientX;
-      pos4 = e.clientY;
-      elem.onmouseup = closeDragElement;
-      elem.onmousemove = elementDrag;
-    }
-
-    function elementDrag(e) {
-      e = e || window.event;
-      e.preventDefault();
-      // calculate new cursor position
-      pos1 = pos3 - e.clientX;
-      pos2 = pos4 - e.clientY;
-      pos3 = e.clientX;
-      pos4 = e.clientY;
-      // set element's new position
-      elem.style.top = (elem.offsetTop - pos2) + "px";
-      elem.style.left = (elem.offsetLeft - pos1) + "px";
-    }
-
-    function closeDragElement() {
-      //stop moving when mouse is released
-      elem.onmouseup = null;
-      elem.onmousemove = null;
     }
   }
 
