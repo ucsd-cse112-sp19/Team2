@@ -22,7 +22,9 @@
     "pipe-mac": "./scripts/pipe.sh",
     "pipe-release-mac": "./scripts/release.sh",
     "pipe-release": "cd scripts && release.sh",
-    "storybook": "start-storybook"
+    "storybook": "start-storybook",
+    "build": "webpack", 
+    "start": "webpack-dev-server --output-public-path=/"
   },
   "repository": {
     "type": "git",
@@ -38,7 +40,9 @@
     "@babel/core": "^7.4.4",
     "@storybook/addon-knobs": "^5.0.11",
     "@storybook/html": "^5.0.11",
-    "babel-loader": "^8.0.5",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
     "chai": "^4.2.0",
     "chromedriver": "^2.41.0",
     "eslint": "^5.16.0",
@@ -52,7 +56,10 @@
     "prettier": "1.17.0",
     "selenium-webdriver": "^4.0.0-alpha.1",
     "testcafe": "^1.1.4",
-    "testcafe-browser-provider-browserstack": "^1.8.0"
+    "testcafe-browser-provider-browserstack": "^1.8.0",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.5.1"
   },
   "dependencies": {
     "acorn": "^6.1.1",
