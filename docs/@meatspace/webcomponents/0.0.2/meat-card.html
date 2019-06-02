@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>meat-boilerplate/meat-boilerplate.js - Documentation</title>
+    <title>meat-card - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,60 +29,105 @@
 
 <div id="main">
     
-    <h1 class="page-title">meat-boilerplate/meat-boilerplate.js</h1>
+    <h1 class="page-title">meat-card</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>const template = document.createElement("template");
-template.innerHTML = `
-&lt;style>&lt;/style>
-&lt;link rel="stylesheet" href="/web_components/meat-boilerplate/meat-boilerplate.css"/>
-`;
+        <h2>
+        meat-card
+        </h2>
+        
+    
+</header>
 
-export class MeatBoilerplateElement extends HTMLElement {
-  /**
-   * meat-boilerplate webcomponent
-   * @customelement meat-boilerplate
-   * @description A boilerplate for starting new webcomponents
-   * @example &lt;meat-boilerplate>&lt;/meat-boilerplate>
-   */
-  constructor() {
-    super();
-    this.shadow = this.attachShadow({ mode: "open" });
-    this.shadow.appendChild(template.content.cloneNode(true));
-  }
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>A reusable card with replaceable markup.</p><pre><code>&lt;meat-card &gt;</code></pre></div>
+        
 
-  /**
-   * Live-cycle method called when the custom element is loaded, often used for initialization
-   */
-  connectedCallback() {}
+        
 
-  /**
-   * Tell the webcomponent to observe these attributes, if any of them are added, changed, or removed, then
-   * call attributeChangedCallback(name, oldVal, newVal)
-   */
-  static get observedAttributes() {
-    return [];
-  }
 
-  /**
-   * Called whenever one of the attributes specified in observedAttributes() is changed
-   * @param {string} name
-   * @param {string} oldVal
-   * @param {string} newVal
-   */
-  attributeChangedCallback(name, oldVal, newVal) {}
-}
-window.customElements.define("meat-boilerplate", MeatBoilerplateElement);
-</code></pre>
-        </article>
-    </section>
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="meat-card_meat-card.js.html">meat-card/meat-card.js</a>, <a href="meat-card_meat-card.js.html#line16">line 16</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+            <h3>Example</h3>
+            
+    <pre class="prettyprint"><code>&lt;meat-card>&lt;/meat-card></code></pre>
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

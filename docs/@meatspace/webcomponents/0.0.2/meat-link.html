@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>core-hello - Documentation</title>
+    <title>meat-link - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">core-hello</h1>
+    <h1 class="page-title">meat-link</h1>
     
 
     
@@ -42,7 +42,7 @@
 <header>
     
         <h2>
-        core-hello
+        meat-link
         </h2>
         
     
@@ -52,7 +52,7 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>displays 'Hello World, <input>!'</p><pre><code>&lt;core-hello rainbow="[boolean]" lang="[string]"&gt;</code></pre></div>
+            <div class="description"><p>displays a stylized link</p><pre><code>&lt;meat-link bootstrap="[string]" color="[string]" disabled href="[string]" icon="[string]" type="[string]" underline&gt;</code></pre></div>
         
 
         
@@ -84,32 +84,7 @@
 
         <tr>
             
-                <td class="name"><code>rainbow</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>boolean</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Enables a background rainbow effect.</p></td>
-        </tr>
-
-        
-
-    
-
-        <tr>
-            
-                <td class="name"><code>lang</code></td>
+                <td class="name"><code>bootstrap</code></td>
             
 
             <td class="type">
@@ -125,7 +100,157 @@
 
             
 
-            <td class="description last"><p>Set language (English, French, Spanish). Default is English.</p></td>
+            <td class="description last"><p>Enables bootstrap as styling of the button.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>color</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Specifies the color of the link.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>disabled</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>attribute</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Disables the link from accepting events.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>href</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The location of where the link redirects.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>icon</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Class that specifies the icon image for the link.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Specifies the type of the media that the link points to.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>underline</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>attribute</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Underlines the link.</p></td>
         </tr>
 
         
@@ -166,7 +291,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core-hello_core-hello.js.html">core-hello/core-hello.js</a>, <a href="core-hello_core-hello.js.html#line68">line 68</a>
+        <a href="meat-link_meat-link.js.html">meat-link/meat-link.js</a>, <a href="meat-link_meat-link.js.html#line23">line 23</a>
     </li></ul></dd>
     
 
@@ -176,7 +301,7 @@
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
-            <li><p><a href="https://meat-space.org/web_components/core-hello/core-hello-test.html">Demo</a> for working example.</p></li>
+            <li><p><a href="https://meat-space.org/web_components/meat-link/meat-link-demo.html">Demo</a> for working example.</p></li>
         </ul>
     </dd>
     
@@ -188,9 +313,7 @@
         
             <h3>Example</h3>
             
-        <p class="code-caption"> Hello World! </p>
-    
-    <pre class="prettyprint"><code>&lt;core-hello rainbow lang="en">Alex!&lt;/core-hello></code></pre>
+    <pre class="prettyprint"><code>&lt;meat-link>&lt;/meat-link></code></pre>
 
         
     

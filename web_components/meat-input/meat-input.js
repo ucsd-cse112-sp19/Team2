@@ -6,16 +6,25 @@ template.innerHTML = `
 <div id="suggestionContainer"></div>
 `;
 
-/**
- * meat-input webcomponent
- * @customelement meat-input
- * @description displays a stylized input field
- * @example <meat-input></meat-input>
- * */
 export class MeatInputElement extends HTMLElement {
   /**
-   * Create an instance of MeatInputElement
-   */
+   * meat-input webcomponent
+   * @customelement meat-input
+   * @description displays a stylized input field
+   * @example <meat-input></meat-input>
+   * @see [Demo]{@link https://meat-space.org/web_components/meat-input/meat-button-demo.html} for working example.
+   * @property {attribute} autocomplete -Enables autocomplete by caching previous input.
+   * @property {string} bootstrap -Enables bootstrap as styling of the button.
+   * @property {attribute} disabled -Disables input from accepting events.
+   * @property {integer} limit -Restricts how many characters can be entered in the input.
+   * @property {attribute} password -Format input as a password field.
+   * @property {string} placeholder -Describes what goes into the input initially.
+   * @property {attribute} readonly -Disables input from being written.
+   * @property {string} size -Determines the size of the input box.
+   * @property {attribute} suggest -Enables the dropdown of suggestions for the input.
+   * @property {string} type -Describes the type of input.
+   * @property {string} value -The contents of the input.
+   * */
   constructor() {
     super();
     this._sortSuggestions = this._sortSuggestions.bind(this);
@@ -53,17 +62,6 @@ export class MeatInputElement extends HTMLElement {
   connectedCallback() {
     // User may have attempted to set suggestions before element loaded in, set them now.
     this._upgradeProperty("suggestions");
-
-    // if user specifies bootstrap, link style to bootstrap
-    if (this.hasAttribute("bootstrap")) {
-      const newLink = this.shadow.querySelector("link"); // link stylesheet to bootstrap's stylesheet
-      newLink.rel = "stylesheet";
-      newLink.href =
-        "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
-      newLink.integrity =
-        "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T";
-      newLink.crossOrigin = "anonymous";
-    }
 
     // if this input is within a form, find the form and connect to it
     let parentNode = this.parentNode;
@@ -147,11 +145,15 @@ export class MeatInputElement extends HTMLElement {
           this.input.autocomplete = "off";
         }
         break;
-      case "type":
-        this.input.type = newVal;
+      case "size":
+        this.input.setAttribute("size", newVal);
         break;
       case "bootstrap":
+        this.input.setAttribute("bootstrap", newVal);
         this.input.className = newVal;
+        break;
+      case "type":
+        this.input.type = newVal;
         break;
     }
   }
@@ -290,7 +292,7 @@ export class MeatInputElement extends HTMLElement {
   }
 
   /**
-   * @param {string array} suggestions
+   * @param {array} suggestions
    * Render list of suggestions as dropdown list under input
    */
   _renderSuggestions(suggestions) {
@@ -366,7 +368,7 @@ export class MeatInputElement extends HTMLElement {
   }
 
   get placeholder() {
-    return this.getAttribute("limit");
+    return this.getAttribute("placeholder");
   }
 
   set placeholder(val) {

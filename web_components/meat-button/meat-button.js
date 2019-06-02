@@ -1,29 +1,29 @@
 const template = document.createElement("template");
 template.innerHTML = `
   <style></style>
+  <link rel="stylesheet" href="/web_components/common.css"/>
   <link rel="stylesheet" href="/web_components/meat-button/meat-button.css"/>
   <button id="button" type="reset"></button>
 `;
 
-/**
- * meat-button webcomponent
- * @customelement meat-button
- * @description displays a stylized button
- * @example <meat-button></meat-button>
- * @see [Demo]{@link https://meat-space.org/web_components/meat-button/meat-button-demo.html} for working example.
- * @property {boolean} autofocus -Enables button to automatically get focus when the page loads.
- * @property {string} circle -Enables a circle shaped button.
- * @property {boolean} disabled -Disables button from accepting events.
- * @property {boolean} round -Enables a round shaped button.
- * @property {string} size -Changes the size of the button.
- * @property {string} type -Enables the specified type of button.
- * */
 export class MeatButtonElement extends HTMLElement {
   /**
-   * Create an instance of MeatButtonElement
-   */
+   * meat-button webcomponent
+   * @customelement meat-button
+   * @description displays a stylized button
+   * @example <meat-button></meat-button>
+   * @see [Demo]{@link https://meat-space.org/web_components/meat-button/meat-button-demo.html} for working example.
+   * @property {attribute} autofocus -Enables button to automatically get focus when the page loads.
+   * @property {string} bootstrap -Enables bootstrap as styling of the button.
+   * @property {attribute} circle -Enables a circle shaped button.
+   * @property {attribute} disabled -Disables button from accepting events.
+   * @property {attribute} round -Enables a round shaped button.
+   * @property {string} size -Changes the size of the button.
+   * @property {string} type -Enables the specified type of button.
+   * */
   constructor() {
     super();
+    this._submitButton;
     this._parentForm;
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
@@ -38,17 +38,6 @@ export class MeatButtonElement extends HTMLElement {
     // Need to get the content inbetween the <meat-button> tags into the button so it renders
     this.button.textContent = this.textContent;
 
-    // if user specifies bootstrap, link style to bootstrap
-    if (this.hasAttribute("bootstrap")) {
-      const newLink = this.shadow.querySelector("link"); // link stylesheet to bootstrap's stylesheet
-      newLink.rel = "stylesheet";
-      newLink.href =
-        "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
-      newLink.integrity =
-        "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T";
-      newLink.crossOrigin = "anonymous";
-    }
-
     // Look up dom tree for a parent form
     let parentNode = this.parentNode;
     while (parentNode) {
@@ -58,6 +47,10 @@ export class MeatButtonElement extends HTMLElement {
       }
       parentNode = parentNode.parentNode;
     }
+
+    this._submitButton = document.createElement("button");
+    this._submitButton.type = "hidden";
+    this.appendChild(this._submitButton);
   }
 
   /**
@@ -251,7 +244,7 @@ export class MeatButtonElement extends HTMLElement {
         break;
       case "submit":
         if (this._parentForm) {
-          this._parentForm.submit();
+          this._submitButton.click();
         }
         break;
     }

@@ -3,12 +3,12 @@
     "name": "Team2 - MeatSpace",
     "icons": [
       {
-        "src": "/img/logo.png",
+        "src": "/website/img/logo.png",
         "type": "image/png",
         "sizes": "192x192"
       },
       {
-        "src": "/img/logo.png",
+        "src": "/website/img/logo.png",
         "type": "image/png",
         "sizes": "512x512"
       }

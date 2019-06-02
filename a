@@ -1,0 +1,1656 @@
+[33mcommit 5770108b5717a4f5f587e9e3c6ecb87dfd5f8db3[m[33m ([m[1;36mHEAD -> [m[1;32mmeat-input[m[33m, [m[1;31morigin/meat-button[m[33m, [m[1;32mmeat-button[m[33m)[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Thu May 23 21:39:39 2019 -0700
+
+    Simple fix for autocomplete
+
+[33mcommit 13f5cc64c6d11e3ed5d055201c351bd2fa2b6ae6[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Thu May 23 21:39:12 2019 -0700
+
+    Simple fix support for autocomplete
+
+[33mcommit 856fd8518e053f68903351ded666bd02ea87d7f9[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Tue May 21 16:14:05 2019 -0700
+
+    Quick fix to button external doc
+
+[33mcommit c97811ec1f12b8e958b70df3be8057d30197ec55[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Tue May 21 16:11:56 2019 -0700
+
+    CSS hotfix for disabled button
+
+[33mcommit 402b410d63e5c10c43ddb926aaef8611bfe4fb6f[m
+Merge: 1cb255c ef6876c
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Tue May 21 15:11:56 2019 -0700
+
+    Merge branch 'qa' of https://github.com/ucsd-cse112/Team2
+
+[33mcommit ef6876cc4c42140dc01508efd44c40b0107fb5d9[m[33m ([m[1;31morigin/qa[m[33m, [m[1;31morigin/dev-docs[m[33m, [m[1;32mqa[m[33m, [m[1;32mdev-docs[m[33m)[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Tue May 21 15:01:25 2019 -0700
+
+    Updated package.lock
+
+[33mcommit d6b00b6db823703b507ddf96c5195519c54002d4[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Tue May 21 14:58:45 2019 -0700
+
+    Fixed minor typo
+
+[33mcommit 1cb255ce8c01b9f14aff726e689de6ddfc2610ff[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Tue May 21 14:57:39 2019 -0700
+
+    updated package-lock
+
+[33mcommit ae93313ba6102f43c98da714570f88e270a61a6f[m
+Merge: 2f09e87 ea29113
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Tue May 21 14:48:20 2019 -0700
+
+    Merge branch 'dev-docs' of https://github.com/ucsd-cse112/Team2
+
+[33mcommit 2f09e8787495523c34806632221c7a72bbc30851[m
+Merge: 8fd4215 b2e55a5
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Tue May 21 14:48:08 2019 -0700
+
+    Merge branch 'master' of https://github.com/ucsd-cse112/Team2
+
+[33mcommit ea2911375afb5fcfad330e6d169972340567b583[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Tue May 21 14:43:26 2019 -0700
+
+    Swapped button for meat-button in meat-input ext docs.
+
+[33mcommit b2e55a5d0609f88ffe4e93385b4fffc6de4f2ea1[m
+Merge: 7bb77e5 1baba69
+Author: Christopher Jensen <topher.jensen63@gmail.com>
+Date:   Tue May 21 12:06:16 2019 -0700
+
+    Merge pull request #9 from ucsd-cse112/testcafe-browser-testing
+    
+    Testcafe browser testing + unit tests
+
+[33mcommit 1baba693aa15aaeb5b06b9afeaf2181fc84546ae[m[33m ([m[1;31morigin/testcafe-browser-testing[m[33m)[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue May 21 12:00:37 2019 -0700
+
+    remove export keyword before CoreHelloElement class in core-hello.js
+
+[33mcommit 8fed0a00cb92f1fcba4a20505c37d1651d9b213f[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue May 21 11:57:10 2019 -0700
+
+    add run keyword to npm command for travis.yml
+
+[33mcommit cebc6b5e0eda3008660a6d45f9f62f58c8ff6f51[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue May 21 11:54:21 2019 -0700
+
+    Add lintest back to travis.yml
+
+[33mcommit 295f39caea7cedc8c62c864aa7941c353ffea2a3[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue May 21 11:31:47 2019 -0700
+
+    Update travis.yml config file and delete server.js
+
+[33mcommit 2b46139bd0e5aa275db249054f04c34929c14ed5[m
+Merge: 10a6597 7bb77e5
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue May 21 11:27:13 2019 -0700
+
+    Merge branch 'master' into testcafe-browser-testing
+
+[33mcommit 10a6597f8e01d1ad435c59b377a23905893515ed[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue May 21 11:27:02 2019 -0700
+
+    Fix docs
+
+[33mcommit 7bb77e555f2bc2275ddc7a6f8b99e699ac42513a[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue May 21 10:06:59 2019 -0700
+
+    fix doc issue
+
+[33mcommit 458fd6e6efefcd832ead71e83d92e982f38f1270[m
+Merge: ca39dc1 8142673
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue May 21 09:58:25 2019 -0700
+
+    Merge branch 'master' of https://github.com/ucsd-cse112/Team2
+
+[33mcommit 8fd421516d2e960cbb83853dff59a6d329bb3397[m[33m ([m[1;31morigin/dev[m[33m)[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Tue May 21 03:47:44 2019 -0700
+
+    updated external documentation for bootstrap support
+
+[33mcommit c20a5bae1e552f524df8c0592c8f80bac02c4995[m
+Merge: c485045 8531f22
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Tue May 21 03:29:51 2019 -0700
+
+    Merge branch 'meat-input' of https://github.com/ucsd-cse112/Team2 into dev-docs
+
+[33mcommit a233fd00d610f93c09982900d9d8a039205651c3[m
+Author: Veronica Lin <velin@ucsd.edu>
+Date:   Tue May 21 01:12:59 2019 -0700
+
+    reinstall testcafe-browserstack
+
+[33mcommit e3e3f5cecf0e07fc91f7e18845f1eb5c6e3b0d5d[m
+Author: Veronica Lin <velin@ucsd.edu>
+Date:   Mon May 20 20:17:35 2019 -0700
+
+    install testcafe, didn't end up in previous commit.
+
+[33mcommit e2f922d2dcb00dc639c4e76a94bcda6643fc6359[m
+Author: Veronica Lin <velin@ucsd.edu>
+Date:   Mon May 20 19:25:39 2019 -0700
+
+    Fix error in package-lock.json
+
+[33mcommit 6d33ad04b9b925706b32d6e934c6bba7db647c4d[m
+Merge: 894db18 8142673
+Author: Veronica Lin <velin@ucsd.edu>
+Date:   Mon May 20 19:18:21 2019 -0700
+
+    Merge branch 'master' to testcafe-browser-testing
+
+[33mcommit 894db18d75f4a17185ec286e7c02a259ae592ffe[m
+Author: Veronica Lin <velin@ucsd.edu>
+Date:   Mon May 20 17:51:49 2019 -0700
+
+    Fix typo in travisci script
+
+[33mcommit a2778421782fc4ab1569ecb81caa9d42ea547758[m
+Author: Veronica Lin <velin@ucsd.edu>
+Date:   Mon May 20 17:47:58 2019 -0700
+
+    Remove 'module' which causes unit test to fail
+
+[33mcommit 6a59da4b64aec6359f8b65b71ff9ae100d4a5a8f[m
+Author: Veronica Lin <velin@ucsd.edu>
+Date:   Mon May 20 15:54:32 2019 -0700
+
+    Fix unit test shadow DOM problem
+
+[33mcommit 8142673d2863c5e7257caadabd658f186d8684ea[m
+Merge: 29011b9 24e95f6
+Author: Peter Pi <shpi@ucsd.edu>
+Date:   Sun May 19 22:45:25 2019 -0700
+
+    Merge pull request #8 from ucsd-cse112/fix_button
+    
+    Update meat-button.js
+
+[33mcommit 24e95f6cca9552bd1037cab6e37cf4050572e69d[m
+Author: Peter Pi <shpi@ucsd.edu>
+Date:   Sun May 19 22:44:04 2019 -0700
+
+    Update meat-button.js
+
+[33mcommit 29011b91fb58b307e330bd82421423c135c4a751[m
+Author: peter <shpi@ucsd.edu>
+Date:   Sun May 19 22:22:35 2019 -0700
+
+    fixed the button type for submit in the example to display the correct
+    type of button
+
+[33mcommit ca39dc1faf6c26ab76698c3e92ff7b7819665e9b[m[33m ([m[1;31morigin/update-release-script[m[33m)[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sun May 19 00:32:02 2019 -0700
+
+    Update README.md build status image and update package.json package name, website url, and set publish to public
+
+[33mcommit d83052cea9f502d848a30b1fd98a24a87a39756a[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sat May 18 23:22:06 2019 -0700
+
+    2.0.0
+
+[33mcommit ece0ab1a106fde0c708a2e7bd7112843291f1b0c[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sat May 18 23:21:51 2019 -0700
+
+    Update release.sh
+
+[33mcommit b1d743c4c9b37395faf564554102d8855ec22523[m
+Author: Veronica Lin <velin@ucsd.edu>
+Date:   Sat May 18 23:10:54 2019 -0700
+
+    Remove failing unit test
+
+[33mcommit f05d57bcfa3a5a4cce99fa9dbad6df89908cc618[m
+Author: Veronica Lin <velin@ucsd.edu>
+Date:   Sat May 18 23:07:17 2019 -0700
+
+    Updates on file system testing, unit t kinda wonk
+
+[33mcommit 8531f22641c2405422f7e1b55d7e74f8f2a35822[m[33m ([m[1;31morigin/meat-input[m[33m)[m
+Merge: ec71125 fb16b9a
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Sat May 18 22:20:48 2019 -0700
+
+    Merge branch 'master' of https://github.com/ucsd-cse112/Team2 into meat-input
+
+[33mcommit ec71125ec131d9bbf3ade101c3180d93a8eb4203[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Sat May 18 22:19:10 2019 -0700
+
+    Adjusted CSS, added Bootstrap support
+
+[33mcommit c48504544bac1b1635a4326a113eae661cacf8aa[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Sat May 18 20:29:31 2019 -0700
+
+    Added basic/simple bootstrap support, separated css into own file and
+    improved, improved demo
+
+[33mcommit 14cf343c78edca965b58519aa1caa3cf910044e1[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Sat May 18 20:28:45 2019 -0700
+
+    Merge with master, package.json
+
+[33mcommit d44929caaa281f1d8dd44d2ce54fb9bc5122e810[m
+Merge: aa7b3d8 fb16b9a
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Sat May 18 20:27:14 2019 -0700
+
+    Merge branch 'master' of https://github.com/ucsd-cse112/Team2 into meat-button
+
+[33mcommit aa7b3d88947fc74699f1aeaa993ddadd4e412195[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Sat May 18 20:23:20 2019 -0700
+
+    Added basic bootstrap support, separated css into own file, improved demo
+
+[33mcommit 12979cd93f442ae23b63b1355db66578f6ec5818[m
+Merge: 7080211 fb16b9a
+Author: Veronica Lin <velin@ucsd.edu>
+Date:   Sat May 18 18:41:29 2019 -0700
+
+    fixing merge conflicts
+
+[33mcommit 708021156cd9d1c86f4486573786bd1a2a7843c4[m
+Author: Veronica Lin <velin@ucsd.edu>
+Date:   Sat May 18 18:20:01 2019 -0700
+
+    Make test run from local file system
+
+[33mcommit dfb4043644ca275b710eb686544d6de2f75c4f55[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Fri May 17 16:43:48 2019 -0700
+
+    bootstrap rounded test
+
+[33mcommit 9de791925511525dc5a9a954b712c1d80f306590[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Fri May 17 16:24:28 2019 -0700
+
+    interior button uses more host styling, removed some css unnecessary variables
+
+[33mcommit fb16b9a285cc563d110134f71e8450bbc94baa57[m
+Merge: f829744 4731c3c
+Author: Christopher Jensen <topher.jensen63@gmail.com>
+Date:   Thu May 16 16:13:46 2019 -0700
+
+    Merge pull request #7 from ucsd-cse112/update-scripts
+    
+    update package.json and release.sh
+
+[33mcommit 4731c3cb4d9d6c47e3b687f96e8adfb261dbf316[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Thu May 16 16:08:28 2019 -0700
+
+    update package.json and release.sh
+
+[33mcommit f829744c18d80aa6bd7bbca9366044e271ef5865[m
+Merge: 9d2e2fc bd8c23c
+Author: Christopher Jensen <topher.jensen63@gmail.com>
+Date:   Thu May 16 15:52:31 2019 -0700
+
+    Merge pull request #6 from ucsd-cse112/update-scripts
+    
+    Update scripts
+
+[33mcommit bd8c23ccf0b4ea73ae3f8d4acc54088bbd659d0b[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Thu May 16 15:43:40 2019 -0700
+
+    Remove selenium script from executing when running npm test
+
+[33mcommit 8d845447c21e85b8216db33452c13be12844f499[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Thu May 16 15:37:16 2019 -0700
+
+    Update release.sh script to be more user friendly.
+
+[33mcommit cb349180b3344588be3c95fda72ceea1f9ecdc1d[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Thu May 16 15:18:22 2019 -0700
+
+    Update pipe.sh script to be more user friendly. Usage: npm run pipe <optional argument: nd> . User no longer needs to add branch name in as an argument, they will be promped to enter it at the command line instead. Optional "nd" argument bypasses doc generation when used.
+
+[33mcommit 9d2e2fca3e1095408965753b9ee7c7a04b255090[m
+Merge: fb2148e 5affad9
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Thu May 16 00:35:34 2019 -0700
+
+    Merge branch 'dev' of https://github.com/ucsd-cse112/Team2 into qa
+
+[33mcommit 5affad98cbccbd96b1f05c730ab315dad1263b05[m
+Merge: 84534a2 2d593dd
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Thu May 16 00:34:48 2019 -0700
+
+    Merge branch 'meat-input' of https://github.com/ucsd-cse112/Team2 into dev
+
+[33mcommit fb2148eb522459d04fe33c4cbede309d4a6663ab[m
+Merge: 46523a7 84534a2
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Thu May 16 00:24:56 2019 -0700
+
+    Merge branch 'dev' of https://github.com/ucsd-cse112/Team2 into qa
+
+[33mcommit 84534a20cfc193b6ccd326921e973ca95e5f7cf0[m
+Merge: 08d43f9 f94adc9
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Thu May 16 00:24:30 2019 -0700
+
+    Merge branch 'meat-button' of https://github.com/ucsd-cse112/Team2 into dev
+
+[33mcommit f94adc9a431a6085deaa73d3a9d006e023990416[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Thu May 16 00:24:11 2019 -0700
+
+    Fixed active css
+
+[33mcommit 46523a7f24422532708ec41467f26afb1afca256[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Thu May 16 00:11:58 2019 -0700
+
+    fixed code text content for disabled/enable buttons
+
+[33mcommit 99ae4d7a0a37c110d930de7c73b709f903544ee6[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Wed May 15 23:58:57 2019 -0700
+
+    Adjusted text content for disabled button
+
+[33mcommit 43bad8acb9f978291399492ea897e82477175c0b[m
+Merge: c115336 08d43f9
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Wed May 15 23:55:32 2019 -0700
+
+    Merge branch 'dev' of https://github.com/ucsd-cse112/Team2 into qa
+
+[33mcommit 08d43f941c189413aecac024c6e5dbdd971b7ed3[m
+Merge: b2091e6 b3d895f
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Wed May 15 23:54:31 2019 -0700
+
+    Merge branch 'meat-button' of https://github.com/ucsd-cse112/Team2 into dev
+
+[33mcommit b3d895f8d78346bbe6a86be0acffbfb5acb17738[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Wed May 15 23:54:12 2019 -0700
+
+    Added disabled styling
+
+[33mcommit 2d593dd758c9a47ddabdb3e2954643fb3e28a9ef[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Wed May 15 23:41:57 2019 -0700
+
+    Added --border-bottom to css
+
+[33mcommit c115336713356dfa7f9d1644fbc5c083e32600af[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Wed May 15 23:35:53 2019 -0700
+
+    Adjusted meat-input example in docs
+
+[33mcommit 7cde411d74f68061833b67e19d36fe0684343524[m
+Merge: b405379 b2091e6
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Wed May 15 22:55:56 2019 -0700
+
+    Merge branch 'dev' of https://github.com/ucsd-cse112/Team2 into qa
+
+[33mcommit b4053792108ca7a22525cf70e411c9fe888bfe51[m
+Merge: 43c70b0 44d820d
+Author: XinLiu <xil566@ucsd.edu>
+Date:   Wed May 15 19:35:03 2019 -0700
+
+    Merge branch 'dev-docs' of https://github.com/ucsd-cse112/Team2 into dev-docs
+
+[33mcommit 43c70b07f8e2856ab18c275d56c81ff913e08536[m
+Author: XinLiu <xil566@ucsd.edu>
+Date:   Wed May 15 19:34:52 2019 -0700
+
+    Update meat-input.html
+
+[33mcommit b2091e6008893e93a17a72fe8a4cbd043d6f537d[m
+Author: Curtis Tong <cctong@ucsd.edu>
+Date:   Wed May 15 19:33:32 2019 -0700
+
+    Border bottom
+
+[33mcommit 2550950660cd5637b466dbd990d167e8028c83a3[m
+Author: Curtis Tong <cctong@ucsd.edu>
+Date:   Wed May 15 19:29:52 2019 -0700
+
+    Added some styling changes on the form for demo
+
+[33mcommit 44d820d26f1f110b1de728ffc5d26a0f23a247c0[m
+Author: Justin Chen <justinsengchen@gmail.com>
+Date:   Wed May 15 19:17:32 2019 -0700
+
+    Added standard buttons to docs
+
+[33mcommit dbb0b3ef5cdf84f9d0a68102358d2b477eb01987[m
+Merge: 9d9771d 6663c4e
+Author: XinLiu <xil566@ucsd.edu>
+Date:   Wed May 15 19:10:53 2019 -0700
+
+    Merge branch 'dev-docs' of https://github.com/ucsd-cse112/Team2 into dev-docs
+
+[33mcommit 9d9771da356143f8f540741a32f44217a43d19e3[m
+Author: XinLiu <xil566@ucsd.edu>
+Date:   Wed May 15 19:09:34 2019 -0700
+
+    Merge branch 'dev-docs' of https://github.com/ucsd-cse112/Team2 into dev-docs
+
+[33mcommit 029905066e5018eb7696e33830df0fed8fdce73d[m
+Author: Curtis Tong <cctong@ucsd.edu>
+Date:   Wed May 15 18:53:45 2019 -0700
+
+    Reverted arrow functions. Updated form to use meat-buttons and meat-inputs, and connected those components together
+
+[33mcommit 52b68e911e122990ace19e2022ab02a577f3d22c[m
+Merge: eae6471 e89a68c
+Author: XinLiu <xil566@ucsd.edu>
+Date:   Wed May 15 18:51:51 2019 -0700
+
+    Merge branch 'dev-docs' of https://github.com/ucsd-cse112/Team2 into dev-docs
+
+[33mcommit 6663c4e55bcbc16ffb3c9066c5b6dbfbfd128811[m
+Merge: a47cecb e89a68c
+Author: Tony Huang <toh006@ucsd.edu>
+Date:   Wed May 15 18:51:44 2019 -0700
+
+    Merge branch 'dev-docs' of https://github.com/ucsd-cse112/Team2 into dev-docs
+
+[33mcommit eae64713d8f0a6ee36c2202de43220b96a807805[m
+Author: XinLiu <xil566@ucsd.edu>
+Date:   Wed May 15 18:51:32 2019 -0700
+
+    Merge branch 'dev-docs' of https://github.com/ucsd-cse112/Team2 into dev-docs
+
+[33mcommit a47cecb1a28c6064e5c8bb2d15043486ae3b2008[m
+Author: Tony Huang <toh006@ucsd.edu>
+Date:   Wed May 15 18:50:44 2019 -0700
+
+    Modified side bar
+
+[33mcommit e89a68c4e0e1be3ef665ad199747a91f2473b008[m
+Author: Justin Chen <justinsengchen@gmail.com>
+Date:   Wed May 15 18:45:30 2019 -0700
+
+    Added meat-button docs
+
+[33mcommit 78c501efeadcd826a9f8c3a24d16981a8e0981cd[m
+Merge: 6ff2c63 38f5a71
+Author: Tony Huang <toh006@ucsd.edu>
+Date:   Wed May 15 18:39:48 2019 -0700
+
+    Merge branch 'dev-docs' of https://github.com/ucsd-cse112/Team2 into dev-docs
+
+[33mcommit 6ff2c63223226831fbadbd78c5cc269ad53d147e[m
+Author: Tony Huang <toh006@ucsd.edu>
+Date:   Wed May 15 18:39:35 2019 -0700
+
+    changed index.html to include example page
+
+[33mcommit 38f5a711d06a41070f6e575482089842b3af0bd8[m
+Author: tianmubian <tbian@ucsd.edu>
+Date:   Wed May 15 18:37:58 2019 -0700
+
+    added input's basic usage
+    
+    need examples and edit nav
+
+[33mcommit 97ce6624f81f7dfe7598d29ba774e5df2da06a39[m
+Author: XinLiu <xil566@ucsd.edu>
+Date:   Wed May 15 18:27:07 2019 -0700
+
+    Update index.html
+
+[33mcommit 669aefe9202917b977dda67d92fe72ef6e35482a[m
+Merge: f0d1974 8439ae6
+Author: Tony Huang <toh006@ucsd.edu>
+Date:   Wed May 15 18:20:10 2019 -0700
+
+    Merge branch 'dev-docs' of https://github.com/ucsd-cse112/Team2 into docs
+
+[33mcommit 8439ae671af70b38133a4558379ca41a6b7fe709[m[33m ([m[1;31morigin/docs[m[33m)[m
+Merge: c3d7664 bf884dc
+Author: tianmubian <tbian@ucsd.edu>
+Date:   Wed May 15 17:55:33 2019 -0700
+
+    Fixed merge conflict
+
+[33mcommit c3d76646e9fcd483c75981ca77090586f993df4a[m
+Author: tianmubian <tbian@ucsd.edu>
+Date:   Wed May 15 17:49:32 2019 -0700
+
+    added a base meat-input page
+
+[33mcommit bf884dc5d7c6dea83dc9de1194b27c5bf975f3fb[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Wed May 15 15:54:21 2019 -0700
+
+    Removed unecessary case
+
+[33mcommit 00e7f0f79b14e294bc62fdcfb38443cd17d1cdc6[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Wed May 15 15:44:54 2019 -0700
+
+    fixed background color of button
+
+[33mcommit 557c0d73b274ce909190ef6cd6cbb82e3adfe01e[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Wed May 15 15:41:46 2019 -0700
+
+    Merging meat-button with dev
+
+[33mcommit c53ac29ab67ff22e28199435761f75ba393056ba[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Wed May 15 15:39:50 2019 -0700
+
+    Fixed merge conflict
+
+[33mcommit a4b1ca9d2265b6703b6c70682ff4a3a50dc89162[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Wed May 15 15:39:29 2019 -0700
+
+    Fixed merge conflict
+
+[33mcommit 61df9645326916eef6ec494f195fcd1ded33c3b4[m
+Merge: fb65ed3 bac107a
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Wed May 15 15:36:56 2019 -0700
+
+    Merge branch 'dev' of https://github.com/ucsd-cse112/Team2 into dev
+
+[33mcommit fb65ed31dc60c701f69fc7b364058c1aeb534378[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Wed May 15 15:36:39 2019 -0700
+
+    Added meat-input
+
+[33mcommit 32e437dc9d2d2f71a2c781aeaf616474e04c2cb1[m
+Merge: 305f5b7 1fee5e5
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Wed May 15 15:28:14 2019 -0700
+
+    Merge branch 'meat-input' of https://github.com/ucsd-cse112/Team2 into dev
+
+[33mcommit 17901817dc167f48b7e4a7ed3d519ac9493cba21[m
+Author: Veronica Lin <velin@ucsd.edu>
+Date:   Wed May 15 12:30:12 2019 -0700
+
+    edit environment variables to work with TravisCI
+
+[33mcommit f9c7aaf80108ae29ea7f96d9cb90e029d90089bd[m
+Author: Veronica Lin <velin@ucsd.edu>
+Date:   Wed May 15 12:12:24 2019 -0700
+
+    Fix error when accessing .env files
+
+[33mcommit 721bef34ff0ae0eeea6c2c55bf411d6730553e77[m
+Author: Veronica Lin <velin@ucsd.edu>
+Date:   Wed May 15 11:55:49 2019 -0700
+
+    Update TravisCI commands to run browser testing
+
+[33mcommit 1fee5e5e48f8d169213c7d3a1fc484dfb507f34d[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Wed May 15 01:27:12 2019 -0700
+
+    Minor change to demo
+
+[33mcommit 93b09df15ce642de73dba09653fca92f032148e5[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Wed May 15 01:23:05 2019 -0700
+
+    Separated native autocomplete and my autocomplete
+
+[33mcommit fbfd90d26d82cb5d63f098c5f420de76c50248c8[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Wed May 15 00:47:37 2019 -0700
+
+    Finalized native form support
+
+[33mcommit 8dc3af0dda94523552955f8aefec2e9e2f80ff4d[m
+Author: Veronica Lin <velin@ucsd.edu>
+Date:   Wed May 15 00:46:19 2019 -0700
+
+    Create meat-button test and runner.js with TestCafe
+
+[33mcommit e76ba2f2c94b81205be7837709abc74408ccff58[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Wed May 15 00:23:53 2019 -0700
+
+    Added native form support
+
+[33mcommit 23b20b50e8c763ac35d8c4d1fefc8f5a8344f183[m
+Merge: 1b13b72 4f82bf6
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Tue May 14 21:12:48 2019 -0700
+
+    Merge branch 'meat-input' of https://github.com/ucsd-cse112/Team2 into meat-input
+
+[33mcommit 1b13b72b0df4539f1ca0e873e47829d38c69b598[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Tue May 14 21:06:49 2019 -0700
+
+    Added autocomplete first draft and merged with Aaron
+
+[33mcommit 77c1d3b255c519b6f97cc90c35fc5e07b0b6f830[m
+Merge: ef0c2b0 6dea4df
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Tue May 14 21:06:33 2019 -0700
+
+    Added autocomplete first draft and merged with Aaron
+
+[33mcommit f88a2506bc95417e46624d461d70b03bda9dfd59[m[33m ([m[1;32mdocs[m[33m)[m
+Author: Justin Chen <jsc065@ucsd.edu>
+Date:   Tue May 14 16:45:17 2019 -0700
+
+    Added expand code for button
+
+[33mcommit 5fde99c9bcc43913bfc55e38889f1bd898a08cba[m
+Author: Justin Chen <jsc065@ucsd.edu>
+Date:   Tue May 14 15:20:33 2019 -0700
+
+    Added meat button docs literal code
+
+[33mcommit 4f82bf69cae886aa927664140bcee7e3d578aa31[m
+Author: Aaron Brown <amb012@ucsd.edu>
+Date:   Tue May 14 15:18:05 2019 -0700
+
+    Added value and readonly to input's functionality.
+
+[33mcommit ef0c2b0c1852065303473196b907bf594431fb7b[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Tue May 14 14:29:49 2019 -0700
+
+    Rough version of autocomplete added
+
+[33mcommit bac107a95ee407e9a67c0b24e2e9d9bc5c6b6518[m
+Author: Justin Chen <jsc065@ucsd.edu>
+Date:   Tue May 14 14:22:20 2019 -0700
+
+    meat-button Basic Usage
+
+[33mcommit 94abb7602eb3514fb01fcbc336848d55c3fda0c2[m
+Author: Veronica Lin <velin@ucsd.edu>
+Date:   Tue May 14 14:20:12 2019 -0700
+
+    setup cross-browser testing using testcafe.
+
+[33mcommit 305f5b7c3308d748b863a65cc2d4704e0442d6de[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Tue May 14 01:48:33 2019 -0700
+
+    Pipe push to meat-button
+
+[33mcommit a672391f08bee9e8b307d99c9c3d8103d8faff02[m
+Merge: c9fc2d0 538666a
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Tue May 14 01:47:49 2019 -0700
+
+    Merge remote-tracking branch 'origin/meat-button' into meat-button
+
+[33mcommit c9fc2d0d4c794d16c2987e6f20b0def6140a09c9[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Tue May 14 01:47:40 2019 -0700
+
+    Added colors and fixed text-alignment
+
+[33mcommit 538666aaf0646c3937b9fe7d44d41f5253594437[m
+Author: Justin Chen <justinsengchen@gmail.com>
+Date:   Tue May 14 01:29:56 2019 -0700
+
+    Added meat-button external docs
+
+[33mcommit 6dea4dfd4e53a375e9d88b83a911c8d3116757ce[m
+Author: Aaron Brown <amb012@ucsd.edu>
+Date:   Mon May 13 20:37:17 2019 -0700
+
+    Added password and limit functionality.
+
+[33mcommit eef78c09015b8f21240c43d74aa27fa75970b7c6[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Mon May 13 17:01:52 2019 -0700
+
+    Added native-type support for reset, submit needs work.
+
+[33mcommit 442b6cb445096a0068e7ee71c816fd25aab80ada[m
+Author: Aaron Brown <amb012@ucsd.edu>
+Date:   Mon May 13 16:29:28 2019 -0700
+
+    Fixed connectedCallback() function.
+
+[33mcommit 52815ae2abdf5cac9feb54091423eddf45084917[m
+Author: Aaron Brown <amb012@ucsd.edu>
+Date:   Mon May 13 02:09:37 2019 -0700
+
+    Changed variable to be more compatable with user input.
+
+[33mcommit 0e1614c32447d46bc05238a8703ea14baa64a93d[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Mon May 13 01:05:58 2019 -0700
+
+    Added Primary and Success Stylings
+
+[33mcommit 3f61c6f309811b92795eee5cf534e9c43a4e02d4[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Mon May 13 00:33:24 2019 -0700
+
+    Added getters/setters, circle, disabled, autofocus.
+
+[33mcommit 4a5bcd7787437721566ed9e1ffdc7ac1806957dc[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Mon May 13 00:30:01 2019 -0700
+
+    Added getters and setters, added circle, disabled, and autofocus.
+
+[33mcommit fb3c69fe7d7115326747771386689ebc27d6fd0e[m
+Author: Aaron Brown <amb012@ucsd.edu>
+Date:   Sun May 12 19:56:36 2019 -0700
+
+    Created basic input field. Implemented size and placeholder features.
+
+[33mcommit bd1d718769b5aa25f9740c79489040e8bde798e6[m[33m ([m[1;31morigin/cross-browser-testing[m[33m)[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sun May 12 18:58:54 2019 -0700
+
+    update core-hello-test.js
+
+[33mcommit 783044b9fa9b98254da80c414a821b8a1b13bbc4[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sun May 12 18:56:15 2019 -0700
+
+    update core-hello-test.js
+
+[33mcommit 477aef5e9d9b266fbaf14bf7818d52c5079c5b2b[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sun May 12 18:41:52 2019 -0700
+
+    update core-hello-test.js
+
+[33mcommit 3bd094a805d124076b5d6e8818177024a00a4ce0[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sun May 12 18:36:30 2019 -0700
+
+    updte core-hello-test.js
+
+[33mcommit ebeaba451f8bf94a924fa98da4e170b0fcc7ae6e[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sun May 12 18:29:38 2019 -0700
+
+    updte core-hello-test.js
+
+[33mcommit 89eaffc6ff3a35953229d71e645577320fc7b90b[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sun May 12 18:25:49 2019 -0700
+
+    updte core-hello-test.js
+
+[33mcommit cd4df8de6365d596452685b14ccbe971db9dfafb[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sun May 12 18:11:19 2019 -0700
+
+    updte core-hello-test.js
+
+[33mcommit e1d81b6edb4cb1e97fcfa43033e7480deb2e84e8[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sun May 12 18:06:40 2019 -0700
+
+    update core-hello-test.js
+
+[33mcommit eed90fb817505e65d3b7eb4b07a8d91de0039a23[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sun May 12 18:00:37 2019 -0700
+
+    update core-hello-test.js
+
+[33mcommit aa25e45c27cec615ae9a6b1870f3d2bab6ee28de[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sun May 12 17:55:20 2019 -0700
+
+    update core-hello-test.js
+
+[33mcommit 2919df83eb42084fbba277b36e44c07601c91d5b[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sun May 12 17:42:05 2019 -0700
+
+    update core-hello-test.js
+
+[33mcommit bb044b5aecaf710906fed1da58b6b5751e8b7658[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sun May 12 17:38:45 2019 -0700
+
+    update core-hello-test.js
+
+[33mcommit 4709261f0f33b3de987cfcd5c0822ece9555a384[m
+Author: Aaron Brown <amb012@ucsd.edu>
+Date:   Sun May 12 17:31:06 2019 -0700
+
+    Set up meat-input branch with boilerplate code.
+
+[33mcommit 01b132845a88aff4bd96f43443f7d2f16f042c52[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sun May 12 17:28:03 2019 -0700
+
+    update core-hello-test.js
+
+[33mcommit 2b6b907836390908f90ed22a6a43d928d9b01dc0[m[33m ([m[1;31morigin/meat-boilerplate[m[33m, [m[1;32mmeat-boilerplate[m[33m)[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Sun May 12 17:21:03 2019 -0700
+
+    Added boilerplate webcomponent
+
+[33mcommit 7f30c92b3d8bd2dfb5b2aa4770b747eb45f67d57[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sun May 12 17:19:30 2019 -0700
+
+    update travis.yml
+
+[33mcommit 370c0b87040e18b28213e966a168ce6d12c03ad2[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sun May 12 17:16:20 2019 -0700
+
+    update travis.yml
+
+[33mcommit d9938fa53c7176f92cf6b4fabcd9ad58d6762aab[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sun May 12 17:09:16 2019 -0700
+
+    Try using web server to access html files for unit tests
+
+[33mcommit 7cdba9a7570eaf27121561de90828942775e2066[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Sun May 12 04:11:56 2019 -0700
+
+    Exposed css to user with css variables
+
+[33mcommit f6dd6ecc355df36868a8c79b26b572fb0fa78c5e[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Sun May 12 03:21:28 2019 -0700
+
+    Width and height now based on host
+
+[33mcommit b3002c334e89b075795d02f24b2d4ee139fd5f88[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Sun May 12 01:35:58 2019 -0700
+
+    Minor adjustments to size css
+
+[33mcommit 6466f0d16c6fc07585d6cfae4f570b36b6180531[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Sun May 12 01:32:57 2019 -0700
+
+    Added type="default", round, size="small"/"medium"/"large"
+
+[33mcommit d979ea231a6dc234bdf635f816e83fad4bc318ab[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sun May 12 00:48:22 2019 -0700
+
+    update url
+
+[33mcommit 192a169ffb4cb375ae7c4eaa0e0ffc645267b546[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sun May 12 00:36:04 2019 -0700
+
+    update url
+
+[33mcommit 88af3807d062e24ad8183ece4705af814343929f[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sun May 12 00:28:04 2019 -0700
+
+    update url for core-hello-test.js
+
+[33mcommit cca83a06d42f2d93194648c11949bb656047ce64[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sat May 11 23:11:52 2019 -0700
+
+    change file path in core-hello-test.js
+
+[33mcommit b24d393b83843d1204a893e1b95d0b6adcb2844e[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sat May 11 22:48:51 2019 -0700
+
+    Testing selenium web driver & shadow dom access
+
+[33mcommit 4b732ce55b58347f4a5998e475c5fc59f7d189ae[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Fri May 10 21:12:03 2019 -0700
+
+    Started boilerplate for meat-button
+
+[33mcommit 8c336dd3c424b7e81cb1c190815501d39a1ffc38[m[33m ([m[1;31morigin/publish_test[m[33m, [m[1;31morigin/curtis_test[m[33m, [m[1;32mpublish_test[m[33m)[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Fri May 10 00:21:26 2019 -0700
+
+    Testing simple publish to npm
+
+[33mcommit bca11c308095502356ac6c98a124091c847feaf8[m[33m ([m[1;32mteam2-learn[m[33m)[m
+Merge: 6bc8d61 a585954
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Thu May 9 22:55:30 2019 -0700
+
+    Merge branch 'master' of https://github.com/ucsd-cse112/Team2 into team2-learn
+
+[33mcommit f0d19741c8a9a30baf3978e0350e4fc853d249d5[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Fri May 3 14:55:44 2019 -0700
+
+    update travis.yml
+
+[33mcommit 4f7e9b6673ce1b76511c3935b9d4e8a9a89f7e1e[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Fri May 3 14:48:28 2019 -0700
+
+    Update travis.yml
+
+[33mcommit 25dbb269158acb33eb9cb83c280f2de11726a4e1[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Fri May 3 14:41:56 2019 -0700
+
+    Set up cross browser testing skeleton
+
+[33mcommit a58595409ff36cf9a0837c09c0319a184c772f13[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Thu May 2 12:13:00 2019 -0700
+
+    Add shoutout to BrowserStack on our github and website.
+
+[33mcommit 6bc8d61758b74cf6cfa1dd576d50ef84ff381230[m[33m ([m[1;31morigin/team2-learn[m[33m)[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Thu May 2 01:09:40 2019 -0700
+
+    init
+
+[33mcommit f9d8437ef08cb5a4d664aa7749f02b1dfaeb912b[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue Apr 30 23:57:51 2019 -0700
+
+    Update links to project on meat-space.org
+
+[33mcommit 0a30aebd1f1faf6198335c771c16da55358007cc[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue Apr 30 23:51:10 2019 -0700
+
+    Add LICENSE.txt, update navbar links in news.html.
+
+[33mcommit cc4ba71f8de20d70fb708a8e3faab8b701eef1ec[m
+Author: Christopher Jensen <cajensen@ucsd.edu>
+Date:   Tue Apr 30 23:18:35 2019 -0700
+
+    Create LICENSE.txt
+    
+    Add MIT license to open source project
+
+[33mcommit 6cdb73d40c13133701fa3945ae3e1b66ad8bbbd7[m
+Author: Christopher Jensen <topher.jensen63@gmail.com>
+Date:   Tue Apr 30 13:46:47 2019 -0700
+
+    Fix formatting
+
+[33mcommit a988012a4b56418b6f91d69b0e61bebf21a0bd43[m[33m ([m[1;33mtag: v0.1-alpha10[m[33m)[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue Apr 30 13:40:43 2019 -0700
+
+    Update node version number. Fix README.md formatting.
+
+[33mcommit f88c013050d64b1e43c0890f3406bfb3970e1e60[m[33m ([m[1;33mtag: v0.1-alpha9[m[33m)[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue Apr 30 13:30:52 2019 -0700
+
+    Update README.md, fix which files get published to npm.
+
+[33mcommit 326eceb71c5992b62527cea686e35ea19d056a4f[m
+Author: Christopher Jensen <topher.jensen63@gmail.com>
+Date:   Tue Apr 30 11:37:28 2019 -0700
+
+    Update README.md with code climate badge
+
+[33mcommit ab7b634098702bb050ea469b1be9a1c094e7a2ef[m[33m ([m[1;33mtag: v0.1-alpha8[m[33m)[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Mon Apr 29 20:45:02 2019 -0700
+
+    update package.json
+
+[33mcommit b40614bc5fd2aa97e2ae0d0208a50241a7f51080[m[33m ([m[1;33mtag: v0.1-alpha7[m[33m)[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Mon Apr 29 18:14:07 2019 -0700
+
+    change language attribute for core-hello element to english
+
+[33mcommit 7a4b672766d1b5720643a4039e25b6881c195e6a[m[33m ([m[1;33mtag: v0.1-alpha6[m[33m, [m[1;33mtag: v0.1-alpha5[m[33m)[m
+Merge: 45b6fb5 d632798
+Author: Christopher Jensen <cajensen@ucsd.edu>
+Date:   Mon Apr 29 17:37:39 2019 -0700
+
+    Merge pull request #4 from ucsd-cse112/ci-pipeline
+    
+    Ci pipeline
+
+[33mcommit d632798936814a571af594a02c099c7824ef2f00[m[33m ([m[1;33mtag: v0.1-alpha4[m[33m)[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Mon Apr 29 17:28:37 2019 -0700
+
+    Change language attribute for core-hello to french
+
+[33mcommit ee5c524079b7f7c3345ba50649cf754464ece471[m[33m ([m[1;33mtag: v0.1-alpha3[m[33m)[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Mon Apr 29 16:18:16 2019 -0700
+
+    fix export bug
+
+[33mcommit 2443b30393aabd821b8fb6c524ce3c110ed18e3f[m[33m ([m[1;33mtag: v0.1-alpha2[m[33m)[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Mon Apr 29 15:47:08 2019 -0700
+
+    fix testing error
+
+[33mcommit 12da4c487a59bc48c6b1f3887d9f93deed336357[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Mon Apr 29 15:42:48 2019 -0700
+
+    release to npm test
+
+[33mcommit e1721200a50bbe54be46d431965d25db2f37f55f[m[33m ([m[1;33mtag: v0.1-alpha[m[33m)[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Mon Apr 29 15:36:09 2019 -0700
+
+    Update travis.yml to publish to npm when commit is tagged
+
+[33mcommit 6c6de005d7b3b7b4997fbfddc58a3b709093ceff[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sat Apr 27 10:44:11 2019 -0700
+
+    update jsdoc config to exclude timestamps on all docs
+
+[33mcommit b022737284a4844fb11cad2c01a4e03d08ae89ca[m
+Merge: 7f282e5 83ed4af
+Author: Veronica Lin <velin@ucsd.edu>
+Date:   Fri Apr 26 18:42:24 2019 -0700
+
+    Fix doc dates
+
+[33mcommit 7f282e591fa52ce2902208ee2520ffd8ea4a3964[m
+Author: Veronica Lin <velin@ucsd.edu>
+Date:   Fri Apr 26 18:30:24 2019 -0700
+
+    Updated package.json
+
+[33mcommit 83ed4af1c16d65a8ad5f1cff9ae09a655c5ef28b[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Fri Apr 26 18:24:41 2019 -0700
+
+    updat travis.yml
+
+[33mcommit 996d5b3d0e83765cc5de113ddcd5e4e6337853b0[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Fri Apr 26 18:22:13 2019 -0700
+
+    update travis.yml config file
+
+[33mcommit b3d53e21da026ea1931b3534c856293d4f9f2973[m
+Merge: 2d026f5 287a12c
+Author: Veronica Lin <velin@ucsd.edu>
+Date:   Fri Apr 26 18:17:41 2019 -0700
+
+    update package.json
+
+[33mcommit 2d026f5201d7e45c9dfa63bf5d1a555c26023387[m
+Author: Veronica Lin <velin@ucsd.edu>
+Date:   Fri Apr 26 18:09:19 2019 -0700
+
+    Automated finding .html files
+
+[33mcommit 287a12c36403cbbb701e774bc7097b8f4c644555[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Fri Apr 26 18:07:34 2019 -0700
+
+    update script
+
+[33mcommit 7554c7f12774f96f5e0d1df4538e432d7489f679[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Fri Apr 26 00:49:24 2019 -0700
+
+    update documentation for core-hello web component
+
+[33mcommit 27e3c83217c316e9447505731d739559d791361b[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Thu Apr 25 14:54:14 2019 -0700
+
+    Change language attribute for core-hello from english to french
+
+[33mcommit 15fad220e8af72b4d7599a111c726370a6e53ab4[m[33m ([m[1;31morigin/ci-pipeline[m[33m, [m[1;32mci-pipeline[m[33m)[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Thu Apr 25 14:17:12 2019 -0700
+
+    Added live-editor and made core-hello not use .css file
+
+[33mcommit 927f39ff6e17483b49f182c84146e031f2f13f63[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Thu Apr 25 13:52:31 2019 -0700
+
+    Alex testing script
+
+[33mcommit f0379b16003aa858b992abe6a1ac30074e7d1bc1[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Thu Apr 25 13:05:00 2019 -0700
+
+    update .travis.yml config file
+
+[33mcommit a179022bca9bc5f0aaa900f0ae470ad25225fe3a[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Thu Apr 25 12:53:31 2019 -0700
+
+    Add link in README.md back to team website, change comment message in core-hello.js
+
+[33mcommit 1f743e116fc6d39119169b8665b1dc8ea46ebd0a[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Thu Apr 25 12:19:38 2019 -0700
+
+    run eslint on custom_jsdoc_tags/custom-element.js
+
+[33mcommit 08823f69d9afc86e3d7ad2d372444df35941e907[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Thu Apr 25 12:05:46 2019 -0700
+
+    add slack notifications from travis-ci - updated in .travis.yml config file
+
+[33mcommit a882d3e922ed03fe1c387821bffdb8fc3675d20a[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Thu Apr 25 11:29:42 2019 -0700
+
+    move scripts to scripts folder, clean up .travis.yml file, delete HelloWorldElement demo & documentation, update comments on core-hello.js to include example tag
+
+[33mcommit 6926624e279ad22ec3472a137c82e293c4a406cc[m
+Merge: f06b8cb a5998c5
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Thu Apr 25 08:36:18 2019 -0700
+
+    Merge branch 'ci-pipeline' of https://github.com/ucsd-cse112/Team2 into ci-pipeline
+    
+    It just is
+
+[33mcommit f06b8cb60b9e6e57b7f4ae9cee371f8d629ad694[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Thu Apr 25 08:35:57 2019 -0700
+
+    delete .DS_Store file
+
+[33mcommit 1895e8873d8eb1aba7178b834e9acf9741f9f39e[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Wed Apr 24 23:41:17 2019 -0700
+
+    update .gitignore to ignore .DS_Store files
+
+[33mcommit a5998c5e82c4d444ed5d8236dc3ac0e9f1fec01b[m
+Author: Christopher Jensen <topher.jensen63@gmail.com>
+Date:   Wed Apr 24 23:39:03 2019 -0700
+
+    Delete .DS_Store file (update in .gitignore)
+
+[33mcommit 307633236859bb38b27609786558d32edf90ae84[m
+Merge: 33f2c7b 9438188
+Author: Curtis Tong <cctong@ucsd.edu>
+Date:   Wed Apr 24 20:05:34 2019 -0700
+
+    Merge branch 'ci-pipeline' of https://github.com/ucsd-cse112/Team2 into ci-pipeline
+
+[33mcommit 33f2c7bcf5e963d9a18d07197582e727093e3a98[m
+Author: Curtis Tong <cctong@ucsd.edu>
+Date:   Wed Apr 24 20:05:03 2019 -0700
+
+    Added script to install eslint and prettier packages
+
+[33mcommit 94381888cc8d149f254742b3919a4a7bc38c4996[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Wed Apr 24 19:58:53 2019 -0700
+
+    Change font folor attribute of core-hello to white
+
+[33mcommit 1a1cf1dfc96c9978af98b5773f1a9b07c5b62880[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Wed Apr 24 19:50:26 2019 -0700
+
+    Change language attribute for web component to french
+
+[33mcommit 3106edfa7ee2c6fea1328546a429f57496b546ad[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Wed Apr 24 19:47:27 2019 -0700
+
+    Change language attribute for core-world element
+
+[33mcommit bdd42df6c91652f5f36d8a859020e873c3954583[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Wed Apr 24 19:34:48 2019 -0700
+
+    Idk
+
+[33mcommit 566caf640776f619dafea84a0ff8557bc5283074[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Wed Apr 24 19:17:43 2019 -0700
+
+    I don't know what to write
+
+[33mcommit 2a826bfe82f2d9aa04dc1f674ee4bbd04e86b6ea[m
+Merge: 595362e 2527c6a
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Wed Apr 24 19:13:27 2019 -0700
+
+    Merge branch 'ci-pipeline' of https://github.com/ucsd-cse112/Team2 into ci-pipeline
+    
+    I don't know
+
+[33mcommit 595362ec2afdbabe6dd1fb92ca45895bef7a4362[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Wed Apr 24 19:12:15 2019 -0700
+
+    Add comments to core-hello.js
+
+[33mcommit 2527c6a7d8d47c1658dfa787beab5847538e79ca[m
+Author: Peter2614 <peter26141@gmail.com>
+Date:   Wed Apr 24 18:49:31 2019 -0700
+
+    pipeline testing without pushing to github
+
+[33mcommit a049a591bf24d7e2026e4da63913139c259011ec[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Wed Apr 24 09:54:51 2019 -0700
+
+    Update README with travis-ci status image
+
+[33mcommit c8a336c77216546b0657b8be7d63362549aeff76[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Wed Apr 24 09:30:31 2019 -0700
+
+    Add script to automate ESLint+Prettier, generate dosc with JSDoc, git add -A, git commit, git push. Add mocha testing and a simple test. Update config files including travis.yml.
+
+[33mcommit 46b6127f4c65c737234d3b3d95dcf2b4f021eb3d[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue Apr 23 13:08:24 2019 -0700
+
+    testing esdoc instead of jsdoc
+
+[33mcommit dd573648acc05cb466059793c7fe7bf3a3714fe7[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue Apr 23 12:08:46 2019 -0700
+
+    dissable jsdoc script from running in travis.yml
+
+[33mcommit 9587b660d7d8b51ef4a6ffd88274234b4147faac[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue Apr 23 11:59:59 2019 -0700
+
+    minor change to jsdoc.json
+
+[33mcommit addff5366d5c629fcce8c8788304e5e262e31b19[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue Apr 23 11:50:23 2019 -0700
+
+    minor change to jsdoc.json
+
+[33mcommit 1b596652517d045928a913e06c5eae15834af585[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue Apr 23 11:27:35 2019 -0700
+
+    minor change to jsdoc.json
+
+[33mcommit 88651b1ee997da3b5520fa7f0078c88c605ca81d[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue Apr 23 11:20:33 2019 -0700
+
+    minor change to jsdoc.json
+
+[33mcommit 57a181498010565a316993ad0ce385c236ffd7b7[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue Apr 23 11:16:27 2019 -0700
+
+    minor change to jsdoc.json
+
+[33mcommit c21bdae49db69e1c79df58e3e42ca0787faee9ca[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue Apr 23 10:51:16 2019 -0700
+
+    add readme file for testing purposes
+
+[33mcommit 50d78e53dcc7894529258bbfb5b15424a83cc672[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue Apr 23 10:49:18 2019 -0700
+
+    small change to .jsdoc.json file
+
+[33mcommit efd07b2e77be0f3a1d20dd542d8f1063c387094a[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue Apr 23 10:15:55 2019 -0700
+
+    change configuration for jsdoc
+
+[33mcommit a3a532aa823eb5ce4820146fc61e1212cfd90f70[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue Apr 23 09:21:43 2019 -0700
+
+    modify .travis.yml target_branch property
+
+[33mcommit a9ed9837d110c7b84fed62f95c3233a46ac8479e[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue Apr 23 09:17:27 2019 -0700
+
+    Add travis.yml, and .jsdoc.json (config file for jsdoc) files. Add web_components folder, and run npm init. Add dev dependencies for jsdoc & minami template
+
+[33mcommit 45b6fb5d9f5fcffa68ae5990be77c7f41392116c[m[33m ([m[1;31morigin/side-panel[m[33m)[m
+Merge: f6f92ac 2705b9f
+Author: Christopher Jensen <topher.jensen63@gmail.com>
+Date:   Sat Apr 20 16:57:37 2019 -0700
+
+    Merge pull request #3 from ucsd-cse112/new-website-layout
+    
+    Minor changes and additions to website
+
+[33mcommit 2705b9f9f013cfb8b48440d49eaea6740544a10f[m[33m ([m[1;31morigin/new-website-layout[m[33m)[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Thu Apr 18 09:33:25 2019 -0700
+
+    Add logo/icon to upper corner of index.html, and remove style guide link in nav bar (will be part of documentation)
+
+[33mcommit f6f92ac7cd09f4b67beecf810067e11e63a98b77[m
+Merge: 9bbd398 acf7379
+Author: adamxkabbara <adamxkabbara@gmail.com>
+Date:   Tue Apr 16 12:41:21 2019 -0700
+
+    Merge pull request #2 from ucsd-cse112/new-website-layout
+    
+    News page added
+
+[33mcommit acf7379396d02d464dc568abf5710d043eb2ba98[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue Apr 16 12:34:01 2019 -0700
+
+    Delete unused css selectors
+
+[33mcommit 805c98201cc3e99a9934a704fa60bfd68e65804d[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue Apr 16 12:30:31 2019 -0700
+
+    Add 'News' page, and add first content
+
+[33mcommit 41b8597a7e7a1a51ccb37b2f7e4001e611399980[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue Apr 16 09:50:44 2019 -0700
+
+    Fix grid layout
+
+[33mcommit e3c08c4273aaa19fbbaeb0225954dd10e0ccb4b0[m
+Merge: e40708b 9bbd398
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue Apr 16 08:34:38 2019 -0700
+
+    Merge branch 'master' of https://github.com/ucsd-cse112/Team2 into new-website-layout
+    
+    Master has some small changes that new-website-layout needs.
+
+[33mcommit e40708bd0cf77721c838fb1531e3126501e060ac[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Tue Apr 16 08:34:27 2019 -0700
+
+    Add second logo to img folder and update main logo
+
+[33mcommit 9bbd3987a59db8528d72645b4cba5a4770378a9a[m
+Author: XinLiu <xil566@ucsd.edu>
+Date:   Mon Apr 15 22:06:09 2019 -0700
+
+    upload Xin picture
+
+[33mcommit 046fafbd422c9a6bfbdfd123bd6dedc9e755935e[m
+Author: Christopher Jensen <topher.jensen63@gmail.com>
+Date:   Mon Apr 15 15:30:03 2019 -0700
+
+    Create CNAME
+
+[33mcommit dfb6b5d004112577ba0df70f884ae0f8e640fd08[m
+Author: Christopher Jensen <topher.jensen63@gmail.com>
+Date:   Mon Apr 15 15:29:47 2019 -0700
+
+    Delete CNAME
+
+[33mcommit 91f49f4c279fffcb890e3772ed65de9c65bb3b0b[m
+Author: Christopher Jensen <topher.jensen63@gmail.com>
+Date:   Mon Apr 15 15:16:50 2019 -0700
+
+    Create CNAME
+
+[33mcommit e2fc10c4a4278162d401332f87595c48866280dc[m
+Author: Christopher Jensen <topher.jensen63@gmail.com>
+Date:   Mon Apr 15 15:13:23 2019 -0700
+
+    Delete CNAME
+
+[33mcommit 03c4e990e59bb6b327d2e8b935fd06ebb8826835[m
+Author: Christopher Jensen <topher.jensen63@gmail.com>
+Date:   Mon Apr 15 15:12:20 2019 -0700
+
+    Create CNAME
+
+[33mcommit 2b6300f79b75fad1adc262678b9acc5e218ce38e[m
+Merge: d9f03ff 71c1a8c
+Author: adamxkabbara <adamxkabbara@gmail.com>
+Date:   Sun Apr 14 17:33:46 2019 -0700
+
+    Merge pull request #1 from ucsd-cse112/new-website-layout
+    
+    New website layout
+
+[33mcommit 71c1a8cfb4e7c6743f43c342c754d3277152d099[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sun Apr 14 12:35:53 2019 -0700
+
+    Add team rules
+
+[33mcommit 30f273d8af7d2f995dafb1fd1182acb162eebc1d[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sun Apr 14 11:49:16 2019 -0700
+
+    Optimize images, change background color, add mission statement
+
+[33mcommit 1814c4ef1efd63abcf2443a65edab0741d1544cc[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Sat Apr 13 17:40:12 2019 -0700
+
+    Add navbar, change layout of homepage, add gitignore file
+
+[33mcommit d9f03ff218dfbc7165e1d68f929a27b5f1f78456[m
+Merge: 1773905 d7c69f4
+Author: adamxkabbara <adamxkabbara@gmail.com>
+Date:   Fri Apr 12 23:40:50 2019 -0700
+
+    all members add. css fixed
+
+[33mcommit 1773905b504de9c4f87006d5681abb53aa84832d[m
+Author: adamxkabbara <adamxkabbara@gmail.com>
+Date:   Fri Apr 12 23:37:57 2019 -0700
+
+    all members add. css fixed
+
+[33mcommit d7c69f400e7b39af45f1946f2209b740bb156678[m
+Author: Curtis Tong <cctong@ucsd.edu>
+Date:   Fri Apr 12 22:00:40 2019 -0700
+
+    Renamed Curtis' image picture and added section to webpage
+
+[33mcommit 763bb51a49116ce2138f96fe44fc506f0646d1f5[m
+Author: Curtis Tong <cctong@ucsd.edu>
+Date:   Fri Apr 12 21:53:21 2019 -0700
+
+    Added Curtis Tong's face for the website
+
+[33mcommit 3807a848bb5c32925fa05185e8f97cd687d0a681[m
+Author: tianmubian <tbian@ucsd.edu>
+Date:   Fri Apr 12 12:28:06 2019 -0700
+
+    minor adjustment to title placement
+
+[33mcommit 7b4c5db66d6c12e4c9ad11d68142a261e0cc6cdf[m
+Author: tianmubian <tbian@ucsd.edu>
+Date:   Fri Apr 12 12:26:24 2019 -0700
+
+    added tim's face to webpage
+
+[33mcommit d99df53379ebf158f53d4de92570e0b52fd0aa0d[m
+Author: jsc065 <jsc065@ucsd.edu>
+Date:   Thu Apr 11 23:08:44 2019 -0700
+
+    Fixed Justin .JPG
+
+[33mcommit e341ce888aec05572aa3ef700509a82e3f32e7bb[m
+Author: jsc065 <jsc065@ucsd.edu>
+Date:   Thu Apr 11 23:05:27 2019 -0700
+
+    Added Justin's Info
+
+[33mcommit 331237f2647c3a748913cd77d9d2b26002eb96d0[m
+Author: jsc065 <jsc065@ucsd.edu>
+Date:   Thu Apr 11 23:03:46 2019 -0700
+
+    Added Justin's face
+
+[33mcommit c26bbcf0c89348e6bbd5b27448f7254ef27f3051[m
+Author: aaronbrown404 <43812849+aaronbrown404@users.noreply.github.com>
+Date:   Thu Apr 11 22:15:51 2019 -0700
+
+    Update index.html
+
+[33mcommit 46576c27790a7773929f8151b862aef1eb8d821a[m
+Author: aaronbrown404 <43812849+aaronbrown404@users.noreply.github.com>
+Date:   Thu Apr 11 22:15:06 2019 -0700
+
+    Update index.html
+
+[33mcommit af652949f5fec8213acad6135cdaa4c59e4f19f4[m
+Author: aaronbrown404 <43812849+aaronbrown404@users.noreply.github.com>
+Date:   Thu Apr 11 22:14:37 2019 -0700
+
+    Update index.html
+
+[33mcommit 6004004fe39ba61a214cb5dfdc959ca8d2e23216[m
+Author: aaronbrown404 <43812849+aaronbrown404@users.noreply.github.com>
+Date:   Thu Apr 11 22:11:44 2019 -0700
+
+    aaron's face.
+
+[33mcommit 5e37ea6aa47ff3b99ba0c393ca4b65801e53c05d[m
+Author: toh006 <33336293+toh006@users.noreply.github.com>
+Date:   Thu Apr 11 21:29:09 2019 -0700
+
+    Update index.html
+
+[33mcommit 9eb12ced1a98d5bbebe1c76d9032de3585554517[m
+Author: toh006 <33336293+toh006@users.noreply.github.com>
+Date:   Thu Apr 11 21:22:20 2019 -0700
+
+    added tony's info
+
+[33mcommit b6a02d384fe2661fca5236e9dbaf08a38c2f95df[m
+Author: toh006 <33336293+toh006@users.noreply.github.com>
+Date:   Thu Apr 11 21:21:18 2019 -0700
+
+    Added face file
+
+[33mcommit 4e21f6f62a96c5876ade8273e7d21ed57d2f29db[m
+Author: toh006 <33336293+toh006@users.noreply.github.com>
+Date:   Thu Apr 11 21:20:51 2019 -0700
+
+    Delete asdffsd.png
+
+[33mcommit 295f07a99c4e1ad930da8274b59973685fb9b0de[m
+Author: toh006 <33336293+toh006@users.noreply.github.com>
+Date:   Thu Apr 11 21:19:23 2019 -0700
+
+    Added photo to images folder
+
+[33mcommit 79f712925fc68ddb094d231134738fc0aaf851fc[m[33m ([m[1;32mtool-attendance[m[33m)[m
+Author: Alex Monji <ammonji@ucsd.edu>
+Date:   Thu Apr 11 19:50:20 2019 -0700
+
+    Added Alex's profile to team website
+
+[33mcommit 6147aa37182ddec7da9cf7c0736a03e9b35cecba[m
+Author: cajen <topher.jensen63@gmail.com>
+Date:   Thu Apr 11 19:20:02 2019 -0700
+
+    Add name, picture, and email
+
+[33mcommit 2a0a610aa226845f81d1f8913c23cd28a24446b7[m
+Author: Peter2614 <peter26141@gmail.com>
+Date:   Thu Apr 11 17:09:07 2019 -0700
+
+    fixed .jpg
+
+[33mcommit 9c940dad7e0613bea22c674831431c763293a26c[m
+Author: Peter2614 <peter26141@gmail.com>
+Date:   Thu Apr 11 17:07:12 2019 -0700
+
+    added profile pic, role, and email
+
+[33mcommit 8c46b8a5236a8f64df62cc9d7c5925074308dc71[m
+Author: adamxkabbara <adamxkabbara@gmail.com>
+Date:   Wed Apr 10 11:02:55 2019 -0700
+
+    add contact
+
+[33mcommit adac882f70b9aafdc63d68f21504d49c434f2507[m
+Author: adamxkabbara <adamxkabbara@gmail.com>
+Date:   Wed Apr 10 10:28:59 2019 -0700
+
+    added role name. added margin to bottom of each member
+
+[33mcommit 70fdae4a4166345924dab76bc72d4201fdcd9bc1[m
+Author: Veronica Lin <velin@ucsd.edu>
+Date:   Wed Apr 10 02:15:35 2019 -0700
+
+    Made changes to background and color palette. Added Veronica
+
+[33mcommit 5b0b6e7d8e2e71e3a1465ac7aef48997df74df3f[m
+Author: adamxkabbara <adamxkabbara@gmail.com>
+Date:   Wed Apr 10 01:40:50 2019 -0700
+
+    Basic structure of index.html. Added Adam
+
+[33mcommit 5c70a81cd2ecde8416d1946e51b9dceca183d1a1[m
+Author: adamxkabbara <adamxkabbara@gmail.com>
+Date:   Wed Apr 10 00:05:00 2019 -0700
+
+    Set theme jekyll-theme-cayman
+
+[33mcommit fabd306c3566bfb15b5b56277950e84a7d65ded4[m
+Author: adamxkabbara <adamxkabbara@gmail.com>
+Date:   Tue Apr 9 23:59:55 2019 -0700
+
+    first commit

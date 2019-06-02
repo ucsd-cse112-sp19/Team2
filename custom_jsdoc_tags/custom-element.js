@@ -33,7 +33,14 @@ exports.handlers = {
         .map(
           a =>
             `&lt;${a.name} ${(e.doclet.properties || [])
-              .map(b => `${b.name}="[${b.type.names.join(", ")}]"`)
+              .map(b => {
+                if (b.type.names.join(", ") == "attribute") {
+                  return `${b.name}`;
+                } 
+                else {
+                  return `${b.name}="[${b.type.names.join(", ")}]"`;
+                }
+              })
               .join(" ")}&gt;`
         )
         .join("\n")}</code></pre>`;

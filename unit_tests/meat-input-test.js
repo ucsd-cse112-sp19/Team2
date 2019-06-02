@@ -1,16 +1,17 @@
 var assert = chai.assert; 
-let sr = document.querySelector("meat-input").shadowRoot; 
+let sr = document.querySelector("meat-input").shadow; 
 let comp = document.querySelector("meat-input"); 
-beforeEach(function() { 
-    
-    
-})
+
 describe('meat-input basic requirements', async() => { 
+    before(function(){
+        sr = document.querySelector("meat-button").shadow;
+        comp = document.querySelector('meat-button');
+      });
+
     it ("shadowDOM should exist", function(done) { 
         setTimeout(function() { 
-            sr = document.querySelector("meat-input").shadowRoot; 
+            sr = document.querySelector("meat-input").shadow; 
             assert.equal(sr instanceof ShadowRoot, true);
- 
         }, 0)
         done();
     })
