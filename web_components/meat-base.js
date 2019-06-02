@@ -10,7 +10,11 @@ export default class MeatBase extends HTMLElement {
   changeLinkHref(shadow) {
     if (environment == "DEVELOPMENT") {
       const Link = shadow.querySelector("link");
-      Link.href = Link.href.replace("https://unpkg.com/@meatspace", "");
+      const link_href = Link.href.replace(
+        "https://unpkg.com/@meatspace/webcomponents@latest",
+        ""
+      );
+      Link.href = link_href;
     }
   }
 }

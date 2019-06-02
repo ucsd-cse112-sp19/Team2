@@ -4,7 +4,7 @@ import MeatBase from "../meat-base.js";
 const template = document.createElement("template");
 template.innerHTML = `
   <style></style>
-  <link rel="stylesheet" href="https://unpkg.com/@meatspace/web_components/meat-button/meat-button.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-button/meat-button.css"/>
   <button id="button" type="reset"></button>
 `;
 
