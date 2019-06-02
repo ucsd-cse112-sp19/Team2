@@ -1,8 +1,9 @@
 {
     "scripts": {
-        "all": "npm-run-all test test1 test2",
+        "all": "npm-run-all test test1 test2 test3",
         "test": "./node_modules/.bin/mocha-headless-chrome -f hello-core.html || exit 0", 
         "test1": "./node_modules/.bin/mocha-headless-chrome -f meat-input.html || exit 0",
-        "test2": "./node_modules/.bin/mocha-headless-chrome -f meat-button-test.html || exit 0"
+        "test2": "./node_modules/.bin/mocha-headless-chrome -f meat-button-test.html || exit 0",
+        "test3": "./node_modules/.bin/mocha-headless-chrome -f meat-link.html || exit 0"
     }
 }
