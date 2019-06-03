@@ -1,6 +1,6 @@
+import '@babel/polyfill';
 var webpack = require("webpack");
 var path = require("path");
-//var glob = require("glob");
 
 /** 
  * Need to install the following packages:
@@ -9,6 +9,10 @@ var path = require("path");
  * babel-core
  * babel-loader
  * babel-preset-env
+ * 
+ * Others:
+ * core-js
+ * webpack-cli
 */
 module.exports = {
     entry: {
@@ -16,7 +20,10 @@ module.exports = {
         'live-editor': './web_components/live-editor/live-editor.js',
         'meat-boilerplate': './web_components/meat-boilerplate/meat-boilerplate.js',
         'meat-button': './web_components/meat-button/meat-button.js',
-        'meat-card': './web_components/meat-card/meat-card.js',
+        'meat-card': [
+            '@babel/polyfill',
+            './web_components/meat-card/meat-card.js'
+        ],
         'meat-input': './web_components/meat-input/meat-input.js',
         'meat-link': './web_components/meat-link/meat-link.js',
         'team2-learn': './web_components/team2-learn/team2-learn.js'
@@ -34,8 +41,10 @@ module.exports = {
     module: {
         rules: [{
             test: /\.js$/,
-            loader: ["babel-loader"],
-            exclude: "/node_modules/"
+            exclude: "/node_modules/",
+            use: {
+                loader: 'babel-loader'
+            }
         }]
     }
 }

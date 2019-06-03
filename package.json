@@ -9,24 +9,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "modules": false,
-          "targets": {
-            "browsers": [
-              "> 1%",
-              "Firefox >= 52",
-              "IE 11"
-            ]
-          },
-          "useBuiltIns": "entry, usage"
-        }
-      ]
-    ]
-  },
   "scripts": {
     "test": "./node_modules/.bin/testcafe chrome ./test/testcafe-hello-core.js",
     "runner": "node test/runner.js",
@@ -55,7 +37,9 @@
   },
   "homepage": "https://meat-space.org",
   "devDependencies": {
-    "@babel/core": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4",
     "@storybook/addon-knobs": "^5.0.11",
     "@storybook/html": "^5.0.11",
     "babel-core": "^6.26.3",
@@ -82,6 +66,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
     "acorn": "^6.1.1",
+    "core-js": "^3.1.3",
     "dotenv": "^8.0.0"
   }
 }
