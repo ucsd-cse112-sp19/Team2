@@ -2,7 +2,6 @@ const template = document.createElement("template");
 template.innerHTML = `
 <style></style>
 <link rel="stylesheet" href="/web_components/meat-card/meat-card.css"/>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <slot id="header" name="header"></slot>
 <slot id="body" name="body"></slot>
 `;

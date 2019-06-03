@@ -9,6 +9,24 @@
   "publishConfig": {
     "access": "public"
   },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "modules": false,
+          "targets": {
+            "browsers": [
+              "> 1%",
+              "Firefox >= 52",
+              "IE 11"
+            ]
+          },
+          "useBuiltIns": "entry, usage"
+        }
+      ]
+    ]
+  },
   "scripts": {
     "test": "./node_modules/.bin/testcafe chrome ./test/testcafe-hello-core.js",
     "runner": "node test/runner.js",
@@ -23,7 +41,7 @@
     "pipe-release-mac": "./scripts/release.sh",
     "pipe-release": "cd scripts && release.sh",
     "storybook": "start-storybook",
-    "build": "webpack", 
+    "build": "webpack",
     "start": "webpack-dev-server --output-public-path=/"
   },
   "repository": {
@@ -62,6 +80,7 @@
     "webpack-dev-server": "^3.5.1"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.4.4",
     "acorn": "^6.1.1",
     "dotenv": "^8.0.0"
   }
