@@ -71,8 +71,7 @@ export class MeatInputElement extends HTMLElement {
         parentNode.addEventListener("reset", () => {
           // Shouldn't change value of a readonly input
           if (this.hasAttribute("readonly")) return;
-          this.input.value = "";
-          this.value = "";
+          this.input.value = this.value = "";
         });
 
         // form submit
@@ -185,9 +184,7 @@ export class MeatInputElement extends HTMLElement {
       // Go through the array and compare either the number or the character depending on what got matched earlier, if we end up comparing chracters and numbers, number
       // takes priority because the chararacter group's first element in its array is infinity, similarly, the second element in the number group's array is ""
       let index = 0;
-      let aGroup = null;
-      let bGroup = null;
-      let result = null;
+      let aGroup, bGroup, result = null;
       while (aMatches[index] != null && bMatches[index] != null) {
         aGroup = aMatches[index];
         bGroup = bMatches[index];
@@ -225,9 +222,7 @@ export class MeatInputElement extends HTMLElement {
     }
 
     // get reference to suggestion item
-    const suggestion = this.shadow.querySelector(
-      `#suggestion${this._currentFocus}`
-    );
+    const suggestion = this.shadow.querySelector(`#suggestion${this._currentFocus}`);
 
     // if no suggestion, reached end of list, undo operation and return;
     if (!suggestion) {
@@ -248,8 +243,7 @@ export class MeatInputElement extends HTMLElement {
     if (evt.keyCode == 13) {
       evt.preventDefault(); /* If the ENTER key is pressed, prevent the form from being submitted,*/
       if (this._currentFocus > -1) {
-        this.value = suggestion.value; // set host value to the suggestion so user can use the value in their event listener
-        this.input.value = suggestion.value; // set input value to the suggestion to reflect back visually
+        this.value = this.input.value = suggestion.value; // set host value to the suggestion so user can use the value in their event listener and set input value to the suggestion to reflect back visually
         this.suggestionContainer.innerHTML = "";
         this._currentFocus = 0;
         this.input.focus();
