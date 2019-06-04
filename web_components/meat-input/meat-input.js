@@ -26,9 +26,7 @@ export class MeatInputElement extends HTMLElement {
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
     this.input = this.shadow.querySelector("input");
-    this.suggestionContainer = this.shadow.querySelector(
-      "#suggestionContainer"
-    );
+    this.suggestionContainer = this.shadow.querySelector("#suggestionContainer");
 
     this._currentFocus = 0; // 0 means focusing input, 1 would be the first autocomplete suggestion, 2 would be the second...
 
@@ -116,14 +114,10 @@ export class MeatInputElement extends HTMLElement {
   attributeChangedCallback(name, oldVal, newVal) {
     switch (name) {
       case "disabled":
-        if (newVal == "") {
-          this.input.disabled = true;
-        }
+        if (newVal == "") this.input.disabled = true;
         break;
       case "readonly":
-        if (newVal == "") {
-          this.input.readOnly = true;
-        }
+        if (newVal == "") this.input.readOnly = true;
         break;
       case "value":
         this.input.value = newVal;
@@ -143,9 +137,7 @@ export class MeatInputElement extends HTMLElement {
       case "suggest":
         // if autocomplete was not explicitely set and the user wants their own suggestions on,
         // then turn off autocomplete
-        if (!this.hasAttribute("autocomplete") && newVal == "on") {
-          this.input.autocomplete = "off";
-        }
+        if (!this.hasAttribute("autocomplete") && newVal == "on") this.input.autocomplete = "off";
         break;
       case "type":
         this.input.type = newVal;
@@ -170,9 +162,7 @@ export class MeatInputElement extends HTMLElement {
     }
 
     // sort suggestions alphanumerically
-    if (prop == "suggestions") {
-      this._sortSuggestions();
-    }
+    if (prop == "suggestions") this._sortSuggestions();
   }
 
   /**
@@ -205,9 +195,7 @@ export class MeatInputElement extends HTMLElement {
         result = aGroup[0] - bGroup[0] || aGroup[1].localeCompare(bGroup[1]);
         // if the comparison is unequal, then just return the result
         index++;
-        if (result != 0) {
-          return result;
-        }
+        if (result != 0) return result;
       }
 
       // otherwise, decide by the length
@@ -282,9 +270,7 @@ export class MeatInputElement extends HTMLElement {
 
     // match all suggestions where the beginning is the same as the input and render
     const regex = new RegExp(`^${evt.target.value}(.*?)`, "i");
-    const matchedSuggestions = this._suggestions.filter(suggestion =>
-      suggestion.match(regex)
-    );
+    const matchedSuggestions = this._suggestions.filter(suggestion => suggestion.match(regex));
     this._renderSuggestions(matchedSuggestions);
     this.value = evt.target.value;
   }
@@ -295,12 +281,7 @@ export class MeatInputElement extends HTMLElement {
    */
   _renderSuggestions(suggestions) {
     // if autocomplete is on or suggest is not on, don't render the suggestions list
-    if (
-      !this.getAttribute("suggest") == "on" ||
-      this.getAttribute("autocomplete") == "on"
-    ) {
-      return;
-    }
+    if (!this.getAttribute("suggest") == "on" || this.getAttribute("autocomplete") == "on") return;
 
     this.suggestionContainer.innerHTML = "";
 
@@ -312,10 +293,7 @@ export class MeatInputElement extends HTMLElement {
       row.setAttribute("tabindex", index + 1);
       row.className = "suggestion";
       row.value = suggestion;
-      row.innerHTML =
-        "<strong>" +
-        suggestion.substr(0, this.input.value.length) +
-        "</strong>"; // bold the matching part
+      row.innerHTML = "<strong>" + suggestion.substr(0, this.input.value.length) + "</strong>"; // bold the matching part
       row.innerHTML += suggestion.substr(this.input.value.length);
       row.addEventListener("click", () => {
         this.input.value = row.textContent;
