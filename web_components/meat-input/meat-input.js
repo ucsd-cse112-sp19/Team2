@@ -122,12 +122,10 @@ export class MeatInput extends HTMLElement {
   attributeChangedCallback(name, oldVal, newVal) {
     switch (name) {
       case "disabled":
-        if (newVal == "")
-          this.input.disabled = true;
+        if (newVal == "") this.input.disabled = true;
         break;
       case "readonly":
-        if (newVal == "")
-          this.input.readOnly = true;
+        if (newVal == "") this.input.readOnly = true;
         break;
       case "value":
         this.input.value = newVal;
@@ -185,11 +183,9 @@ export class MeatInput extends HTMLElement {
   _switchFocus(evt) {
     const OriginalFocus = this._currentFocus;
     // move focus up or down the list of suggestions
-    if (evt.keyCode == 40)
-      this._currentFocus++;
-    else if (evt.keyCode == 38) 
-      this._currentFocus--;
-    
+    if (evt.keyCode == 40) this._currentFocus++;
+    else if (evt.keyCode == 38) this._currentFocus--;
+
     // focus 0 means focusing the input
     if (this._currentFocus == 0) {
       this.input.focus();
@@ -211,7 +207,7 @@ export class MeatInput extends HTMLElement {
     suggestion.focus();
 
     // enter key pressed
-    if (evt.keyCode == 13) { 
+    if (evt.keyCode == 13) {
       this.value = suggestion.value; // set host value to the suggestion so user can use the value in their event listener
       this.input.value = suggestion.value; // set input value to the suggestion to reflect back visually
       this.suggestionContainer.innerHTML = "";
