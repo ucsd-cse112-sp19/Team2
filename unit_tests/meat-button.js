@@ -16,16 +16,18 @@ describe('meat-button basic requirements', function() {
         assert.isDefined(sr);
     })
 }); 
-describe('Meat-Button Color Functionality', function(done) { 
+describe('Meat-Button Color Functionality', function() { 
 
     it ("it should be green", function(done) { 
-      this.timeout(5000);
+      this.timeout(3000);
       setTimeout(function(){
+        sr = comp.shadowRoot; 
+        document.body.append(comp);
         const green_inner = sr.querySelector("button");
         const hi = getComputedStyle(green_inner).borderColor;
         assert.equal(hi, "rgb(89, 192, 64)");
         done();
-      },3000);
+      },1000);
     })
   }); 
   
