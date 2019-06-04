@@ -43,7 +43,6 @@ export class MeatInput extends HTMLElement {
     this._suggestions = [];
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
-    this.changeLinkHref(this.shadow);
     this.input = this.shadow.querySelector("input");
     this.suggestionContainer = this.shadow.querySelector(
       "#suggestionContainer"

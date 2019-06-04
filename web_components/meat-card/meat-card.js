@@ -28,7 +28,6 @@ export class MeatCard extends HTMLElement {
     super();
     this.shadowDOM = this.attachShadow({ mode: "open" });
     this.shadowDOM.appendChild(template.content.cloneNode(true));
-    this.changeLinkHref(this.shadowDOM);
   }
 
   /**

@@ -33,7 +33,6 @@ export class MeatLink extends HTMLElement {
     super();
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
-    this.changeLinkHref(this.shadow);
     this.link = this.shadow.querySelector("a");
   }
 
