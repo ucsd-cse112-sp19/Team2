@@ -31,6 +31,7 @@ export class MeatImageElement extends HTMLElement {
     super();
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
+    this.changeLinkHref(this.shadow);
 
     this.image = this.shadow.querySelector("#imageElement");
     this.imageContainer = this.shadow.querySelector("#imageContainer");

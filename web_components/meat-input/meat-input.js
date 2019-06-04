@@ -1,12 +1,14 @@
+import MeatBase from "../meat-base.js";
+
 const template = document.createElement("template");
 template.innerHTML = `
 <style></style>
-<link rel="stylesheet" href="/web_components/meat-input/meat-input.css"/>
+<link rel="stylesheet" href="https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-input/meat-input.css"/>
 <input id="input" type="text"></input>
 <div id="suggestionContainer"></div>
 `;
 
-export class MeatInputElement extends HTMLElement {
+export class MeatInputElement extends MeatBase {
   /**
    * meat-input webcomponent
    * @customelement meat-input
@@ -34,6 +36,7 @@ export class MeatInputElement extends HTMLElement {
     this._suggestions = [];
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
+    this.changeLinkHref(this.shadow);
     this.input = this.shadow.querySelector("input");
     this.suggestionContainer = this.shadow.querySelector(
       "#suggestionContainer"

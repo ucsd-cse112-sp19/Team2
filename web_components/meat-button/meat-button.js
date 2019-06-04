@@ -1,12 +1,13 @@
+import MeatBase from "../meat-base.js";
+
 const template = document.createElement("template");
 template.innerHTML = `
   <style></style>
-  <link rel="stylesheet" href="https://unpkg.com/@meatspace/webcomponents/web_components/common.css"/>
-  <link rel="stylesheet" href="https://unpkg.com/@meatspace/webcomponents/web_components/meat-button/meat-button.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-button/meat-button.css"/>
   <button id="button" type="reset"></button>
 `;
 
-export class MeatButtonElement extends HTMLElement {
+export class MeatButtonElement extends MeatBase {
   /**
    * meat-button webcomponent
    * @customelement meat-button
@@ -27,6 +28,7 @@ export class MeatButtonElement extends HTMLElement {
     this._parentForm;
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
+    this.changeLinkHref(this.shadow);
     this.button = this.shadow.querySelector("#button");
     this.addEventListener("click", this._onClick);
   }
