@@ -1,7 +1,16 @@
+import { RELEASE } from "../environment.js";
+
+let cssUrl = "/web_components/meat-image/meat-image.css";
+
+if (RELEASE) {
+  cssUrl = "https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-image/meat-image.css";
+}
+
 const template = document.createElement("template");
+
 template.innerHTML = `
 <style></style>
-<link rel="stylesheet" href="/web_components/meat-image/meat-image.css"/>
+<link rel="stylesheet" href="${cssUrl}"/>
 
 <div id="imageContainer">
   <img id="imageElement" class="nativeImg">

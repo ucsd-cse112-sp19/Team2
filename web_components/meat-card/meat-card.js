@@ -1,9 +1,16 @@
 import MeatBase from "../meat-base.js";
+import { RELEASE } from "../environment.js";
+
+let cssUrl = "/web_components/meat-card/meat-card.css";
+
+if (RELEASE) {
+  cssUrl = "https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-card/meat-card.css";
+}
 
 const template = document.createElement("template");
 template.innerHTML = `
 <style></style>
-<link rel="stylesheet" href="https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-card/meat-card.css"/>
+<link rel="stylesheet" href="${cssUrl}"/>
 <slot id="header" name="header"></slot>
 <slot id="body" name="body"></slot>
 `;

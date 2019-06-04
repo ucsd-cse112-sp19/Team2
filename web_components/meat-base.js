@@ -1,5 +1,5 @@
 // base class for all meat components
-import { environment } from "./environment.js";
+import { RELEASE } from "./environment.js";
 
 export default class MeatBase extends HTMLElement {
   constructor() {
@@ -8,7 +8,7 @@ export default class MeatBase extends HTMLElement {
 
   // simply truncates the href link in development so component references local css file rather than cdn's css file
   changeLinkHref(shadow) {
-    if (environment == "DEVELOPMENT") {
+    if (!RELEASE) {
       const Link = shadow.querySelector("link");
       const link_href = Link.href.replace(
         "https://unpkg.com/@meatspace/webcomponents@latest",

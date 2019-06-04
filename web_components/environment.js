@@ -1,4 +1,5 @@
-const environment = "DEVELOPMENT";
+// const RELEASE = true;
+const RELEASE = false;
 
-export { environment };
-export default { environment };
+export { RELEASE };
+export default { RELEASE };
