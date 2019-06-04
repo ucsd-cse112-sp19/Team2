@@ -14,12 +14,21 @@ read "New version number: " version
 
 ans=$(echo "$ans" | tr '[:upper:]' '[:lower:]') 
 
+read -p "Do you want to generate api docs? (y or n)? " docsAns
+
+docsAns=$(echo "$docsAns" | tr '[:upper:]' '[:lower:]') 
+
 if [ $ans == 'n' ]; then
   exit 
 else 
   echo "running linter ..."
   npm run-script lint
-  if [ $1 == 'nd' ]; then 
+  if [ $? -eq 0 ]; then
+    echo "ESLint success"
+  else
+    echo "ESLint failed! GO FIX ESLINT ERRORS"
+  fi
+  if [ $docsAns == 'n' ]; then 
     echo "no docs generated"
   else
     echo "running document generator ..."

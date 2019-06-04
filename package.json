@@ -1,6 +1,6 @@
 {
   "name": "@meatspace/webcomponents",
-  "version": "1.1.10",
+  "version": "0.0.2",
   "description": "A web component library",
   "main": "index.js",
   "files": [

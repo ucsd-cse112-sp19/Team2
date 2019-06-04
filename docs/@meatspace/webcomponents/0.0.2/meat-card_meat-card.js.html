@@ -40,11 +40,19 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import MeatBase from "../meat-base.js";
+import { RELEASE } from "../environment.js";
+
+let cssUrl = "/web_components/meat-card/meat-card.css";
+
+if (RELEASE) {
+  cssUrl =
+    "https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-card/meat-card.css";
+}
 
 const template = document.createElement("template");
 template.innerHTML = `
 &lt;style>&lt;/style>
-&lt;link rel="stylesheet" href="https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-card/meat-card.css"/>
+&lt;link rel="stylesheet" href="${cssUrl}"/>
 &lt;slot id="header" name="header">&lt;/slot>
 &lt;slot id="body" name="body">&lt;/slot>
 `;

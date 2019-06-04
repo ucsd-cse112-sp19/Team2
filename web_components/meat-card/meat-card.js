@@ -4,7 +4,8 @@ import { RELEASE } from "../environment.js";
 let cssUrl = "/web_components/meat-card/meat-card.css";
 
 if (RELEASE) {
-  cssUrl = "https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-card/meat-card.css";
+  cssUrl =
+    "https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-card/meat-card.css";
 }
 
 const template = document.createElement("template");

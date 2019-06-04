@@ -39,10 +39,20 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const template = document.createElement("template");
+            <pre class="prettyprint source linenums"><code>import { RELEASE } from "../environment.js";
+
+let cssUrl = "/web_components/meat-image/meat-image.css";
+
+if (RELEASE) {
+  cssUrl =
+    "https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-image/meat-image.css";
+}
+
+const template = document.createElement("template");
+
 template.innerHTML = `
 &lt;style>&lt;/style>
-&lt;link rel="stylesheet" href="/web_components/meat-image/meat-image.css"/>
+&lt;link rel="stylesheet" href="${cssUrl}"/>
 
 &lt;div id="imageContainer">
   &lt;img id="imageElement" class="nativeImg">
