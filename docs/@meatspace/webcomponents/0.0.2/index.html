@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="core-hello.html">core-hello</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="live-editor.html">live-editor</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-boilerplate.html">meat-boilerplate</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-button.html">meat-button</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-card.html">meat-card</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-input.html">meat-input</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-link.html">meat-link</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="team2-learn.html">team2-learn</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="core-hello.html">core-hello</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="live-editor.html">live-editor</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-boilerplate.html">meat-boilerplate</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-button.html">meat-button</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-card.html">meat-card</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-input.html">meat-input</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-link.html">meat-link</a></span></li>
 </nav>
 
 <div id="main">
@@ -70,14 +70,17 @@
 <p><a href="https://meat-space.org">meat-space.org</a></p>
 <h2>Getting Started</h2>
 <p>The following instructions will get our web components installed and running locally on your machine.</p>
-<h3>Prerequisites</h3>
+<h3>Installing</h3>
+<p>The easiest way to get our webcomponents is to include the following into the head of your html document:</p>
+<pre class="prettyprint source"><code>&lt;script src=&quot;https://unpkg.com/@meatspace/webcomponents@latest/bundle.js&quot;>&lt;/script>
+</code></pre>
+<p>Otherwise, you'll need to have the following installed:</p>
 <ul>
 <li>Nodejs</li>
 <li>npm</li>
 </ul>
-<h3>Installing</h3>
 <p>Assuming you have started a nodejs project, have a <code>package.json</code> file set up, and are in the root directory of your poject, run</p>
-<pre class="prettyprint source"><code>npm i team2
+<pre class="prettyprint source"><code>npm install --save @meatspace/webcomponents
 </code></pre>
 <h3>Usage &amp; Example</h3>
 <p>In your HTML page <code>&lt;head&gt;</code> element, add a <code>&lt;script&gt;</code> tag like so</p>
@@ -88,6 +91,10 @@ If you want to use a different web component, you will have to change this part 
 Next, add the component into your HTML body</p>
 <pre class="prettyprint source"><code>&lt;core-hello rainbow lang=&quot;en&quot;>this is a test!&lt;/core-hello>
 </code></pre>
+<h3>Contributing</h3>
+<p>If you'd like to contribute to our webcomponent library, visit the onboarding documents for information at:
+https://drive.google.com/open?id=1Ol-goKPABW7S3bXMqYjVDUb8xxKekqXt
+This public Google Drive contains all of information you will need to get grilling 🥩!</p>
 <h3>Acknowledgment</h3>
 <p>Thanks to <a href="http://browserstack.com/">BrowserStack</a> for supporting open source projects like ours.</p></article>
     </section>

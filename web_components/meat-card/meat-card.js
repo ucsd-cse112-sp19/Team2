@@ -1,12 +1,14 @@
+import MeatBase from "../meat-base.js";
+
 const template = document.createElement("template");
 template.innerHTML = `
 <style></style>
-<link rel="stylesheet" href="/web_components/meat-card/meat-card.css"/>
+<link rel="stylesheet" href="https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-card/meat-card.css"/>
 <slot id="header" name="header"></slot>
 <slot id="body" name="body"></slot>
 `;
 
-export class MeatCardElement extends HTMLElement {
+export class MeatCardElement extends MeatBase {
   /**
    * meat-card webcomponent
    * @customelement meat-card

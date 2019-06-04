@@ -1,11 +1,13 @@
+import MeatBase from "../meat-base.js";
+
 const template = document.createElement("template");
 template.innerHTML = `
 <style></style>
-<link rel="stylesheet" href="/web_components/meat-link/meat-link.css"/>
+<link rel="stylesheet" href="https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-link/meat-link.css"/>
 <a></a>
 `;
 
-export class MeatLinkElement extends HTMLElement {
+export class MeatLinkElement extends MeatBase {
   /**
    * meat-link webcomponent
    * @customelement meat-link

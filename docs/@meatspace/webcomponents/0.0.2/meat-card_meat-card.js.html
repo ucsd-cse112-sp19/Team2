@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="core-hello.html">core-hello</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="live-editor.html">live-editor</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-boilerplate.html">meat-boilerplate</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-button.html">meat-button</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-card.html">meat-card</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-input.html">meat-input</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-link.html">meat-link</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="team2-learn.html">team2-learn</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="core-hello.html">core-hello</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="live-editor.html">live-editor</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-boilerplate.html">meat-boilerplate</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-button.html">meat-button</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-card.html">meat-card</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-input.html">meat-input</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-link.html">meat-link</a></span></li>
 </nav>
 
 <div id="main">
@@ -39,15 +39,17 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const template = document.createElement("template");
+            <pre class="prettyprint source linenums"><code>import MeatBase from "../meat-base.js";
+
+const template = document.createElement("template");
 template.innerHTML = `
 &lt;style>&lt;/style>
-&lt;link rel="stylesheet" href="/web_components/meat-card/meat-card.css"/>
+&lt;link rel="stylesheet" href="https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-card/meat-card.css"/>
 &lt;slot id="header" name="header">&lt;/slot>
 &lt;slot id="body" name="body">&lt;/slot>
 `;
 
-export class MeatCardElement extends HTMLElement {
+export class MeatCardElement extends MeatBase {
   /**
    * meat-card webcomponent
    * @customelement meat-card

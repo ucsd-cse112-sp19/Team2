@@ -1,4 +1,3 @@
-import environment from "../environment.js";
 import MeatBase from "../meat-base.js";
 
 const template = document.createElement("template");
