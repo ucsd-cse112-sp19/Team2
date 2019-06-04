@@ -10,6 +10,13 @@ test("Check that the size attribute exists", async t => {
   await t.expect(component.getAttribute("size")).eql("small");
 });
 
+test("Allows user input", async t => { 
+  const component = await getElementById("meat-input");
+  await t
+        .typeText(component, "meat-space")
+        .expect(component.getAttribute("placeholder")).eql("meat-space")
+})
+
 test("Check that the placeholder attribute exists", async t => {
   const component = await getElementById("meat-input");
   await t.expect(component.getAttribute("placeholder")).eql("Small");

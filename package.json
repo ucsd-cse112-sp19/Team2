@@ -34,8 +34,18 @@
     "url": "https://github.com/ucsd-cse112/Team2/issues"
   },
   "homepage": "https://meat-space.org",
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "es2015"
+    ]
+  },
   "devDependencies": {
-    "@babel/core": "^7.4.4",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4",
     "@storybook/addon-knobs": "^5.0.11",
     "@storybook/html": "^5.0.11",
     "babel-loader": "^8.0.5",
@@ -50,6 +60,7 @@
     "mocha": "^6.1.4",
     "mocha-chrome": "^2.0.0",
     "mocha-headless-chrome": "^2.0.2",
+    "nodemon": "^1.19.1",
     "npm-run-all": "^4.1.5",
     "prettier": "1.17.0",
     "puppeteer": "^1.17.0",
