@@ -9,16 +9,16 @@ const setAttribute = ClientFunction((id, attributeName, value) => {
 });
 
 test("Check that color attribute exists", async t => {
-  const component = await getElementById("meat-button");
+  const component = await getElementById("#check-button");
   await t.expect(component.hasAttribute("color")).eql(true);
 });
 test("Check white color attribute", async t => {
-  const component = await getElementById("meat-button");
+  const component = await getElementById("#check-button");
   await t.expect(component.getAttribute("color")).eql("white");
 });
 
 test("Check that tag-name is meat-button", async t => {
-  const component = getElementById("meat-button");
+  const component = getElementById("#check-button");
   await t.expect(component.tagName).eql("meat-button");
 });
 
