@@ -27,7 +27,7 @@
     "pipe-release": "cd scripts && release.sh",
     "storybook": "start-storybook",
     "babel": "./node_modules/.bin/babel web_components --out-dir lib",
-    "build": "npm run babel && npm run lint-lib"
+    "build": "rollup -c"
   },
   "unpkg": "bundle.js",
   "repository": {
