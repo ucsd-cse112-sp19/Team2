@@ -28,9 +28,9 @@ export class MeatButtonElement extends MeatBase {
     this._parentForm;
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
+    this.changeLinkHref(this.shadow);
     this.button = this.shadow.querySelector("#button");
     this.addEventListener("click", this._onClick);
-    this.changeLinkHref(this.shadow);
   }
 
   /**
