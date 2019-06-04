@@ -1,12 +1,19 @@
-import MeatBase from "../meat-base.js";
+import { RELEASE } from "../environment.js";
+// path to local css file for development
+let cssUrl = "/web_components/meat-boilerplate/meat-boilerplate.css";
+// replaces the href during the bundling process to point to production
+if (RELEASE) {
+  cssUrl =
+    "https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-boilerplate/meat-boilerplate.css";
+}
 
 const template = document.createElement("template");
 template.innerHTML = `
 <style></style>
-<link rel="stylesheet" href="https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-boilerplate/meat-boilerplate.css"/>
+<link rel="stylesheet" href=${cssUrl}/>
 `;
 
-export class MeatBoilerplateElement extends MeatBase {
+export class MeatBoilerplate extends HTMLElement {
   /**
    * meat-boilerplate webcomponent
    * @customelement meat-boilerplate
@@ -41,4 +48,4 @@ export class MeatBoilerplateElement extends MeatBase {
    */
   attributeChangedCallback(name, oldVal, newVal) {}
 }
-window.customElements.define("meat-boilerplate", MeatBoilerplateElement);
+window.customElements.define("meat-boilerplate", MeatBoilerplate);

@@ -1,8 +1,8 @@
-import { CoreHelloElement } from "./core-hello/core-hello.js";
-import { LiveEditorElement } from "./live-editor/live-editor.js";
+import { CoreHello } from "./core-hello/core-hello.js";
+import { LiveEditor } from "./live-editor/live-editor.js";
 
 export default {
-  CoreHelloElement,
-  LiveEditorElement,
-  MeatButtonElement
+  CoreHello,
+  LiveEditor,
+  MeatButton
 };

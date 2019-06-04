@@ -52,7 +52,7 @@ tmpl.innerHTML = `
 <slot></slot>
 `;
 
-export class CoreHelloElement extends HTMLElement {
+export class CoreHello extends HTMLElement {
   /**
    * core-hello web component
    * @customelement core-hello
@@ -175,4 +175,4 @@ export class CoreHelloElement extends HTMLElement {
     return this.getAttribute("lang");
   }
 }
-window.customElements.define("core-hello", CoreHelloElement);
+window.customElements.define("core-hello", CoreHello);

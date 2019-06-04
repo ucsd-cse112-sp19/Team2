@@ -1,8 +1,7 @@
-import MeatBase from "../meat-base.js";
 import { RELEASE } from "../environment.js";
-
+// path to local css file for development
 let cssUrl = "/web_components/meat-link/meat-link.css";
-
+// replaces the href during the bundling process to point to production
 if (RELEASE) {
   cssUrl =
     "https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-link/meat-link.css";
@@ -15,7 +14,7 @@ template.innerHTML = `
 <a></a>
 `;
 
-export class MeatLinkElement extends MeatBase {
+export class MeatLink extends HTMLElement {
   /**
    * meat-link webcomponent
    * @customelement meat-link
@@ -148,4 +147,4 @@ export class MeatLinkElement extends MeatBase {
     else this.removeAttribute("disabled");
   }
 }
-window.customElements.define("meat-link", MeatLinkElement);
+window.customElements.define("meat-link", MeatLink);

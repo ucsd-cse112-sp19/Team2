@@ -1,8 +1,7 @@
-import MeatBase from "../meat-base.js";
 import { RELEASE } from "../environment.js";
-
+// path to local css file for development
 let cssUrl = "/web_components/meat-card/meat-card.css";
-
+// replaces the href during the bundling process to point to production
 if (RELEASE) {
   cssUrl =
     "https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-card/meat-card.css";
@@ -16,7 +15,7 @@ template.innerHTML = `
 <slot id="body" name="body"></slot>
 `;
 
-export class MeatCardElement extends MeatBase {
+export class MeatCard extends HTMLElement {
   /**
    * meat-card webcomponent
    * @customelement meat-card
@@ -73,4 +72,4 @@ export class MeatCardElement extends MeatBase {
     }
   }
 }
-window.customElements.define("meat-card", MeatCardElement);
+window.customElements.define("meat-card", MeatCard);

@@ -1,8 +1,7 @@
-import MeatBase from "../meat-base.js";
 import { RELEASE } from "../environment.js";
-
+// path to local css file for development
 let cssUrl = "/web_components/meat-button/meat-button.css";
-
+// replaces the href during the bundling process to point to production
 if (RELEASE) {
   cssUrl =
     "https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-button/meat-button.css";
@@ -15,7 +14,7 @@ template.innerHTML = `
   <button id="button" type="reset"></button>
 `;
 
-export class MeatButtonElement extends MeatBase {
+export class MeatButton extends HTMLElement {
   /**
    * meat-button webcomponent
    * @customelement meat-button
@@ -261,4 +260,4 @@ export class MeatButtonElement extends MeatBase {
   }
 }
 
-window.customElements.define("meat-button", MeatButtonElement);
+window.customElements.define("meat-button", MeatButton);

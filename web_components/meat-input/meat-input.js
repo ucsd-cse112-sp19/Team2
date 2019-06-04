@@ -1,8 +1,7 @@
-import MeatBase from "../meat-base.js";
 import { RELEASE } from "../environment.js";
-
+// path to local css file for development
 let cssUrl = "/web_components/meat-input/meat-input.css";
-
+// replaces the href during the bundling process to point to production
 if (RELEASE) {
   cssUrl =
     "https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-input/meat-input.css";
@@ -16,7 +15,7 @@ template.innerHTML = `
 <div id="suggestionContainer"></div>
 `;
 
-export class MeatInputElement extends MeatBase {
+export class MeatInput extends HTMLElement {
   /**
    * meat-input webcomponent
    * @customelement meat-input
@@ -406,4 +405,4 @@ export class MeatInputElement extends MeatBase {
   }
 }
 
-window.customElements.define("meat-input", MeatInputElement);
+window.customElements.define("meat-input", MeatInput);

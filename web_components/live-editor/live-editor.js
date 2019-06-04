@@ -9,7 +9,7 @@ template.innerHTML = `
     </div>
 `;
 
-export class LiveEditorElement extends HTMLElement {
+export class LiveEditor extends HTMLElement {
   /**
    * live-editor web component description
    * @customelement live-editor
@@ -108,4 +108,4 @@ export class LiveEditorElement extends HTMLElement {
     }
   }
 }
-window.customElements.define("live-editor", LiveEditorElement);
+window.customElements.define("live-editor", LiveEditor);
