@@ -1,7 +1,28 @@
 {
     "presets": [
-        ["env", {
-            "debug": true
-    }]
-    ]
+        ["@babel/preset-env", {
+            "debug": true,
+            "modules": false,
+            "targets": ["IE 11", "Firefox 60"],
+            "useBuiltIns": "usage",
+            "corejs": 3
+        }]
+    ],
+    "env": {
+        "cjs": {
+            "presets": [
+                ["@babel/preset-env", { 
+                    "modules": "commonjs",
+                    "targets": "IE 11"
+                }]
+            ]
+        },
+        "coverage": {
+            "plugins": [
+                ["@babel-plugin-istanbul", {
+                    "include": ["./web_components/*.js"]
+                }]
+            ]
+        }
+    }
 }
