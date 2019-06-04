@@ -36,7 +36,6 @@ export class MeatInput extends HTMLElement {
    * */
   constructor() {
     super();
-    this._sortSuggestions = this._sortSuggestions.bind(this);
     this._switchFocus = this._switchFocus.bind(this);
     this._onInputChange = this._onInputChange.bind(this);
 
@@ -123,14 +122,12 @@ export class MeatInput extends HTMLElement {
   attributeChangedCallback(name, oldVal, newVal) {
     switch (name) {
       case "disabled":
-        if (newVal == "") {
+        if (newVal == "")
           this.input.disabled = true;
-        }
         break;
       case "readonly":
-        if (newVal == "") {
+        if (newVal == "")
           this.input.readOnly = true;
-        }
         break;
       case "value":
         this.input.value = newVal;
@@ -179,68 +176,20 @@ export class MeatInput extends HTMLElement {
       delete this[prop];
       this[prop] = value;
     }
-
-    // sort suggestions alphanumerically
-    if (prop == "suggestions") {
-      this._sortSuggestions();
-    }
-  }
-
-  /**
-   * Sort suggestions alphanumerically for user convenience, make toggleable via attribute?
-   */
-  // _sortSuggestions = () => {
-  _sortSuggestions() {
-    this._suggestions = this._suggestions.sort(function(a, b) {
-      // If characters get matched to the regular expression \D+\, push [infinity, "the first char"]
-      // If numbers get matched to the regular expression \d+\, push [the numbers, ""]
-      const aMatches = [];
-      const bMatches = [];
-      a.replace(/(\d+)|(\D+)/g, function(_, $1, $2) {
-        aMatches.push([$1 || Infinity, $2 || ""]);
-      });
-      b.replace(/(\d+)|(\D+)/g, function(_, $1, $2) {
-        bMatches.push([$1 || Infinity, $2 || ""]);
-      });
-
-      // Go through the array and compare either the number or the character depending on what got matched earlier, if we end up comparing chracters and numbers, number
-      // takes priority because the chararacter group's first element in its array is infinity, similarly, the second element in the number group's array is ""
-      let index = 0;
-      let aGroup = null;
-      let bGroup = null;
-      let result = null;
-      while (aMatches[index] != null && bMatches[index] != null) {
-        aGroup = aMatches[index];
-        bGroup = bMatches[index];
-        // compare each group
-        result = aGroup[0] - bGroup[0] || aGroup[1].localeCompare(bGroup[1]);
-        // if the comparison is unequal, then just return the result
-        index++;
-        if (result != 0) {
-          return result;
-        }
-      }
-
-      // otherwise, decide by the length
-      return aMatches.length - bMatches.length;
-    });
   }
 
   /**
    * @param {event} evt
    * Allow user to use keyboard arrows to navigate up and down the list
    */
-  // _switchFocus = (evt) => {
   _switchFocus(evt) {
+    const OriginalFocus = this._currentFocus;
     // move focus up or down the list of suggestions
-    if (evt.keyCode == 40) {
-      // down
+    if (evt.keyCode == 40)
       this._currentFocus++;
-    } else if (evt.keyCode == 38) {
-      // up
+    else if (evt.keyCode == 38) 
       this._currentFocus--;
-    }
-
+    
     // focus 0 means focusing the input
     if (this._currentFocus == 0) {
       this.input.focus();
@@ -254,13 +203,7 @@ export class MeatInput extends HTMLElement {
 
     // if no suggestion, reached end of list, undo operation and return;
     if (!suggestion) {
-      if (evt.keyCode == 40) {
-        // down
-        this._currentFocus--;
-      } else if (evt.keyCode == 38) {
-        // up
-        this._currentFocus++;
-      }
+      this._currentFocus = OriginalFocus;
       return;
     }
 
@@ -268,15 +211,12 @@ export class MeatInput extends HTMLElement {
     suggestion.focus();
 
     // enter key pressed
-    if (evt.keyCode == 13) {
-      evt.preventDefault(); /* If the ENTER key is pressed, prevent the form from being submitted,*/
-      if (this._currentFocus > -1) {
-        this.value = suggestion.value; // set host value to the suggestion so user can use the value in their event listener
-        this.input.value = suggestion.value; // set input value to the suggestion to reflect back visually
-        this.suggestionContainer.innerHTML = "";
-        this._currentFocus = 0;
-        this.input.focus();
-      }
+    if (evt.keyCode == 13) { 
+      this.value = suggestion.value; // set host value to the suggestion so user can use the value in their event listener
+      this.input.value = suggestion.value; // set input value to the suggestion to reflect back visually
+      this.suggestionContainer.innerHTML = "";
+      this._currentFocus = 0;
+      this.input.focus();
     }
   }
 
@@ -284,7 +224,6 @@ export class MeatInput extends HTMLElement {
    * @param {object} evt
    * Suggest terms for user to select whenever they input characters.
    */
-  // _onInputChange = (evt) => {
   _onInputChange(evt) {
     if (!evt.target.value) {
       this._renderSuggestions([]);
@@ -350,7 +289,6 @@ export class MeatInput extends HTMLElement {
    */
   set suggestions(val) {
     this._suggestions = val;
-    this._sortSuggestions();
   }
 
   /**
