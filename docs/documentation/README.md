@@ -3,7 +3,20 @@
 [![Build Status](https://travis-ci.org/ucsd-cse112/Team2.svg?branch=master)](https://travis-ci.org/ucsd-cse112/Team2)
 [![Maintainability](https://api.codeclimate.com/v1/badges/2a07d0e8d29fd216bc41/maintainability)](https://codeclimate.com/repos/5cc77286629ff0026e00188a/maintainability) <br/>
 
-MeatSpace web component library. 
+Welcome to the MeatSpace docs! 🥩 📙
+Here you can find all of the important information about [installing](installation.md#Installation) and [using](installation.md?id=usage-amp-example) our web components. Checkout our [quick start](quick.md?id=quick-start-guide) guide for a quick tutorial on how to get started. 
+
+#### Visit our website and GitHub page for more information
+- [meat-space.org](https://meat-space.org)
+- [GitHub](https://github.com/ucsd-cse112/Team2)
+
+## Contributing
+If you'd like to contribute to our webcomponent library, visit the onboarding documents for information at:
+https://drive.google.com/open?id=1Ol-goKPABW7S3bXMqYjVDUb8xxKekqXt  
+This public Google Drive contains all of information you will need to get grilling 🥩!
+
+## Acknowledgment
+Thanks to [BrowserStack](http://browserstack.com/) for supporting open source projects like ours. 
 
 ## Team Members
 - Adam Kabbara `Lead`
@@ -17,41 +30,3 @@ MeatSpace web component library.
 - Justin Chen `Coder`
 - Christopher Jensen `DevOps`
 - Xin Liu `DevOps`
-
-## [meat-space.org](https://meat-space.org)
-
-## Getting Started
-The following instructions will get our web components installed and running locally on your machine.
-
-### Installing
-The easiest way to get our webcomponents is to include the following into the head of your html document:
-```
-<script src="https://unpkg.com/@meatspace/webcomponents@latest/bundle.js"></script>
-```
-Otherwise, you'll need to have the following installed:
-* Nodejs
-* npm
-
-Assuming you have started a nodejs project, have a `package.json` file set up, and are in the root directory of your poject, run
-```
-npm install --save @meatspace/webcomponents
-```
-### Usage & Example
-In your HTML page `<head>` element, add a `<script>` tag like so
-```
-<script type="module" src="./node_modules/team2/web_components/core-hello/core-hello.js"></script>
-```
-In the above example, `/core-hello/core-hello.js` is the path to the core-hello web component JavaScript file. 
-If you want to use a different web component, you will have to change this part of the path appropriately.
-Next, add the component into your HTML body
-```
-<core-hello rainbow lang="en">this is a test!</core-hello>
-```
-### Contributing
-If you'd like to contribute to our webcomponent library, visit the onboarding documents for information at:
-https://drive.google.com/open?id=1Ol-goKPABW7S3bXMqYjVDUb8xxKekqXt  
-This public Google Drive contains all of information you will need to get grilling 🥩!
-
-### Acknowledgment
-Thanks to [BrowserStack](http://browserstack.com/) for supporting open source projects like ours. 
-

@@ -5,6 +5,7 @@
   "main": "index.js",
   "files": [
     "/web_components",
+    "/lib",
     "bundle.js"
   ],
   "publishConfig": {
@@ -27,7 +28,7 @@
     "pipe-release": "cd scripts && release.sh",
     "storybook": "start-storybook",
     "babel": "./node_modules/.bin/babel web_components --out-dir lib",
-    "build": "rollup -c"
+    "build": "npm run babel && rollup -c"
   },
   "unpkg": "bundle.js",
   "repository": {

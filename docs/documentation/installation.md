@@ -31,18 +31,23 @@ In your HTML page `<head>` element, include the following into the head of your 
         <script src="https://unpkg.com/@meatspace/webcomponents@latest/bundle.js"></script>
     </head>
     <body>
-        <meat-button>A Meat Button</meat-button>
+        <meat-button color="blue" size="large">MeatSpace!</meat-button>
     </body>
 </html>
 ```
+##### output
+<iframe width="100%" height="100%" src="/docs/documentation/meat-button-examples/example-installation-page.html"></iframe>
+
 ### npm
 In your HTML page `<head>` element, include the following into the head of your html document:
 ```
-<script type="module" src="./node_modules/team2/web_components/core-hello/core-hello.js"></script>
+<script type="module" src="node_modules/@meatspace/webcomponents/lib/meat-button/meat-button.js"></script>
 ```
 In the above example, `/meat-button/meat-button.js` is the path to the core-hello web component JavaScript file. 
 If you want to use a different web component, you will have to change this part of the path appropriately.
 Next, add the component into your HTML body
 ```
-<meat-button>A Meat Button</meat-button>
+<meat-button color="blue" size="large">MeatSpace!</meat-button>
 ```
+##### output
+<iframe width="100%" height="100%" src="/docs/documentation/meat-button-examples/example-installation-page.html"></iframe>

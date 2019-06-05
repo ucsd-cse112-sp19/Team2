@@ -39,7 +39,7 @@ npm install --save @meatspace/webcomponents
 ### Usage & Example
 In your HTML page `<head>` element, add a `<script>` tag like so
 ```
-<script type="module" src="./node_modules/team2/web_components/core-hello/core-hello.js"></script>
+<script type="module" src="/node_modules/@meatspace/webcomponents/lib/core-hello/core-hello.js"></script>
 ```
 In the above example, `/core-hello/core-hello.js` is the path to the core-hello web component JavaScript file. 
 If you want to use a different web component, you will have to change this part of the path appropriately.
@@ -47,6 +47,11 @@ Next, add the component into your HTML body
 ```
 <core-hello rainbow lang="en">this is a test!</core-hello>
 ```
+If you want access to all of the components add this `<script>` tag instead
+```
+<script type="module" src="/node_modules/@meatspace/webcomponents/bundle.js"></script>
+```
+
 ### Contributing
 If you'd like to contribute to our webcomponent library, visit the onboarding documents for information at:
 https://drive.google.com/open?id=1Ol-goKPABW7S3bXMqYjVDUb8xxKekqXt  

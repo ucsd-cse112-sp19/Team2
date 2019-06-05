@@ -1,13 +1,13 @@
-import { MeatButtonElement } from './web_components/meat-button/meat-button.js';
-import { CoreHelloElement } from './web_components/core-hello/core-hello.js';
-import { MeatCardElement } from './web_components/meat-card/meat-card.js';
-import { MeatInputElement } from './web_components/meat-input/meat-input.js';
-import { MeatLinkElement } from './web_components/meat-link/meat-link.js';
+import { MeatButton } from "./web_components/meat-button/meat-button.js";
+import { CoreHello } from "./web_components/core-hello/core-hello.js";
+import { MeatCard } from "./web_components/meat-card/meat-card.js";
+import { MeatInput } from "./web_components/meat-input/meat-input.js";
+import { MeatLink } from "./web_components/meat-link/meat-link.js";
 
 export default {
-    MeatButtonElement,
-    CoreHelloElement,
-    MeatCardElement,
-    MeatInputElement,
-    MeatLinkElement
-}
+  MeatButton,
+  CoreHello,
+  MeatCard,
+  MeatInput,
+  MeatLink
+};
