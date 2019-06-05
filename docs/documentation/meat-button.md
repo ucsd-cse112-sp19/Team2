@@ -1,3 +1,26 @@
+<style>
+details {
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: .5em .5em 0;
+}
+
+summary {
+    font-weight: bold;
+    margin: -.5em -.5em 0;
+    padding: .5em;
+}
+
+details[open] {
+    padding: .5em;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: .5em;
+}
+</style>
+
 # MeatSpace Button Component
 
 ## Contents
@@ -10,7 +33,8 @@
 [CSS Variables](#css-variables)<br>
 
 ## Basic Usage
-<iframe width="100%" height="100%" src="/docs/documentation/meat-button-examples/example1.html"></iframe>
+<iframe width="100%" height="140px" src="/docs/documentation/meat-button-examples/example1.html"></iframe>
+<details><summary>Show Code</summary><br>
 
 ```
 <meat-button color="white"  size="large" >White</meat-button>
@@ -22,9 +46,11 @@
 <meat-button color="blue"   size="large" >Blue</meat-button>
 <meat-button color="purple" size="large" >Purple</meat-button>
 ```
+</details>
 
 ## Round Buttons
-<iframe width="100%" height="100%" src="/docs/documentation/meat-button-examples/example2.html"></iframe>
+<iframe width="100%" height="140px" src="/docs/documentation/meat-button-examples/example2.html"></iframe>
+<details><summary>Show Code</summary><br>
 
 ```
 <meat-button color="white"  size="large" round >White</meat-button>
@@ -36,9 +62,11 @@
 <meat-button color="blue"   size="large" round >Blue</meat-button>
 <meat-button color="purple" size="large" round >Purple</meat-button>
 ```
+</details>
 
 ## Circle Buttons
-<iframe width="100%" height="100%" src="/docs/documentation/meat-button-examples/example3.html"></iframe>
+<iframe width="100%" height="90px" src="/docs/documentation/meat-button-examples/example3.html"></iframe>
+<details><summary>Show Code</summary><br>
 
 ```
 <meat-button color="white"  size="large" circle>+</meat-button>
@@ -50,16 +78,21 @@
 <meat-button color="blue"   size="large" circle>+</meat-button>
 <meat-button color="purple" size="large" circle>+</meat-button>
 ```
+</details>
+
 ## Disabled Buttons
-<iframe width="100%" height="100%" src="/docs/documentation/meat-button-examples/example4.html"></iframe>
+<iframe width="100%" height="90px" src="/docs/documentation/meat-button-examples/example4.html"></iframe>
+<details><summary>Show Code</summary><br>
 
 ```
 <meat-button color="white" size="large" round disabled >Disabled</meat-button>
 <meat-button color="white" size="large" round >Not Disabled</meat-button>
 ```
+</details>
 
 ## Bootstrap Support
-<iframe width="100%" height="100%" src="/docs/documentation/meat-button-examples/example5.html"></iframe>
+<iframe width="100%" height="140px" src="/docs/documentation/meat-button-examples/example5.html"></iframe>
+<details><summary>Show Code</summary><br>
 
 ```
 <meat-button bootstrap="btn btn-primary">Primary</meat-button>
@@ -71,6 +104,7 @@
 <meat-button bootstrap="btn btn-light">Light</meat-button>
 <meat-button bootstrap="btn btn-dark">Dark</meat-button>
 ```
+</details>
 
 ## Attributes
 | Attributes | Description                                                   | Type    | Accepted Values       | Default |

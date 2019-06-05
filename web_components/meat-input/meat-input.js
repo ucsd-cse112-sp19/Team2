@@ -68,6 +68,9 @@ export class MeatInput extends HTMLElement {
    * Live-cycle method called when the custom element is loaded, often used for initialization
    */
   connectedCallback() {
+    console.log(this.textContent);
+    this.input.value = this.textContent;
+
     // User may have attempted to set suggestions before element loaded in, set them now.
     this._upgradeProperty("suggestions");
 

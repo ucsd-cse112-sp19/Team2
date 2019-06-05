@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>meat-card/meat-card.js - Documentation</title>
+    <title>meat-dropdown/meat-dropdown.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">meat-card/meat-card.js</h1>
+    <h1 class="page-title">meat-dropdown/meat-dropdown.js</h1>
     
 
     
@@ -39,49 +39,47 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { RELEASE } from "../environment.js";
-// path to local css file for development
-let cssUrl = "/web_components/meat-card/meat-card.css";
-// replaces the href during the bundling process to point to production
-if (RELEASE) {
-  cssUrl =
-    "https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-card/meat-card.css";
-}
-
-const template = document.createElement("template");
+            <pre class="prettyprint source linenums"><code>const template = document.createElement("template");
 template.innerHTML = `
 &lt;style>&lt;/style>
-&lt;link rel="stylesheet" href="${cssUrl}"/>
-&lt;slot id="header" name="header">&lt;/slot>
-&lt;slot id="body" name="body">&lt;/slot>
+&lt;link rel="stylesheet" href="/web_components/common.css"/>
+&lt;link rel="stylesheet" href="/web_components/meat-dropdown/meat-dropdown.css"/>
+&lt;select>&lt;slot id="dropdown" name="dropdown">&lt;/slot>&lt;/select>
 `;
 
-export class MeatCard extends HTMLElement {
+export class MeatDropdownElement extends HTMLElement {
   /**
-   * meat-card webcomponent
-   * @customelement meat-card
-   * @description A reusable card with replaceable markup.
-   * @example &lt;meat-card>&lt;/meat-card>
-   * @see [Demo]{@link https://meat-space.org/web_components/meat-card/meat-card-demo.html} for working example.
-   * @property {attribute} shadow -Specifies a "shadow" around the card.
-   * */
+   * meat-dropdown webcomponent
+   * @customelement meat-dropdown
+   * @description A dropdown for starting new webcomponents
+   * @example &lt;meat-dropdown>&lt;/meat-dropdown>
+   */
   constructor() {
     super();
-    this.shadowDOM = this.attachShadow({ mode: "open" });
-    this.shadowDOM.appendChild(template.content.cloneNode(true));
+    // this._onSlotChange = this._onSlotChange.bind(this);
+    this.shadow = this.attachShadow({ mode: "open" });
+    this.shadow.appendChild(template.content.cloneNode(true));
+    // this._dropdownSlot = this.shadowRoot.querySelector('slot[name=dropdown]');
+
+    // this._dropdownSlot.addEventListener('slotchange', this._onSlotChange);
   }
 
   /**
    * Live-cycle method called when the custom element is loaded, often used for initialization
    */
-  connectedCallback() {}
+  connectedCallback() {
+    // Need to get the content inbetween the &lt;meat-dropdown> tags into the button so it renders
+    this.dropdown.textContent = this.textContent;
+    this.addEventListener("keydown", this._onKeyDown);
+    this.addEventListener("click", this._onClick);
+  }
 
   /**
    * Tell the webcomponent to observe these attributes, if any of them are added, changed, or removed, then
    * call attributeChangedCallback(name, oldVal, newVal)
    */
   static get observedAttributes() {
-    return ["shadow"];
+    return ["value", "disabled"];
   }
 
   /**
@@ -92,27 +90,17 @@ export class MeatCard extends HTMLElement {
    */
   attributeChangedCallback(name, oldVal, newVal) {
     switch (name) {
-      case "shadow":
+      case "disabled":
+        if (newVal == "") this.dropdown.disabled = true;
+        else this.dropdown.disabled = false;
+        break;
+      case "value":
+        this.dropdown.className = newVal;
         break;
     }
   }
-
-  /**
-   * Getters and Setters
-   */
-  get shadow() {
-    return this.getAttribute("shadow");
-  }
-
-  set shadow(val) {
-    if (val) {
-      this.setAttribute("shadow", val);
-    } else {
-      this.removeAttribute("shadow");
-    }
-  }
 }
-window.customElements.define("meat-card", MeatCard);
+window.customElements.define("meat-dropdown", MeatDropdownElement);
 </code></pre>
         </article>
     </section>

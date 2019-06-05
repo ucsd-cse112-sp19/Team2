@@ -1,10 +1,26 @@
 # MeatSpace Card Component
 
+Contains two slots, "header" and "body."
+Assign your markup to a slot by providing the slot attribute.
+Example:
+```
+<meat-card>
+    <div slot="header">
+        This will go into the header of the card.
+    </div>
+    <div slot="body">
+        This will go into the body of the card
+    </div>
+</meat-card>
+```
+
 ## Contents
 [Basic Cards](#basic-cards)<br>
 [No Header](#no-header)<br>
 [Example Cards](#example-cards)<br>
 [Bootstrap Support](#bootstrap-support)<br>
+[Attributes](#attributes)<br>
+[CSS Variables](#css-variables)<br>
 
 <style>
 details {
@@ -162,5 +178,10 @@ details[open] summary {
 ## Attributes
 | Attributes | Description                                                   | Type    | Accepted Values | Default |
 |------------|---------------------------------------------------------------|---------|-----------------|---------|
-| bootstrap  | Assign this attribute boostrap class names. Use this attribute to style buttons with bootstrap.| string | ex: btn btn-primary | |
-| shadow  | Specifies a "shadow" around the card.                            | string | always/hover/never | always | 
+| bootstrap  | Assign this attribute boostrap class names. Use this attribute to style any markup you put inside a card as you normally would with bootstrap.| string | ex: "card" | |
+| shadow     | Specifies a "shadow" around the card.                            | string | always/hover/never | always | 
+
+## CSS Variables
+| CSS Variable              | Description                                                        | Default            |
+|---------------------------|--------------------------------------------------------------------|--------------------|
+| None                      | There are no special css variables for this component! | |

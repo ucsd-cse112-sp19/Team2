@@ -8,11 +8,16 @@
     color: #444444;
     height: 38px;
     font-size: 14px;
-    --padding: 10px;
-    --background-color: white;
-    --border: 1px solid #CCCCCC;
     border-radius: 3px;
     outline: none;
+
+    /* CSS Variables */
+    --input-padding: 10px;
+    --input-background-color: white;
+    --input-border: 1px solid #CCCCCC;
+    --input-hover-border: 1px solid #888888;
+    --input-focus-border: 1px solid #3388ff;
+    --input-active-border: 1px solid #3388ff;
 }
 
 ::placeholder {
@@ -23,9 +28,9 @@ input {
     position: relative;
     display: inline-block;
 
-    background-color: var(--background-color);
-    padding: var(--padding);
-    border: var(--border);
+    background-color: var(--input-background-color);
+    padding: var(--input-padding);
+    border: var(--input-border);
 
     box-sizing: border-box;
     width: 100%;
@@ -50,15 +55,15 @@ input {
 }
 
 input:hover {
-    border: 1px solid #888888;
+    border: var(--input-hover-border);
 }
 
 input:focus {
-    border: 1px solid #3388ff;
+    border: var(--input-focus-border);
 }
 
 input:active {
-    border: 1px solid #3388ff;
+    border: var(--input-active-border);
 }
 
 /* Attributes: */
@@ -86,7 +91,7 @@ input[disabled] {
 /* Suggestion Styling */
 #suggestionContainer {
     position: absolute;
-    border: var(--border);
+    border: var(--input-border);
     border-bottom: none;
     border-top: none;
     z-index: 99;
@@ -107,12 +112,12 @@ input[disabled] {
 }
 
 .suggestion:hover {
-    border: var(--hover-border);
+    border: var(--suggestion-hover-border);
 }
 
 .suggestion:focus {
-    background-color: var(--hover-background-color, #daeeff);
-    border: var(--focus-border);
+    background-color: var(--suggestion-focus-background-color, #daeeff);
+    border: var(--suggestion-focus-border);
 }
 
 /* Bootstrap integration */
