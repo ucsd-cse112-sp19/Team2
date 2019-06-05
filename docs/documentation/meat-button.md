@@ -1,10 +1,18 @@
 # MeatSpace Button Component
 
-## Basic usage
-[](https://meat-space.org/web_components/meat-button/meat-button-demo.html ':include :type=iframe width=100% height=800px')
+## Contents
+[Basic Usage](#basic-usage)<br>
+[Round Buttons](#round-buttons)<br>
+[Circle Buttons](#circle-buttons)<br>
+[Disabled Buttons](#disabled-buttons)<br>
+[Bootstrap Support](#bootstrap-support)<br>
+[Attributes](#attributes)<br>
+[CSS Variables](#css-variables)<br>
+
+## Basic Usage
+<iframe width="100%" height="100%" src="/docs/documentation/meat-button-examples/example1.html"></iframe>
 
 ```
-<label>Basic buttons</label><br/>
 <meat-button color="white"  size="large" >White</meat-button>
 <meat-button color="grey"   size="large" >Grey</meat-button>
 <meat-button color="red"    size="large" >Red</meat-button>
@@ -13,8 +21,12 @@
 <meat-button color="green"  size="large" >Green</meat-button>
 <meat-button color="blue"   size="large" >Blue</meat-button>
 <meat-button color="purple" size="large" >Purple</meat-button>
-<br><br>
-<label>Round buttons</label><br/>
+```
+
+## Round Buttons
+<iframe width="100%" height="100%" src="/docs/documentation/meat-button-examples/example2.html"></iframe>
+
+```
 <meat-button color="white"  size="large" round >White</meat-button>
 <meat-button color="grey"   size="large" round >Grey</meat-button>
 <meat-button color="red"    size="large" round >Red</meat-button>
@@ -23,8 +35,12 @@
 <meat-button color="green"  size="large" round >Green</meat-button>
 <meat-button color="blue"   size="large" round >Blue</meat-button>
 <meat-button color="purple" size="large" round >Purple</meat-button>
-<br><br>
-<label>Circle buttons</label><br/>
+```
+
+## Circle Buttons
+<iframe width="100%" height="100%" src="/docs/documentation/meat-button-examples/example3.html"></iframe>
+
+```
 <meat-button color="white"  size="large" circle>+</meat-button>
 <meat-button color="grey"   size="large" circle>+</meat-button>
 <meat-button color="red"    size="large" circle>+</meat-button>
@@ -33,12 +49,19 @@
 <meat-button color="green"  size="large" circle>+</meat-button>
 <meat-button color="blue"   size="large" circle>+</meat-button>
 <meat-button color="purple" size="large" circle>+</meat-button>
-<br><br>
-<label>Disabled</label><br/>
+```
+## Disabled Buttons
+<iframe width="100%" height="100%" src="/docs/documentation/meat-button-examples/example4.html"></iframe>
+
+```
 <meat-button color="white" size="large" round disabled >Disabled</meat-button>
 <meat-button color="white" size="large" round >Not Disabled</meat-button>
-<br><br>
-<label>Bootstrap Support</label><br/>
+```
+
+## Bootstrap Support
+<iframe width="100%" height="100%" src="/docs/documentation/meat-button-examples/example5.html"></iframe>
+
+```
 <meat-button bootstrap="btn btn-primary">Primary</meat-button>
 <meat-button bootstrap="btn btn-secondary">Secondary</meat-button>
 <meat-button bootstrap="btn btn-success">Success</meat-button>
@@ -48,13 +71,28 @@
 <meat-button bootstrap="btn btn-light">Light</meat-button>
 <meat-button bootstrap="btn btn-dark">Dark</meat-button>
 ```
+
 ## Attributes
-| Attributes | Description                                                   | Type    | Accepted Values | Default |
-|------------|---------------------------------------------------------------|---------|-----------------|---------|
-| autofocus  | Enables button to automatically get focus when the page loads.| boolean |                 | false   |
-| circle     | Enables a circle shaped button.                               | boolean |                 | false   |
-| round      | Enables a round shaped button.                                | boolean |                 | false   |
-| size       | Changes the size of the button.                               | string  | small/medium/large |  |
-| type       | Sets the button type.                                         | string  | primary/warning/danger|   |
-| disabled   | Disables button from accepting events. | boolean |  | false | 
+| Attributes | Description                                                   | Type    | Accepted Values       | Default |
+|------------|---------------------------------------------------------------|---------|-----------------------|---------|
+| autofocus  | Enables button to automatically get focus when the page loads.| boolean |                       | false   |
+| circle     | Enables a circle shaped button.                               | boolean |                       | false   |
+| round      | Enables a round shaped button.                                | boolean |                       | false   |
+| disabled   | Disables button from accepting events.                        | boolean |                       | false   | 
+| size       | Changes the size of the button.                               | string  | small/medium/large    |         |
+| type       | Sets the button native-type.                                  | string  | submit/reset/button   |         |
+| color      | Sets the button color theme.                                  | string  | white/grey/red/orange/yellow/green/blue/purple   |         |
 | bootstrap  | Assign this attribute boostrap class names. Use this attribute to style buttons with bootstrap.| string | ex: btn btn-primary | |
+
+## CSS Variables
+| CSS Variable              | Description                                                        | Default            |
+|---------------------------|--------------------------------------------------------------------|--------------------|
+| --hover-background-color  | Background color of the button when it is hovered by the cursor.   | #daeeff            |
+| --focus-background-color  | Background color of the button when it is the focused element.     | #daeeff            |
+| --active-background-color | Background color of the button when it is being pressed.           | #daeeff            | 
+| --hover-color             | Textcolor of the button when it is hovered by the cursor.          | #3388ff            |
+| --focus-color             | Textcolor of the button when it is the focused element.            | #3388ff            |
+| --active-color            | Textcolor of the button when it is being pressed.                  | #3388ff            |
+| --hover-border            | Border of the button when it is hovered by the cursor.             | 1px solid #bbccff  |
+| --focus-border            | Border of the button when it is the focused element.               | 1px solid #bbccff  |   
+| --active-border           | Border of the button when it is being pressed.                     | 1px solid #3388ff  |  

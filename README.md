@@ -49,7 +49,7 @@ Next, add the component into your HTML body
 ```
 ### Contributing
 If you'd like to contribute to our webcomponent library, visit the onboarding documents for information at:
-https://drive.google.com/open?id=1Ol-goKPABW7S3bXMqYjVDUb8xxKekqXt
+https://drive.google.com/open?id=1Ol-goKPABW7S3bXMqYjVDUb8xxKekqXt  
 This public Google Drive contains all of information you will need to get grilling 🥩!
 
 ### Acknowledgment
