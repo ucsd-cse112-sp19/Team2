@@ -30,6 +30,20 @@ describe('Meat-Button Color Functionality', function() {
       },2000);
     })
   }); 
+  describe('THIS TEST SHOULD FAIL', function() { 
+
+    it ("it should be green", function(done) { 
+      this.timeout(3000);
+      setTimeout(function(){
+        sr = comp.shadowRoot; 
+        document.body.append(comp);
+        const green_inner = sr.querySelector("button");
+        const hi = getComputedStyle(green_inner).borderColor;
+        assert.equal(hi, "rgb(89, 1d92, 64)");
+        done();
+      },2000);
+    })
+  }); 
   
 describe('meat-button existence', function() { 
     /* Check if ShadowRoot Exists */ 
