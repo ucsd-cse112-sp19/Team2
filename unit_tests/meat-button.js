@@ -16,53 +16,44 @@ describe('meat-button basic requirements', function() {
         assert.isDefined(sr);
     })
 }); 
-describe('Meat-Button Color Functionality', function(done) { 
+describe('Meat-Button Color Functionality', function() { 
 
-    it ("it should be green", function() { 
+    it ("it should be green", function(done) { 
       this.timeout(3000);
       setTimeout(function(){
-        try{
         sr = comp.shadowRoot; 
         document.body.append(comp);
         const green_inner = sr.querySelector("button");
         const hi = getComputedStyle(green_inner).borderColor;
         assert.equal(hi, "rgb(89, 192, 64)");
-        }
-        catch(e){
-          return done(e);
-        }
         done();
       },2000);
     })
   }); 
   
-describe('meat-button existence', function(done) { 
+describe('meat-button existence', function() { 
     /* Check if ShadowRoot Exists */ 
-    it ("shadowDOM should exist",function() { 
+    it ("shadowDOM should exist",function(done) { 
       this.timeout(3000);
       setTimeout(function(){
-        try{
-          assert.equal(sr instanceof ShadowRoot, true);
-        }
-        catch(e){
-          return done(e);
-        }
+        sr = comp.shadowRoot; 
+        document.body.append(comp);
+        const green_inner = sr.querySelector("button");
+        assert.equal(sr instanceof ShadowRoot, true);
         done();
       },2000);
     })  
 });
 
-describe('meat-button existence', function(done) { 
+describe('meat-button existence', function() { 
   /* Check if ShadowRoot Exists */ 
-  it ("should have no innerHTML",function() { 
+  it ("should have no innerHTML",function(done) { 
     this.timeout(3000);
     setTimeout(function(){
-      try{    
-        assert.equal(sr.getElementById('button').innerHTML, "");
-      }
-      catch(e){
-        return done(e);
-      }
+      sr = comp.shadowRoot; 
+      document.body.append(comp);
+      const green_inner = sr.querySelector("button");
+      assert.equal(sr.getElementById('button').innerHTML, "");
       done();
     },2000);
   })

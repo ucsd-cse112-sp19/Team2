@@ -2,6 +2,7 @@ language: node_js
 node_js:
 - stable
 script: 
+- http-server & 
 - npm run utest && npm run runner
 cache:
   directories:
