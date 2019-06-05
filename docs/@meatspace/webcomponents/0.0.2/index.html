@@ -84,12 +84,15 @@
 </code></pre>
 <h3>Usage &amp; Example</h3>
 <p>In your HTML page <code>&lt;head&gt;</code> element, add a <code>&lt;script&gt;</code> tag like so</p>
-<pre class="prettyprint source"><code>&lt;script type=&quot;module&quot; src=&quot;./node_modules/team2/web_components/core-hello/core-hello.js&quot;>&lt;/script>
+<pre class="prettyprint source"><code>&lt;script type=&quot;module&quot; src=&quot;/node_modules/@meatspace/webcomponents/lib/core-hello/core-hello.js&quot;>&lt;/script>
 </code></pre>
 <p>In the above example, <code>/core-hello/core-hello.js</code> is the path to the core-hello web component JavaScript file.
 If you want to use a different web component, you will have to change this part of the path appropriately.
 Next, add the component into your HTML body</p>
 <pre class="prettyprint source"><code>&lt;core-hello rainbow lang=&quot;en&quot;>this is a test!&lt;/core-hello>
+</code></pre>
+<p>If you want access to all of the components add this <code>&lt;script&gt;</code> tag instead</p>
+<pre class="prettyprint source"><code>&lt;script type=&quot;module&quot; src=&quot;/node_modules/@meatspace/webcomponents/bundle.js&quot;>&lt;/script>
 </code></pre>
 <h3>Contributing</h3>
 <p>If you'd like to contribute to our webcomponent library, visit the onboarding documents for information at:
