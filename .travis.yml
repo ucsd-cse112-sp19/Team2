@@ -1,6 +1,10 @@
 language: node_js
 node_js:
 - stable
+before_install:
+- npm install -g http-server
+services:
+- http-server
 script: 
 - http-server & 
 - npm run utest && npm run runner
