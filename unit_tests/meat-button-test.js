@@ -28,6 +28,16 @@ describe('meat-button basic requirements', function() {
       assert.equal(sr.getElementById('button').innerHTML, "");
       done();
   })
+  it ("should have tag named MEAT-BUTTON", function() { 
+    let tagName = comp.tagName;
+    assert.equal(tagName, 'MEAT-BUTTON');
+  })
+
+  it ("should have tag named MEAT-BUTTON", function() { 
+    let tagName = comp.tagName;
+    assert.notEqual(tagName, 'CORE-HELLO');
+  })
+
 });
 describe('Tests meat-button disabled functionality', function() { 
 
@@ -94,13 +104,7 @@ it ("should be that assignment to small causes getter to return small", function
   assert.equal(comp.size, "small");
   done();
 })
-it ("should be that assignment to true causes disabled to be false", function(done) { 
-  comp.setAttribute("size", "asdf");
-  //document.body.append(comp);
-  assert.equal(comp.size, "asdf");
-  done();
-})
-it ("should be that assignment to large causes disabled to be false", function(done) { 
+it ("should be that assignment to large causes getter to return large", function(done) { 
   comp.setAttribute("size", "large");
   assert.equal(comp.size, "large");
   done();
@@ -141,7 +145,7 @@ it ("it should be large", function(done) {
     done();
   },500);
 })
-it ("it should be defaulted", function(done) { 
+it ("it should be defaulted to medium size", function(done) { 
   comp.size = "";
   this.timeout(1000);
   setTimeout(function(){
@@ -155,7 +159,41 @@ it ("it should be defaulted", function(done) {
 })
 });
   describe('Tests meat-button color functionality', function() { 
-
+    it ("should be that color is null is initially called", function(done) { 
+      assert.equal(comp.color, null);
+      done();
+    })
+    it ("should be that color set by setter can be returned by getter", function(done) { 
+      comp.color = "green";
+      assert.equal(comp.color, "green");
+      done();
+    })
+    
+    it ("should be that other colors work", function(done) { 
+      comp.color = "red";
+      assert.equal(comp.color, "red");
+      done();
+    })
+    it ("should be that color set by setAttribute can be returned by getter", function(done) { 
+      comp.setAttribute("color", "green");
+      assert.equal(comp.color, "green");
+      done();
+    })
+    it ("should be that another color set by setAttribute can be returned by getter", function(done) { 
+      comp.setAttribute("color", "red");
+      assert.equal(comp.color, "red");
+      done();
+    })
+    it ("should be that another color set by setAttribute can be returned by getter", function(done) { 
+      comp.setAttribute("color", "red");
+      assert.equal(comp.color, "red");
+      done();
+    })
+    it ("should be that removal of attribute causes getter to return false", function(done) { 
+      comp.removeAttribute("color");
+      assert.equal(comp.color, null);
+      done();
+    })
     it ("it should be green", function(done) { 
       comp.color = 'green';
        this.timeout(1000);
@@ -168,62 +206,165 @@ it ("it should be defaulted", function(done) {
         done();
        },500);
     })
+    it ("it should be red", function(done) { 
+      comp.color = 'red';
+       this.timeout(1000);
+       setTimeout(function(){
+        sr = comp.shadowRoot; 
+        //document.body.append(comp);
+        const red_inner = sr.querySelector("button");
+        const hi = getComputedStyle(red_inner).backgroundColor;
+        assert.equal(hi, "rgb(204, 80, 80)");
+        done();
+       },500);
+    })
+    it ("it should be white", function(done) { 
+      comp.color = 'white';
+       this.timeout(1000);
+       setTimeout(function(){
+        sr = comp.shadowRoot; 
+        //document.body.append(comp);
+        const white_inner = sr.querySelector("button");
+        const hi = getComputedStyle(white_inner).backgroundColor;
+        assert.equal(hi, "rgb(255, 255, 255)");
+        done();
+       },500);
+    })
   }); 
   
 
 
-describe('meat-button basic requirements', function(done) { 
-    /* Check Tag Name */ 
-    it ("should have tag named MEAT-BUTTON", function() { 
-      let tagName = comp.tagName;
-      assert.equal(tagName, 'MEAT-BUTTON');
-    })
-  
-     /* Check Tag Name */ 
-    it ("should have tag named MEAT-BUTTON", function() { 
-      let tagName = comp.tagName;
-      assert.notEqual(tagName, 'CORE-HELLO');
-    })
-  
-      /* Test color attribute exists */ 
-      it ("should have color attribute", function() { 
-        //comp.setAttribute("color", '');
-        assert.equal(comp.hasAttribute("color"), true);
-      })
-  
-      /* Test type attribute exists */ 
-      it ("should have type attribute", function() { 
-        //comp.setAttribute("type", '');
-        assert.equal(comp.hasAttribute("type"), true);
-      })
-      /* Test color attribute exists */ 
-      it ("should have circle attribute", function() { 
-          //comp.setAttribute("circle", '');
-           assert.equal(comp.hasAttribute("circle"), true);
-      })
-      /* Test color attribute exists */ 
-      it ("should have type attribute", function() { 
-          //comp.setAttribute("type", '');
-          assert.equal(comp.hasAttribute("type"), true);
-        })
-      /* Test color attribute exists */ 
-      it ("should have round attribute", function() { 
-         // comp.setAttribute("round", '');
-          assert.equal(comp.hasAttribute("round"), true);
-        })
+  describe('Tests meat-button type functionality', function() { 
 
-  }); 
+    it ("should be that type is null when getter is initially called", function(done) { 
+      assert.equal(comp.type, null);
+      done();
+  })
+  it ("should be that setter to reset causes getter to return reset", function(done) { 
+    comp.type = "reset";
+    assert.equal(comp.type, "reset");
+    done();
+  })
   
+  it ("should be that setter to submit causes getter to return submit", function(done) { 
+    
+    comp.type = "submit";
+    assert.equal(comp.type, "submit");
+    done();
+  })
   
+  it ("should be that removal of attribute causes getter to return null", function(done) { 
+    comp.removeAttribute("type", "");
+    assert.equal(comp.type, null);
+    done();
+  })
+  it ("should be that assignment to reset causes getter to return reset", function(done) { 
+    comp.setAttribute("type", "reset");
+    assert.equal(comp.type, "reset");
+    done();
+  })
+  it ("should be that assignment to submit causes getter to return submit", function(done) { 
+    comp.setAttribute("type", "submit");
+    assert.equal(comp.type, "submit");
+    done();
+  })
+  it ("Figure out later (ask alex?)", function(done) { 
+    comp.type= "submit";
+    this.timeout(1000);
+    setTimeout(function(){
+      sr = comp.shadowRoot; 
+      const green_inner = sr.querySelector("button");
+      const hi = getComputedStyle(green_inner);
+      done();
+    },500);
+  })
+});
+   
+
+  describe('Tests meat-button circle functionality', function() { 
+
+    it ("should be that circle is false when getter is initially called", function(done) {
+      assert.equal(comp.circle, false);
+      done();
+  })
+  it ("should be that setter to true causes getter to return true", function(done) { 
+    comp.circle = true;
+    assert.equal(comp.circle, true);
+    done();
+  })
   
-  describe('core-hello Rainbow Functionality', function() { 
-    /* Test rainbow attribute exists */ 
-    it ("should have rainbow attribute", function() { 
-      comp.setAttribute("rainbow", '');
-      assert.equal(comp.hasAttribute("rainbow"), true);
-    })
-  }); 
+  it ("should be that setter to false causes getter to return false", function(done) { 
+    comp.circle = false;
+    assert.equal(comp.circle, false);
+    done();
+  })
   
+  it ("should be that setAttribute should cause getter to return true", function(done) { 
+    comp.setAttribute("circle", true);
+    assert.equal(comp.circle, true);
+    done();
+  })
+  it ("should be that removeAttribute should cause getter to return false", function(done) { 
+    comp.removeAttribute("circle");
+    assert.equal(comp.circle, false);
+    done();
+  })
+  it ("it should be circular", function(done) { 
+    comp.circle= true;
+    this.timeout(1000);
+    setTimeout(function(){
+      sr = comp.shadowRoot; 
+      const green_inner = sr.querySelector("button");
+      const hi = getComputedStyle(green_inner);
+      assert.equal(hi.borderRadius, "50%");
+      done();
+    },500);
+  })
+});
+ 
+
+describe('Tests meat-button round functionality', function() { 
+
+  it ("should be that round is false when getter is initially called", function(done) { 
+    assert.equal(comp.round, false);
+    done();
+})
+it ("should be that setter to true causes getter to return true", function(done) { 
+  comp.round = true;
+  assert.equal(comp.round, true);
+  done();
+})
+
+it ("should be that setter to false causes getter to return false", function(done) { 
+  comp.round = false;
+  assert.equal(comp.round, false);
+  done();
+})
+
+it ("should be that setAttribute should cause getter to return true", function(done) { 
+  comp.setAttribute("round", true);
+  assert.equal(comp.round, true);
+  done();
+})
+it ("should be that removeAttribute should cause getter to return false", function(done) { 
+  comp.removeAttribute("round");
+  assert.equal(comp.round, false);
+  done();
+})
+it ("it should be round", function(done) { 
+  comp.circle = false;
+  comp.round= true;
+  this.timeout(1000);
+  setTimeout(function(){
+    sr = comp.shadowRoot; 
+    const green_inner = sr.querySelector("button");
+    const hi = getComputedStyle(green_inner);
+    assert.equal(hi.borderRadius, "100px");
+    done();
+  },500);
+})
+});
+
   describe('CSS tests', function() { 
     /* Test color styling */ 
     it ("Text should turn white when adding color to style", function() { 
