@@ -16,32 +16,59 @@ describe('meat-button basic requirements', function() {
         assert.isDefined(sr);
     })
 }); 
-describe('Meat-Button Color Functionality', function() { 
+describe('Meat-Button Color Functionality', function(done) { 
 
-    it ("it should be green", function(done) { 
+    it ("it should be green", function() { 
       this.timeout(3000);
       setTimeout(function(){
+        try{
         sr = comp.shadowRoot; 
         document.body.append(comp);
         const green_inner = sr.querySelector("button");
         const hi = getComputedStyle(green_inner).borderColor;
         assert.equal(hi, "rgb(89, 192, 64)");
+        }
+        catch(e){
+          return done(e);
+        }
         done();
-      },1000);
+      },2000);
     })
   }); 
   
-describe('meat-button basic requirements', function() { 
+describe('meat-button existence', function(done) { 
     /* Check if ShadowRoot Exists */ 
     it ("shadowDOM should exist",function() { 
-      assert.equal(sr instanceof ShadowRoot, true);
-    })
-  
-    /* Should have no internal text' */ 
-    it ("should have no innerHTML", function() { 
-      assert.equal(sr.getElementById('button').innerHTML, "");
-    })
-  
+      this.timeout(3000);
+      setTimeout(function(){
+        try{
+          assert.equal(sr instanceof ShadowRoot, true);
+        }
+        catch(e){
+          return done(e);
+        }
+        done();
+      },2000);
+    })  
+});
+
+describe('meat-button existence', function(done) { 
+  /* Check if ShadowRoot Exists */ 
+  it ("should have no innerHTML",function() { 
+    this.timeout(3000);
+    setTimeout(function(){
+      try{    
+        assert.equal(sr.getElementById('button').innerHTML, "");
+      }
+      catch(e){
+        return done(e);
+      }
+      done();
+    },2000);
+  })
+});
+
+describe('meat-button basic requirements', function(done) { 
     /* Check Tag Name */ 
     it ("should have tag named MEAT-BUTTON", function() { 
       let tagName = comp.tagName;
