@@ -29,9 +29,8 @@ export class MeatDropdownElement extends HTMLElement {
   connectedCallback() {
     // Need to get the content inbetween the <meat-dropdown> tags into the button so it renders
     this.dropdown.textContent = this.textContent;
-    this.addEventListener('keydown', this._onKeyDown);
-    this.addEventListener("click", this._onClick); 
-
+    this.addEventListener("keydown", this._onKeyDown);
+    this.addEventListener("click", this._onClick);
   }
 
   /**

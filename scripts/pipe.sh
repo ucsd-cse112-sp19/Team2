@@ -24,7 +24,9 @@ else
   if [ $? -eq 0 ]; then
     echo "ESLint success"
   else
-    echo "ESLint failed! GO FIX ESLINT ERRORS"
+    echo "ESLint failed! GO FIX ESLINT ERRORS BEFORE RUNNING PIPE"
+    echo "npm pipe was unsuccessful! exiting..."
+    exit
   fi
   if [ $docsAns == 'n' ]; then 
     echo "no docs generated"

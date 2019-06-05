@@ -95,6 +95,7 @@ export class MeatLink extends HTMLElement {
   /**
    * Click event callback that prevents following the link if link is disabled
    * @param {*} evt
+   * @return {boolean}
    */
   _preventClick(evt) {
     evt.preventDefault();
