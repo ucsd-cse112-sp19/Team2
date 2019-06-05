@@ -75,6 +75,8 @@ export class MeatLink extends HTMLElement {
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
     this.link = this.shadow.querySelector("a");
+
+    this._preventClick = this._preventClick.bind(this);
   }
 
   /**
@@ -111,6 +113,7 @@ export class MeatLink extends HTMLElement {
       case "disabled":
         this.link.setAttribute("disabled", newVal);
         this.link.disabled = newVal;
+        this.link.addEventListener("click", this._preventClick);
         break;
       case "underline":
         this.link.setAttribute("underline", newVal);
@@ -128,6 +131,15 @@ export class MeatLink extends HTMLElement {
         this.link.className = newVal;
         break;
     }
+  }
+
+  /**
+   * Click event callback that prevents following the link if link is disabled
+   * @param {*} evt
+   */
+  _preventClick(evt) {
+    evt.preventDefault();
+    return false;
   }
 
   /**
@@ -184,7 +196,10 @@ export class MeatLink extends HTMLElement {
 
   set disabled(val) {
     if (val) this.setAttribute("disabled", val);
-    else this.removeAttribute("disabled");
+    else {
+      this.removeAttribute("disabled");
+      this.link.removeEventListener("click", this._preventClick);
+    }
   }
 }
 window.customElements.define("meat-link", MeatLink);
