@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>meat-card-demo</title>
+        <link rel="shortcut icon" href="/img/logo.png">
+        <script type="module" src="/web_components/meat-button/meat-button.js"></script>
+        <script type="module" src="/web_components/meat-link/meat-link.js"></script>
+        <script type="module" src="/web_components/meat-card/meat-card.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <style>
+        meat-card {
+            margin: 10px;
+        }
+    </style>
+    <body>
+        <meat-card>
+            <div slot="body" class="card-body">
+                <div>Item 1</div>
+                <div>Item 2</div>
+            </div>
+        </meat-card>
+        <meat-card shadow="hover">
+            <div slot="body" class="card-body">
+                <div>Item 1</div>
+                <div>Item 2</div>
+            </div>
+        </meat-card>
+        <meat-card shadow="never">
+            <div slot="body" class="card-body">
+                <div>Item 1</div>
+                <div>Item 2</div>
+            </div>
+        </meat-card>
+    </body>   
+</html>
+    
+    
