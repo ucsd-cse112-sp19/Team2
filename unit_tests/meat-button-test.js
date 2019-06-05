@@ -71,7 +71,6 @@ describe('Tests meat-button disabled functionality', function() {
 
 
 describe('Tests meat-button size functionality', function() { 
-
   it ("should be that size is null when getter is initially called", function(done) { 
     assert.equal(comp.size, null);
     done();
@@ -83,7 +82,6 @@ it ("should be that setter to small causes getter to return small", function(don
 })
 
 it ("should be that setter to medium causes getter to return medium", function(done) { 
-  
   comp.size = "medium";
   assert.equal(comp.size, "medium");
   done();

@@ -5,6 +5,8 @@ let sr;
 before((done) => { 
     setTimeout(function(){
     comp = document.createElement('meat-input');
+    document.body.append(comp);
+    sr = comp.shadowRoot;
       done();
     },1000);
 });
@@ -34,15 +36,9 @@ describe('meat-input existence', function() {
      })
   });
 
-describe('Tests meat-input placeholder getters and setters', function() { 
-    /* Placeholder */
-    it ("placeholder attribute should exist", function(done) { 
-        comp.setAttribute("placeholder", "meat-space");
-        assert.equal(comp.hasAttribute("placeholder"), true);
-        done()
-    })
-    it ("placeholder should be meat-space", function(done) { 
-        assert.equal(comp.getAttribute("placeholder"), "meat-space");
+describe('Tests meat-input placeholder functionality', function() { 
+    it ("should be that placeholder initially does exist", function(done) { 
+        assert.equal(comp.hasAttribute("placeholder"), false);
         done()
     })
     it ("should be that setter to 'meat-space' causes placeholder to be 'meat-space'", function(done) { 
@@ -57,19 +53,22 @@ describe('Tests meat-input placeholder getters and setters', function() {
     })
     it ("should be that setter '' to placeholder disables placeholder'", function(done) { 
         comp.placeholder = "";
-        assert.equal(comp.placeholder, "");
+        assert.equal(comp.placeholder, null);
         done();
     })
-
+    it ("placeholder attribute should exist", function(done) { 
+        comp.setAttribute("placeholder", "meat-space");
+        assert.equal(comp.hasAttribute("placeholder"), true);
+        done()
+    })
+    it ("placeholder should be meat-space", function(done) { 
+        assert.equal(comp.getAttribute("placeholder"), "meat-space");
+        done()
+    })
+ 
     it ("should be that assignment to 'test3' causes placeholder attribute to exist", function(done) { 
         comp.setAttribute("placeholder", "test3");
         assert.equal(comp.hasAttribute('placeholder'), true);
-        done();
-    })
-
-    it ("should be that assignment to 'test3' causes placeholder attribute to be 'test3'", function(done) { 
-        comp.setAttribute("placeholder", "test3");
-        assert.equal(comp.getAttribute("placeholder"), 'test3');
         done();
     })
   
@@ -81,12 +80,25 @@ describe('Tests meat-input placeholder getters and setters', function() {
 
 });
 
-describe('Tests meat-input disabled getters and setters', function() { 
-    it ("should be that disabled is false when getter is called", function(done) { 
+describe('Tests meat-input disabled functionality', function() { 
+    it ("should be that disabled is false when getter is initially called", function(done) { 
         assert.equal(comp.hasAttribute("disabled"), false);          
         done();
     })
-        it ("should be that setter to true causes disabled to be true", function(done) { 
+    it ("should be that disabled is false when getter is initially called", function(done) { 
+        comp.setAttribute("disabled", "")
+        this.timeout(2000);
+        setTimeout(function(){
+          sr = comp.shadowRoot; 
+          document.body.append(comp)
+          const green_inner = sr.querySelector("input");
+          const hi = getComputedStyle(green_inner);
+          assert.equal(hi.cursor, 'default');
+          done();
+        },500);
+    })
+    
+    it ("should be that setter to true causes disabled to be true", function(done) { 
         comp.disabled = true;
         assert.equal(comp.disabled, true);
         done();
@@ -96,20 +108,21 @@ describe('Tests meat-input disabled getters and setters', function() {
         assert.equal(comp.disabled, false);
         done();
     })
+    
     it ("should be that assignment to true again causes disabled to be false", function(done) { 
         comp.setAttribute("disabled", "");
-        assert.equal(comp.disabled, false);
+        assert.equal(comp.getAttribute("disabled"), "");
         done();
     })
 
     it ("should be that assignment to true causes disabled to be false", function(done) { 
         comp.removeAttribute("disabled", "");
-        assert.equal(comp.disabled, false);
+        assert.equal(comp.hasAttribute("disabled"), false);
         done();
     })
 });
 
-describe('Misc attributes', function() { 
+describe('Tests readonly functionality', function() { 
     it ("Assigning readonly attribute should exist", function(done) { 
         comp.setAttribute("readonly", "")
         assert.equal(comp.hasAttribute("readonly"), true);
@@ -124,29 +137,109 @@ describe('Misc attributes', function() {
         assert.equal(comp.hasAttribute("readonly"), true);
         done()
     })
+    it ("Removing readonly attribute should make it not exist", function(done) { 
+        comp.removeAttribute("readonly");
+        assert.equal(comp.hasAttribute("readonly"), false);
+        done()
+    })
+
 
 }); 
-describe('Size attributes', function() { 
-
-    it ("should be that assignment to 'small' sets size to 'small'", function(done) { 
-        comp.setAttribute("size", 'small');    
-        assert.equal(comp.getAttribute("size"), 'small');
+describe('Tests size attributes', function() { 
+    it ("should be that size is null when getter is initially called", function(done) { 
+        assert.equal(comp.size, null);
         done();
     })
-    it ("should be that setting size attribute to 'large' will be 'large'", function(done) { 
-        comp.size = 'large';
-        assert.equal(comp.size, 'large');
-        done();
+    it ("should be that setter to small causes getter to return small", function(done) { 
+      comp.size = "small";
+      assert.equal(comp.size, "small");
+      done();
     })
-    it ("should be that setting size attribute to 'medium' will be 'medium'", function(done) { 
-        comp.size = 'medium';
-        assert.equal(comp.size, "medium");
+    
+    it ("should be that setter to medium causes getter to return medium", function(done) { 
+      
+      comp.size = "medium";
+      assert.equal(comp.size, "medium");
+      done();
+    })
+    it ("should be that setter to large causes getter to return large", function(done) { 
+      comp.size = "large";
+      assert.equal(comp.size, "large");
+      done();
+    })
+    
+    it ("should be that removal of attribute causes getter to be false", function(done) { 
+      comp.removeAttribute("size", "");
+      assert.equal(comp.size, null);
+      done();
+    })
+    it ("should be that assignment to small causes getter to return small", function(done) { 
+      comp.setAttribute("size", "small");
+      assert.equal(comp.size, "small");
+      done();
+    })
+    it ("should be that assignment to large causes getter to return large", function(done) { 
+      comp.setAttribute("size", "large");
+      assert.equal(comp.size, "large");
+      done();
+    })
+    it ("it should be small", function(done) { 
+      comp.size = "small";
+      this.timeout(1000);
+      setTimeout(function(){
+        sr = comp.shadowRoot; 
+        const green_inner = sr.querySelector("input");
+        const hi = getComputedStyle(green_inner);
+        assert.equal(hi.width, "100px");
+        assert.equal(hi.height, "38px");
+        done();
+      },500);
+    })
+    it ("it should be medium", function(done) { 
+      comp.size = "medium";
+      this.timeout(1000);
+      setTimeout(function(){
+        sr = comp.shadowRoot; 
+        const green_inner = sr.querySelector("input");
+        const hi = getComputedStyle(green_inner);
+        assert.equal(hi.width, "200px");
+        assert.equal(hi.height, "38px");
+        done();
+      },500);
+    })
+    it ("it should be large", function(done) { 
+      comp.size = "large";
+      this.timeout(1000);
+      setTimeout(function(){
+        sr = comp.shadowRoot; 
+        const green_inner = sr.querySelector("input");
+        const hi = getComputedStyle(green_inner);
+        assert.equal(hi.width, "300px");
+        assert.equal(hi.height, "38px")
+        done();
+      },500);
+    })
+    it ("it should be defaulted to medium size", function(done) { 
+      comp.size = "";
+      this.timeout(1000);
+      setTimeout(function(){
+        sr = comp.shadowRoot; 
+        const green_inner = sr.querySelector("input");
+        const hi = getComputedStyle(green_inner);
+        assert.equal(hi.width, "192.5px");
+        assert.equal(hi.height, "38px")
+        done();
+      },500);
+    })
+    it ("should be that removing size attribute will make it not exist", function(done) { 
+        comp.removeAttribute("size")
+        assert.equal(comp.hasAttribute("size"), false);
         done();
     })
 });
 
 
-describe('Tests getters and setters of password attribute', function() { 
+describe('Tests password functionality', function() { 
     it ("should be that password attribute does not exist", function(done) { 
         assert.equal(comp.hasAttribute("password"), false);
         done();
@@ -171,9 +264,14 @@ describe('Tests getters and setters of password attribute', function() {
         assert.equal(comp.getAttribute("password"), "");
         done()
     })
+    it ("should be that removing password attribute will make it not exist", function(done) { 
+        comp.removeAttribute("password")
+        assert.equal(comp.hasAttribute("password"), "");
+        done()
+    })
 })
 
-describe('Tests getters and setters of limit attribute', function() { 
+describe('Tests limit functionality', function() { 
     it ("should be that limit attribute does not exist", function(done) { 
         assert.equal(comp.hasAttribute("limit"), false);
         done()
@@ -185,7 +283,7 @@ describe('Tests getters and setters of limit attribute', function() {
     })
     it ("should be that setting limit attribute will be false", function(done) { 
         comp.limit = ""; 
-        assert.equal(comp.limit, "");
+        assert.equal(comp.limit, null);
         done();
     })
     it ("should be that assigning limit attribute will be 20", function(done) { 
@@ -197,6 +295,38 @@ describe('Tests getters and setters of limit attribute', function() {
         comp.setAttribute("limit", "")
         assert.equal(comp.limit, false);
         done();
+    })
+    it ("should be that removing limit attribute will make it not exist", function(done) { 
+        comp.removeAttribute("limit")
+        assert.equal(comp.hasAttribute("limit"), false);
+        done();
+    })
+})
+
+/* form-control, form-check-input, */
+
+describe('Tests bootstrap functionality', function() { 
+    it ("it should not have bootstrap attribute initially", function(done) { 
+        assert.equal(comp.hasAttribute("bootstrap"), false);
+        done()
+    })
+    it ("should be that setting bootstrap will make the attribute exist", function(done) { 
+        comp.bootstrap = "form-control";
+        assert.equal(comp.bootstrap, "form-control");
+        assert.equal(comp.getAttribute("bootstrap", "form-control"));
+        done();
+    })
+    it ("should have correct bootstrap CSS", function(done) { 
+        comp.setAttribute("bootstrap", "form-control");
+        this.timeout(1000);
+        setTimeout(function(){
+            sr = comp.shadowRoot; 
+            const green_inner = sr.querySelector("input");
+            const hi = getComputedStyle(green_inner);
+            assert.equal(hi["transition"], "border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s");
+            assert.equal(hi["display"], "block");
+            done();
+        },500);
     })
 })
 
