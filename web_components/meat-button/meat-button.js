@@ -96,9 +96,7 @@ export class MeatButtonElement extends HTMLElement {
     }
   }
 
-  /**
-   * getters and setters for attributes
-   */
+  // getters and setters for attributes
   get disabled() {
     return this.hasAttribute("disabled");
   }
@@ -156,6 +154,18 @@ export class MeatButtonElement extends HTMLElement {
       this.setAttribute("type", val);
     } else {
       this.removeAttribute("type");
+    }
+  }
+
+  get color() {
+    return this.getAttribute("color");
+  }
+
+  set color(val) {
+    if (val) {
+      this.setAttribute("color", val);
+    } else {
+      this.removeAttribute("color");
     }
   }
 

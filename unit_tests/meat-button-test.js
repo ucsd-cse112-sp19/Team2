@@ -5,6 +5,8 @@ let sr;
 before((done) => { 
     setTimeout(function(){
     comp = document.createElement('meat-button');
+    document.body.append(comp);
+    sr = comp.shadowRoot; 
       done();
     },1000);
 });
@@ -15,9 +17,7 @@ describe('meat-button basic requirements', function() {
     it ("Shadowroot should exist", function() { 
         sr = comp.shadowRoot; 
         assert.isDefined(sr);
-    })
-}); 
-describe('meat-button existence', function() { 
+    }) 
   /* Check if ShadowRoot Exists */ 
   it ("shadowDOM should exist",function(done) { 
       sr = comp.shadowRoot; 
@@ -29,7 +29,7 @@ describe('meat-button existence', function() {
       done();
   })
 });
-describe('Tests meat-button disabled getters and setters', function() { 
+describe('Tests meat-button disabled functionality', function() { 
 
     it ("should be that disabled is false when getter is called", function(done) { 
         assert.equal(comp.disabled, false);
@@ -45,13 +45,13 @@ describe('Tests meat-button disabled getters and setters', function() {
       assert.equal(comp.disabled, false);
       done();
   })
-  it ("should be that assignment to true causes disabled to be true", function(done) { 
+  it ("should be that assignment of attribute causes disabled to be true", function(done) { 
       comp.setAttribute("disabled", "");
       assert.equal(comp.disabled, true);
       done();
   })
 
-  it ("should be that assignment to true causes disabled to be false", function(done) { 
+  it ("should be that removing attribute causes disabled to be false", function(done) { 
       comp.removeAttribute("disabled", "");
       assert.equal(comp.disabled, false);
       done();
@@ -60,27 +60,115 @@ describe('Tests meat-button disabled getters and setters', function() {
 }); 
 
 
-describe('Tests meat-button size getters and setters', function() { 
-  it ("should have size attribute", function() { 
-    comp.setAttribute("size", '');
-    assert.equal(comp.hasAttribute("size"), true);
-  })
+describe('Tests meat-button size functionality', function() { 
 
+  it ("should be that size is null when getter is initially called", function(done) { 
+    assert.equal(comp.size, null);
+    done();
+})
+it ("should be that setter to small causes getter to return small", function(done) { 
+  comp.size = "small";
+  assert.equal(comp.size, "small");
+  done();
+})
+
+it ("should be that setter to medium causes getter to return medium", function(done) { 
+  
+  comp.size = "medium";
+  assert.equal(comp.size, "medium");
+  done();
+})
+it ("should be that setter to large causes getter to return large", function(done) { 
+  comp.size = "large";
+  assert.equal(comp.size, "large");
+  done();
+})
+
+it ("should be that removal of attribute causes getter to be false", function(done) { 
+  comp.removeAttribute("size", "");
+  assert.equal(comp.size, null);
+  done();
+})
+it ("should be that assignment to small causes getter to return small", function(done) { 
+  comp.setAttribute("size", "small");
+  assert.equal(comp.size, "small");
+  done();
+})
+it ("should be that assignment to true causes disabled to be false", function(done) { 
+  comp.setAttribute("size", "asdf");
+  //document.body.append(comp);
+  assert.equal(comp.size, "asdf");
+  done();
+})
+it ("should be that assignment to large causes disabled to be false", function(done) { 
+  comp.setAttribute("size", "large");
+  assert.equal(comp.size, "large");
+  done();
+})
+it ("it should be small", function(done) { 
+  comp.size = "small";
+  this.timeout(1000);
+  setTimeout(function(){
+    sr = comp.shadowRoot; 
+    const green_inner = sr.querySelector("button");
+    const hi = getComputedStyle(green_inner);
+    assert.equal(hi.width, "80px");
+    assert.equal(hi.height, "36px")
+    done();
+  },500);
+})
+it ("it should be medium", function(done) { 
+  comp.size = "medium";
+  this.timeout(1000);
+  setTimeout(function(){
+    sr = comp.shadowRoot; 
+    const green_inner = sr.querySelector("button");
+    const hi = getComputedStyle(green_inner);
+    assert.equal(hi.width, "90px");
+    assert.equal(hi.height, "40px")
+    done();
+  },500);
+})
+it ("it should be large", function(done) { 
+  comp.size = "large";
+  this.timeout(1000);
+  setTimeout(function(){
+    sr = comp.shadowRoot; 
+    const green_inner = sr.querySelector("button");
+    const hi = getComputedStyle(green_inner);
+    assert.equal(hi.width, "100px");
+    assert.equal(hi.height, "44px")
+    done();
+  },500);
+})
+it ("it should be defaulted", function(done) { 
+  comp.size = "";
+  this.timeout(1000);
+  setTimeout(function(){
+    sr = comp.shadowRoot; 
+    const green_inner = sr.querySelector("button");
+    const hi = getComputedStyle(green_inner);
+    assert.equal(hi.width, "90px");
+    assert.equal(hi.height, "40px")
+    done();
+  },500);
+})
 });
-/*   describe('THIS TEST SHOULD FAIL', function() { 
+  describe('Tests meat-button color functionality', function() { 
 
     it ("it should be green", function(done) { 
-      this.timeout(3000);
-      setTimeout(function(){
+      comp.color = 'green';
+       this.timeout(1000);
+       setTimeout(function(){
         sr = comp.shadowRoot; 
-        document.body.append(comp);
+        //document.body.append(comp);
         const green_inner = sr.querySelector("button");
-        const hi = getComputedStyle(green_inner).borderColor;
-        assert.equal(hi, "rgb(89, 1d92, 64)");
+        const hi = getComputedStyle(green_inner).backgroundColor;
+        assert.equal(hi, "rgb(89, 192, 64)");
         done();
-      },2000);
+       },500);
     })
-  });  */
+  }); 
   
 
 
@@ -99,33 +187,28 @@ describe('meat-button basic requirements', function(done) {
   
       /* Test color attribute exists */ 
       it ("should have color attribute", function() { 
-        comp.setAttribute("color", '');
+        //comp.setAttribute("color", '');
         assert.equal(comp.hasAttribute("color"), true);
       })
   
       /* Test type attribute exists */ 
       it ("should have type attribute", function() { 
-        comp.setAttribute("type", '');
+        //comp.setAttribute("type", '');
         assert.equal(comp.hasAttribute("type"), true);
       })
       /* Test color attribute exists */ 
-      it ("should have size attribute", function() { 
-          comp.setAttribute("size", '');
-          assert.equal(comp.hasAttribute("size"), true);
-      })
-      /* Test color attribute exists */ 
       it ("should have circle attribute", function() { 
-          comp.setAttribute("circle", '');
+          //comp.setAttribute("circle", '');
            assert.equal(comp.hasAttribute("circle"), true);
       })
       /* Test color attribute exists */ 
       it ("should have type attribute", function() { 
-          comp.setAttribute("type", '');
+          //comp.setAttribute("type", '');
           assert.equal(comp.hasAttribute("type"), true);
         })
       /* Test color attribute exists */ 
       it ("should have round attribute", function() { 
-          comp.setAttribute("round", '');
+         // comp.setAttribute("round", '');
           assert.equal(comp.hasAttribute("round"), true);
         })
 
