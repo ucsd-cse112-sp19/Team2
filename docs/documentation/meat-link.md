@@ -1,3 +1,26 @@
+<style>
+details {
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: .5em .5em 0;
+}
+
+summary {
+    font-weight: bold;
+    margin: -.5em -.5em 0;
+    padding: .5em;
+}
+
+details[open] {
+    padding: .5em;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: .5em;
+}
+</style>
+
 # MeatSpace Link Component
 
 ## Contents
@@ -10,6 +33,7 @@
 
 ## Basic Usage
 <iframe width="100%" height=70px src="/docs/documentation/meat-link-examples/example1.html"></iframe>
+<details><summary>Show Code</summary><br>
 
 ```
 <!-- font-family: sans-serif; and font-size: 20px; stylings applied -->
@@ -23,9 +47,11 @@
 <meat-link href="#" color="blue">Blue</meat-link>
 <meat-link href="#" color="purple">Purple</meat-link>
 ```
+</details>
 
 ## Underlined Links
 <iframe width="100%" height="210px" src="/docs/documentation/meat-link-examples/example2.html"></iframe>
+<details><summary>Show Code</summary><br>
 
 ```
 <!-- font-family: sans-serif; and font-size: 20px; stylings applied -->
@@ -62,9 +88,11 @@
 <meat-link underline="never" href="#" color="purple">Purple</meat-link>
 <br><label>underline="never"</label>
 ```
+</details>
 
 ## Disabled Links
 <iframe width="100%" height="60px" src="/docs/documentation/meat-link-examples/example3.html"></iframe>
+<details><summary>Show Code</summary><br>
 
 ```
 <!-- font-family: sans-serif; and font-size: 20px; stylings applied -->
@@ -78,9 +106,11 @@
 <meat-link disabled href="#" color="blue">Blue</meat-link>
 <meat-link disabled href="#" color="purple">Purple</meat-link>
 ```
+</details>
 
 ## Bootstrap Support
 <iframe width="100%" height=80px src="/docs/documentation/meat-link-examples/example4.html"></iframe>
+<details><summary>Show Code</summary><br>
 
 ```
 <meat-link bootstrap href="#">bootstrap</meat-link>
@@ -89,10 +119,12 @@
 <meat-link bootstrap="nav-link dropdown-toggle" href="#">nav-link dropdown-toggle</meat-link>
 <meat-link bootstrap="dropdown-item" href="#">dropdown-item</meat-link>
 ```
+</details>
 
 #### More Complex Example
 
 <iframe width="100%" height=480px src="/docs/documentation/meat-link-examples/example5.html"></iframe>
+<details><summary>Show Code</summary><br>
 
 ```
 <div style="margin: 100px 100px 50px 100px; border: 1px solid black; padding: 50px;">
@@ -143,6 +175,7 @@
     </div>
 </div>
 ```
+</details>
 
 ## Attributes
 | Attributes | Description                                                   | Type    | Accepted Values       | Default |
