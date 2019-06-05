@@ -32,7 +32,7 @@ details[open] summary {
 ## Basic Cards
 <iframe width="750px" height="855px" src="/docs/documentation/meat-card-examples/example1.html"></iframe>
 
-<details><summary>Show Code</summary><br>
+<details><summary>Show Code</summary>
 
 ```
 <meat-card>
@@ -68,7 +68,7 @@ details[open] summary {
 ## No Header
 <iframe width="750px" height="550px" src="/docs/documentation/meat-card-examples/example2.html"></iframe>
 
-<details><summary>Show Code</summary><br>
+<details><summary>Show Code</summary>
 
 ```
 <meat-card>
@@ -95,7 +95,7 @@ details[open] summary {
 ## Example Cards
 <iframe width="750px" height="731px" src="/docs/documentation/meat-card-examples/example3.html"></iframe>
 
-<details><summary>Show Code</summary><br>
+<details><summary>Show Code</summary>
 
 ```
 <meat-card>
@@ -137,7 +137,7 @@ details[open] summary {
 ## Bootstrap Support
 <iframe width="350px" height="600px" src="/docs/documentation/meat-card-examples/example4.html"></iframe>
 
-<details><summary>Show Code</summary><br>
+<details><summary>Show Code</summary>
 
 ```
 <meat-card class="card" style="display: inline-flex; width: 18rem;" bootstrap>
