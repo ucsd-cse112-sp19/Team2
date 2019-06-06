@@ -6,19 +6,19 @@ fixture`Running tests for meat-input` // declare the fixture
 const getElementById = Selector(id => document.querySelector(id));
 
 test("Check that the size attribute exists", async t => {
-  const component = await getElementById("meat-input");
-  await t.expect(component.getAttribute("size")).eql("small");
+  const component = await getElementById("#large-input");
+  await t.expect(component.getAttribute("size")).eql("large");
 });
 
 test("Allows user input", async t => { 
-  const component = await getElementById("meat-input");
+  const component = await getElementById("#large-input");
   await t
-        .typeText(component, "meat-space")
-        .expect(component.getAttribute("placeholder")).eql("meat-space")
+    .typeText(component, "meat-space")
+    .expect(component.getAttribute("placeholder")).eql("Large")
 })
 
 test("Check that the placeholder attribute exists", async t => {
-  const component = await getElementById("meat-input");
+  const component = await getElementById("#small-input");
   await t.expect(component.getAttribute("placeholder")).eql("Small");
 });
 
