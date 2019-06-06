@@ -21,9 +21,9 @@
     </style>
     <body>
         <div style="padding: 10px">
-            <label>Basic buttons</label><br/>
-            <meat-button size="large" >No Color Specified</meat-button>
-            <meat-button id="check-button" color="white"  size="large" >White</meat-button>
+            <label id="text">Basic buttons</label><br/>
+            <meat-button id="clickable" size="large" >No Color Specified</meat-button>
+            <meat-button id="check-button" color="white"  size="large">White</meat-button>
             <meat-button color="grey"   size="large" >Grey</meat-button>
             <meat-button color="red"    size="large" >Red</meat-button>
             <meat-button color="orange" size="large" >Orange</meat-button>
@@ -33,7 +33,7 @@
             <meat-button color="purple" size="large" >Purple</meat-button>
             <br><br>
             <label>Round buttons</label><br/>
-            <meat-button size="large" round>No Color Specified</meat-button>
+            <meat-button id="round" size="large" round>No Color Specified</meat-button>
             <meat-button color="white"  size="large" round >White</meat-button>
             <meat-button color="grey"   size="large" round >Grey</meat-button>
             <meat-button color="red"    size="large" round >Red</meat-button>
@@ -44,7 +44,7 @@
             <meat-button color="purple" size="large" round >Purple</meat-button>
             <br><br>
             <label>Circle buttons</label><br/>
-            <meat-button color="white"  size="large" circle>+</meat-button>
+            <meat-button id="circle" color="white"  size="large" circle>+</meat-button>
             <meat-button color="grey"   size="large" circle>+</meat-button>
             <meat-button color="red"    size="large" circle>+</meat-button>
             <meat-button color="orange" size="large" circle>+</meat-button>
@@ -54,11 +54,11 @@
             <meat-button color="purple" size="large" circle>+</meat-button>
             <br><br>
             <label>Disabled</label><br/>
-            <meat-button color="white" size="large" round disabled >Disabled</meat-button>
+            <meat-button id="disabled" color="white" size="large" round disabled >Disabled</meat-button>
             <meat-button color="white" size="large" round >Not Disabled</meat-button>
             <br><br>
             <label>Bootstrap Support</label><br/>
-            <meat-button bootstrap="btn btn-primary">Primary</meat-button>
+            <meat-button id="bootstrap" bootstrap="btn btn-primary">Primary</meat-button>
             <meat-button bootstrap="btn btn-secondary">Secondary</meat-button>
             <meat-button bootstrap="btn btn-success">Success</meat-button>
             <meat-button bootstrap="btn btn-danger">Danger</meat-button>
@@ -80,8 +80,8 @@
             <label>With forms</label><br/>
             <form action="/some_action.php">
                 <label for="name">Example Form</label><br>
-                <meat-input autocomplete="on"></meat-input><br><br>
-                <meat-button type="reset">Reset the form!</meat-button>
+                <meat-input id="input" autocomplete="on"></meat-input><br><br>
+                <meat-button id="reset" type="reset">Reset the form!</meat-button>
                 <meat-button type="submit">Submit</meat-button>
             </form>
             <form action="/some_action.php">
@@ -96,6 +96,8 @@
         const meatButton = document.querySelector('meat-button');
         meatButton.addEventListener('click', () => {
             console.log("user defined click method");
+            alert("Click works!")
+            //location.href = "http://127.0.0.1:8080/web_components/meat-link/meat-link-demo.html"
         })
     </script>
 </html>
