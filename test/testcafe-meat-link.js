@@ -32,5 +32,32 @@ test("Hover link", async t => {
   const component = getElementById("#test");
   await t
     .hover(component)
-    //.expect(component.getStyleProperty('text-decoration')).eql('none solid rgb(33, 37, 41)')
+});
+
+test("test-white has attributes underline and color", async t => {
+  const component = getElementById("#test-white");
+  await t
+    .expect(component.getAttribute("underline")).eql("always")
+    .expect(component.getAttribute("color")).eql("white")
+});
+
+test("test-white is white", async t => {
+  const component = getElementById("#test-white");
+  //const style = window.getComputedStyle(component.shadowRoot.querySelector("a"));
+  await t
+    //.expect(style.color).eql('rgb(33, 37, 41)')
+    .expect(component.getAttribute("color")).eql("white")
+});
+
+test("test-red has attributes underline and color", async t => {
+  const component = getElementById("#test-red");
+  await t
+    .expect(component.getAttribute("underline")).eql("hover")
+    .expect(component.getAttribute("color")).eql("red")
+});
+
+test("test-red has attributes underline and color", async t => {
+  const component = getElementById("#test-red");
+  await t
+    .expect(component.getAttribute("color")).eql("red")
 });
