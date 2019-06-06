@@ -1,9 +1,11 @@
 {
     "scripts": {
-        "all": "npm-run-all test test1 test2 test3",
-        "test": "./node_modules/.bin/mocha-headless-chrome -f http://127.0.0.1:8080/unit_tests/hello-core.html || exit 0", 
-        "test1": "./node_modules/.bin/mocha-headless-chrome -f http://127.0.0.1:8080/unit_tests/meat-input.html || exit 0",
+        "all": "npm-run-all test test1 test2 test3 test4 test5",
+        "test": "./node_modules/.bin/mocha-headless-chrome -f http://127.0.0.1:8080/unit_tests/core-hello-test.html || exit 0", 
+        "test1": "./node_modules/.bin/mocha-headless-chrome -f http://127.0.0.1:8080/unit_tests/meat-input-test.html || exit 0",
         "test2": "./node_modules/.bin/mocha-headless-chrome -f http://127.0.0.1:8080/unit_tests/meat-button-test.html || exit 0",
-        "test3": "./node_modules/.bin/mocha-headless-chrome -f http://127.0.0.1:8080/unit_tests/meat-link.html || exit 0"
+        "test3": "./node_modules/.bin/mocha-headless-chrome -f http://127.0.0.1:8080/unit_tests/meat-link-test.html || exit 0",
+        "test4": "./node_modules/.bin/mocha-headless-chrome -f http://127.0.0.1:8080/unit_tests/meat-image-test.html || exit 0",
+        "test5": "./node_modules/.bin/mocha-headless-chrome -f http://127.0.0.1:8080/unit_tests/meat-card-test.html || exit 0"
     }
 }

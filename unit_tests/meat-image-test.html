@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Meat Image Unit Test</title>
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+   
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/chai/chai.js"></script>
+    <script>
+        var assert = chai.assert;
+        mocha.setup('bdd');
+    </script>
+    
+    <!-- load code you want to test here -->
+    <script type ="module" href="../web_components/meat-image/meat-image.css"></script>
+    <script type ="module" src="../web_components/meat-image/meat-image.js"></script>
+
+     <!-- load your test files here -->
+     <script src="meat-image-test.js" type="text/javascript"></script>
+
+
+    <script class="mocha-exec">
+          mocha.run();
+    </script>
+  </body>
+</html>
