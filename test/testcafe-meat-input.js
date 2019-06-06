@@ -12,13 +12,29 @@ test("Check that the autocomplete attribute exists", async t => {
 });
 test("Visuals of Default Button", async t => {
   const component = await getElementById("meat-input");
-  const shadowInput = await Selector(() => document.querySelector('#basic').shadowRoot.querySelector('input'));
+  const shadowInput = await Selector(() => document.querySelector('#large-input').shadowRoot.querySelector('input'));
   await t.expect(shadowInput.getStyleProperty('cursor')).eql("text");
+})
+test("Check that the size attribute exists", async t => {
+  const component = await getElementById("#large-input");
+  await t.expect(component.getAttribute("size")).eql("large");
+});
+
+test("Allows user input", async t => { 
+  const component = await getElementById("#large-input");
+  await t
+    .typeText(component, "meat-space")
+    .expect(component.getAttribute("placeholder")).eql("Large")
+})
+
+test("Check that the placeholder attribute exists", async t => {
+  const component = await getElementById("#small-input");
+  await t.expect(component.getAttribute("placeholder")).eql("Small");
 });
 
 test("Visuals of Disabled Button", async t => {
   const component = await getElementById("#medium");
-  const shadowInput = await Selector(() => document.querySelector('#medium').shadowRoot.querySelector('input'));
+  const shadowInput = await Selector(() => document.querySelector('#medium').shadowRoot.querySelector('#input'));
   await t
     .hover(component)
     .expect(shadowInput.getStyleProperty('width')).eql("159px");
@@ -43,7 +59,7 @@ test("Hover button", async t => {
 });
 
 test("Typing text into input-field", async t => { 
-  const shadowInput = await Selector(() => document.querySelector('#basic').shadowRoot.querySelector('#input'));
+  const shadowInput = await Selector(() => document.querySelector('#large-input').shadowRoot.querySelector('#input'));
 
   await t
     .typeText(shadowInput, "meat-space")

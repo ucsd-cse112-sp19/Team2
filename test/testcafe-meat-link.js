@@ -53,7 +53,7 @@ test("test-red has attributes underline and color", async t => {
   const component = getElementById("#test-red");
   await t
     .expect(component.getAttribute("underline")).eql("hover")
-    .expect(component.getAttribute("color")).eql("red")
+    .expect(component.getAttribute("color")).eql("red");
 });
 
 test("test-red has attributes underline and color", async t => {
