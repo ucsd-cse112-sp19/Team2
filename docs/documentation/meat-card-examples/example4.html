@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>meat-card-demo</title>
+        <link rel="shortcut icon" href="/img/logo.png">
+        <script type="module" src="/web_components/meat-button/meat-button.js"></script>
+        <script type="module" src="/web_components/meat-link/meat-link.js"></script>
+        <script type="module" src="/web_components/meat-card/meat-card.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <style>
+        meat-card {
+            margin: 10px;
+        }
+    </style>
+    <body>
+        <meat-card class="card" style="display: inline-flex; width: 18rem;" bootstrap>
+            <img slot="header" class="card-img-top" src="/website/img/Thomas_Powell_ZingChart.png" alt="Card image cap">
+            <div slot="body" class="card-body">
+                <h5 class="card-title">meat-card with Bootstrap</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </meat-card>
+        <meat-card class="card" shadow="hover" style="display: inline-flex; width: 18rem;" bootstrap>
+            <img slot="header" class="card-img-top" src="/website/img/Thomas_Powell_ZingChart.png" alt="Card image cap">
+            <div slot="body" class="card-body">
+                <h5 class="card-title">meat-card with Bootstrap and shadow="hover"</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </meat-card>
+    </body>
+</html>

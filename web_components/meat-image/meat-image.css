@@ -1,0 +1,10 @@
+:host(:not([bootstrap]))  {
+    font-family: sans-serif;
+    vertical-align: top;
+    overflow: auto;
+}
+
+:host(:not([bootstrap])) #imageElement {
+    width: inherit;
+    height: inherit;
+}

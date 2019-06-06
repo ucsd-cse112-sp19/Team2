@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>meat-link/meat-link.js - Documentation</title>
+    <title>meat-image/meat-image.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">meat-link/meat-link.js</h1>
+    <h1 class="page-title">meat-image/meat-image.js</h1>
     
 
     
@@ -39,40 +39,71 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const template = document.createElement("template");
+            <pre class="prettyprint source linenums"><code>import { RELEASE } from "../environment.js";
+// path to local css file for development
+let cssUrl = "/web_components/meat-image/meat-image.css";
+// replaces the href during the bundling process to point to production
+if (RELEASE) {
+  cssUrl =
+    "https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-image/meat-image.css";
+}
+
+const template = document.createElement("template");
+
 template.innerHTML = `
 &lt;style>&lt;/style>
-&lt;link rel="stylesheet" href="/web_components/meat-link/meat-link.css"/>
-&lt;a>&lt;/a>
+&lt;link rel="stylesheet" href="${cssUrl}"/>
+
+&lt;div id="imageContainer">
+  &lt;img id="imageElement" class="nativeImg">
+  &lt;slot id="placeholder" name="placeholder">&lt;/slot>
+  &lt;slot id="error" name="error">&lt;/slot>
+&lt;/div>
 `;
 
-export class MeatLinkElement extends HTMLElement {
+const referrerPolicies = [
+  "no-referrer",
+  "no-referrer-when-downgrade",
+  "origin",
+  "origin-when-cross-origin",
+  "unsafe-url"
+];
+
+const fillStyles = ["fill", "contain", "cover", "none", "scale-down"];
+
+export class MeatImage extends HTMLElement {
   /**
-   * meat-link webcomponent
-   * @customelement meat-link
-   * @description displays a stylized link
-   * @example &lt;meat-link>&lt;/meat-link>
-   * @see [Demo]{@link https://meat-space.org/web_components/meat-link/meat-link-demo.html} for working example.
-   * @property {string} bootstrap -Enables bootstrap as styling of the button.
-   * @property {string} color -Specifies the color of the link.
-   * @property {attribute} disabled -Disables the link from accepting events.
-   * @property {string} href -The location of where the link redirects.
-   * @property {string} icon -Class that specifies the icon image for the link.
-   * @property {string} type -Specifies the type of the media that the link points to.
-   * @property {attribute} underline -Underlines the link.
+   * meat-boilerplate webcomponent
+   * @customelement meat-boilerplate
+   * @description A boilerplate for starting new webcomponents
+   * @example &lt;meat-boilerplate>&lt;/meat-boilerplate>
    */
   constructor() {
     super();
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
-    this.link = this.shadow.querySelector("a");
+
+    this.image = this.shadow.querySelector("#imageElement");
+    this.imageContainer = this.shadow.querySelector("#imageContainer");
+
+    // Apply user's inline style to our custom component container
+    this.imageContainer.style = this.style.cssText;
   }
 
   /**
    * Live-cycle method called when the custom element is loaded, often used for initialization
    */
   connectedCallback() {
-    this.link.textContent = this.textContent;
+    // TODO: find a way to make placeholder disappear upon loading
+    this.image.addEventListener("load", function() {
+      // do not show placeholder slot
+      console.log("loaded");
+    });
+
+    // TODO: display error plcaeholder upon image error
+    this.image.addEventListener("error", function() {
+      // show only error slot
+    });
   }
 
   /**
@@ -80,15 +111,7 @@ export class MeatLinkElement extends HTMLElement {
    * call attributeChangedCallback(name, oldVal, newVal)
    */
   static get observedAttributes() {
-    return [
-      "type",
-      "color",
-      "href",
-      "disabled",
-      "underline",
-      "icon",
-      "bootstrap"
-    ];
+    return ["src", "fit", "alt", "referrerpolicy", "lazy", "scrollcontainer"];
   }
 
   /**
@@ -99,86 +122,26 @@ export class MeatLinkElement extends HTMLElement {
    */
   attributeChangedCallback(name, oldVal, newVal) {
     switch (name) {
-      case "disabled":
-        this.link.setAttribute("disabled", newVal);
-        this.link.disabled = newVal;
+      case "src":
+        this.image.src = newVal;
         break;
-      case "underline":
-        this.link.setAttribute("underline", newVal);
-      case "href":
-        this.link.href = newVal;
+      case "fit":
+        if (fillStyles.includes(newVal)) {
+          this.image.setAttribute("style", `object-fit: ${newVal};`);
+        }
         break;
-      case "type":
-        this.link.type = newVal;
+      case "alt":
+        this.image.alt = newVal;
         break;
-      case "color":
-        this.link.setAttribute("color", newVal);
-        break;
-      case "bootstrap":
-        this.link.setAttribute("bootstrap", newVal);
-        this.link.className = newVal;
+      case "referrerpolicy":
+        if (referrerPolicies.includes(newVal)) {
+          this.image.setAttribute("referrerpolicy", newVal);
+        }
         break;
     }
   }
-
-  /**
-   * Getters and Setters
-   */
-  get color() {
-    return this.getAttribute("color");
-  }
-
-  set color(val) {
-    if (val) this.setAttribute("color", val);
-    else this.removeAttribute("color");
-  }
-
-  get underline() {
-    return this.getAttribute("underline");
-  }
-
-  set underline(val) {
-    if (val) this.setAttribute("underline", val);
-    else this.removeAttribute("underline");
-  }
-
-  get type() {
-    return this.getAttribute("type");
-  }
-
-  set type(val) {
-    if (val) this.setAttribute("type", val);
-    else this.removeAttribute("type");
-  }
-
-  get href() {
-    return this.getAttribute("href");
-  }
-
-  set href(val) {
-    if (val) this.setAttribute("href", val);
-    else this.removeAttribute("href");
-  }
-
-  get bootstrap() {
-    return this.getAttribute("bootstrap");
-  }
-
-  set bootstrap(val) {
-    if (val) this.setAttribute("bootstrap", val);
-    else this.removeAttribute("bootstrap");
-  }
-
-  get disabled() {
-    return this.hasAttribute("disabled");
-  }
-
-  set disabled(val) {
-    if (val) this.setAttribute("disabled", val);
-    else this.removeAttribute("disabled");
-  }
 }
-window.customElements.define("meat-link", MeatLinkElement);
+window.customElements.define("meat-image", MeatImage);
 </code></pre>
         </article>
     </section>
