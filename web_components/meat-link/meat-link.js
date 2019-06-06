@@ -1,11 +1,20 @@
+import { RELEASE } from "../environment.js";
+// path to local css file for development
+let cssUrl = "/web_components/meat-link/meat-link.css";
+// replaces the href during the bundling process to point to production
+if (RELEASE) {
+  cssUrl =
+    "https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-link/meat-link.css";
+}
+
 const template = document.createElement("template");
 template.innerHTML = `
 <style></style>
-<link rel="stylesheet" href="/web_components/meat-link/meat-link.css"/>
+<link rel="stylesheet" href="${cssUrl}"/>
 <a></a>
 `;
 
-export class MeatLinkElement extends HTMLElement {
+export class MeatLink extends HTMLElement {
   /**
    * meat-link webcomponent
    * @customelement meat-link
@@ -25,6 +34,8 @@ export class MeatLinkElement extends HTMLElement {
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
     this.link = this.shadow.querySelector("a");
+
+    this._preventClick = this._preventClick.bind(this);
   }
 
   /**
@@ -61,6 +72,7 @@ export class MeatLinkElement extends HTMLElement {
       case "disabled":
         this.link.setAttribute("disabled", newVal);
         this.link.disabled = newVal;
+        this.link.addEventListener("click", this._preventClick);
         break;
       case "underline":
         this.link.setAttribute("underline", newVal);
@@ -78,6 +90,16 @@ export class MeatLinkElement extends HTMLElement {
         this.link.className = newVal;
         break;
     }
+  }
+
+  /**
+   * Click event callback that prevents following the link if link is disabled
+   * @param {*} evt
+   * @return {boolean}
+   */
+  _preventClick(evt) {
+    evt.preventDefault();
+    return false;
   }
 
   /**
@@ -134,7 +156,10 @@ export class MeatLinkElement extends HTMLElement {
 
   set disabled(val) {
     if (val) this.setAttribute("disabled", val);
-    else this.removeAttribute("disabled");
+    else {
+      this.removeAttribute("disabled");
+      this.link.removeEventListener("click", this._preventClick);
+    }
   }
 }
-window.customElements.define("meat-link", MeatLinkElement);
+window.customElements.define("meat-link", MeatLink);

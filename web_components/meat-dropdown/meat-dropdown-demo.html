@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>meat-dropdown-demo</title>
+        <link rel="shortcut icon" href="/img/logo.png">
+        <script type="module" src="./meat-dropdown.js"></script>
+    </head>
+    <style>
+        meat-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+    </style>
+    <body>
+        <select>
+            <option value="volvo">Volvo</option>
+            <option value="ahhhh">ahhhh</option>
+        </select>
+        <meat-dropdown>
+            <slot name="dropdown">
+                <option slot="dropdown">car</option>
+            </slot>
+            <!-- <slot name="dropdown">Car</slot> -->
+            <!-- <slot name="dropdown">Car</slot> -->
+
+            <!-- <div slot="dropdown">Text</option> -->
+        <meat-dropdown>
+    </body>
+    <script>
+        const meatDropdown = document.querySelector('meat-dropdown');
+    </script>
+</html>

@@ -8,11 +8,16 @@
     color: #444444;
     height: 38px;
     font-size: 14px;
-    --padding: 10px;
-    --background-color: white;
-    --border: 1px solid #CCCCCC;
     border-radius: 3px;
     outline: none;
+
+    /* CSS Variables */
+    --input-padding: 10px;
+    --input-background-color: white;
+    --input-border: 1px solid #CCCCCC;
+    --input-hover-border: 1px solid #888888;
+    --input-focus-border: 1px solid #3388ff;
+    --input-active-border: 1px solid #3388ff;
 }
 
 ::placeholder {
@@ -23,9 +28,9 @@ input {
     position: relative;
     display: inline-block;
 
-    background-color: var(--background-color);
-    padding: var(--padding);
-    border: var(--border);
+    background-color: var(--input-background-color);
+    padding: var(--input-padding);
+    border: var(--input-border);
 
     box-sizing: border-box;
     width: 100%;
@@ -44,36 +49,21 @@ input {
     font-family: inherit;
     text-align: inherit;
     
+    transition: border .3s;
 
     /* special override-able css variables */
-    /*
-    --border: 1px solid #cccccc;
-    
-    --hover-background-color: #daeeff;
-    --focus-background-color: #daeeff;
-
-    --hover-text-color: #3388ff;
-    --focus-text-color: #3388ff;
-
-    --hover-border: 1px solid #daeeff;
-    --focus-border: 1px solid #daeeff;
-    --active-border: 1px solid #3388ff;
-
-    --focus-box-shadow: 0 0 0px 3px #b1dcff;
-    */
-    transition: border .3s;
 }
 
 input:hover {
-    border: 1px solid #888888;
+    border: var(--input-hover-border);
 }
 
 input:focus {
-    border: 1px solid #3388ff;
+    border: var(--input-focus-border);
 }
 
 input:active {
-    border: 1px solid #3388ff;
+    border: var(--input-active-border);
 }
 
 /* Attributes: */
@@ -92,7 +82,7 @@ input[size="large"] {
 }
 
 /* Disabled */
-input[disable] {
+input[disabled] {
     border: none;
     background-color: #cccccc;
     cursor: not-allowed;
@@ -101,7 +91,7 @@ input[disable] {
 /* Suggestion Styling */
 #suggestionContainer {
     position: absolute;
-    border: var(--border);
+    border: var(--input-border);
     border-bottom: none;
     border-top: none;
     z-index: 99;
@@ -122,12 +112,12 @@ input[disable] {
 }
 
 .suggestion:hover {
-    border: var(--active-border);
+    border: var(--suggestion-hover-border);
 }
 
 .suggestion:focus {
-    background-color: var(--hover-background-color, #daeeff);
-    border: var(--active-border);
+    background-color: var(--suggestion-focus-background-color, #daeeff);
+    border: var(--suggestion-focus-border);
 }
 
 /* Bootstrap integration */
@@ -249,31 +239,31 @@ input[bootstrap~="custom-control-input"] {
 }
 
 /* TODO */
-.custom-control-input:checked ~ .custom-control-label::before {
+:host([bootstrap~="custom-control-input"]):checked ~ .custom-control-label::before {
     color: #fff;
     border-color: #007bff;
     background-color: #007bff;
-  }
+}
   
-  .custom-control-input:focus ~ .custom-control-label::before {
+:host([bootstrap~="custom-control-input"]):focus ~ .custom-control-label::before {
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-  }
-  
-  .custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
+}
+
+:host([bootstrap~="custom-control-input"]):focus:not(:checked) ~ .custom-control-label::before {
     border-color: #80bdff;
-  }
-  
-  .custom-control-input:not(:disabled):active ~ .custom-control-label::before {
+}
+
+:host(:not([disabled])[bootstrap~="custom-control-input"]):active ~ .custom-control-label::before {
     color: #fff;
     background-color: #b3d7ff;
     border-color: #b3d7ff;
-  }
-  
-  .custom-control-input[disabled] ~ .custom-control-label {
+}
+
+:host([bootstrap~="custom-control-input"][disabled]) ~ .custom-control-label {
     color: #6c757d;
-  }
-  
-  .custom-control-input[disabled] ~ .custom-control-label::before {
+}
+
+:host([bootstrap~="custom-control-input"][disabled]) ~ .custom-control-label::before {
     background-color: #e9ecef;
-  }
+}
 

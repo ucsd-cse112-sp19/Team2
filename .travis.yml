@@ -13,6 +13,8 @@ cache:
   - node_modules
 notifications:
   slack: cse112-sp19-team2:IXLkNzX29z3uu0hqeUn37atD
+before_deploy:
+  - npm run build
 deploy:
   provider: npm
   email: jensen.a.christopher@gmail.com
