@@ -93,7 +93,7 @@ describe('Tests meat-input disabled functionality', function() {
           document.body.append(comp)
           const green_inner = sr.querySelector("input");
           const hi = getComputedStyle(green_inner);
-          assert.equal(hi.cursor, 'default');
+          assert.equal(hi.cursor, 'not-allowed');
           done();
         },500);
     })
@@ -226,7 +226,7 @@ describe('Tests size attributes', function() {
         sr = comp.shadowRoot; 
         const green_inner = sr.querySelector("input");
         const hi = getComputedStyle(green_inner);
-        assert.equal(hi.width, "192.5px");
+        assert.equal(hi.width, "190px");
         assert.equal(hi.height, "38px")
         done();
       },500);
