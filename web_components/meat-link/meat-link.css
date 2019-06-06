@@ -130,7 +130,6 @@ a.nav-link {
     cursor: default;
 }
 
-
 a[bootstrap~="navbar-brand"] {
   display: inline-block;
   padding-top: 0.3125rem;
