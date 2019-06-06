@@ -1,49 +1,34 @@
 var assert = chai.assert; 
-let comp; 
-let sr;
+let sr = document.querySelector("meat-link").shadow; 
+let comp = document.querySelector("meat-link"); 
 
-before((done) => { 
-    setTimeout(function(){
-    comp = document.createElement('meat-link');
-    document.body.append(comp);
-    sr = comp.shadowRoot;
-      done();
-    },1000);
-});
+describe('meat-input basic requirements', function()  { 
+    before(function(){
+        sr = document.querySelector("meat-link").shadow;
+        comp = document.querySelector('meat-link');
+      });
 
-describe('meat-link basic requirements', function() { 
-    it ("Component should exist", function(done) { 
-        assert.isDefined(comp);
-        done();
-    })
-    it ("Shadowroot should exist", function(done) { 
-        sr = comp.shadowRoot; 
-        assert.isDefined(sr);
-        done();
-    })
-    
-});
-describe('meat-link existence', function() { 
     it ("shadowDOM should exist", function(done) { 
-        sr = comp.shadowRoot; 
-        assert.equal(sr instanceof ShadowRoot, true);
+        setTimeout(function() { 
+            sr = comp.shadow; 
+            assert.equal(sr instanceof ShadowRoot, true);
+        }, 0)
         done();
-     })
-     it ("should have tag named meat-input", function(done) { 
-         let tagName = comp.tagName;
-         assert.equal(tagName, 'MEAT-LINK');
-         done()
-     })
-  });
+    })
 
-describe("Tests Text functionality", function() { 
+    it ("should have tag named meat-link", function() { 
+        let tagName = comp.tagName;
+        assert.equal(tagName, 'MEAT-LINK');
+    })
+});
+describe("Text", function() { 
     it ("Should have meat-link as text", function(done) {
         comp.innerHTML = "meat-link";
         assert.equal(document.querySelector('meat-link').innerHTML, 'meat-link');
         done()
     })
 })
-describe("Tests color functionality", async() => { 
+describe("color", async() => { 
     it ("has color attribute", function(done) { 
         comp.setAttribute("color", "green"); 
         assert.equal(document.querySelector('meat-link').getAttribute("color"), "green");
@@ -60,7 +45,7 @@ describe("Tests color functionality", async() => {
 
 })
 
-describe("Tests href functionality", function() { 
+describe("href", function() { 
     it ("Should take in a href to meat-space.org"), function(done) { 
         const test = document.querySelector('meat-link')
         assert.equal(test.href, "www.meat-space.org");
@@ -68,7 +53,7 @@ describe("Tests href functionality", function() {
     }
 })
 
-describe("Tests disabled functionality", function() { 
+describe("disabled", function() { 
     it ("has disabled attribute", function(done) { 
         comp.setAttribute("disabled", "true"); 
         assert.equal(document.querySelector('meat-link').getAttribute("disabled"), "true");
@@ -84,7 +69,7 @@ describe("Tests disabled functionality", function() {
 
 })
 
-describe("Tests underline functionality", function() { 
+describe("underline", function() { 
     it ("has underline attribute", function(done) { 
         comp.setAttribute("underline", "never"); 
         assert.equal(document.querySelector('meat-link').getAttribute("underline"), "never");
@@ -107,7 +92,7 @@ describe("Tests underline functionality", function() {
     })
 })
 
-describe("Tests bootstrap functionality", function() { 
+describe("bootstrap attribute", function() { 
     it ("should have bootstrap nav-link", function(done) {
         comp.setAttribute("bootstrap", "nav-link");
         assert.equal(document.querySelector('meat-link').getAttribute("bootstrap"), "nav-link");
