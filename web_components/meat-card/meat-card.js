@@ -1,18 +1,29 @@
+import { RELEASE } from "../environment.js";
+// path to local css file for development
+let cssUrl = "/web_components/meat-card/meat-card.css";
+// replaces the href during the bundling process to point to production
+if (RELEASE) {
+  cssUrl =
+    "https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-card/meat-card.css";
+}
+
 const template = document.createElement("template");
 template.innerHTML = `
 <style></style>
-<link rel="stylesheet" href="/web_components/meat-card/meat-card.css"/>
+<link rel="stylesheet" href="${cssUrl}"/>
 <slot id="header" name="header"></slot>
 <slot id="body" name="body"></slot>
 `;
 
-export class MeatCardElement extends HTMLElement {
+export class MeatCard extends HTMLElement {
   /**
    * meat-card webcomponent
    * @customelement meat-card
    * @description A reusable card with replaceable markup.
    * @example <meat-card></meat-card>
-   */
+   * @see [Demo]{@link https://meat-space.org/web_components/meat-card/meat-card-demo.html} for working example.
+   * @property {attribute} shadow -Specifies a "shadow" around the card.
+   * */
   constructor() {
     super();
     this.shadowDOM = this.attachShadow({ mode: "open" });
@@ -60,4 +71,4 @@ export class MeatCardElement extends HTMLElement {
     }
   }
 }
-window.customElements.define("meat-card", MeatCardElement);
+window.customElements.define("meat-card", MeatCard);
