@@ -31,3 +31,27 @@ test("Hover button", async t => {
   const component = getElementById("meat-button");
   await t.hover(component);
 });
+
+//describe('Tests meat-button disabled functionality', function() { 
+
+  // it ("should be that an undisabled button is clickable (disabled clicking testing must be in codeclimate)", function(done) { 
+    
+  //     comp.disabled = false;
+  //     clicked = false;
+  //     comp.addEventListener("click", function(){
+  //       clicked = true;
+  //       console.log("clicked!");
+  //     });
+  //     comp.click();
+  //     assert.equal(clicked, true);
+  //     done();
+  // })
+  //  it ("should be that a disabled button is unclickable", function(done) { 
+  //     comp.disabled = true;
+  //      clicked = false;
+  //      comp.click();
+  //      document.body.append(comp);
+  //      assert.equal(clicked, false);
+  //      done();
+  //  })
+  // }); 

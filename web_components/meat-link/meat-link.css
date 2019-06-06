@@ -23,7 +23,7 @@ a:not([disabled]):hover {
 }
 
 /* if no color specified, turn blue on hover */
-a:not([color]):hover {
+a:not([color]):not([disabled]):hover {
     color: #40a5ff;
 }
 

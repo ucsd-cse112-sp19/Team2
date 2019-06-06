@@ -4,11 +4,14 @@
   "description": "A web component library",
   "main": "index.js",
   "files": [
-    "/web_components"
+    "/web_components",
+    "/lib",
+    "bundle.js"
   ],
   "publishConfig": {
     "access": "public"
   },
+  "browserslist": "> 0.25%, not dead",
   "scripts": {
     "runner": "node test/runner.js",
     "local-runner": "node -r dotenv/config test/runner.js",
@@ -18,12 +21,16 @@
     "utest": "cd ./unit_tests && npm run all",
     "generate-jsdocs": "./node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
     "lint": "./node_modules/.bin/eslint --fix web_components",
+    "lint-lib": "./node_modules/.bin/eslint --fix lib",
     "pipe": "cd scripts && pipe.sh",
     "pipe-mac": "./scripts/pipe.sh",
     "pipe-release-mac": "./scripts/release.sh",
     "pipe-release": "cd scripts && release.sh",
-    "storybook": "start-storybook"
+    "storybook": "start-storybook",
+    "babel": "./node_modules/.bin/babel web_components --out-dir lib",
+    "build": "npm run babel && rollup -c"
   },
+  "unpkg": "bundle.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ucsd-cse112/Team2.git"
@@ -34,8 +41,18 @@
     "url": "https://github.com/ucsd-cse112/Team2/issues"
   },
   "homepage": "https://meat-space.org",
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "es2015"
+    ]
+  },
   "devDependencies": {
-    "@babel/core": "^7.4.4",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4",
     "@storybook/addon-knobs": "^5.0.11",
     "@storybook/html": "^5.0.11",
     "babel-loader": "^8.0.5",
@@ -50,14 +67,20 @@
     "mocha": "^6.1.4",
     "mocha-chrome": "^2.0.0",
     "mocha-headless-chrome": "^2.0.2",
+    "nodemon": "^1.19.1",
     "npm-run-all": "^4.1.5",
     "prettier": "1.17.0",
     "puppeteer": "^1.17.0",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-node-resolve": "^5.0.1",
+    "rollup-plugin-postcss": "^2.0.3",
     "selenium-webdriver": "^4.0.0-alpha.1",
     "testcafe": "^1.1.4",
-    "testcafe-browser-provider-browserstack": "^1.8.0"
+    "testcafe-browser-provider-browserstack": "^1.8.0",
+    "testcafe-reporter-slack": "0.0.6"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.4.4",
     "acorn": "^6.1.1",
     "dotenv": "^8.0.0"
   }

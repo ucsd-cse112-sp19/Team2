@@ -1,12 +1,20 @@
+import { RELEASE } from "../environment.js";
+// path to local css file for development
+let cssUrl = "/web_components/meat-button/meat-button.css";
+// replaces the href during the bundling process to point to production
+if (RELEASE) {
+  cssUrl =
+    "https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-button/meat-button.css";
+}
+
 const template = document.createElement("template");
 template.innerHTML = `
   <style></style>
-  <link rel="stylesheet" href="/web_components/common.css"/>
-  <link rel="stylesheet" href="/web_components/meat-button/meat-button.css"/>
+  <link rel="stylesheet" href="${cssUrl}"/>
   <button id="button" type="reset"></button>
 `;
 
-export class MeatButtonElement extends HTMLElement {
+export class MeatButton extends HTMLElement {
   /**
    * meat-button webcomponent
    * @customelement meat-button
@@ -93,69 +101,6 @@ export class MeatButtonElement extends HTMLElement {
       case "bootstrap":
         this.button.className = newVal;
         break;
-    }
-  }
-
-  /**
-   * getters and setters for attributes
-   */
-  get disabled() {
-    return this.hasAttribute("disabled");
-  }
-
-  set disabled(val) {
-    if (val) {
-      this.setAttribute("disabled", "");
-    } else {
-      this.removeAttribute("disabled");
-    }
-  }
-
-  get round() {
-    return this.hasAttribute("round");
-  }
-
-  set round(val) {
-    if (val) {
-      this.setAttribute("round", "");
-    } else {
-      this.removeAttribute("round");
-    }
-  }
-
-  get circle() {
-    return this.hasAttribute("circle");
-  }
-
-  set circle(val) {
-    if (val) {
-      this.setAttribute("circle", "");
-    } else {
-      this.removeAttribute("circle");
-    }
-  }
-
-  get size() {
-    return this.getAttribute("size");
-  }
-
-  set size(val) {
-    if (val) {
-      this.setAttribute("size", val);
-    } else {
-      this.removeAttribute("size");
-    }
-  }
-
-  get type() {
-    return this.getAttribute("type");
-  }
-
-  set type(val) {
-    if (val) {
-      this.setAttribute("type", val);
-    } else {
-      this.removeAttribute("type");
     }
   }
 
@@ -251,4 +196,4 @@ export class MeatButtonElement extends HTMLElement {
   }
 }
 
-window.customElements.define("meat-button", MeatButtonElement);
+window.customElements.define("meat-button", MeatButton);

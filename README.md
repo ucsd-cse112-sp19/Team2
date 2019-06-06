@@ -23,19 +23,23 @@ Team MeatSpace's web component library.
 ## Getting Started
 The following instructions will get our web components installed and running locally on your machine.
 
-### Prerequisites 
+### Installing
+The easiest way to get our webcomponents is to include the following into the head of your html document:
+```
+<script src="https://unpkg.com/@meatspace/webcomponents@latest/bundle.js"></script>
+```
+Otherwise, you'll need to have the following installed:
 * Nodejs
 * npm
 
-### Installing
 Assuming you have started a nodejs project, have a `package.json` file set up, and are in the root directory of your poject, run
 ```
-npm i team2
+npm install --save @meatspace/webcomponents
 ```
 ### Usage & Example
 In your HTML page `<head>` element, add a `<script>` tag like so
 ```
-<script type="module" src="./node_modules/team2/web_components/core-hello/core-hello.js"></script>
+<script type="module" src="/node_modules/@meatspace/webcomponents/lib/core-hello/core-hello.js"></script>
 ```
 In the above example, `/core-hello/core-hello.js` is the path to the core-hello web component JavaScript file. 
 If you want to use a different web component, you will have to change this part of the path appropriately.
@@ -43,6 +47,16 @@ Next, add the component into your HTML body
 ```
 <core-hello rainbow lang="en">this is a test!</core-hello>
 ```
+If you want access to all of the components add this `<script>` tag instead
+```
+<script type="module" src="/node_modules/@meatspace/webcomponents/bundle.js"></script>
+```
+
+### Contributing
+If you'd like to contribute to our webcomponent library, visit the onboarding documents for information at:
+https://drive.google.com/open?id=1Ol-goKPABW7S3bXMqYjVDUb8xxKekqXt  
+This public Google Drive contains all of information you will need to get grilling 🥩!
+
 ### Acknowledgment
 Thanks to [BrowserStack](http://browserstack.com/) for supporting open source projects like ours. 
 
