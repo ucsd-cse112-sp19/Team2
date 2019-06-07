@@ -21,7 +21,7 @@
     </style>
     <body>
         <div style="padding: 10px">
-            <label id="text">Basic buttons</label><br/>
+            <label id="text-test">Basic buttons</label><br/>
             <meat-button id="clickable" size="large" >No Color Specified</meat-button>
             <meat-button id="check-button" color="white"  size="large">White</meat-button>
             <meat-button color="grey"   size="large" >Grey</meat-button>
@@ -86,7 +86,7 @@
             </form>
             <form action="/some_action.php">
                 <label for="name">Example Form</label><br>
-                <meat-input autocomplete="on"><br><br>
+                <meat-input id="test-input" autocomplete="on"><br><br>
                 <meat-button type="reset">Reset the form!</meat-button>
                 <meat-button type="submit">Submit</meat-button>
             </form>
@@ -96,8 +96,13 @@
         const meatButton = document.querySelector('meat-button');
         meatButton.addEventListener('click', () => {
             console.log("user defined click method");
-            alert("Click works!")
-            //location.href = "http://127.0.0.1:8080/web_components/meat-link/meat-link-demo.html"
+            location.href = "http://127.0.0.1:8080/web_components/meat-link/meat-link-demo.html"
+        })
+
+        const meatButton2 = document.querySelector('#disabled');
+        meatButton.addEventListener('click', () => {
+            console.log("user defined click method");
+            location.href = "http://127.0.0.1:8080/web_components/meat-link/meat-link-demo.html"
         })
     </script>
 </html>

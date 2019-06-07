@@ -23,13 +23,13 @@ test("Check that tag-name is meat-button", async t => {
   await t.expect(component.tagName).eql("meat-button");
 });
 
-test("Click button", async t => {
-  const input = getElementById("#input");
-  const component = getElementById("#reset");
+test("Click button (RESET)", async t => {
+  const input = await Selector(() => document.querySelector('#test-input').shadowRoot.querySelector('input'));
+  const component = await Selector(() => document.querySelector('#reset').shadowRoot.querySelector('button'));
   await t
     .typeText(input, "meat-space")
     .click(component)
-    .expect(input.textContent).eql('');
+    .expect(input.textContent).eql('5');
     
 });
 
@@ -38,26 +38,3 @@ test("Hover button", async t => {
   await t.hover(component);
 });
 
-//describe('Tests meat-button disabled functionality', function() { 
-
-  // it ("should be that an undisabled button is clickable (disabled clicking testing must be in codeclimate)", function(done) { 
-    
-  //     comp.disabled = false;
-  //     clicked = false;
-  //     comp.addEventListener("click", function(){
-  //       clicked = true;
-  //       console.log("clicked!");
-  //     });
-  //     comp.click();
-  //     assert.equal(clicked, true);
-  //     done();
-  // })
-  //  it ("should be that a disabled button is unclickable", function(done) { 
-  //     comp.disabled = true;
-  //      clicked = false;
-  //      comp.click();
-  //      document.body.append(comp);
-  //      assert.equal(clicked, false);
-  //      done();
-  //  })
-  // }); 
