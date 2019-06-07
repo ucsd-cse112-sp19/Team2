@@ -1,18 +1,17 @@
-import { RELEASE } from "../environment.js";
-// path to local css file for development
-let cssUrl = "/web_components/meat-image/meat-image.css";
-// replaces the href during the bundling process to point to production
-if (RELEASE) {
-  cssUrl =
-    "https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-image/meat-image.css";
+const template = document.createElement("template");
+template.innerHTML = `
+<style>
+:host(:not([bootstrap]))  {
+  font-family: sans-serif;
+  vertical-align: top;
+  overflow: auto;
 }
 
-const template = document.createElement("template");
-
-template.innerHTML = `
-<style></style>
-<link rel="stylesheet" href="${cssUrl}"/>
-
+:host(:not([bootstrap])) #imageElement {
+  width: inherit;
+  height: inherit;
+}
+</style>
 <div id="imageContainer">
   <img id="imageElement" class="nativeImg">
   <slot id="placeholder" name="placeholder"></slot>

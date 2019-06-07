@@ -1,16 +1,6 @@
-import { RELEASE } from "../environment.js";
-// path to local css file for development
-let cssUrl = "/web_components/meat-boilerplate/meat-boilerplate.css";
-// replaces the href during the bundling process to point to production
-if (RELEASE) {
-  cssUrl =
-    "https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-boilerplate/meat-boilerplate.css";
-}
-
 const template = document.createElement("template");
 template.innerHTML = `
 <style></style>
-<link rel="stylesheet" href=${cssUrl}/>
 `;
 
 export class MeatBoilerplate extends HTMLElement {

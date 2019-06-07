@@ -1,16 +1,275 @@
-import { RELEASE } from "../environment.js";
-// path to local css file for development
-let cssUrl = "/web_components/meat-input/meat-input.css";
-// replaces the href during the bundling process to point to production
-if (RELEASE) {
-  cssUrl =
-    "https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-input/meat-input.css";
-}
-
 const template = document.createElement("template");
 template.innerHTML = `
-<style></style>
-<link rel="stylesheet" href="${cssUrl}"/>
+<style>
+/* Note, this CSS needs a lot of work */
+/* Default styling for the input */
+:host {
+    position: relative;
+    display: inline-block;
+    font-family: sans-serif;
+    text-align: left;
+    color: #444444;
+    height: 38px;
+    font-size: 14px;
+    border-radius: 3px;
+    outline: none;
+
+    /* CSS Variables */
+    --input-padding: 10px;
+    --input-background-color: white;
+    --input-border: 1px solid #CCCCCC;
+    --input-hover-border: 1px solid #888888;
+    --input-focus-border: 1px solid #3388ff;
+    --input-active-border: 1px solid #3388ff;
+}
+
+::placeholder {
+    color: #AAAAAA;
+}
+
+input {
+    position: relative;
+    display: inline-block;
+
+    background-color: var(--input-background-color);
+    padding: var(--input-padding);
+    border: var(--input-border);
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+
+    /* These 4 are incorporated from bootstrap */
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    overflow: visible;
+
+    color: inherit;
+    border-radius: inherit;
+    outline: inherit;
+    font-family: inherit;
+    text-align: inherit;
+    
+    transition: border .3s;
+
+    /* special override-able css variables */
+}
+
+input:hover {
+    border: var(--input-hover-border);
+}
+
+input:focus {
+    border: var(--input-focus-border);
+}
+
+input:active {
+    border: var(--input-active-border);
+}
+
+/* Attributes: */
+/* Size */
+input[size="small"] {
+    width: 100px;
+    height: inherit;
+}
+input[size="medium"] {
+    width: 200px;
+    height: inherit;
+}
+input[size="large"] {
+    width: 300px;
+    height: inherit;
+}
+
+/* Disabled */
+input[disabled] {
+    border: none;
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+  
+/* Suggestion Styling */
+#suggestionContainer {
+    position: absolute;
+    border: var(--input-border);
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+/* Suggestion Rows */
+.suggestion {
+    padding-left: 5px;
+    cursor: pointer;
+    background-color: #fff; 
+    border-bottom: 1px solid #d4d4d4; 
+    font-family: inherit;
+    font-size: 15px
+}
+
+.suggestion:hover {
+    border: var(--suggestion-hover-border);
+}
+
+.suggestion:focus {
+    background-color: var(--suggestion-focus-background-color, #daeeff);
+    border: var(--suggestion-focus-border);
+}
+
+/* Bootstrap integration */
+input[bootstrap~="form-control"] {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+  
+@media (prefers-reduced-motion: reduce) {
+    :host([bootstrap~="form-control"]) > input {
+      transition: none;
+    }
+}
+
+input[bootstrap~="form-control"]::-ms-expand {
+    background-color: transparent;
+    border: 0;
+}
+
+input[bootstrap~="form-control"]:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+input[bootstrap~="form-control"]::-webkit-input-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+input[bootstrap~="form-control"]::-moz-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+input[bootstrap~="form-control"]:-ms-input-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+input[boostrap~="form-control"]::-ms-input-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+input[bootstrap~="form-control"]::placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+input[bootstrap~="form-control"]:disabled, input[bootstrap~="form-control"][readonly] {
+    background-color: #e9ecef;
+    opacity: 1;
+  }
+
+input[bootstrap~="form-control-file"], input[bootstrap~="form-control-range"] {
+    display: block;
+    width: 100%;
+}
+
+input[bootstrap~="form-control-plaintext"] {
+    display: block;
+    width: 100%;
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    margin-bottom: 0;
+    line-height: 1.5;
+    color: #212529;
+    background-color: transparent;
+    border: solid transparent;
+    border-width: 1px 0;
+}
+
+/* Unsure about this one */
+input[bootstrap~="form-control-plaintext"].form-control-sm, input[bootstrap~="form-control-plaintext"].form-control-lg {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+input[bootstrap~="form-control-sm"] {
+    height: calc(1.5em + 0.5rem + 2px);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+}
+
+input[bootstrap~="form-control-lg"] {
+    height: calc(1.5em + 1rem + 2px);
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: 0.3rem;
+}
+
+input[type="submit"].btn-block,
+input[type="reset"].btn-block,
+input[type="button"].btn-block {
+  width: 100%;
+}
+
+input[bootstrap~="custom-control-input"] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+/* TODO */
+:host([bootstrap~="custom-control-input"]):checked ~ .custom-control-label::before {
+    color: #fff;
+    border-color: #007bff;
+    background-color: #007bff;
+}
+  
+:host([bootstrap~="custom-control-input"]):focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+:host([bootstrap~="custom-control-input"]):focus:not(:checked) ~ .custom-control-label::before {
+    border-color: #80bdff;
+}
+
+:host(:not([disabled])[bootstrap~="custom-control-input"]):active ~ .custom-control-label::before {
+    color: #fff;
+    background-color: #b3d7ff;
+    border-color: #b3d7ff;
+}
+
+:host([bootstrap~="custom-control-input"][disabled]) ~ .custom-control-label {
+    color: #6c757d;
+}
+
+:host([bootstrap~="custom-control-input"][disabled]) ~ .custom-control-label::before {
+    background-color: #e9ecef;
+}
+</style>
 <input id="input" type="text"></input>
 <div id="suggestionContainer"></div>
 `;
