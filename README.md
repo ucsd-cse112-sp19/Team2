@@ -3,20 +3,7 @@
 [![Build Status](https://travis-ci.org/ucsd-cse112/Team2.svg?branch=master)](https://travis-ci.org/ucsd-cse112/Team2)
 [![Maintainability](https://api.codeclimate.com/v1/badges/2a07d0e8d29fd216bc41/maintainability)](https://codeclimate.com/repos/5cc77286629ff0026e00188a/maintainability) <br/>
 
-Team MeatSpace's web component library. 
-
-## Team Members
-- Adam Kabbara `Lead`
-- Timothy Bian `Co-Lead`
-- Veronica Lin `Quality Assurance`
-- Tony Huang `Quality Assurance`
-- Shih-hung (Peter) Pi `Tools & Utility`
-- Curtis Tong `Tools & Utility`
-- Alex Monji `Coder`
-- Aaron Brown `Coder`
-- Justin Chen `Coder`
-- Christopher Jensen `DevOps`
-- Xin Liu `DevOps`
+Welcome to the MeatSpace web component library. 
 
 [meat-space.org](https://meat-space.org)
 
@@ -39,17 +26,11 @@ npm install --save @meatspace/webcomponents
 ### Usage & Example
 In your HTML page `<head>` element, add a `<script>` tag like so
 ```
-<script type="module" src="/node_modules/@meatspace/webcomponents/lib/core-hello/core-hello.js"></script>
+<script type="module" src="/node_modules/@meatspace/webcomponents/bundle.js"></script>
 ```
-In the above example, `/core-hello/core-hello.js` is the path to the core-hello web component JavaScript file. 
-If you want to use a different web component, you will have to change this part of the path appropriately.
 Next, add the component into your HTML body
 ```
 <core-hello rainbow lang="en">this is a test!</core-hello>
-```
-If you want access to all of the components add this `<script>` tag instead
-```
-<script type="module" src="/node_modules/@meatspace/webcomponents/bundle.js"></script>
 ```
 
 ### Contributing
@@ -60,3 +41,15 @@ This public Google Drive contains all of information you will need to get grilli
 ### Acknowledgment
 Thanks to [BrowserStack](http://browserstack.com/) for supporting open source projects like ours. 
 
+## Team Members
+- Adam Kabbara `Lead`
+- Timothy Bian `Co-Lead`
+- Veronica Lin `Quality Assurance`
+- Tony Huang `Quality Assurance`
+- Shih-hung (Peter) Pi `Tools & Utility`
+- Curtis Tong `Tools & Utility`
+- Alex Monji `Coder`
+- Aaron Brown `Coder`
+- Justin Chen `Coder`
+- Christopher Jensen `DevOps`
+- Xin Liu `DevOps`
