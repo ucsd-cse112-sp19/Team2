@@ -1,7 +1,7 @@
 {
   "name": "@meatspace/webcomponents",
   "version": "0.0.2",
-  "description": "A web component library",
+  "description": "A web component library by MeatSpace",
   "main": "index.js",
   "files": [
     "/web_components",
@@ -11,7 +11,14 @@
   "publishConfig": {
     "access": "public"
   },
-  "browserslist": "> 0.25%, not dead",
+  "browserslist": "> 0.25%, not dead, ie >= 6",
+  "keywords": [
+    "webcomponents",
+    "web components",
+    "web component",
+    "webcomponent",
+    "custom elements"
+  ],
   "scripts": {
     "runner": "node test/runner.js",
     "local-runner": "node -r dotenv/config test/runner.js",
