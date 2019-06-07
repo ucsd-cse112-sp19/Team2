@@ -32,11 +32,11 @@ test("Test underline only on hover", async t => {
   const component = await Selector(() => document.querySelector('#underline-hover').shadowRoot.querySelector('a'));
   
   await t
-    .expect(component.getStyleProperty('text-decoration')).eql('none solid rgb(0, 0, 0)')
+    .expect(component.getStyleProperty('text-decoration')).contains('none')
     
   await t
    .hover(component)
-   .expect(component.getStyleProperty('text-decoration')).eql('none solid rgb(0, 0, 0)') // ???
+   .expect(component.getStyleProperty('text-decoration')).contains('none') // ???
 });
 
 test("Test never hover attribute", async t => {
@@ -44,17 +44,17 @@ test("Test never hover attribute", async t => {
   
   await t
     .hover(component)
-    .expect(component.getStyleProperty('text-decoration')).eql('none solid rgb(0, 0, 0)')
+    .expect(component.getStyleProperty('text-decoration')).contains('none')
 });
 
 test("Test always underline attribute", async t => {
   const component = await Selector(() => document.querySelector('#underline-always').shadowRoot.querySelector('a'));
   await t
-  .expect(component.getStyleProperty('text-decoration')).eql('underline solid rgb(0, 0, 0)')
+  .expect(component.getStyleProperty('text-decoration')).contains('underline')
 
   await t
     .hover(component)
-    .expect(component.getStyleProperty('text-decoration')).eql('underline solid rgb(0, 0, 0)')
+    .expect(component.getStyleProperty('text-decoration')).contains('underline')
 });
 
 test("test-white has attributes underline and color", async t => {
