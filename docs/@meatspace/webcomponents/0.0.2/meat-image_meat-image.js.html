@@ -39,21 +39,20 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { RELEASE } from "../environment.js";
-// path to local css file for development
-let cssUrl = "/web_components/meat-image/meat-image.css";
-// replaces the href during the bundling process to point to production
-if (RELEASE) {
-  cssUrl =
-    "https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-image/meat-image.css";
+            <pre class="prettyprint source linenums"><code>const template = document.createElement("template");
+template.innerHTML = `
+&lt;style>
+:host(:not([bootstrap]))  {
+  font-family: sans-serif;
+  vertical-align: top;
+  overflow: auto;
 }
 
-const template = document.createElement("template");
-
-template.innerHTML = `
-&lt;style>&lt;/style>
-&lt;link rel="stylesheet" href="${cssUrl}"/>
-
+:host(:not([bootstrap])) #imageElement {
+  width: inherit;
+  height: inherit;
+}
+&lt;/style>
 &lt;div id="imageContainer">
   &lt;img id="imageElement" class="nativeImg">
   &lt;slot id="placeholder" name="placeholder">&lt;/slot>
