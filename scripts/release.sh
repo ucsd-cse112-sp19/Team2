@@ -10,9 +10,18 @@ fi
 echo "WARNING! will 'git pull' from $branchName & 'git push' to $branchName"
 read -p "continue? (y or n)? " ans
 
-read "New version number: " version 
-
 ans=$(echo "$ans" | tr '[:upper:]' '[:lower:]') 
+echo "..."
+
+read -p "New version number: " version 
+
+echo "adding files to staging area ..."
+git add -A
+echo "commiting changes ..."
+git commit
+
+echo "updating npm version number to $version ..."
+npm version $verion
 
 read -p "Do you want to generate api docs? (y or n)? " docsAns
 
@@ -40,8 +49,6 @@ else
   git add -A
   echo "commiting changes ..."
   git commit
-  echo "updating npm version number to $version ..."
-  npm version $verion
   echo "creating a git tag with verion number $version ..."
   git tag -a $version
   echo "pulling from $branchName ..."
