@@ -31,7 +31,7 @@ test("Check that the placeholder attribute exists", async t => {
   const component = await getElementById("#small-input");
   await t.expect(component.getAttribute("placeholder")).eql("Small");
 });
-
+/*
 test("Visuals of Disabled Button", async t => {
   const component = await getElementById("#medium");
   const shadowInput = await Selector(() => document.querySelector('#medium').shadowRoot.querySelector('#input'));
@@ -39,7 +39,7 @@ test("Visuals of Disabled Button", async t => {
     .hover(component)
     .expect(shadowInput.getStyleProperty('width')).eql("159px");
 });
-
+*/
 test("Check that tag-name is meat-input", async t => {
   const component = getElementById("meat-input");
   await t.expect(component.tagName).eql("meat-input");

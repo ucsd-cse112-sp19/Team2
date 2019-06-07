@@ -22,14 +22,15 @@ test("Correct CSS color", async t => {
 });
 
 test("Cannot click disabled link", async t => {
-  const component = await Selector(() => document.querySelector('#disabled').shadowRoot.querySelector('a'));
+  const component = await Selector(() => document.querySelector('#disabled-test').shadowRoot.querySelector('a'));
   await t
     .hover(component)
     .expect(component.getStyleProperty('cursor')).eql('pointer')
 });
 
 test("Hover link", async t => {
-  const component = getElementById("#test");
+  const component = await Selector(() => document.querySelector('#disabled-test').shadowRoot.querySelector('a'));
+  
   await t
     .hover(component)
 });
@@ -60,4 +61,12 @@ test("test-red has attributes underline and color", async t => {
   const component = getElementById("#test-red");
   await t
     .expect(component.getAttribute("color")).eql("red")
+});
+
+test("Can click link", async t => {
+  const component = await Selector(() => document.querySelector('#disabled-test').shadowRoot.querySelector('a'));
+  await t
+    .click(component)
+    .wait(3000)
+    .expect(document.querySelector('#text').value).eql("Basic buttons");
 });
