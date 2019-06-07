@@ -4,8 +4,6 @@
   "description": "A web component library by MeatSpace",
   "main": "index.js",
   "files": [
-    "/web_components",
-    "/lib",
     "bundle.js"
   ],
   "publishConfig": {
