@@ -1,7 +1,7 @@
 import { Selector } from "testcafe"; // first import testcafe selectors
 
 fixture`Running tests for meat-link` // declare the fixture
-   .page`../web_components/meat-link/meat-link-demo.html`;
+   .page`http://127.0.0.1:8080/web_components/meat-link/meat-link-demo.html`;
 
 const getElementById = Selector(id => document.querySelector(id));
 
@@ -18,21 +18,43 @@ test("Click link", async t => {
 test("Correct CSS color", async t => {
   const component = getElementById("#color");
   await t
-    .expect(component.getStyleProperty('color')).eql('rgb(33, 37, 41)')
+    .expect(component.getStyleProperty('color')).eql('rgb(0, 0, 0)')
 });
 
 test("Cannot click disabled link", async t => {
   const component = await Selector(() => document.querySelector('#disabled-test').shadowRoot.querySelector('a'));
   await t
     .hover(component)
-    .expect(component.getStyleProperty('cursor')).eql('pointer')
+    .expect(component.getStyleProperty('cursor')).eql('not-allowed')
 });
 
-test("Hover link", async t => {
-  const component = await Selector(() => document.querySelector('#disabled-test').shadowRoot.querySelector('a'));
+test("Test underline only on hover", async t => {
+  const component = await Selector(() => document.querySelector('#underline-hover').shadowRoot.querySelector('a'));
+  
+  await t
+    .expect(component.getStyleProperty('text-decoration')).eql('none solid rgb(0, 0, 0)')
+    
+  await t
+   .hover(component)
+   .expect(component.getStyleProperty('text-decoration')).eql('none solid rgb(0, 0, 0)') // ???
+});
+
+test("Test never hover attribute", async t => {
+  const component = await Selector(() => document.querySelector('#underline-never').shadowRoot.querySelector('a'));
   
   await t
     .hover(component)
+    .expect(component.getStyleProperty('text-decoration')).eql('none solid rgb(0, 0, 0)')
+});
+
+test("Test always underline attribute", async t => {
+  const component = await Selector(() => document.querySelector('#underline-always').shadowRoot.querySelector('a'));
+  await t
+  .expect(component.getStyleProperty('text-decoration')).eql('underline solid rgb(0, 0, 0)')
+
+  await t
+    .hover(component)
+    .expect(component.getStyleProperty('text-decoration')).eql('underline solid rgb(0, 0, 0)')
 });
 
 test("test-white has attributes underline and color", async t => {
@@ -44,10 +66,15 @@ test("test-white has attributes underline and color", async t => {
 
 test("test-white is white", async t => {
   const component = getElementById("#test-white");
-  //const style = window.getComputedStyle(component.shadowRoot.querySelector("a"));
+
   await t
-    //.expect(style.color).eql('rgb(33, 37, 41)')
     .expect(component.getAttribute("color")).eql("white")
+});
+
+test("test-white is white CSS", async t => {
+  const component =  await Selector(() => document.querySelector('#test-white').shadow.querySelector("a"));
+  await t
+    .expect(component.getStyleProperty('color')).eql('rgb(255, 255, 255)')
 });
 
 test("test-red has attributes underline and color", async t => {
@@ -64,9 +91,13 @@ test("test-red has attributes underline and color", async t => {
 });
 
 test("Can click link", async t => {
-  const component = await Selector(() => document.querySelector('#disabled-test').shadowRoot.querySelector('a'));
+  const component = await Selector(() => document.querySelector('#color').shadow.querySelector("a"));
   await t
     .click(component)
-    .wait(3000)
-    .expect(document.querySelector('#text').value).eql("Basic buttons");
+
+  const newPage = await Selector(() => document.querySelector('#text-test'))
+  await t
+  .expect(newPage.textContent).eql("Basic buttons");
 });
+
+

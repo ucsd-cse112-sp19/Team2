@@ -1,7 +1,7 @@
 import { Selector, ClientFunction } from "testcafe"; // first import testcafe selectors
 
 fixture`Running tests for meat-input` // declare the fixture
-  .page`../web_components/meat-input/meat-input-demo.html`;
+  .page`http://127.0.0.1:8080/web_components/meat-input/meat-input-demo.html`;
 
 const getElementById = Selector(id => document.querySelector(id));
 const getShadow = Selector(root => document.querySelector(root).shadowRoot); 
@@ -67,9 +67,26 @@ test("Typing text into input-field", async t => {
 })
 
 test("Cannot type in disabled input-field", async t => { 
-  const shadowInput = await Selector(() => document.querySelector('#disabledtest').shadowRoot.querySelector('#input'));
+  const shadowInput = await Selector(() => document.querySelector('#disabled-test').shadowRoot.querySelector('#input'));
 
   await t
     .typeText(shadowInput, "meat-space")
     .expect(shadowInput.value).eql("");
 })
+
+test("Cannot change readonly input-field", async t => { 
+  const shadowInput = await Selector(() => document.querySelector('#readonly-test').shadowRoot.querySelector('#input'));
+
+  await t
+    .typeText(shadowInput, "meat-space")
+    .expect(shadowInput.value).eql("");
+})
+
+test("Cannot type more than 10 words in limit input field", async t => { 
+  const shadowInput = await Selector(() => document.querySelector('#limit').shadowRoot.querySelector('#input'));
+
+  await t
+    .typeText(shadowInput, "meat-spaceaaa")
+    .expect(shadowInput.value).eql("meat-space");
+})
+
