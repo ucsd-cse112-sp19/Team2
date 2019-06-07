@@ -29,7 +29,7 @@ test("Click button (RESET)", async t => {
   await t
     .typeText(input, "meat-space")
     .click(component)
-    .expect(input.textContent).eql('5');
+    .expect(input.textContent).eql('');
     
 });
 
