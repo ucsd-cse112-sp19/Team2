@@ -1,24 +1,300 @@
 const template = document.createElement("template");
 template.innerHTML = `
-<style></style>
-<link rel="stylesheet" href="/web_components/meat-input/meat-input.css"/>
+<style>
+/* Note, this CSS needs a lot of work */
+/* Default styling for the input */
+:host {
+    position: relative;
+    display: inline-block;
+    font-family: sans-serif;
+    text-align: left;
+    color: #444444;
+    height: 38px;
+    font-size: 14px;
+    border-radius: 3px;
+    outline: none;
+
+    /* CSS Variables */
+    --input-padding: 10px;
+    --input-background-color: white;
+    --input-border: 1px solid #CCCCCC;
+    --input-hover-border: 1px solid #888888;
+    --input-focus-border: 1px solid #3388ff;
+    --input-active-border: 1px solid #3388ff;
+}
+
+::placeholder {
+    color: #AAAAAA;
+}
+
+input {
+    position: relative;
+    display: inline-block;
+
+    background-color: var(--input-background-color);
+    padding: var(--input-padding);
+    border: var(--input-border);
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+
+    /* These 4 are incorporated from bootstrap */
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    overflow: visible;
+
+    color: inherit;
+    border-radius: inherit;
+    outline: inherit;
+    font-family: inherit;
+    text-align: inherit;
+    
+    transition: border .3s;
+
+    /* special override-able css variables */
+}
+
+input:hover {
+    border: var(--input-hover-border);
+}
+
+input:focus {
+    border: var(--input-focus-border);
+}
+
+input:active {
+    border: var(--input-active-border);
+}
+
+/* Attributes: */
+/* Size */
+input[size="small"] {
+    width: 100px;
+    height: inherit;
+}
+input[size="medium"] {
+    width: 200px;
+    height: inherit;
+}
+input[size="large"] {
+    width: 300px;
+    height: inherit;
+}
+
+/* Disabled */
+input[disabled] {
+    border: none;
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+  
+/* Suggestion Styling */
+#suggestionContainer {
+    position: absolute;
+    border: var(--input-border);
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+/* Suggestion Rows */
+.suggestion {
+    padding-left: 5px;
+    cursor: pointer;
+    background-color: #fff; 
+    border-bottom: 1px solid #d4d4d4; 
+    font-family: inherit;
+    font-size: 15px
+}
+
+.suggestion:hover {
+    border: var(--suggestion-hover-border);
+}
+
+.suggestion:focus {
+    background-color: var(--suggestion-focus-background-color, #daeeff);
+    border: var(--suggestion-focus-border);
+}
+
+/* Bootstrap integration */
+input[bootstrap~="form-control"] {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+  
+@media (prefers-reduced-motion: reduce) {
+    :host([bootstrap~="form-control"]) > input {
+      transition: none;
+    }
+}
+
+input[bootstrap~="form-control"]::-ms-expand {
+    background-color: transparent;
+    border: 0;
+}
+
+input[bootstrap~="form-control"]:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+input[bootstrap~="form-control"]::-webkit-input-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+input[bootstrap~="form-control"]::-moz-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+input[bootstrap~="form-control"]:-ms-input-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+input[boostrap~="form-control"]::-ms-input-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+input[bootstrap~="form-control"]::placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+input[bootstrap~="form-control"]:disabled, input[bootstrap~="form-control"][readonly] {
+    background-color: #e9ecef;
+    opacity: 1;
+  }
+
+input[bootstrap~="form-control-file"], input[bootstrap~="form-control-range"] {
+    display: block;
+    width: 100%;
+}
+
+input[bootstrap~="form-control-plaintext"] {
+    display: block;
+    width: 100%;
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    margin-bottom: 0;
+    line-height: 1.5;
+    color: #212529;
+    background-color: transparent;
+    border: solid transparent;
+    border-width: 1px 0;
+}
+
+/* Unsure about this one */
+input[bootstrap~="form-control-plaintext"].form-control-sm, input[bootstrap~="form-control-plaintext"].form-control-lg {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+input[bootstrap~="form-control-sm"] {
+    height: calc(1.5em + 0.5rem + 2px);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+}
+
+input[bootstrap~="form-control-lg"] {
+    height: calc(1.5em + 1rem + 2px);
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: 0.3rem;
+}
+
+input[type="submit"].btn-block,
+input[type="reset"].btn-block,
+input[type="button"].btn-block {
+  width: 100%;
+}
+
+input[bootstrap~="custom-control-input"] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+/* TODO */
+:host([bootstrap~="custom-control-input"]):checked ~ .custom-control-label::before {
+    color: #fff;
+    border-color: #007bff;
+    background-color: #007bff;
+}
+  
+:host([bootstrap~="custom-control-input"]):focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+:host([bootstrap~="custom-control-input"]):focus:not(:checked) ~ .custom-control-label::before {
+    border-color: #80bdff;
+}
+
+:host(:not([disabled])[bootstrap~="custom-control-input"]):active ~ .custom-control-label::before {
+    color: #fff;
+    background-color: #b3d7ff;
+    border-color: #b3d7ff;
+}
+
+:host([bootstrap~="custom-control-input"][disabled]) ~ .custom-control-label {
+    color: #6c757d;
+}
+
+:host([bootstrap~="custom-control-input"][disabled]) ~ .custom-control-label::before {
+    background-color: #e9ecef;
+}
+</style>
 <input id="input" type="text"></input>
 <div id="suggestionContainer"></div>
 `;
 
-/**
- * meat-input webcomponent
- * @customelement meat-input
- * @description displays a stylized input field
- * @example <meat-input></meat-input>
- * */
-export class MeatInputElement extends HTMLElement {
+export class MeatInput extends HTMLElement {
   /**
-   * Create an instance of MeatInputElement
-   */
+   * meat-input webcomponent
+   * @customelement meat-input
+   * @description displays a stylized input field
+   * @example <meat-input></meat-input>
+   * @see [Demo]{@link https://meat-space.org/web_components/meat-input/meat-button-demo.html} for working example.
+   * @property {attribute} autocomplete -Enables autocomplete by caching previous input.
+   * @property {string} bootstrap -Enables bootstrap as styling of the button.
+   * @property {attribute} disabled -Disables input from accepting events.
+   * @property {integer} limit -Restricts how many characters can be entered in the input.
+   * @property {attribute} password -Format input as a password field.
+   * @property {string} placeholder -Describes what goes into the input initially.
+   * @property {attribute} readonly -Disables input from being written.
+   * @property {string} size -Determines the size of the input box.
+   * @property {attribute} suggest -Enables the dropdown of suggestions for the input.
+   * @property {string} type -Describes the type of input.
+   * @property {string} value -The contents of the input.
+   * */
   constructor() {
     super();
-    this._sortSuggestions = this._sortSuggestions.bind(this);
     this._switchFocus = this._switchFocus.bind(this);
     this._onInputChange = this._onInputChange.bind(this);
 
@@ -51,19 +327,11 @@ export class MeatInputElement extends HTMLElement {
    * Live-cycle method called when the custom element is loaded, often used for initialization
    */
   connectedCallback() {
+    console.log(this.textContent);
+    this.input.value = this.textContent;
+
     // User may have attempted to set suggestions before element loaded in, set them now.
     this._upgradeProperty("suggestions");
-
-    // if user specifies bootstrap, link style to bootstrap
-    if (this.hasAttribute("bootstrap")) {
-      const newLink = this.shadow.querySelector("link"); // link stylesheet to bootstrap's stylesheet
-      newLink.rel = "stylesheet";
-      newLink.href =
-        "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
-      newLink.integrity =
-        "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T";
-      newLink.crossOrigin = "anonymous";
-    }
 
     // if this input is within a form, find the form and connect to it
     let parentNode = this.parentNode;
@@ -116,14 +384,10 @@ export class MeatInputElement extends HTMLElement {
   attributeChangedCallback(name, oldVal, newVal) {
     switch (name) {
       case "disabled":
-        if (newVal == "") {
-          this.input.disabled = true;
-        }
+        if (newVal == "") this.input.disabled = true;
         break;
       case "readonly":
-        if (newVal == "") {
-          this.input.readOnly = true;
-        }
+        if (newVal == "") this.input.readOnly = true;
         break;
       case "value":
         this.input.value = newVal;
@@ -147,11 +411,15 @@ export class MeatInputElement extends HTMLElement {
           this.input.autocomplete = "off";
         }
         break;
-      case "type":
-        this.input.type = newVal;
+      case "size":
+        this.input.setAttribute("size", newVal);
         break;
       case "bootstrap":
+        this.input.setAttribute("bootstrap", newVal);
         this.input.className = newVal;
+        break;
+      case "type":
+        this.input.type = newVal;
         break;
     }
   }
@@ -168,67 +436,17 @@ export class MeatInputElement extends HTMLElement {
       delete this[prop];
       this[prop] = value;
     }
-
-    // sort suggestions alphanumerically
-    if (prop == "suggestions") {
-      this._sortSuggestions();
-    }
-  }
-
-  /**
-   * Sort suggestions alphanumerically for user convenience, make toggleable via attribute?
-   */
-  // _sortSuggestions = () => {
-  _sortSuggestions() {
-    this._suggestions = this._suggestions.sort(function(a, b) {
-      // If characters get matched to the regular expression \D+\, push [infinity, "the first char"]
-      // If numbers get matched to the regular expression \d+\, push [the numbers, ""]
-      const aMatches = [];
-      const bMatches = [];
-      a.replace(/(\d+)|(\D+)/g, function(_, $1, $2) {
-        aMatches.push([$1 || Infinity, $2 || ""]);
-      });
-      b.replace(/(\d+)|(\D+)/g, function(_, $1, $2) {
-        bMatches.push([$1 || Infinity, $2 || ""]);
-      });
-
-      // Go through the array and compare either the number or the character depending on what got matched earlier, if we end up comparing chracters and numbers, number
-      // takes priority because the chararacter group's first element in its array is infinity, similarly, the second element in the number group's array is ""
-      let index = 0;
-      let aGroup = null;
-      let bGroup = null;
-      let result = null;
-      while (aMatches[index] != null && bMatches[index] != null) {
-        aGroup = aMatches[index];
-        bGroup = bMatches[index];
-        // compare each group
-        result = aGroup[0] - bGroup[0] || aGroup[1].localeCompare(bGroup[1]);
-        // if the comparison is unequal, then just return the result
-        index++;
-        if (result != 0) {
-          return result;
-        }
-      }
-
-      // otherwise, decide by the length
-      return aMatches.length - bMatches.length;
-    });
   }
 
   /**
    * @param {event} evt
    * Allow user to use keyboard arrows to navigate up and down the list
    */
-  // _switchFocus = (evt) => {
   _switchFocus(evt) {
+    const OriginalFocus = this._currentFocus;
     // move focus up or down the list of suggestions
-    if (evt.keyCode == 40) {
-      // down
-      this._currentFocus++;
-    } else if (evt.keyCode == 38) {
-      // up
-      this._currentFocus--;
-    }
+    if (evt.keyCode == 40) this._currentFocus++;
+    else if (evt.keyCode == 38) this._currentFocus--;
 
     // focus 0 means focusing the input
     if (this._currentFocus == 0) {
@@ -243,13 +461,7 @@ export class MeatInputElement extends HTMLElement {
 
     // if no suggestion, reached end of list, undo operation and return;
     if (!suggestion) {
-      if (evt.keyCode == 40) {
-        // down
-        this._currentFocus--;
-      } else if (evt.keyCode == 38) {
-        // up
-        this._currentFocus++;
-      }
+      this._currentFocus = OriginalFocus;
       return;
     }
 
@@ -258,14 +470,11 @@ export class MeatInputElement extends HTMLElement {
 
     // enter key pressed
     if (evt.keyCode == 13) {
-      evt.preventDefault(); /* If the ENTER key is pressed, prevent the form from being submitted,*/
-      if (this._currentFocus > -1) {
-        this.value = suggestion.value; // set host value to the suggestion so user can use the value in their event listener
-        this.input.value = suggestion.value; // set input value to the suggestion to reflect back visually
-        this.suggestionContainer.innerHTML = "";
-        this._currentFocus = 0;
-        this.input.focus();
-      }
+      this.value = suggestion.value; // set host value to the suggestion so user can use the value in their event listener
+      this.input.value = suggestion.value; // set input value to the suggestion to reflect back visually
+      this.suggestionContainer.innerHTML = "";
+      this._currentFocus = 0;
+      this.input.focus();
     }
   }
 
@@ -273,7 +482,6 @@ export class MeatInputElement extends HTMLElement {
    * @param {object} evt
    * Suggest terms for user to select whenever they input characters.
    */
-  // _onInputChange = (evt) => {
   _onInputChange(evt) {
     if (!evt.target.value) {
       this._renderSuggestions([]);
@@ -290,7 +498,7 @@ export class MeatInputElement extends HTMLElement {
   }
 
   /**
-   * @param {string array} suggestions
+   * @param {array} suggestions
    * Render list of suggestions as dropdown list under input
    */
   _renderSuggestions(suggestions) {
@@ -339,7 +547,6 @@ export class MeatInputElement extends HTMLElement {
    */
   set suggestions(val) {
     this._suggestions = val;
-    this._sortSuggestions();
   }
 
   /**
@@ -366,7 +573,7 @@ export class MeatInputElement extends HTMLElement {
   }
 
   get placeholder() {
-    return this.getAttribute("limit");
+    return this.getAttribute("placeholder");
   }
 
   set placeholder(val) {
@@ -393,4 +600,4 @@ export class MeatInputElement extends HTMLElement {
   }
 }
 
-window.customElements.define("meat-input", MeatInputElement);
+window.customElements.define("meat-input", MeatInput);

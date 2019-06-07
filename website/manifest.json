@@ -1,0 +1,19 @@
+{
+    "short_name": "MeatSpace",
+    "name": "Team2 - MeatSpace",
+    "icons": [
+      {
+        "src": "/website/img/logo.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/website/img/logo.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "background_color": "#f5f5f5",
+    "display": "minimal-ui",
+    "theme_color": "#e0dede"
+  }

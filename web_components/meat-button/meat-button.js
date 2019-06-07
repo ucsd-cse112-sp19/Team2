@@ -1,29 +1,628 @@
 const template = document.createElement("template");
 template.innerHTML = `
-  <style></style>
-  <link rel="stylesheet" href="/web_components/meat-button/meat-button.css"/>
-  <button id="button" type="reset"></button>
+<style>
+/* host */
+:host {
+  font-family: sans-serif;
+  color: #444444;
+  width: 90px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  vertical-align: top;
+
+  /* special css variables */
+  --hover-background-color: #daeeff;
+  --focus-background-color: #daeeff;
+  --active-background-color: #daeeff;
+
+  --hover-color: #3388ff;
+  --focus-color: #3388ff;
+  --active-color: #3388ff;
+
+  --hover-border: 1px solid #bbccff;
+  --focus-border: 1px solid #bbccff;
+  --active-border: 1px solid #3388ff;
+}
+
+/* define color scheme for default button */
+button {
+  /* css that button must have */
+  display: inline-block;
+  position: relative;
+  outline: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border 0.15s ease-in-out;
+
+  /* css that can be safely defined on the host */
+  width: inherit;
+  height: inherit;
+  font-family: inherit;
+  color: var(--color, inherit);
+  font-size: inherit;
+  vertical-align: inherit;
+  font-weight: inherit;
+  
+  /* css that needs to be exposed through css variables */
+  background-color: var(--background-color, #ffffff);
+  border: var(--border, 1px solid #cccccc);
+}
+
+/* Bootstrap Support */
+
+/* basic button styling */
+:host([bootstrap~="btn"]) > button {
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  /* padding: 0.375rem 0.75rem; */
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Bootstrap Basic Disable Button */
+:host([disabled][bootstrap]) > button {
+  opacity: 0.65;
+  cursor: default;
+}
+
+/* Primary Button */
+:host([bootstrap~="btn-primary"]) > button {
+  /* btn btn-primary styling */
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+/* Primary Hover */
+:host([bootstrap~="btn-primary"]) > button:hover {
+  /* btn btn-primary hover styling */
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+/* Primary Focus */
+:host([bootstrap~="btn-primary"]) > button:focus {
+  /* btn btn-primary focus styling */
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+/* Primary Disable Button */
+:host([disabled][bootstrap~="btn-primary"]) > button {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+/* Primary Active */
+:host(:not([disabled])[bootstrap~="btn-primary"]) > button:active {
+  /* btn btn-primary active styling */
+  color: #fff;
+  background-color: #0062cc;
+  border-color: #005cbf;
+}
+  
+/* Secondary Button */
+:host([bootstrap~="btn-secondary"]) > button {
+  /* btn btn-secondary styling */
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+  /* padding-right: 88px; */
+}
+
+/* Secondary Hover */
+:host([bootstrap~="btn-secondary"]) > button:hover {
+  /* btn btn-secondary hover styling */
+  color: #fff;
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+/* Secondary Focus */
+:host([bootstrap~="btn-secondary"]) > button:focus {
+  /* btn btn-secondary focus styling */
+  box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);
+}
+
+/* Secondary Disable Button */
+:host([disabled][bootstrap~="btn-secondary"]) > button {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+/* Secondary Active */
+:host(:not([disabled])[bootstrap~="btn-secondary"]) > button:active {
+  /* btn btn-secondary active styling */
+  color: #fff;
+  background-color: #545b62;
+  border-color: #4e555b;
+}
+
+/* Success Button */
+:host([bootstrap~="btn-success"]) > button {
+  /* btn btn-success styling */
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+/* Success Hover */
+:host([bootstrap~="btn-success"]) > button:hover {
+  /* btn btn-success hover styling */
+  color: #fff;
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+/* Success Focus */
+:host([bootstrap~="btn-success"]) > button:focus {
+  /* btn btn-success focus styling */
+  box-shadow: 0 0 0 0.2rem rgba(72, 180, 97, 0.5);
+}
+
+/* Success Disable Button */
+:host([disabled][bootstrap~="btn-success"]) > button {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+/* Success Active */
+:host(:not([disabled])[bootstrap~="btn-success"]) > button:active {
+  /* btn btn-success active styling */
+  color: #fff;
+  background-color: #1e7e34;
+  border-color: #1c7430;
+}
+
+/* Info Button */
+:host([bootstrap~="btn-info"]) > button {
+  /* btn btn-info styling */
+  color: #fff;
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+}
+
+/* Info Hover */
+:host([bootstrap~="btn-info"]) > button:hover {
+  /* btn btn-info hover styling */
+  color: #fff;
+  background-color: #138496;
+  border-color: #117a8b;
+}
+
+/* Info Focus */
+:host([bootstrap~="btn-info"]) > button:focus {
+  /* btn btn-info focus styling */
+  box-shadow: 0 0 0 0.2rem rgba(58, 176, 195, 0.5);
+}
+
+/* Info Disable Button */
+:host([disabled][bootstrap~="btn-info"]) > button {
+  color: #fff;
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+}
+
+/* Info Active */
+:host(:not([disabled])[bootstrap~="btn-info"]) > button:active {
+  /* btn btn-info active styling */
+  color: #fff;
+  background-color: #117a8b;
+  border-color: #10707f;
+}
+
+/* Warning Button */
+:host([bootstrap~="btn-warning"]) > button {
+  /* btn btn-warning styling */
+  color: #212529;
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
+/* Warning Hover */
+:host([bootstrap~="btn-warning"]) > button:hover {
+  /* btn btn-warning hover styling */
+  color: #212529;
+  background-color: #e0a800;
+  border-color: #d39e00;
+}
+
+/* Warning Focus */
+:host([bootstrap~="btn-warning"]) > button:focus {
+  /* btn btn-warning focus styling */
+  box-shadow: 0 0 0 0.2rem rgba(222, 170, 12, 0.5);
+}
+
+/* Warning Disable Button */
+:host([disabled][bootstrap~="btn-warning"]) > button {
+  color: #212529;
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
+/* Warning Active */
+:host(:not([disabled])[bootstrap~="btn-warning"]) > button:active {
+  /* btn btn-warning active styling */
+  color: #212529;
+  background-color: #d39e00;
+  border-color: #c69500;
+}
+
+/* Danger Button */
+:host([bootstrap~="btn-danger"]) > button {
+  /* btn btn-danger styling */
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+/* Danger Hover */
+:host([bootstrap~="btn-danger"]) > button:hover {
+  /* btn btn-danger hover styling */
+  color: #fff;
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+/* Danger Focus */
+:host([bootstrap~="btn-danger"]) > button:focus {
+  /* btn btn-danger focus styling */
+  box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5);
+}
+
+/* Danger Disable Button */
+:host([disabled][bootstrap~="btn-danger"]) > button {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+/* Danger Active */
+:host(:not([disabled])[bootstrap~="btn-danger"]) > button:active {
+  /* btn btn-danger active styling */
+  color: #fff;
+  background-color: #bd2130;
+  border-color: #b21f2d;
+}
+
+/* Light Button */
+:host([bootstrap~="btn-light"]) > button {
+  /* btn btn-light styling */
+  color: #212529;
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+
+/* Light Hover */
+:host([bootstrap~="btn-light"]) > button:hover {
+  /* btn btn-light hover styling */
+  color: #212529;
+  background-color: #e2e6ea;
+  border-color: #dae0e5;
+}
+
+/* Light Focus */
+:host([bootstrap~="btn-light"]) > button:focus {
+  /* btn btn-light focus styling */
+  box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
+}
+
+/* Light Disable Button */
+:host([disabled][bootstrap~="btn-light"]) > button {
+  color: #212529;
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+
+/* Light Active */
+:host(:not([disabled])[bootstrap~="btn-light"]) > button:active {
+  /* btn btn-light active styling */
+  color: #212529;
+  background-color: #dae0e5;
+  border-color: #d3d9df;
+}
+
+/* Dark Button */
+:host([bootstrap~="btn-dark"]) > button {
+  /* btn btn-dark styling */
+  color: #fff;
+  background-color: #343a40;
+  border-color: #343a40;
+}
+
+/* Dark Hover */
+:host([bootstrap~="btn-dark"]) > button:hover {
+  /* btn btn-dark hover styling */
+  color: #fff;
+  background-color: #23272b;
+  border-color: #1d2124;
+}
+
+/* Dark Focus */
+:host([bootstrap~="btn-dark"]) > button:focus {
+  /* btn btn-dark focus styling */
+  box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);
+}
+
+/* Dark Disable Button */
+:host([disabled][bootstrap~="btn-dark"]) > button {
+  color: #fff;
+  background-color: #343a40;
+  border-color: #343a40;
+}
+
+/* Dark Active */
+:host(:not([disabled])[bootstrap~="btn-dark"]) > button:active {
+  /* btn btn-dark active styling */
+  color: #fff;
+  background-color: #1d2124;
+  border-color: #171a1d;
+}
+
+/* Attribute: round */
+/* if host element, i.e. <meat-button> has attribute round, apply this css to button*/
+
+:host([round]) > button {
+    border-radius: 100px;
+}
+
+/* Attribute: circle */
+:host([circle]) > button {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+/* Attribute: size */
+/* if host element, i.e. <meat-button> has attribute size="small", apply this css */
+:host([size="small"]) > button {
+    width: 80px;
+    height: 36px;
+}
+
+:host([size="medium"]) > button {
+    width: 90px;
+    height: 40px;
+}
+
+:host([size="large"]) > button {
+    width: 100px;
+    height: 44px;
+}
+
+/* if size specified, use the following dimensions */
+:host([circle][size="small"]) > button {
+    width: 30px;
+    height: 30px;
+}
+
+:host([circle][size="medium"]) > button {
+    width: 40px;
+    height: 40px;
+}
+
+:host([circle][size="large"]) > button {
+    width: 50px;
+    height: 50px;
+}
+
+/* define color scheme for white button */
+:host([color="white"]) {
+  /* colors */
+  --color: #444444;
+  --background-color: #ffffff;
+  --border: 1px solid #cccccc;
+
+  --hover-background-color: #daeeff;
+  --focus-background-color: #daeeff;
+  --active-background-color: #daeeff;
+
+  --hover-color: #3388ff;
+  --focus-color: #3388ff;
+  --active-color: #3388ff;
+
+  --hover-border: 1px solid #bbccff;
+  --focus-border: 1px solid #bbccff;
+  --active-border: 1px solid #3388ff;
+}
+
+:host([color="grey"]) {
+  /* colors */
+  --color: #ffffff;
+  --background-color: #777777;
+  --border: 1px solid #777777;
+
+  --hover-background-color: #999999;
+  --focus-background-color: #999999;
+  --active-background-color: #555555;
+
+  --hover-color: #ffffff;
+  --focus-color: #ffffff;
+  --active-color: #ffffff;
+
+  --hover-border: 1px solid #999999;
+  --focus-border: 1px solid #999999;
+  --active-border: 1px solid #555555;
+}
+
+/* define color scheme for red button */
+:host([color="red"]) {
+  /* colors */
+  --color: #ffffff;
+  --background-color: #cc5050;
+  --border: 1px solid #cc5050;
+
+  --hover-background-color: #e46060;
+  --focus-background-color: #e46060;
+  --active-background-color: #b03737;
+
+  --hover-color: #ffffff;
+  --focus-color: #ffffff;
+  --active-color: #ffffff;
+
+  --hover-border: 1px solid #e46060;
+  --focus-border: 1px solid #e46060;
+  --active-border: 1px solid #b03737;
+}
+
+/* define color scheme for orange button */
+:host([color="orange"]) {
+  /* colors */
+  --color: #ffffff;
+  --background-color: #df8a40;
+  --border: 1px solid #df8a40;
+
+  --hover-background-color: #dfaa70;
+  --focus-background-color: #dfaa70;
+  --active-background-color: #cf7a30;
+
+  --hover-color: #ffffff;
+  --focus-color: #ffffff;
+  --active-color: #ffffff;
+
+  --hover-border: 1px solid #dfaa70;
+  --focus-border: 1px solid #dfaa70;
+  --active-border: 1px solid #cf7a30;
+}
+
+/* define color scheme for yellow button */
+:host([color="yellow"]) {
+  /* colors */
+  --color: #444444;
+  --background-color: #ffe600;
+  --border: 1px solid #ffe600;
+
+  --hover-background-color: #ffed86;
+  --focus-background-color: #ffed86;
+  --active-background-color: #e9d200;
+
+  --hover-color: #444444;
+  --focus-color: #444444;
+  --active-color: #444444;
+
+  --hover-border: 1px solid #ffed86;
+  --focus-border: 1px solid #ffed86;
+  --active-border: 1px solid #e9d200;
+}
+
+/* define color scheme for green button */
+:host([color="green"]) {
+  /* colors */
+  --color: #ffffff;
+  --background-color: #59c040;
+  --border: 1px solid #59c040;
+
+  --hover-background-color: #79cc69;
+  --focus-background-color: #79cc69;
+  --active-background-color: #50a050;
+
+  --hover-color: #ffffff;
+  --focus-color: #ffffff;
+  --active-color: #ffffff;
+
+  --hover-border: 1px solid #79cc69;
+  --focus-border: 1px solid #79cc69;
+  --active-border: 1px solid #50a050;
+}
+
+/* define color scheme for blue button */
+:host([color="blue"]) {
+  /* colors */
+  --color: #ffffff;
+  --background-color: #40a5ff;
+  --border: 1px solid #40a5ff;
+
+  --hover-background-color: #65b5ff;
+  --focus-background-color: #65b5ff;
+  --active-background-color: #2285dd;
+
+  --hover-color: #ffffff;
+  --focus-color: #ffffff;
+  --active-color: #ffffff;
+
+  --hover-border: 1px solid #65b5ff;
+  --focus-border: 1px solid #65b5ff;
+  --active-border: 1px solid #2285dd;
+}
+
+
+/* define color scheme for blue button */
+:host([color="purple"]) {
+  /* colors */
+  --color: #ffffff;
+  --background-color: #aa55aa;
+  --border: 1px solid #aa55aa;
+
+  --hover-background-color: #cc66cc;
+  --focus-background-color: #cc66cc;
+  --active-background-color: #994499;
+
+  --hover-color: #ffffff;
+  --focus-color: #ffffff;
+  --active-color: #ffffff;
+
+  --hover-border: 1px solid #cc66cc;
+  --focus-border: 1px solid #cc66cc;
+  --active-border: 1px solid #994499;
+}
+
+/* hover focus active */
+:host(:not([disabled]):not([bootstrap])) > button:hover {
+  background-color: var(--hover-background-color);
+  color: var(--hover-color);
+  border: var(--hover-border);
+}
+
+:host(:not([disabled]):not([bootstrap])) > button:focus {
+  background-color: var(--focus-background-color);
+  color: var(--focus-color);
+  border: var(--focus-border);
+}
+
+:host(:not([disabled]):not([bootstrap])) > button:active {
+  background-color: var(--active-background-color);
+  color: var(--active-color);
+  border: var(--active-border);
+}
+
+/* Attribute: disabled */
+:host(:not([bootstrap])[disabled]) > button {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+</style>
+<button id="button" type="reset"></button>
 `;
 
-/**
- * meat-button webcomponent
- * @customelement meat-button
- * @description displays a stylized button
- * @example <meat-button></meat-button>
- * @see [Demo]{@link https://meat-space.org/web_components/meat-button/meat-button-demo.html} for working example.
- * @property {boolean} autofocus -Enables button to automatically get focus when the page loads.
- * @property {string} circle -Enables a circle shaped button.
- * @property {boolean} disabled -Disables button from accepting events.
- * @property {boolean} round -Enables a round shaped button.
- * @property {string} size -Changes the size of the button.
- * @property {string} type -Enables the specified type of button.
- * */
-export class MeatButtonElement extends HTMLElement {
+export class MeatButton extends HTMLElement {
   /**
-   * Create an instance of MeatButtonElement
-   */
+   * meat-button webcomponent
+   * @customelement meat-button
+   * @description displays a stylized button
+   * @example <meat-button></meat-button>
+   * @see [Demo]{@link https://meat-space.org/web_components/meat-button/meat-button-demo.html} for working example.
+   * @property {attribute} autofocus -Enables button to automatically get focus when the page loads.
+   * @property {string} bootstrap -Enables bootstrap as styling of the button.
+   * @property {attribute} circle -Enables a circle shaped button.
+   * @property {attribute} disabled -Disables button from accepting events.
+   * @property {attribute} round -Enables a round shaped button.
+   * @property {string} size -Changes the size of the button.
+   * @property {string} type -Enables the specified type of button.
+   * */
   constructor() {
     super();
+    this._submitButton;
     this._parentForm;
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
@@ -38,17 +637,6 @@ export class MeatButtonElement extends HTMLElement {
     // Need to get the content inbetween the <meat-button> tags into the button so it renders
     this.button.textContent = this.textContent;
 
-    // if user specifies bootstrap, link style to bootstrap
-    if (this.hasAttribute("bootstrap")) {
-      const newLink = this.shadow.querySelector("link"); // link stylesheet to bootstrap's stylesheet
-      newLink.rel = "stylesheet";
-      newLink.href =
-        "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
-      newLink.integrity =
-        "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T";
-      newLink.crossOrigin = "anonymous";
-    }
-
     // Look up dom tree for a parent form
     let parentNode = this.parentNode;
     while (parentNode) {
@@ -58,6 +646,10 @@ export class MeatButtonElement extends HTMLElement {
       }
       parentNode = parentNode.parentNode;
     }
+
+    this._submitButton = document.createElement("button");
+    this._submitButton.type = "hidden";
+    this.appendChild(this._submitButton);
   }
 
   /**
@@ -100,69 +692,6 @@ export class MeatButtonElement extends HTMLElement {
       case "bootstrap":
         this.button.className = newVal;
         break;
-    }
-  }
-
-  /**
-   * getters and setters for attributes
-   */
-  get disabled() {
-    return this.hasAttribute("disabled");
-  }
-
-  set disabled(val) {
-    if (val) {
-      this.setAttribute("disabled", "");
-    } else {
-      this.removeAttribute("disabled");
-    }
-  }
-
-  get round() {
-    return this.hasAttribute("round");
-  }
-
-  set round(val) {
-    if (val) {
-      this.setAttribute("round", "");
-    } else {
-      this.removeAttribute("round");
-    }
-  }
-
-  get circle() {
-    return this.hasAttribute("circle");
-  }
-
-  set circle(val) {
-    if (val) {
-      this.setAttribute("circle", "");
-    } else {
-      this.removeAttribute("circle");
-    }
-  }
-
-  get size() {
-    return this.getAttribute("size");
-  }
-
-  set size(val) {
-    if (val) {
-      this.setAttribute("size", val);
-    } else {
-      this.removeAttribute("size");
-    }
-  }
-
-  get type() {
-    return this.getAttribute("type");
-  }
-
-  set type(val) {
-    if (val) {
-      this.setAttribute("type", val);
-    } else {
-      this.removeAttribute("type");
     }
   }
 
@@ -251,11 +780,11 @@ export class MeatButtonElement extends HTMLElement {
         break;
       case "submit":
         if (this._parentForm) {
-          this._parentForm.submit();
+          this._submitButton.click();
         }
         break;
     }
   }
 }
 
-window.customElements.define("meat-button", MeatButtonElement);
+window.customElements.define("meat-button", MeatButton);

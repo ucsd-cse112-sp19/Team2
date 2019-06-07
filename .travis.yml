@@ -1,13 +1,20 @@
 language: node_js
 node_js:
 - stable
+before_install:
+- npm install -g http-server
+services:
+- http-server
 script: 
-- npm run lintest && npm run runner
+- http-server & 
+- npm run utest && npm run runner
 cache:
   directories:
   - node_modules
 notifications:
   slack: cse112-sp19-team2:IXLkNzX29z3uu0hqeUn37atD
+before_deploy:
+  - npm run build
 deploy:
   provider: npm
   email: jensen.a.christopher@gmail.com

@@ -1,0 +1,12 @@
+/* Reference for colors */
+:host {
+    --white: #ffffff;
+    --grey: #777777;
+    --dark-grey: #444444;
+    --red: #cc5050;
+    --orange: #df8a40;
+    --yellow: #ffe600;
+    --green: #59c040;
+    --blue: #40a5ff;
+    --purple: #aa55aa;
+}

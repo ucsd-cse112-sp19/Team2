@@ -1,0 +1,11 @@
+{
+    "scripts": {
+        "all": "npm-run-all corehello meatinput meatbutton meatlink meatimage meatcard",
+        "corehello": "./node_modules/.bin/mocha-headless-chrome -f http://127.0.0.1:8080/unit_tests/core-hello-test.html", 
+        "meatinput": "./node_modules/.bin/mocha-headless-chrome -f http://127.0.0.1:8080/unit_tests/meat-input-test.html",
+        "meatbutton": "./node_modules/.bin/mocha-headless-chrome -f http://127.0.0.1:8080/unit_tests/meat-button-test.html",
+        "meatlink": "./node_modules/.bin/mocha-headless-chrome -f http://127.0.0.1:8080/unit_tests/meat-link-test.html",
+        "meatimage": "./node_modules/.bin/mocha-headless-chrome -f http://127.0.0.1:8080/unit_tests/meat-image-test.html",
+        "meatcard": "./node_modules/.bin/mocha-headless-chrome -f http://127.0.0.1:8080/unit_tests/meat-card-test.html"
+    }
+}

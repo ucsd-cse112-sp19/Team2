@@ -3,15 +3,12 @@ template.innerHTML = `
 <style></style>
 `;
 
-/**
- * meat-boilerplate webcomponent
- * @customelement meat-boilerplate
- * @description A boilerplate for starting new webcomponents
- * @example <meat-boilerplate></meat-boilerplate>
- */
-export class MeatBoilerplateElement extends HTMLElement {
+export class MeatBoilerplate extends HTMLElement {
   /**
-   * Create an instance of MeatButtonElement
+   * meat-boilerplate webcomponent
+   * @customelement meat-boilerplate
+   * @description A boilerplate for starting new webcomponents
+   * @example <meat-boilerplate></meat-boilerplate>
    */
   constructor() {
     super();
@@ -40,4 +37,4 @@ export class MeatBoilerplateElement extends HTMLElement {
    */
   attributeChangedCallback(name, oldVal, newVal) {}
 }
-window.customElements.define("meat-boilerplate", MeatBoilerplateElement);
+window.customElements.define("meat-boilerplate", MeatBoilerplate);

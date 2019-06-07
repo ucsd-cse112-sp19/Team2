@@ -51,22 +51,20 @@ tmpl.innerHTML = `
 <span id="main-text">Hello world, </span>
 <slot></slot>
 `;
-/**
- * core-hello web component
- * @customelement core-hello
- * @description displays 'Hello World, <input>!'
- * @example <caption> Hello World! </caption>
- * <core-hello rainbow lang="en">
- * Alex!
- * </core-hello>
- * @see [Demo]{@link https://meat-space.org/web_components/core-hello/core-hello-test.html} for working example.
- * @property {boolean} rainbow -Enables a background rainbow effect.
- * @property {string} lang -Set language (English, French, Spanish). Default is English.
- * */
-class CoreHelloElement extends HTMLElement {
+
+export class CoreHello extends HTMLElement {
   /**
-   * Create an instance of CoreHelloElement
-   */
+   * core-hello web component
+   * @customelement core-hello
+   * @description displays 'Hello World, <input>!'
+   * @example <caption> Hello World! </caption>
+   * <core-hello rainbow lang="en">
+   * Alex!
+   * </core-hello>
+   * @see [Demo]{@link https://meat-space.org/web_components/core-hello/core-hello-test.html} for working example.
+   * @property {boolean} rainbow -Enables a background rainbow effect.
+   * @property {string} lang -Set language (English, French, Spanish). Default is English.
+   * */
   constructor() {
     console.info("Constructing core-hello!");
     super();
@@ -177,4 +175,4 @@ class CoreHelloElement extends HTMLElement {
     return this.getAttribute("lang");
   }
 }
-window.customElements.define("core-hello", CoreHelloElement);
+window.customElements.define("core-hello", CoreHello);
