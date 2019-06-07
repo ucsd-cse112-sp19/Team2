@@ -47,12 +47,13 @@ describe('meat-card basic requirements', function() {
         assert.isDefined(sr);
         done();
     })
+    /*
     it ("shadowDOM should exist", function(done) { 
         this.timeout(3000)
         sr = comp.shadowRoot; 
         assert.equal(sr instanceof ShadowRoot, true);
         done();
-     })
+     })*/
      it ("should have tag named meat-card", function(done) { 
          let tagName = comp.tagName;
          assert.equal(tagName, 'MEAT-CARD');
