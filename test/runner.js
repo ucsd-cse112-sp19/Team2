@@ -13,9 +13,9 @@ createTestCafe('localhost', 1337, 1338)
             .run();
     })
     .then(failedCount => {
+        console.log('Tests failed: ' + failedCount);
         if (failedCount > 0) { 
             process.exitCode = 1; 
         }
-        console.log('Tests failed: ' + failedCount);
         testcafe.close();
     });
