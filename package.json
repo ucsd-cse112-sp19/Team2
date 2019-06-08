@@ -36,7 +36,10 @@
     "build": "rollup -c",
     "report": "./node_modules/nyc/bin/nyc.js report --reporter=lcov",
     "serve": "./node_modules/http-server/bin/http-server &",
-    "test": "npm run serve && npm run utest"
+    "test": "npm run serve && npm run utest",
+    "instrument": "./node_modules/nyc/bin/nyc.js instrument ./web_components/ ./instrumented",
+    "coverage-display": "./node_modules/nyc/bin/nyc.js report",
+    "local-test": "npm-run-all instrument test coverage-display"
   },
   "unpkg": "bundle.js",
   "repository": {
