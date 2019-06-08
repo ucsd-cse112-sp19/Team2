@@ -226,7 +226,7 @@ describe('Tests size attributes', function() {
         sr = comp.shadowRoot; 
         const green_inner = sr.querySelector("input");
         const hi = getComputedStyle(green_inner);
-        assert.equal(hi.width, "190px");
+        assert.equal(hi.width, "166px");
         assert.equal(hi.height, "38px")
         done();
       },500);
