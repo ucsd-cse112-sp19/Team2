@@ -1,7 +1,6 @@
 - Development
   - [Installation & Usage](installation.md)
   - [Quick Start](quick.md)
-  - [Changelog](CHANGELOG.md)
   
 - Web Component Showroom
 
@@ -10,13 +9,13 @@
   - [meat-input](meat-input.md)
   - [meat-link](meat-link.md)
   - [meat-card](meat-card.md)
+  - [meat-checkbox](meat-checkbox.md)
 
 - API Documentation
 
   <!-- - [API Docs v0.0.2](/docs/@meatspace/webcomponents/0.0.2/index.html ':ignore') -->
   - <a href="/docs/meatspace/0.0.1/index.html" target="_self">API Docs v0.0.1</a>
   - <a href="/docs/@meatspace/webcomponents/0.0.2/index.html" target="_self">API Docs v0.0.2</a>
-  - <a href="/docs/@meatspace/webcomponents/2.0.0/index.html" target="_self">API Docs v2.0.0</a>
 
 - <a href="/index.html" target="_self"><b>meat-space.org</b></a>
 - <a href="https://github.com/ucsd-cse112/Team2" target="_self"><b>GitHub</b></a>
