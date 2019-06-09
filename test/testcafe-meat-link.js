@@ -1,7 +1,7 @@
 import { Selector } from "testcafe"; // first import testcafe selectors
 
 fixture`Running tests for meat-link` // declare the fixture
-   .page`http://127.0.0.1:8080/web_components/meat-link/meat-link-demo.html`;
+   .page`http://127.0.0.1:8080/lib/meat-link-test.html`;
 
 const getElementById = Selector(id => document.querySelector(id));
 

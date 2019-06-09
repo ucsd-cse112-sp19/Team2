@@ -1,7 +1,7 @@
 import { Selector, ClientFunction } from "testcafe"; // first import testcafe selectors
 
 fixture`Running tests for meat-input` // declare the fixture
-  .page`http://127.0.0.1:8080/web_components/meat-input/meat-input-demo.html`;
+  .page`http://127.0.0.1:8080/lib/meat-input-test.html`;
 
 const getElementById = Selector(id => document.querySelector(id));
 const getShadow = Selector(root => document.querySelector(root).shadowRoot); 
