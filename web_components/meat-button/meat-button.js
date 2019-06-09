@@ -1,4 +1,4 @@
-import style from './meat-button.css';
+import style from "./meat-button.css";
 
 const template = document.createElement("template");
 template.innerHTML = `
