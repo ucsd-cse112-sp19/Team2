@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>meat-checkbox-demo</title>
+        <script type="module" src="./meat-checkbox.js"></script>
+        <script type="module" src="../meat-button/meat-button.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    </head>
+    <style>
+        meat-checkbox {
+            
+        }
+        form {
+            border: 1px solid #3388ff;
+            padding: 10px;
+            width: 230px;
+        } 
+    </style>
+    <body>
+        <div style="padding: 10px">
+            <label>Basic</label><br/>
+            <meat-checkbox>Unchecked</meat-checkbox>
+            <meat-checkbox checked>Checked</meat-checkbox>
+            <br/>
+            <label>Color</label><br/>
+            <meat-checkbox checked color="grey">Grey</meat-checkbox>
+            <meat-checkbox checked color="red">Red</meat-checkbox>
+            <meat-checkbox checked color="orange">Orange</meat-checkbox>
+            <meat-checkbox checked color="yellow">Yellow</meat-checkbox>
+            <meat-checkbox checked color="green">Green</meat-checkbox>
+            <meat-checkbox checked color="blue">Blue</meat-checkbox>
+            <meat-checkbox checked color="purple">Purple</meat-checkbox>
+            <br/>
+            <label>Disabled</label><br/>
+            <meat-checkbox disabled>Disabled</meat-checkbox>
+            <meat-checkbox checked disabled>Disabled</meat-checkbox>
+            <meat-checkbox>Not Disabled</meat-checkbox>
+            <br/>
+            <label>Boostrap Support (under development)</label><br/>
+            <meat-checkbox bootstrap>Primary</meat-checkbox>
+            <meat-checkbox bootstrap>Secondary</meat-checkbox>
+            <meat-checkbox bootstrap>Success</meat-checkbox>
+            <meat-checkbox bootstrap>Danger</meat-checkbox>
+            <meat-checkbox bootstrap>Warning</meat-checkbox>
+            <meat-checkbox bootstrap>Info</meat-checkbox>
+            <meat-checkbox bootstrap>Light</meat-checkbox>
+            <meat-checkbox bootstrap>Dark</meat-checkbox>
+            <br/>
+            <label>With Forms</label><br/>
+            <form action="/some_action.php">
+                <label for="name">Example Form</label><br>
+                <meat-checkbox checked>Option 1</meat-checkbox>
+                <meat-checkbox>Option 2</meat-checkbox>
+                <meat-button type="reset">Reset the form!</meat-button>
+                <meat-button type="submit">Submit</meat-button>
+            </form>
+        </div>
+    </body>
+    <script>
+        const meatCheckbox = document.querySelector('meat-checkbox');
+    </script>
+</html>
