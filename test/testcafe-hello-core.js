@@ -1,7 +1,7 @@
 import { Selector } from 'testcafe'; // first import testcafe selectors
 
 fixture `Running tests for core-hello`// declare the fixture
-    .page `../lib/core-hello-test.html1`;
+    .page `../web_components/core-hello/core-hello-test.html1`;
 
 test("Adds 'Hello world,' to string", async t => {
     const shadowInput = await Selector(() => document.querySelector('core-hello').shadowRoot.querySelector('#main-text'));

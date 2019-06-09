@@ -1,7 +1,7 @@
 import { Selector, ClientFunction } from "testcafe"; // first import testcafe selectors
 
 fixture`Running tests for meat-button` // declare the fixture
-  .page `http://127.0.0.1:8080/lib/meat-button-test.html`;
+  .page `http://127.0.0.1:8080/web_components/meat-button/meat-button-test.html`;
 
 const getElementById = Selector(id => document.querySelector(id));
 const setAttribute = ClientFunction((id, attributeName, value) => {
