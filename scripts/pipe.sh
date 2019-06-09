@@ -20,6 +20,8 @@ if [ $ans == 'n' ]; then
   exit 
 else 
   rm -rf instrumented
+  rm -rf lib
+  rm bundle.js
   echo "running linter ..."
   npm run-script lint
   if [ $? -eq 0 ]; then
