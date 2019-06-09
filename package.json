@@ -53,7 +53,8 @@
     "local-test-card": "npm-run-all build instrument serve utest-meat-card coverage-display post-test",
     "local-test-link": "npm-run-all build instrument serve utest-meat-link coverage-display post-test",
     "local-test-image": "npm-run-all build instrument serve utest-meat-image coverage-display post-test",
-    "clean": "rm -rf instrumented && rm -rf lib && rm bundle.js"
+    "clean": "rm -rf instrumented && rm -rf lib && rm bundle.js",
+    "local-testcafe": "npm-run-all build instrument serve local-runner post-test"
   },
   "unpkg": "bundle.js",
   "repository": {
