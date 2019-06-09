@@ -41,10 +41,8 @@ In your HTML page `<head>` element, include the following into the head of your 
 ### npm
 In your HTML page `<head>` element, include the following into the head of your html document:
 ```
-<script type="module" src="node_modules/@meatspace/webcomponents/lib/meat-button/meat-button.js"></script>
+<script type="module" src="/node_modules/@meatspace/webcomponents/bundle.js"></script>
 ```
-In the above example, `/meat-button/meat-button.js` is the path to the core-hello web component JavaScript file. 
-If you want to use a different web component, you will have to change this part of the path appropriately.
 Next, add the component into your HTML body
 ```
 <meat-button color="blue" size="large">MeatSpace!</meat-button>

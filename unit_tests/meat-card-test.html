@@ -17,21 +17,10 @@
     
     <!-- load code you want to test here -->
     <script type ="module" href="../web_components/meat-card/meat-card.css"></script>
-    <script type ="module" src="../web_components/meat-card/meat-card.css"></script>
+    <script type ="module" src="../instrumented/meat-card/meat-card.js"></script>
 
      <!-- load your test files here -->
-     <script src="meat-card-test.js" type="text/javascript"></script>
-
-     <meat-card>
-      <div slot="header">
-          <span>Default</span>
-      </div>
-      <div slot="body" class="card-body">
-          <div>Item 1</div>
-          <div>Item 2</div>
-      </div>
-  </meat-card>
-  
+     <script src="meat-card-tests.js" type="text/javascript"></script>  
     <script class="mocha-exec">
           mocha.run();
     </script>

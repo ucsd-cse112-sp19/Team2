@@ -1,3 +1,6 @@
+env: 
+  global:
+    -CC_TEST_REPORTER_ID=1284022682ad789d7154812f47337baa586d4a2b0ddd5e5a11e263401a8eaafc
 language: node_js
 node_js:
 - stable
@@ -5,15 +8,24 @@ before_install:
 - npm install -g http-server
 services:
 - http-server
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+  - npm run instrument
 script: 
-- http-server & 
-- npm run utest && npm run runner
+  - npm run test
+  - npm run report
+  - npm run runner
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 cache:
   directories:
   - node_modules
 notifications:
   slack: cse112-sp19-team2:IXLkNzX29z3uu0hqeUn37atD
 before_deploy:
+  - npm install -g rollup
   - npm run build
 deploy:
   provider: npm

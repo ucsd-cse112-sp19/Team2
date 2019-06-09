@@ -1,21 +1,24 @@
-import { RELEASE } from "../environment.js";
-// path to local css file for development
-let cssUrl = "/web_components/meat-image/meat-image.css";
-// replaces the href during the bundling process to point to production
-if (RELEASE) {
-  cssUrl =
-    "https://unpkg.com/@meatspace/webcomponents@latest/web_components/meat-image/meat-image.css";
+const template = document.createElement("template");
+template.innerHTML = `
+<style>
+:host(:not([bootstrap]))  {
+  font-family: sans-serif;
+  vertical-align: top;
+  overflow: auto;
 }
 
-const template = document.createElement("template");
+:host(:not([bootstrap])) #imageElement {
+  width: inherit;
+  height: inherit;
+}
 
-template.innerHTML = `
-<style></style>
-<link rel="stylesheet" href="${cssUrl}"/>
-
+.imageHide {
+  display: none;
+}
+</style>
 <div id="imageContainer">
   <img id="imageElement" class="nativeImg">
-  <slot id="placeholder" name="placeholder"></slot>
+  <slot id="placeholder" name="placeholder"></slot> 
   <slot id="error" name="error"></slot>
 </div>
 `;
@@ -53,15 +56,33 @@ export class MeatImage extends HTMLElement {
    * Live-cycle method called when the custom element is loaded, often used for initialization
    */
   connectedCallback() {
-    // TODO: find a way to make placeholder disappear upon loading
-    this.image.addEventListener("load", function() {
-      // do not show placeholder slot
-      console.log("loaded");
+    // Create reference to the main image that is loading and the placeholder slot element
+    const placeholderSlot = this.shadow.querySelector("#placeholder");
+    const errorSlot = this.shadow.querySelector("#error");
+    const mainImage = this.image;
+
+    // If placeholder has content (via slotchange event) execute call back
+    placeholderSlot.addEventListener("slotchange", function() {
+      mainImage.classList.add("imageHide");
+      // Remove diplay of placeholder loading element once main image loads
+      mainImage.addEventListener("load", function() {
+        placeholderSlot.classList.add("imageHide");
+        mainImage.classList.remove("imageHide");
+      });
     });
 
-    // TODO: display error plcaeholder upon image error
-    this.image.addEventListener("error", function() {
-      // show only error slot
+    // If error slot has content, execute call back
+    errorSlot.addEventListener("slotchange", function() {
+      // Do not show the error content until an error has occured with main image
+      errorSlot.classList.add("imageHide");
+
+      // Add listener to see if error occurs
+      mainImage.addEventListener("error", function() {
+        // Show error message upon main image error
+        errorSlot.classList.remove("imageHide");
+        // Hide native error display from main image element
+        mainImage.classList.add("imageHide");
+      });
     });
   }
 
