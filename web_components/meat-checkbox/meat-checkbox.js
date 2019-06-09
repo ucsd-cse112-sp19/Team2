@@ -140,19 +140,16 @@ template.innerHTML = `
   </label>
 `;
 
-/**
- * meat-checkbox webcomponent
- * @customelement meat-checkbox
- * @description displays a stylized checkbox component
- * @see [Demo]{@link https://meat-space.org/web_components/meat-checkbox/meat-checkbox-demo.html} for working example.
- * @example <meat-checkbox></meat-checkbox>
- * @property {boolean} checked -Property for if a checkbox is checked or not.
- * @property {string} color -Changes the color of the checkbox.
- * @property {boolean} disabled -Disables checkbox usage.
- */
 export class MeatCheckboxElement extends HTMLElement {
   /**
-   * Create an instance of MeatButtonElement
+   * meat-checkbox webcomponent
+   * @customelement meat-checkbox
+   * @description displays a stylized checkbox component
+   * @see [Demo]{@link https://meat-space.org/web_components/meat-checkbox/meat-checkbox-demo.html} for working example.
+   * @example <meat-checkbox></meat-checkbox>
+   * @property {boolean} checked -Property for if a checkbox is checked or not.
+   * @property {string} color -Changes the color of the checkbox.
+   * @property {boolean} disabled -Disables checkbox usage.
    */
   constructor() {
     super();
