@@ -1,20 +1,9 @@
+import style from './meat-image.css';
+
 const template = document.createElement("template");
 template.innerHTML = `
 <style>
-:host(:not([bootstrap]))  {
-  font-family: sans-serif;
-  vertical-align: top;
-  overflow: auto;
-}
-
-:host(:not([bootstrap])) #imageElement {
-  width: inherit;
-  height: inherit;
-}
-
-.imageHide {
-  display: none;
-}
+${style}
 </style>
 <div id="imageContainer">
   <img id="imageElement" class="nativeImg">

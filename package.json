@@ -39,7 +39,7 @@
     "pipe-release": "cd scripts && release.sh",
     "storybook": "start-storybook",
     "babel": "./node_modules/.bin/babel web_components --out-dir lib",
-    "build": "rollup -c",
+    "build": "./node_modules/rollup/bin/rollup -c",
     "report": "./node_modules/nyc/bin/nyc.js report --reporter=lcov",
     "serve": "./node_modules/http-server/bin/http-server &",
     "test": "npm run serve && npm run utest",
@@ -67,8 +67,7 @@
   "homepage": "https://meat-space.org",
   "babel": {
     "presets": [
-      "@babel/preset-env",
-      "es2015"
+      "@babel/preset-env"
     ]
   },
   "devDependencies": {
