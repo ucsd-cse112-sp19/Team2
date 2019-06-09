@@ -34,7 +34,6 @@ const referrerPolicies = [
 const fillStyles = ["fill", "contain", "cover", "none", "scale-down"];
 
 export class MeatImage extends HTMLElement {
-
   /**
    * meat-boilerplate webcomponent
    * @customelement meat-boilerplate
@@ -57,11 +56,10 @@ export class MeatImage extends HTMLElement {
    * Live-cycle method called when the custom element is loaded, often used for initialization
    */
   connectedCallback() {
-
     // Create reference to the main image that is loading and the placeholder slot element
-    let placeholderSlot = this.shadow.querySelector("#placeholder");
-    let errorSlot = this.shadow.querySelector("#error");
-    let mainImage = this.image;
+    const placeholderSlot = this.shadow.querySelector("#placeholder");
+    const errorSlot = this.shadow.querySelector("#error");
+    const mainImage = this.image;
 
     // If placeholder has content (via slotchange event) execute call back
     placeholderSlot.addEventListener("slotchange", function() {
