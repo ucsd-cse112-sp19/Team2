@@ -60,6 +60,8 @@ export class MeatImage extends HTMLElement {
     const placeholderSlot = this.shadow.querySelector("#placeholder");
     const errorSlot = this.shadow.querySelector("#error");
     const mainImage = this.image;
+    // Use _thisComponent reference instead of binding this for each event listener
+    const _thisComponent = this;
 
     // If placeholder has content (via slotchange event) execute call back
     placeholderSlot.addEventListener("slotchange", function() {
@@ -68,6 +70,11 @@ export class MeatImage extends HTMLElement {
       mainImage.addEventListener("load", function() {
         placeholderSlot.classList.add("imageHide");
         mainImage.classList.remove("imageHide");
+
+        _thisComponent.dispatchEvent(new CustomEvent("meat-load"), {
+          bubbles: true,
+          cancelable: false
+        });
       });
     });
 
@@ -82,6 +89,11 @@ export class MeatImage extends HTMLElement {
         errorSlot.classList.remove("imageHide");
         // Hide native error display from main image element
         mainImage.classList.add("imageHide");
+
+        _thisComponent.dispatchEvent(new CustomEvent("meat-error"), {
+          bubbles: true,
+          cancelable: false
+        });
       });
     });
   }
