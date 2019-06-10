@@ -41,6 +41,18 @@ describe("meat-input basic requirements", function() {
 });
 
 describe("core-hello basic requirements", function() {
+  /* Does not have attributes */
+  it("Should not have attributes", function(done) {
+    assert.equal(comp.hasAttributes(), false);
+    done();
+  })
+  /* Has attributes after setting them */
+  it("Should have attributes after setting them", function(done) {
+    comp.setAttribute("rainbow", "");
+    comp.setAttribute("lang", "en");
+    assert.notEqual(comp.attributes, "undefined");
+    done();
+  });
   /* Should Add 'Hello world,' */
   it("should add 'Hello world,' to string", function(done) {
     assert.equal(sr.getElementById("main-text").innerHTML, "Hello world, ");
@@ -73,7 +85,6 @@ describe("core-hello basic requirements", function() {
     done();
   });
 });
-
 describe("core-hello Language Functionality", function() {
   it("default should not output in spanish", function(done) {
     assert.notEqual(sr.getElementById("main-text").innerHTML, "Hola mundo, ");
@@ -101,6 +112,11 @@ describe("core-hello Language Functionality", function() {
     );
     done();
   });
+  it("Removing lang attribute should default langauge to english", function(done) {
+    comp.removeAttribute("lang");
+    assert.equal(sr.getElementById("main-text").innerHTML, "Hello world, ");
+    done();
+  })
 });
 
 describe("core-hello Rainbow Functionality", function() {
@@ -108,6 +124,11 @@ describe("core-hello Rainbow Functionality", function() {
   it("should have rainbow attribute", function(done) {
     comp.setAttribute("rainbow", "");
     assert.equal(comp.hasAttribute("rainbow"), true);
+    done();
+  });
+  it("Unsetting rainbow attribute should remove it", function(done) {
+    comp.removeAttribute("rainbow");
+    assert.equal(comp.hasAttribute("rainbow"), false);
     done();
   });
 });
@@ -137,6 +158,54 @@ describe("CSS tests", function() {
   it("Text should be centered when changing textAlign", function(done) {
     comp.style.textAlign = "center";
     assert.equal(comp.style.textAlign, "center");
+    done();
+  });
+});
+describe("Getters and setters tests", function() {
+  /* Test lang getter */
+  it("lang getter should return en", function(done) {
+    comp.lang = "en";
+    assert.equal(comp.lang, "en");
+    done();
+  });
+  /* Test rainbow getter */
+  it("rainbow getter should return ''", function(done) {
+    comp.rainbow = "test";
+    assert.equal(comp.rainbow, "");
+    done();
+  });
+  /* Test rainbow setter */
+  it("rainbow setter should return 'test'", function(done) {
+    let retVal = comp.rainbow = "test";
+    assert.equal(retVal, "test");
+    done();
+  });
+  /* Test lang setter */
+  it("lang setter should return 'fr'", function(done) {
+    let retVal = comp.lang = "fr";
+    assert.equal(retVal, "fr");
+    done();
+  });   
+});
+describe("Class methods tests", function() {
+  /* attributeChangedCallback() test */
+  it("attributeChangedCallback should return nothing", function(done) {
+    assert.equal(comp.attributeChangedCallback("rainbow", "", "en"), undefined);
+    done();
+  });
+  /* updateLang() test */
+  it("lang should not be changed to en", function(done) {
+    comp.updateLang(comp, "fr");
+    assert.notEqual(
+      sr.getElementById("main-text").innerHTML,
+      "Hello world, "
+    );
+    done();
+  });
+  /* updateStyle() test */
+  it("rainbow", function(done) {
+    comp.updateStyle(comp);
+    assert.notEqual(comp.hasAttribute("rainbow"), false);
     done();
   });
 });
