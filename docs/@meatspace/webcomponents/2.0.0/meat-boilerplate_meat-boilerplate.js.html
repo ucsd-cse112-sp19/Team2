@@ -39,9 +39,13 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const template = document.createElement("template");
+            <pre class="prettyprint source linenums"><code>import style from "./meat-boierplate.css";
+
+const template = document.createElement("template");
 template.innerHTML = `
-&lt;style>&lt;/style>
+&lt;style>
+${style}
+&lt;/style>
 `;
 
 export class MeatBoilerplate extends HTMLElement {
