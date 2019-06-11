@@ -21,7 +21,7 @@ echo "commiting changes ..."
 git commit
 
 echo "updating npm version number to $version ..."
-npm version $verion
+npm version $version
 
 read -p "Do you want to generate api docs? (y or n)? " docsAns
 
