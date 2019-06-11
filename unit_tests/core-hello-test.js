@@ -45,7 +45,7 @@ describe("core-hello basic requirements", function() {
   it("Should not have attributes", function(done) {
     assert.equal(comp.hasAttributes(), false);
     done();
-  })
+  });
   /* Has attributes after setting them */
   it("Should have attributes after setting them", function(done) {
     comp.setAttribute("rainbow", "");
@@ -116,7 +116,7 @@ describe("core-hello Language Functionality", function() {
     comp.removeAttribute("lang");
     assert.equal(sr.getElementById("main-text").innerHTML, "Hello world, ");
     done();
-  })
+  });
 });
 
 describe("core-hello Rainbow Functionality", function() {
@@ -168,38 +168,78 @@ describe("Getters and setters tests", function() {
     assert.equal(comp.lang, "en");
     done();
   });
+  /* Test lang getter */
+  it("lang getter should return en", function(done) {
+    comp.lang = false;
+    assert.equal(comp.lang, null);
+    done();
+  });
   /* Test rainbow getter */
   it("rainbow getter should return ''", function(done) {
     comp.rainbow = "test";
     assert.equal(comp.rainbow, "");
     done();
   });
+  it("rainbow getter should return ''", function(done) {
+    comp.rainbow = false;
+    assert.equal(comp.rainbow, null);
+    done();
+  });
   /* Test rainbow setter */
   it("rainbow setter should return 'test'", function(done) {
-    let retVal = comp.rainbow = "test";
+    let retVal = (comp.rainbow = "test");
     assert.equal(retVal, "test");
     done();
   });
   /* Test lang setter */
   it("lang setter should return 'fr'", function(done) {
-    let retVal = comp.lang = "fr";
+    let retVal = (comp.lang = "fr");
     assert.equal(retVal, "fr");
     done();
-  });   
+  });
 });
 describe("Class methods tests", function() {
+  /* Test constructor */
+  it("constructor()", function(done) {
+    assert.notEqual(comp.constructor(), false);
+    done();
+  });
+  /* Test constructor */
+  it("observedAttributes", function(done) {
+    assert.notEqual(comp.observedAttributes, true);
+    done();
+  });
   /* attributeChangedCallback() test */
   it("attributeChangedCallback should return nothing", function(done) {
     assert.equal(comp.attributeChangedCallback("rainbow", "", "en"), undefined);
     done();
   });
+  /* attributeChangedCallback() test */
+  it("attributeChangedCallback should return nothing", function(done) {
+    assert.equal(comp.attributeChangedCallback("lang", "", "en"), undefined);
+    done();
+  });
+  /* updateLang() test */
+  it("lang should not be changed to fr", function(done) {
+    comp.updateLang(comp, "fr");
+    assert.notEqual(sr.getElementById("main-text").innerHTML, "Hello world, ");
+    done();
+  });
   /* updateLang() test */
   it("lang should not be changed to en", function(done) {
-    comp.updateLang(comp, "fr");
-    assert.notEqual(
-      sr.getElementById("main-text").innerHTML,
-      "Hello world, "
-    );
+    comp.updateLang(comp, "en");
+    assert.equal(sr.getElementById("main-text").innerHTML, "Hello world, ");
+    done();
+  });
+  /* updateLang() test */
+  it("lang should not be changed to sp", function(done) {
+    comp.updateLang(comp, "sp");
+    assert.equal(sr.getElementById("main-text").innerHTML, "Hola mundo, ");
+    done();
+  });
+  it("lang default should be changed to en", function(done) {
+    comp.updateLang(comp, "test");
+    assert.equal(sr.getElementById("main-text").innerHTML, "Hello world, ");
     done();
   });
   /* updateStyle() test */

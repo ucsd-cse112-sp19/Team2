@@ -65,11 +65,6 @@
     "url": "https://github.com/ucsd-cse112/Team2/issues"
   },
   "homepage": "https://meat-space.org",
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ]
-  },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
@@ -99,6 +94,7 @@
     "prettier": "1.17.0",
     "puppeteer": "^1.17.0",
     "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-multi-entry": "^2.1.0",
     "rollup-plugin-node-resolve": "^5.0.1",
     "rollup-plugin-postcss": "^2.0.3",
