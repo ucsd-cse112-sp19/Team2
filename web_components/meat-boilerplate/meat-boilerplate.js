@@ -1,6 +1,10 @@
+import style from "./meat-boierplate.css";
+
 const template = document.createElement("template");
 template.innerHTML = `
-<style></style>
+<style>
+${style}
+</style>
 `;
 
 export class MeatBoilerplate extends HTMLElement {
