@@ -1,4 +1,4 @@
-import style from "./meat-boierplate.css";
+import style from "./meat-boilerplate.css";
 
 const template = document.createElement("template");
 template.innerHTML = `
