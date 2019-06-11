@@ -1,7 +1,8 @@
 # Team MeatSpace (Team 2) Web Components
 ![alt text](https://meat-space.org/website/img/logo.png "MeatSpace logo 1") <br/>
 [![Build Status](https://travis-ci.org/ucsd-cse112/Team2.svg?branch=master)](https://travis-ci.org/ucsd-cse112/Team2)
-[![Maintainability](https://api.codeclimate.com/v1/badges/2a07d0e8d29fd216bc41/maintainability)](https://codeclimate.com/repos/5cc77286629ff0026e00188a/maintainability) <br/>
+[![Maintainability](https://api.codeclimate.com/v1/badges/2a07d0e8d29fd216bc41/maintainability)](https://codeclimate.com/repos/5cc77286629ff0026e00188a/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/2a07d0e8d29fd216bc41/test_coverage)](https://codeclimate.com/repos/5cc77286629ff0026e00188a/test_coverage) <br/>
 
 Welcome to the MeatSpace web component library. 
 

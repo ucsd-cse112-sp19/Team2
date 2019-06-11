@@ -3,15 +3,17 @@ env:
     -CC_TEST_REPORTER_ID=1284022682ad789d7154812f47337baa586d4a2b0ddd5e5a11e263401a8eaafc
 language: node_js
 node_js:
-- stable
+  - stable
 before_install:
-- npm install -g http-server
+  - npm install -g http-server
+  - npm install -g rollup
 services:
 - http-server
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
+  - npm run build
   - npm run instrument
 script: 
   - npm run test

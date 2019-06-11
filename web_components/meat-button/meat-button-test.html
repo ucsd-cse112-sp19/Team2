@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>meat-button-demo</title>
+        <script type="module" src="/lib/meat-button.js"></script>
+        <script type="module" src="/lib/meat-input.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <style>
+        meat-button {
+        }
+        form {
+            border: 1px solid #3388ff;
+            padding: 10px;
+            width: 230px;
+        }
+    </style>
+    <body>
+        <div style="padding: 10px">
+            <label id="text-test">Basic buttons</label><br/>
+            <meat-button id="clickable" size="large" >No Color Specified</meat-button>
+            <meat-button id="check-button" color="white"  size="large">White</meat-button>
+            <meat-button color="grey"   size="large" >Grey</meat-button>
+            <meat-button color="red"    size="large" >Red</meat-button>
+            <meat-button color="orange" size="large" >Orange</meat-button>
+            <meat-button color="yellow" size="large" >Yellow</meat-button>
+            <meat-button color="green"  size="large" >Green</meat-button>
+            <meat-button color="blue"   size="large" >Blue</meat-button>
+            <meat-button color="purple" size="large" >Purple</meat-button>
+            <br><br>
+            <label>Round buttons</label><br/>
+            <meat-button id="round" size="large" round>No Color Specified</meat-button>
+            <meat-button color="white"  size="large" round >White</meat-button>
+            <meat-button color="grey"   size="large" round >Grey</meat-button>
+            <meat-button color="red"    size="large" round >Red</meat-button>
+            <meat-button color="orange" size="large" round >Orange</meat-button>
+            <meat-button color="yellow" size="large" round >Yellow</meat-button>
+            <meat-button color="green"  id="green_round" size="large" round >Green</meat-button>
+            <meat-button color="blue"   size="large" round >Blue</meat-button>
+            <meat-button color="purple" size="large" round >Purple</meat-button>
+            <br><br>
+            <label>Circle buttons</label><br/>
+            <meat-button id="circle" color="white"  size="large" circle>+</meat-button>
+            <meat-button color="grey"   size="large" circle>+</meat-button>
+            <meat-button color="red"    size="large" circle>+</meat-button>
+            <meat-button color="orange" size="large" circle>+</meat-button>
+            <meat-button color="yellow" size="large" circle>+</meat-button>
+            <meat-button color="green"  size="large" circle>+</meat-button>
+            <meat-button color="blue"   size="large" circle>+</meat-button>
+            <meat-button color="purple" size="large" circle>+</meat-button>
+            <br><br>
+            <label>Disabled</label><br/>
+            <meat-button id="disabled" color="white" size="large" round disabled >Disabled</meat-button>
+            <meat-button color="white" size="large" round >Not Disabled</meat-button>
+            <br><br>
+            <label>Bootstrap Support</label><br/>
+            <meat-button id="bootstrap" bootstrap="btn btn-primary">Primary</meat-button>
+            <meat-button bootstrap="btn btn-secondary">Secondary</meat-button>
+            <meat-button bootstrap="btn btn-success">Success</meat-button>
+            <meat-button bootstrap="btn btn-danger">Danger</meat-button>
+            <meat-button bootstrap="btn btn-warning">Warning</meat-button>
+            <meat-button bootstrap="btn btn-info">Info</meat-button>
+            <meat-button bootstrap="btn btn-light">Light</meat-button>
+            <meat-button bootstrap="btn btn-dark">Dark</meat-button>
+            <br><br>
+            <label>Bootstrap Disable</label><br/>
+            <meat-button bootstrap="btn btn-primary" disabled>Primary</meat-button>
+            <meat-button bootstrap="btn btn-secondary" disabled>Secondary</meat-button>
+            <meat-button bootstrap="btn btn-success" disabled>Success</meat-button>
+            <meat-button bootstrap="btn btn-danger" disabled>Danger</meat-button>
+            <meat-button bootstrap="btn btn-warning" disabled>Warning</meat-button>
+            <meat-button bootstrap="btn btn-info" disabled>Info</meat-button>
+            <meat-button bootstrap="btn btn-light" disabled>light</meat-button>
+            <meat-button bootstrap="btn btn-dark" disabled>Dark</meat-button>
+            <br><br>
+            <label>With forms</label><br/>
+            <form action="/some_action.php">
+                <label for="name">Example Form</label><br>
+                <meat-input id="input" autocomplete="on"></meat-input><br><br>
+                <meat-button id="reset" type="reset">Reset the form!</meat-button>
+                <meat-button type="submit">Submit</meat-button>
+            </form>
+            <form action="/some_action.php">
+                <label for="name">Example Form</label><br>
+                <meat-input id="test-input" autocomplete="on"><br><br>
+                <meat-button type="reset">Reset the form!</meat-button>
+                <meat-button type="submit">Submit</meat-button>
+            </form>
+        </div>
+    </body>
+    <script>
+        const meatButton = document.querySelector('meat-button');
+        meatButton.addEventListener('click', () => {
+            console.log("user defined click method");
+            location.href = "http://127.0.0.1:8080/web_components/meat-link/meat-link-demo.html"
+        })
+
+        const meatButton2 = document.querySelector('#disabled');
+        meatButton.addEventListener('click', () => {
+            console.log("user defined click method");
+            location.href = "http://127.0.0.1:8080/web_components/meat-link/meat-link-demo.html"
+        })
+    </script>
+</html>

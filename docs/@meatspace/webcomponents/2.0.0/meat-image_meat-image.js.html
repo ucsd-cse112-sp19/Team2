@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="core-hello.html">core-hello</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-boilerplate.html">meat-boilerplate</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-button.html">meat-button</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-card.html">meat-card</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-dropdown.html">meat-dropdown</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-input.html">meat-input</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-link.html">meat-link</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="core-hello.html">core-hello</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-boilerplate.html">meat-boilerplate</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-button.html">meat-button</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-card.html">meat-card</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-checkbox.html">meat-checkbox</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-dropdown.html">meat-dropdown</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-input.html">meat-input</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-link.html">meat-link</a></span></li>
 </nav>
 
 <div id="main">
@@ -39,23 +39,16 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const template = document.createElement("template");
+            <pre class="prettyprint source linenums"><code>import style from "./meat-image.css";
+
+const template = document.createElement("template");
 template.innerHTML = `
 &lt;style>
-:host(:not([bootstrap]))  {
-  font-family: sans-serif;
-  vertical-align: top;
-  overflow: auto;
-}
-
-:host(:not([bootstrap])) #imageElement {
-  width: inherit;
-  height: inherit;
-}
+${style}
 &lt;/style>
 &lt;div id="imageContainer">
   &lt;img id="imageElement" class="nativeImg">
-  &lt;slot id="placeholder" name="placeholder">&lt;/slot>
+  &lt;slot id="placeholder" name="placeholder">&lt;/slot> 
   &lt;slot id="error" name="error">&lt;/slot>
 &lt;/div>
 `;
@@ -93,15 +86,45 @@ export class MeatImage extends HTMLElement {
    * Live-cycle method called when the custom element is loaded, often used for initialization
    */
   connectedCallback() {
-    // TODO: find a way to make placeholder disappear upon loading
-    this.image.addEventListener("load", function() {
-      // do not show placeholder slot
-      console.log("loaded");
+    // Create reference to the main image that is loading and the placeholder slot element
+    const placeholderSlot = this.shadow.querySelector("#placeholder");
+    const errorSlot = this.shadow.querySelector("#error");
+    const mainImage = this.image;
+    // Use _thisComponent reference instead of binding this for each event listener
+    const _thisComponent = this;
+
+    // If placeholder has content (via slotchange event) execute call back
+    placeholderSlot.addEventListener("slotchange", function() {
+      mainImage.classList.add("imageHide");
+      // Remove diplay of placeholder loading element once main image loads
+      mainImage.addEventListener("load", function() {
+        placeholderSlot.classList.add("imageHide");
+        mainImage.classList.remove("imageHide");
+
+        _thisComponent.dispatchEvent(new CustomEvent("meat-load"), {
+          bubbles: true,
+          cancelable: false
+        });
+      });
     });
 
-    // TODO: display error plcaeholder upon image error
-    this.image.addEventListener("error", function() {
-      // show only error slot
+    // If error slot has content, execute call back
+    errorSlot.addEventListener("slotchange", function() {
+      // Do not show the error content until an error has occured with main image
+      errorSlot.classList.add("imageHide");
+
+      // Add listener to see if error occurs
+      mainImage.addEventListener("error", function() {
+        // Show error message upon main image error
+        errorSlot.classList.remove("imageHide");
+        // Hide native error display from main image element
+        mainImage.classList.add("imageHide");
+
+        _thisComponent.dispatchEvent(new CustomEvent("meat-error"), {
+          bubbles: true,
+          cancelable: false
+        });
+      });
     });
   }
 
