@@ -17,7 +17,7 @@ npm install --save @meatspace/webcomponents
 ### CDN
 In your HTML page `<head>` element, include the following into the head of your html document:
 ```
-<script src="https://unpkg.com/@meatspace/webcomponents@latest/bundle.js"></script>
+<script type="module" src="https://unpkg.com/@meatspace/webcomponents@latest/bundle.js"></script>
 ```
 ##### EXAMPLE
 ```
@@ -28,7 +28,7 @@ In your HTML page `<head>` element, include the following into the head of your 
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>MeatSpace Usage Demo</title>
-        <script src="https://unpkg.com/@meatspace/webcomponents@latest/bundle.js"></script>
+        <script type="module" src="https://unpkg.com/@meatspace/webcomponents@latest/bundle.js"></script>
     </head>
     <body>
         <meat-button color="blue" size="large">MeatSpace!</meat-button>
