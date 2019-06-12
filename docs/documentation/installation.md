@@ -2,7 +2,7 @@
 
 The easiest way to get our webcomponents is to include the following into the head of your html document:
 ```
-<script src="https://unpkg.com/@meatspace/webcomponents@latest/bundle.js"></script>
+<script type="module" src="https://unpkg.com/@meatspace/webcomponents@latest/bundle.js"></script>
 ```
 Otherwise, you'll need to have the following installed:
 * Nodejs
