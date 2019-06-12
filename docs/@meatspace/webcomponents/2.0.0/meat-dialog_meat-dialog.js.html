@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>meat-boilerplate/meat-boilerplate.js - Documentation</title>
+    <title>meat-dialog/meat-dialog.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">meat-boilerplate/meat-boilerplate.js</h1>
+    <h1 class="page-title">meat-dialog/meat-dialog.js</h1>
     
 
     
@@ -39,39 +39,85 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import style from "./meat-boilerplate.css";
+            <pre class="prettyprint source linenums"><code>// import style from "./meat-dialog.css";
 
 const template = document.createElement("template");
 template.innerHTML = `
 &lt;style>
-${style}
+
+.dialog {
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  transition: visibility .3s, opacity .3s;
+}
+
+.dialog-content {
+  width: var(--width, 40%);
+  padding: 10px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  border-radius: 10px;
+}
+
+
+.dialog[open=true] {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.dialog[open=false] {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
 &lt;/style>
+&lt;div class="dialog" open=false>
+  &lt;div class="dialog-content">
+    &lt;slot>&lt;/slot>
+  &lt;/div>
+&lt;/div>
+
 `;
 
-export class MeatBoilerplate extends HTMLElement {
+export class MeatDialog extends HTMLElement {
   /**
-   * meat-boilerplate webcomponent
-   * @customelement meat-boilerplate
-   * @description A boilerplate for starting new webcomponents
-   * @example &lt;meat-boilerplate>&lt;/meat-boilerplate>
+   * meat-dialog webcomponent
+   * @customelement meat-dialog
+   * @description A dialog for starting new webcomponents
+   * @example &lt;meat-dialog>&lt;/meat-dialog>
    */
   constructor() {
     super();
     this.shadow = this.attachShadow({ mode: "open" });
     this.shadow.appendChild(template.content.cloneNode(true));
+    this._open = this._open.bind(this);
+    this._dispatchOpenEvent = this._dispatchOpenEvent.bind(this);
+    this._dialog = this.shadow.querySelector(".dialog");
+    this.addEventListener("click", this._open);
   }
 
   /**
    * Live-cycle method called when the custom element is loaded, often used for initialization
    */
   connectedCallback() {}
-
   /**
    * Tell the webcomponent to observe these attributes, if any of them are added, changed, or removed, then
    * call attributeChangedCallback(name, oldVal, newVal)
    */
   static get observedAttributes() {
-    return [];
+    return ["open"];
   }
 
   /**
@@ -80,9 +126,56 @@ export class MeatBoilerplate extends HTMLElement {
    * @param {string} oldVal
    * @param {string} newVal
    */
-  attributeChangedCallback(name, oldVal, newVal) {}
+  attributeChangedCallback(name, oldVal, newVal) {
+    switch (name) {
+      case "open":
+        if (newVal) this._dialog.setAttribute("open", true);
+        else this._dialog.setAttribute("open", false);
+        this._dispatchOpenEvent();
+        break;
+      case "default":
+        break;
+    }
+  }
+
+  get open() {
+    return this.hasAttribute("open");
+  }
+
+  set open(val) {
+    if (val) {
+      this.setAttribute("open", val);
+    } else {
+      this.removeAttribute("open");
+    }
+  }
+
+  /**
+   * If clicking on dialog background, close and dispatch event
+   * @param {*} evt
+   */
+  _open(evt) {
+    // if clicking on background, close modal
+    if (evt.target == this) {
+      this.open = false;
+    }
+  }
+
+  /**
+   * Dispatch an event to tell user when the modal has been opened or closed
+   */
+  _dispatchOpenEvent() {
+    this.dispatchEvent(
+      new CustomEvent("open", {
+        detail: {
+          open: this._dialog.getAttribute("open") == "true" // returns a boolean rather than string
+        },
+        bubbles: true
+      })
+    );
+  }
 }
-window.customElements.define("meat-boilerplate", MeatBoilerplate);
+window.customElements.define("meat-dialog", MeatDialog);
 </code></pre>
         </article>
     </section>

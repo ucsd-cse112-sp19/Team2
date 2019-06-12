@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>meat-dialog-demo</title>
+        <link rel="shortcut icon" href="/img/logo.png">
+        <script type="module" src="/bundle.js"></script>
+        <script type="module" src="./meat-dialog.js"></script>
+    </head>
+    <style>
+        meat-dialog {
+            
+        }
+    </style>
+    <body>
+        <meat-dialog>
+            <div style="height: 400px; width: 400px;">
+                Test
+            </div>
+        </meat-dialog>
+        <meat-button>
+            Dialog
+        <meat-button>
+    </body>
+    <script>
+        const meatDialog = document.querySelector('meat-dialog');
+        const meatButton = document.querySelector('meat-button');
+        meatButton.addEventListener("click", function(){
+            console.log('button clicked')
+            meatDialog.open = !meatDialog.open;
+        })
+        meatDialog.addEventListener('open', function(evt) {
+            console.log(evt.detail.open)
+            if (evt.detail.open) console.log("dialog has opened!");
+            else console.log("dialog has closed!");
+        })
+    </script>
+</html>
