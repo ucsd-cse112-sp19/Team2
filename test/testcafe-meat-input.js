@@ -47,15 +47,7 @@ test("Check that tag-name is meat-input", async t => {
   const component = getElementById("meat-input");
   await t.expect(component.tagName).eql("meat-input");
 });
-/*
-test("Click button", async t => {
-  const component = getElementById("meat-input");
-  const shadowInput = await Selector(() => document.querySelector('#basic').shadowRoot.querySelector('#input'));
-  await t
-    .click(shadowInput)
-    .expect(shadowInput.getStyleProperty('border')).eql('');
-});
-*/
+
 test("Hover button", async t => {
   const component = getElementById("meat-input");
   await t.hover(component);

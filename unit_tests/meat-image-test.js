@@ -11,6 +11,14 @@ const referrerPolicies = [
   "origin-when-cross-origin",
   "unsafe-url"
 ];
+
+function checkStyle(_attribute, _value) { 
+  sr = comp.shadowRoot;
+  inner = sr.querySelector("img");
+  style = getComputedStyle(inner);
+  assert.include(style[_attribute], _value);
+}
+
 before(done => {
   setTimeout(function() {
     comp = document.createElement("meat-image");
@@ -79,10 +87,7 @@ describe("Tests fit functionality", function() {
     comp.setAttribute("fit", "fill");
     this.timeout(1000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      const inner = sr.querySelector("img");
-      const style = getComputedStyle(inner);
-      assert.equal(style["objectFit"], "fill");
+      checkStyle("objectFit", "fill");
       done();
     }, 500);
   });
@@ -90,10 +95,7 @@ describe("Tests fit functionality", function() {
     comp.setAttribute("fit", "contain");
     this.timeout(1000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      const inner = sr.querySelector("img");
-      const style = getComputedStyle(inner);
-      assert.equal(style["objectFit"], "contain");
+      checkStyle("objectFit", "contain");
       done();
     }, 500);
   });
@@ -101,10 +103,7 @@ describe("Tests fit functionality", function() {
     comp.setAttribute("fit", "cover");
     this.timeout(1000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      const inner = sr.querySelector("img");
-      const style = getComputedStyle(inner);
-      assert.equal(style["objectFit"], "cover");
+      checkStyle("objectFit", "cover");
       done();
     }, 500);
   });
@@ -112,10 +111,7 @@ describe("Tests fit functionality", function() {
     comp.setAttribute("fit", "none");
     this.timeout(1000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      const inner = sr.querySelector("img");
-      const style = getComputedStyle(inner);
-      assert.equal(style["objectFit"], "none");
+      checkStyle("objectFit", "none");
       done();
     }, 500);
   });
@@ -126,7 +122,7 @@ describe("Tests fit functionality", function() {
       sr = comp.shadowRoot;
       const inner = sr.querySelector("img");
       const style = getComputedStyle(inner);
-      assert.equal(style["objectFit"], "scale-down");
+      checkStyle("objectFit", "scale-down");
       done();
     }, 500);
   });
