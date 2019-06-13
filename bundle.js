@@ -1539,90 +1539,11 @@ var MeatComponents = (function (exports) {
   }(_wrapNativeSuper(HTMLElement));
   window.customElements.define("meat-dialog", MeatDialog);
 
-  var template$7 = document.createElement("template");
-  template$7.innerHTML = "\n<style></style>\n<link rel=\"stylesheet\" href=\"/web_components/common.css\"/>\n<link rel=\"stylesheet\" href=\"/web_components/meat-dropdown/meat-dropdown.css\"/>\n<select><slot id=\"dropdown\" name=\"dropdown\"></slot></select>\n";
-  var MeatDropdownElement =
-  /*#__PURE__*/
-  function (_HTMLElement) {
-    _inherits(MeatDropdownElement, _HTMLElement);
-
-    /**
-     * meat-dropdown webcomponent
-     * @customelement meat-dropdown
-     * @description A dropdown for starting new webcomponents
-     * @example <meat-dropdown></meat-dropdown>
-     */
-    function MeatDropdownElement() {
-      var _this;
-
-      _classCallCheck(this, MeatDropdownElement);
-
-      _this = _possibleConstructorReturn(this, _getPrototypeOf(MeatDropdownElement).call(this)); // this._onSlotChange = this._onSlotChange.bind(this);
-
-      _this.shadow = _this.attachShadow({
-        mode: "open"
-      });
-
-      _this.shadow.appendChild(template$7.content.cloneNode(true)); // this._dropdownSlot = this.shadowRoot.querySelector('slot[name=dropdown]');
-      // this._dropdownSlot.addEventListener('slotchange', this._onSlotChange);
-
-
-      return _this;
-    }
-    /**
-     * Live-cycle method called when the custom element is loaded, often used for initialization
-     */
-
-
-    _createClass(MeatDropdownElement, [{
-      key: "connectedCallback",
-      value: function connectedCallback() {
-        // Need to get the content inbetween the <meat-dropdown> tags into the button so it renders
-        this.dropdown.textContent = this.textContent;
-        this.addEventListener("keydown", this._onKeyDown);
-        this.addEventListener("click", this._onClick);
-      }
-      /**
-       * Tell the webcomponent to observe these attributes, if any of them are added, changed, or removed, then
-       * call attributeChangedCallback(name, oldVal, newVal)
-       */
-
-    }, {
-      key: "attributeChangedCallback",
-
-      /**
-       * Called whenever one of the attributes specified in observedAttributes() is changed
-       * @param {string} name
-       * @param {string} oldVal
-       * @param {string} newVal
-       */
-      value: function attributeChangedCallback(name, oldVal, newVal) {
-        switch (name) {
-          case "disabled":
-            if (newVal == "") this.dropdown.disabled = true;else this.dropdown.disabled = false;
-            break;
-
-          case "value":
-            this.dropdown.className = newVal;
-            break;
-        }
-      }
-    }], [{
-      key: "observedAttributes",
-      get: function get() {
-        return ["value", "disabled"];
-      }
-    }]);
-
-    return MeatDropdownElement;
-  }(_wrapNativeSuper(HTMLElement));
-  window.customElements.define("meat-dropdown", MeatDropdownElement);
-
   var css$6 = "/* host */\r\n:host(:not([bootstrap]))  {\r\n    font-family: sans-serif;\r\n    vertical-align: top;\r\n    overflow: auto;\r\n  }\r\n  \r\n  :host(:not([bootstrap])) #imageElement {\r\n    width: inherit;\r\n    height: inherit;\r\n  }\r\n  \r\n  .imageHide {\r\n    display: none;\r\n  }";
   styleInject(css$6);
 
-  var template$8 = document.createElement("template");
-  template$8.innerHTML = "\n<style>\n".concat(css$6, "\n</style>\n<div id=\"imageContainer\">\n  <img id=\"imageElement\" class=\"nativeImg\">\n  <slot id=\"placeholder\" name=\"placeholder\"></slot> \n  <slot id=\"error\" name=\"error\"></slot>\n</div>\n");
+  var template$7 = document.createElement("template");
+  template$7.innerHTML = "\n<style>\n".concat(css$6, "\n</style>\n<div id=\"imageContainer\">\n  <img id=\"imageElement\" class=\"nativeImg\">\n  <slot id=\"placeholder\" name=\"placeholder\"></slot> \n  <slot id=\"error\" name=\"error\"></slot>\n</div>\n");
   var referrerPolicies = ["no-referrer", "no-referrer-when-downgrade", "origin", "origin-when-cross-origin", "unsafe-url"];
   var fillStyles = ["fill", "contain", "cover", "none", "scale-down"];
   var MeatImage =
@@ -1646,7 +1567,7 @@ var MeatComponents = (function (exports) {
         mode: "open"
       });
 
-      _this.shadow.appendChild(template$8.content.cloneNode(true));
+      _this.shadow.appendChild(template$7.content.cloneNode(true));
 
       _this.image = _this.shadow.querySelector("#imageElement");
       _this.imageContainer = _this.shadow.querySelector("#imageContainer"); // Apply user's inline style to our custom component container
@@ -1757,7 +1678,6 @@ var MeatComponents = (function (exports) {
   exports.MeatCard = MeatCard;
   exports.MeatCheckboxElement = MeatCheckboxElement;
   exports.MeatDialog = MeatDialog;
-  exports.MeatDropdownElement = MeatDropdownElement;
   exports.MeatImage = MeatImage;
   exports.MeatInput = MeatInput;
   exports.MeatLink = MeatLink;
