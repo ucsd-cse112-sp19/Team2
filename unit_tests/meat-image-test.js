@@ -182,6 +182,16 @@ describe("Tests class methods", function() {
     assert.equal(comp.image.getAttribute("style"), `object-fit: fill;`);
     done();
   });
+    it("Tests attributeChangedCallback() - src", function(done) {
+    comp.attributeChangedCallback("src", "", "fill");
+    assert.equal(comp.image.getAttribute("src"), "fill");
+    done();
+  });
+  it("Tests attributeChangedCallback() - alt", function(done) {
+    comp.attributeChangedCallback("alt", "", "fill");
+    assert.equal(comp.image.getAttribute("alt"), "fill");
+    done();
+  });
   it("constructor()", function(done) {
     assert.notEqual(comp.constructor(), true);
     done();
