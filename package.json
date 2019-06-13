@@ -37,7 +37,7 @@
     "pipe-release-mac": "./scripts/release.sh",
     "pipe-release": "cd scripts && release.sh",
     "babel": "./node_modules/.bin/babel web_components --out-dir lib",
-    "build": "./node_modules/rollup/bin/rollup -c",
+    "build": "node ./node_modules/rollup/bin/rollup -c",
     "report": "./node_modules/nyc/bin/nyc.js report --reporter=lcov",
     "serve": "./node_modules/http-server/bin/http-server &",
     "test": "npm run serve && npm run utest",

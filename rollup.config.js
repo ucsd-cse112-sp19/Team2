@@ -58,6 +58,15 @@ const MeatImage = {
   }
 };
 
+const MeatCheckbox = {
+  input: ["./web_components/meat-checkbox/meat-checkbox.js"],
+  output: {
+    file: "lib/meat-checkbox.js",
+    name: "MeatImage",
+    format: "iife"
+  }
+};
+
 const MeatComponents = {
   input: ["./web_components/**/*.js"],
   output: {
@@ -100,5 +109,6 @@ export default [
   Object.assign({}, MeatCard, common),
   Object.assign({}, MeatLink, common),
   Object.assign({}, MeatImage, common),
+  Object.assign({}, MeatCheckbox, common),
   Object.assign({}, MeatComponents, common)
 ];
