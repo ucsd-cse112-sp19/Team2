@@ -1,6 +1,8 @@
 var assert = chai.assert;
 let comp;
 let sr;
+let inner;
+let style; 
 
 before(done => {
   setTimeout(function() {
@@ -33,6 +35,28 @@ describe("meat-link existence", function() {
     assert.equal(tagName, "MEAT-LINK");
     done();
   });
+});
+describe("Test default CSS", function() {
+  it("should have default CSS position", function(done) {
+    this.timeout(2000);
+    setTimeout(function() {
+      sr = comp.shadowRoot;
+      inner = sr.querySelector("a");
+      style = getComputedStyle(inner);
+      assert.include(style["text-decoration"], "none");
+      
+      done();
+    }, 500);
+  });
+  it("should have default CSS display", function(done) {
+    assert.include(style["display"],'inline');
+    done(); 
+  }); 
+  it("should have default CSS color", function(done) {
+    assert.equal(style["color"], "rgb(0, 0, 0)");
+    done(); 
+  }); 
+
 });
 
 describe("Tests Text functionality", function() {
@@ -80,6 +104,18 @@ describe("Tests color functionality", function() {
     assert.equal(comp.color, null);
     done();
   });
+  it("should be that setting color to white, the CSS should be white", function(done) {
+    comp.color = "white";
+    this.timeout(2000);
+    setTimeout(function() {
+      sr = comp.shadowRoot;
+      const inner = sr.querySelector("a");
+      const style = getComputedStyle(inner);
+      assert.equal(style.color, "rgb(255, 255, 255)");
+      assert.include(style["text-decoration"], "none solid rgb(255, 255, 255");
+      done();
+    }, 500);
+  });
   it("should be that setting color to green, the CSS should be green", function(done) {
     comp.color = "green";
     this.timeout(2000);
@@ -102,7 +138,7 @@ describe("Tests color functionality", function() {
       done();
     }, 500);
   });
-  it("should be that setting color to red, the CSS should be red", function(done) {
+  it("should be that setting color to purple, the CSS should be purple", function(done) {
     comp.color = "purple";
     this.timeout(2000);
     setTimeout(function() {
@@ -113,7 +149,7 @@ describe("Tests color functionality", function() {
       done();
     }, 500);
   });
-  it("should be that setting color to red, the CSS should be red", function(done) {
+  it("should be that setting color to yellow, the CSS should be yellow", function(done) {
     comp.color = "yellow";
     this.timeout(2000);
     setTimeout(function() {
@@ -121,6 +157,28 @@ describe("Tests color functionality", function() {
       const inner = sr.querySelector("a");
       const style = getComputedStyle(inner);
       assert.equal(style.color, "rgb(255, 230, 0)");
+      done();
+    }, 500);
+  });
+  it("should be that setting color to orange, the CSS should be orange", function(done) {
+    comp.color = "orange";
+    this.timeout(2000);
+    setTimeout(function() {
+      sr = comp.shadowRoot;
+      const inner = sr.querySelector("a");
+      const style = getComputedStyle(inner);
+      assert.equal(style.color, "rgb(223, 138, 64)");
+      done();
+    }, 500);
+  });
+  it("should be that setting color to grey, the CSS should be grey", function(done) {
+    comp.color = "grey";
+    this.timeout(2000);
+    setTimeout(function() {
+      sr = comp.shadowRoot;
+      const inner = sr.querySelector("a");
+      const style = getComputedStyle(inner);
+      assert.equal(style.color, "rgb(119, 119, 119)");
       done();
     }, 500);
   });
@@ -170,7 +228,9 @@ describe("Tests disabled functionality", function() {
       document.body.append(comp);
       const green_inner = sr.querySelector("a");
       const style = getComputedStyle(green_inner);
+      assert.equal(style["opacity"], "0.65");
       assert.equal(style.cursor, "not-allowed");
+
       done();
     }, 500);
   });
@@ -309,6 +369,7 @@ describe("Tests bootstrap functionality", function() {
       const inner = sr.querySelector("a");
       const style = getComputedStyle(inner);
       assert.equal(style["display"], "inline-block");
+      assert.equal(style["color"], "rgba(0, 0, 0, 0.9)")
       done();
     }, 500);
   });
@@ -335,11 +396,14 @@ describe("Tests bootstrap functionality", function() {
       sr = comp.shadowRoot;
       const inner = sr.querySelector("a");
       const style = getComputedStyle(inner);
+      assert.equal(style["background-color"], 'rgba(0, 0, 0, 0)');
+      assert.equal(style["font-weight"], '400');
+      assert.equal(style["display"], 'block');
       /*
           assert.equal(style["text-decoration"], 'none solid rgb(0, 123, 255)');
           //assert.equal(style["white-space"], 'nowrap');
           assert.equal(style["font-weight"], '400');
-          assert.equal(style["background-color"], 'transparent');
+          
           assert.equal(style["border"], '0');*/
       done();
     }, 500);
@@ -352,9 +416,10 @@ describe("Tests bootstrap functionality", function() {
       sr = comp.shadowRoot;
       const inner = sr.querySelector("a");
       const style = getComputedStyle(inner);
+      assert.equal(style["white-space"], 'nowrap');
       /*
           assert.equal(style["text-decoration"], 'none solid rgb(0, 123, 255)');
-          assert.equal(style["white-space"], 'nowrap');
+         
           assert.equal(style["background-color"], 'transparent');
           assert.equal(style["display"], 'inline-block');*/
       done();
@@ -375,3 +440,39 @@ describe("Tests bootstrap functionality", function() {
 
     })*/
 });
+
+describe("Tests getters and setters, and methods", function() {
+  it("constructor()", function(done) {
+    assert.notEqual(comp.constructor(), true);
+    done();
+  });
+  it("observedAtributes getter", function(done) {
+    assert.notEqual(comp.observedAttributes, false);
+    done();
+  });
+
+  it("test disabled getter & setter", function(done) {
+    comp.disabled = true;
+    assert.equal(comp.disabled , true);
+    comp.disabled = false;
+    assert.equal(comp.disabled , false);
+    done();
+  });
+
+  it("test type getter & setter", function(done) {
+    comp.type = "a";
+    assert.equal(comp.type , "a");
+    comp.type = false;
+    assert.equal(comp.type , null);
+    done();
+  });
+  it("test color getter & setter", function(done) {
+    comp.color = "red";
+    assert.equal(comp.color , "red");
+    comp.color = false;
+    assert.equal(comp.color , null);
+    done();
+  });
+
+});
+
