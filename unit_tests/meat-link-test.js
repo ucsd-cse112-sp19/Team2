@@ -3,7 +3,12 @@ let comp;
 let sr;
 let inner;
 let style; 
-
+function checkStyle(_attribute, _value) { 
+  sr = comp.shadowRoot;
+  inner = sr.querySelector("a");
+  style = getComputedStyle(inner);
+  assert.include(style[_attribute], _value);
+}
 before(done => {
   setTimeout(function() {
     comp = document.createElement("meat-link");
@@ -40,11 +45,7 @@ describe("Test default CSS", function() {
   it("should have default CSS position", function(done) {
     this.timeout(2000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      inner = sr.querySelector("a");
-      style = getComputedStyle(inner);
-      assert.include(style["text-decoration"], "none");
-      
+      checkStyle("text-decoration", "none")     
       done();
     }, 500);
   });
@@ -108,11 +109,8 @@ describe("Tests color functionality", function() {
     comp.color = "white";
     this.timeout(2000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      const inner = sr.querySelector("a");
-      const style = getComputedStyle(inner);
-      assert.equal(style.color, "rgb(255, 255, 255)");
-      assert.include(style["text-decoration"], "none solid rgb(255, 255, 255");
+      checkStyle("color", "rgb(255, 255, 255)")
+      checkStyle("text-decoration", "none solid rgb(255, 255, 255")
       done();
     }, 500);
   });
@@ -120,10 +118,7 @@ describe("Tests color functionality", function() {
     comp.color = "green";
     this.timeout(2000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      const inner = sr.querySelector("a");
-      const style = getComputedStyle(inner);
-      assert.equal(style.color, "rgb(89, 192, 64)");
+      checkStyle("color", "rgb(89, 192, 64)")
       done();
     }, 500);
   });
@@ -131,10 +126,7 @@ describe("Tests color functionality", function() {
     comp.color = "red";
     this.timeout(2000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      const inner = sr.querySelector("a");
-      const style = getComputedStyle(inner);
-      assert.equal(style.color, "rgb(204, 80, 80)");
+      checkStyle("color", "rgb(204, 80, 80)")
       done();
     }, 500);
   });
@@ -142,10 +134,7 @@ describe("Tests color functionality", function() {
     comp.color = "purple";
     this.timeout(2000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      const inner = sr.querySelector("a");
-      const style = getComputedStyle(inner);
-      assert.equal(style.color, "rgb(170, 85, 170)");
+      checkStyle("color","rgb(170, 85, 170)");
       done();
     }, 500);
   });
@@ -153,10 +142,7 @@ describe("Tests color functionality", function() {
     comp.color = "yellow";
     this.timeout(2000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      const inner = sr.querySelector("a");
-      const style = getComputedStyle(inner);
-      assert.equal(style.color, "rgb(255, 230, 0)");
+      checkStyle("color", "rgb(255, 230, 0)");
       done();
     }, 500);
   });
@@ -164,10 +150,7 @@ describe("Tests color functionality", function() {
     comp.color = "orange";
     this.timeout(2000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      const inner = sr.querySelector("a");
-      const style = getComputedStyle(inner);
-      assert.equal(style.color, "rgb(223, 138, 64)");
+      checkStyle("color", "rgb(223, 138, 64)");
       done();
     }, 500);
   });
@@ -175,10 +158,7 @@ describe("Tests color functionality", function() {
     comp.color = "grey";
     this.timeout(2000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      const inner = sr.querySelector("a");
-      const style = getComputedStyle(inner);
-      assert.equal(style.color, "rgb(119, 119, 119)");
+      checkStyle("color", "rgb(119, 119, 119)");
       done();
     }, 500);
   });
@@ -224,13 +204,8 @@ describe("Tests disabled functionality", function() {
     comp.setAttribute("disabled", "");
     this.timeout(2000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      document.body.append(comp);
-      const green_inner = sr.querySelector("a");
-      const style = getComputedStyle(green_inner);
-      assert.equal(style["opacity"], "0.65");
-      assert.equal(style.cursor, "not-allowed");
-
+      checkStyle("opacity", "0.65");
+      checkStyle("cursor", "not-allowed")
       done();
     }, 500);
   });
@@ -277,11 +252,7 @@ describe("Tests underline functionality", function() {
     comp.underline = "never";
     this.timeout(2000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      document.body.append(comp);
-      const green_inner = sr.querySelector("a");
-      const style = getComputedStyle(green_inner);
-      assert.equal(style["text-decoration"], "none solid rgb(0, 0, 0)");
+      checkStyle("text-decoration", "none solid rgb(0, 0, 0)")
       done();
     }, 500);
   });
@@ -289,11 +260,7 @@ describe("Tests underline functionality", function() {
     comp.underline = "always";
     this.timeout(2000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      document.body.append(comp);
-      const green_inner = sr.querySelector("a");
-      const style = getComputedStyle(green_inner);
-      assert.equal(style["text-decoration"], "underline solid rgb(0, 0, 0)");
+      checkStyle("text-decoration", "underline solid rgb(0, 0, 0)");
       done();
     }, 500);
   });
@@ -301,11 +268,7 @@ describe("Tests underline functionality", function() {
     comp.underline = "always";
     this.timeout(2000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      document.body.append(comp);
-      const green_inner = sr.querySelector("a");
-      const style = getComputedStyle(green_inner);
-      assert.equal(style["text-decoration"], "underline solid rgb(0, 0, 0)");
+      checkStyle("text-decoration", "underline solid rgb(0, 0, 0)");
       done();
     }, 500);
   });
@@ -313,11 +276,7 @@ describe("Tests underline functionality", function() {
     comp.underline = "hover";
     this.timeout(2000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      document.body.append(comp);
-      const green_inner = sr.querySelector("a");
-      const style = getComputedStyle(green_inner);
-      assert.equal(style["text-decoration"], "none solid rgb(0, 0, 0)");
+      checkStyle("text-decoration", "none solid rgb(0, 0, 0)");
       done();
     }, 500);
   });
@@ -365,11 +324,8 @@ describe("Tests bootstrap functionality", function() {
     comp.bootstrap = "navbar-brand";
     this.timeout(2000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      const inner = sr.querySelector("a");
-      const style = getComputedStyle(inner);
-      assert.equal(style["display"], "inline-block");
-      assert.equal(style["color"], "rgba(0, 0, 0, 0.9)")
+      checkStyle("display", "inline-block");
+      checkStyle("color", "rgba(0, 0, 0, 0.9)")
       done();
     }, 500);
   });
@@ -378,10 +334,7 @@ describe("Tests bootstrap functionality", function() {
     comp.setAttribute("bootstrap", "nav-link");
     this.timeout(2000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      const inner = sr.querySelector("a");
-      const style = getComputedStyle(inner);
-      assert.equal(style["text-decoration"], "none solid rgb(0, 123, 255)");
+      checkStyle("text-decoration", "none solid rgb(0, 123, 255)");
       // assert.equal(style["white-space"], 'nowrap');
       // assert.equal(style["font-size"], '1.25rem');
       done();
@@ -393,12 +346,9 @@ describe("Tests bootstrap functionality", function() {
 
     this.timeout(2000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      const inner = sr.querySelector("a");
-      const style = getComputedStyle(inner);
-      assert.equal(style["background-color"], 'rgba(0, 0, 0, 0)');
-      assert.equal(style["font-weight"], '400');
-      assert.equal(style["display"], 'block');
+      checkStyle("background-color", 'rgba(0, 0, 0, 0)');
+      checkStyle("font-weight", '400');
+      checkStyle("display", 'block');
       /*
           assert.equal(style["text-decoration"], 'none solid rgb(0, 123, 255)');
           //assert.equal(style["white-space"], 'nowrap');
@@ -416,7 +366,7 @@ describe("Tests bootstrap functionality", function() {
       sr = comp.shadowRoot;
       const inner = sr.querySelector("a");
       const style = getComputedStyle(inner);
-      assert.equal(style["white-space"], 'nowrap');
+      checkStyle("white-space", 'nowrap');
       /*
           assert.equal(style["text-decoration"], 'none solid rgb(0, 123, 255)');
          
