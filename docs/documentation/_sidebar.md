@@ -10,6 +10,7 @@
   - [meat-input](meat-input.md)
   - [meat-link](meat-link.md)
   - [meat-card](meat-card.md)
+  - [meat-checkbox](meat-checkbox.md)
 
 - API Documentation
 
@@ -20,5 +21,3 @@
 
 - <a href="/index.html" target="_self"><b>meat-space.org</b></a>
 - <a href="https://github.com/ucsd-cse112/Team2" target="_self"><b>GitHub</b></a>
- 
-

@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "all": "npm-run-all corehello meatinput meatbutton meatcard",
+        "all": "npm-run-all corehello meatinput meatbutton meatcard meatlink meatimage",
         "corehello": "./node_modules/.bin/mocha-headless-chrome -f http://127.0.0.1:8080/unit_tests/core-hello-test.html -c ../.nyc_output/coverage-core-hello.json", 
         "meatinput": "./node_modules/.bin/mocha-headless-chrome -f http://127.0.0.1:8080/unit_tests/meat-input-test.html -c ../.nyc_output/coverage-meat-input.json",
         "meatbutton": "./node_modules/.bin/mocha-headless-chrome -f http://127.0.0.1:8080/unit_tests/meat-button-test.html -c ../.nyc_output/coverage-meat-button.json",

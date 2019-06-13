@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>core-hello/core-hello.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="core-hello.html">core-hello</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-boilerplate.html">meat-boilerplate</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-button.html">meat-button</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-card.html">meat-card</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-checkbox.html">meat-checkbox</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-dialog.html">meat-dialog</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-dropdown.html">meat-dropdown</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-input.html">meat-input</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-link.html">meat-link</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">core-hello/core-hello.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const rainbow = `
+    :host {
+        background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+        background-size: 1800% 1800%;
+        
+        -webkit-animation: rainbow 18s ease infinite;
+        -z-animation: rainbow 18s ease infinite;
+        -o-animation: rainbow 18s ease infinite;
+            animation: rainbow 18s ease infinite;}
+        
+        @-webkit-keyframes rainbow {
+            0%{background-position:0% 82%}
+            50%{background-position:100% 19%}
+            100%{background-position:0% 82%}
+        }
+        @-moz-keyframes rainbow {
+            0%{background-position:0% 82%}
+            50%{background-position:100% 19%}
+            100%{background-position:0% 82%}
+        }
+        @-o-keyframes rainbow {
+            0%{background-position:0% 82%}
+            50%{background-position:100% 19%}
+            100%{background-position:0% 82%}
+        }
+        @keyframes rainbow { 
+            0%{background-position:0% 82%}
+            50%{background-position:100% 19%}
+            100%{background-position:0% 82%}
+    }
+`;
+
+const tmpl = document.createElement("template");
+tmpl.innerHTML = `
+&lt;style>
+:host {
+    font-family: var(--font-family, Helvetica);
+    font-size: var(--font-size, 50px);
+    background-color: var(--background-color, #9E9E9E);
+    width: var(--width);
+    height: var(--height);
+    margin: var(--margin, auto);
+    display: var(--display, block);
+    text-align: var(--text-align, center);
+}
+/* when "hidden" attribute applied, display nothing */
+:host([hidden]){
+    display: none;
+}
+&lt;/style>
+&lt;span id="main-text">Hello world, &lt;/span>
+&lt;slot>&lt;/slot>
+`;
+
+export class CoreHello extends HTMLElement {
+  /**
+   * core-hello web component
+   * @customelement core-hello
+   * @description displays 'Hello World, &lt;input>!'
+   * @example &lt;caption> Hello World! &lt;/caption>
+   * &lt;core-hello rainbow lang="en">
+   * Alex!
+   * &lt;/core-hello>
+   * @see [Demo]{@link https://meat-space.org/web_components/core-hello/core-hello-test.html} for working example.
+   * @property {boolean} rainbow -Enables a background rainbow effect.
+   * @property {string} lang -Set language (English, French, Spanish). Default is English.
+   * */
+  constructor() {
+    console.info("Constructing core-hello!");
+    super();
+    const shadowRoot = this.attachShadow({ mode: "open" });
+    /*
+     * method attaches a shadow DOM tree to the specified element.
+     */
+    shadowRoot.appendChild(tmpl.content.cloneNode(true));
+  }
+
+  /**
+   * tell component to call attributeChangedCallback method when the following attributes are found
+   */
+  static get observedAttributes() {
+    return ["rainbow", "lang"];
+  }
+
+  /**
+   * Invoked when one of the custom element's attributes is added, removed, or changed.
+   * @param {string} name
+   * @param {string} oldVal
+   * @param {string} newVal
+   */
+  attributeChangedCallback(name, oldVal, newVal) {
+    console.info(`AttributeChangedCallback called for | ${name} |.`);
+    switch (name) {
+      case "rainbow":
+        this.updateStyle(this);
+        break;
+      case "lang":
+        this.updateLang(this, newVal);
+        break;
+    }
+  }
+
+  /**
+   * update styling with rainbow
+   * @param {Object} elem
+   */
+  updateStyle(elem) {
+    console.info("Updating style: applying rainbow.");
+    const shadowRoot = elem.shadowRoot;
+    shadowRoot.querySelector("style").textContent += rainbow;
+  }
+
+  /**
+   * update language
+   * @param {Object} elem
+   * @param {string} lang
+   */
+  updateLang(elem, lang) {
+    console.info(`Updating Language: applying ${lang}.`);
+    const shadowRoot = elem.shadowRoot;
+    let text;
+    switch (lang) {
+      case "en":
+        text = "Hello world, ";
+        break;
+      case "sp":
+        text = "Hola mundo, ";
+        break;
+      case "fr":
+        text = "Bonjour le monde, ";
+        break;
+      default:
+        text = "Hello world, ";
+        break;
+    }
+    shadowRoot.querySelector("#main-text").textContent = text;
+    /*
+     * update the span inside the main div
+     */
+  }
+
+  /**
+   * rainbow effect
+   * @param {string} val
+   */
+  set rainbow(val) {
+    if (val) {
+      this.setAttribute("rainbow", "");
+    } else {
+      this.removeAttribute("rainbow");
+    }
+  }
+  /**
+   * gets the rainbow attribute, might be useful when interacting with outside javascript?
+   */
+  get rainbow() {
+    return this.getAttribute("rainbow");
+  }
+
+  /**
+   * language support
+   * @param {string} val
+   */
+  set lang(val) {
+    if (val) {
+      this.setAttribute("lang", val);
+    } else {
+      this.removeAttribute("lang");
+    }
+  }
+  /**
+   * gets the lang attribute
+   */
+  get lang() {
+    return this.getAttribute("lang");
+  }
+}
+window.customElements.define("core-hello", CoreHello);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

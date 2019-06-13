@@ -1,10 +1,11 @@
 const presets = [
     [
-      "@babel/env",
+      "@babel/preset-env",
       {
         "modules": false,
         useBuiltIns: "usage",
-        useBuiltIns: "entry"
+        // useBuiltIns: "entry",
+        "corejs": "3.0.0"
       },
     ],
   ];

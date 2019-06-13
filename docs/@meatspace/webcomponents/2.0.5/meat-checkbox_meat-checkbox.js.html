@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>meat-checkbox/meat-checkbox.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="core-hello.html">core-hello</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-boilerplate.html">meat-boilerplate</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-button.html">meat-button</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-card.html">meat-card</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-checkbox.html">meat-checkbox</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-dialog.html">meat-dialog</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-dropdown.html">meat-dropdown</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-input.html">meat-input</a></span></li><li class="nav-heading"><span class="nav-item-type type-external">E</span><span class="nav-item-name"><a href="meat-link.html">meat-link</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">meat-checkbox/meat-checkbox.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import style from "./meat-checkbox.css";
+
+const template = document.createElement("template");
+template.innerHTML = `
+  &lt;style>
+  ${style}
+  &lt;/style>
+
+  &lt;label class="container">
+    &lt;input id="checkbox" type="checkbox">
+    &lt;span class="checkmark">&lt;/span>
+    &lt;label id="cblabel">&lt;/label>
+  &lt;/label>
+`;
+
+export class MeatCheckboxElement extends HTMLElement {
+  /**
+   * meat-checkbox webcomponent
+   * @customelement meat-checkbox
+   * @description displays a stylized checkbox component
+   * @see [Demo]{@link https://meat-space.org/web_components/meat-checkbox/meat-checkbox-demo.html} for working example.
+   * @example &lt;meat-checkbox>&lt;/meat-checkbox>
+   * @property {boolean} checked -Property for if a checkbox is checked or not.
+   * @property {string} color -Changes the color of the checkbox.
+   * @property {boolean} disabled -Disables checkbox usage.
+   */
+  constructor() {
+    super();
+    this.shadow = this.attachShadow({ mode: "open" });
+    this.shadow.appendChild(template.content.cloneNode(true));
+    this._container = this.shadow.querySelector("label"); // Entire "Checkbox"
+    this._input = this._container.querySelector("input"); // Native Checkbox
+    this._checkmark = this._container.querySelector("span"); // Visible Checkmark
+    this._cblabel = this._container.querySelector("label"); // Checkbox Label
+  }
+
+  /**
+   * Live-cycle method called when the custom element is loaded, often used for initialization
+   */
+  connectedCallback() {
+    const _label = this.textContent;
+    this._cblabel.appendChild(document.createTextNode(_label));
+
+    // Checks for instance properties and run them through setters
+    this._upgradeProperty("checked");
+    this._upgradeProperty("disabled");
+
+    // Adds event listeners for key
+    this.addEventListener("keyup", this._onKeyUp);
+  }
+
+  /**
+   * @param {string} prop
+   * Aim to make webcomponents lazy.
+   * A developer might attempt to set a property on your element before its definition has been loaded.
+   * This will make sure the property is set when the element loads in.
+   */
+  _upgradeProperty(prop) {
+    if (this.hasOwnProperty(prop)) {
+      const value = this[prop];
+      delete this[prop];
+      this[prop] = value;
+    }
+  }
+
+  /**
+   * Releases references and removes listeners when element removed from DOM.
+   */
+  disconnectedCallback() {
+    this.removeEventListener("keyup", this._onKeyUp);
+  }
+
+  /**
+   * Tell the webcomponent to observe these attributes, if any of them are added, changed, or removed, then
+   * call attributeChangedCallback(name, oldVal, newVal)
+   */
+  static get observedAttributes() {
+    return ["color", "disabled", "checked", "bootstrap"];
+  }
+
+  /**
+   * Called whenever one of the attributes specified in observedAttributes() is changed
+   * @param {string} name
+   * @param {string} oldVal
+   * @param {string} newVal
+   */
+  attributeChangedCallback(name, oldVal, newVal) {
+    switch (name) {
+      case "checked":
+        this._input.checked = "checked";
+        break;
+      case "disabled":
+        if (newVal == "") this._input.disabled = true;
+        else this._input.disabled = false;
+        break;
+      // Work in Progress
+      case "bootstrap":
+        this._input.className = "custom-control-input";
+        this._checkmark.className = "custom-control-indicator";
+        this._container.className = "custom-control custom-checkbox";
+        this._cblabel.className = "custom-control-description";
+        break;
+    }
+  }
+
+  // Attribute Getters and Setters
+  get disabled() {
+    return this.hasAttribute("disabled");
+  }
+  set disabled(val) {
+    if (val) {
+      this.setAttribute("disabled", "");
+    } else {
+      this.removeAttribute("disabled");
+    }
+  }
+
+  get color() {
+    return this.getAttribute("color");
+  }
+  set color(val) {
+    if (val) {
+      this.setAttribute("color", val);
+    } else {
+      this.removeAttribute("color");
+    }
+  }
+
+  get checked() {
+    return this.getAttribute("checked");
+  }
+  set checked(val) {
+    if (val) {
+      this.setAttribute("checked", "");
+    } else {
+      this.removeAttribute("checked");
+    }
+  }
+
+  /**
+   * @param {string} event
+   * Triggers when 'space' key is pressed. Will check the checkbox.
+   */
+  _onKeyUp(event) {
+    if (event.altKey) return;
+    switch (event.keyCode) {
+      case "32":
+        event.preventDefault();
+        this._toggleChecked();
+        break;
+      default:
+        return;
+    }
+  }
+
+  /**
+   * Toggles "Checked" attribute of checkbox.
+   */
+  _toggleChecked() {
+    if (this.disabled) return;
+    this.checked = !this.checked;
+  }
+}
+window.customElements.define("meat-checkbox", MeatCheckboxElement);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

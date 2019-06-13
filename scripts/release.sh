@@ -21,7 +21,7 @@ echo "commiting changes ..."
 git commit
 
 echo "updating npm version number to $version ..."
-npm version $verion
+npm version $version
 
 read -p "Do you want to generate api docs? (y or n)? " docsAns
 
@@ -30,6 +30,9 @@ docsAns=$(echo "$docsAns" | tr '[:upper:]' '[:lower:]')
 if [ $ans == 'n' ]; then
   exit 
 else 
+  rm -rf instrumented
+  rm -rf lib
+  rm bundle.js
   echo "running linter ..."
   npm run-script lint
   if [ $? -eq 0 ]; then

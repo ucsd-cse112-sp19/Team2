@@ -1,6 +1,6 @@
 {
   "name": "@meatspace/webcomponents",
-  "version": "2.0.0",
+  "version": "2.0.5",
   "description": "A web component library by MeatSpace",
   "main": "index.js",
   "files": [
@@ -24,22 +24,35 @@
     "wintest": "for %f in (./unit_tests/*.html) do ./node_modules/.bin/mocha-headless-chrome -f (./unit_tests/%f)",
     "lintest": "./node_modules/.bin/mocha-headless-chrome -f ./unit_tests/*.html -a no-sandbox",
     "utest": "cd ./unit_tests && npm run all",
+    "utest-core-hello": "cd ./unit_tests && npm run corehello",
+    "utest-meat-button": "cd ./unit_tests && npm run meatbutton",
+    "utest-meat-input": "cd ./unit_tests && npm run meatinput",
+    "utest-meat-card": "cd ./unit_tests && npm run meatcard",
+    "utest-meat-link": "cd ./unit_tests && npm run meatlink",
+    "utest-meat-image": "cd ./unit_tests && npm run meatimage",
     "generate-jsdocs": "./node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
     "lint": "./node_modules/.bin/eslint --fix web_components",
-    "lint-lib": "./node_modules/.bin/eslint --fix lib",
     "pipe": "cd scripts && pipe.sh",
     "pipe-mac": "./scripts/pipe.sh",
     "pipe-release-mac": "./scripts/release.sh",
     "pipe-release": "cd scripts && release.sh",
-    "storybook": "start-storybook",
     "babel": "./node_modules/.bin/babel web_components --out-dir lib",
-    "build": "rollup -c",
+    "build": "./node_modules/rollup/bin/rollup -c",
     "report": "./node_modules/nyc/bin/nyc.js report --reporter=lcov",
     "serve": "./node_modules/http-server/bin/http-server &",
     "test": "npm run serve && npm run utest",
-    "instrument": "./node_modules/nyc/bin/nyc.js instrument ./web_components/ ./instrumented",
+    "post-test": "pkill -f http-server",
+    "instrument": "./node_modules/nyc/bin/nyc.js instrument ./lib/ ./instrumented",
     "coverage-display": "./node_modules/nyc/bin/nyc.js report",
-    "local-test": "npm-run-all instrument test coverage-display"
+    "local-test": "npm-run-all build instrument test coverage-display post-test",
+    "local-test-hello": "npm-run-all build instrument serve utest-core-hello coverage-display post-test",
+    "local-test-button": "npm-run-all build instrument serve utest-meat-button coverage-display post-test",
+    "local-test-input": "npm-run-all build instrument serve utest-meat-input coverage-display post-test",
+    "local-test-card": "npm-run-all build instrument serve utest-meat-card coverage-display post-test",
+    "local-test-link": "npm-run-all build instrument serve utest-meat-link coverage-display post-test",
+    "local-test-image": "npm-run-all build instrument serve utest-meat-image coverage-display post-test",
+    "clean": "rm -rf instrumented && rm -rf lib && rm bundle.js",
+    "local-testcafe": "npm-run-all build instrument serve local-runner post-test"
   },
   "unpkg": "bundle.js",
   "repository": {
@@ -52,12 +65,6 @@
     "url": "https://github.com/ucsd-cse112/Team2/issues"
   },
   "homepage": "https://meat-space.org",
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "es2015"
-    ]
-  },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
@@ -87,6 +94,8 @@
     "prettier": "1.17.0",
     "puppeteer": "^1.17.0",
     "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-multi-entry": "^2.1.0",
     "rollup-plugin-node-resolve": "^5.0.1",
     "rollup-plugin-postcss": "^2.0.3",
     "selenium-webdriver": "^4.0.0-alpha.1",
