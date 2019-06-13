@@ -11,7 +11,8 @@ createTestCafe("localhost", 1337, 1338)
         "test/testcafe-hello-core.js",
         "test/testcafe-meat-button.js",
         "test/testcafe-meat-input.js",
-        "test/testcafe-meat-link.js"
+        "test/testcafe-meat-link.js",
+        "test/testcafe-meat-card.js"
       ])
       .browsers([
         "browserstack:Chrome@74.0:Windows 10",
