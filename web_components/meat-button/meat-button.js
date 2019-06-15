@@ -10,7 +10,7 @@ ${style}
 
 export class MeatButton extends HTMLElement {
   /**
-   * meat-button webcomponent
+   * Random styled meat-button webcomponent
    * @customelement meat-button
    * @description displays a stylized button
    * @example <meat-button></meat-button>
@@ -22,6 +22,7 @@ export class MeatButton extends HTMLElement {
    * @property {attribute} round -Enables a round shaped button.
    * @property {string} size -Changes the size of the button.
    * @property {string} type -Enables the specified type of button.
+   * @property {string} random_str - Just added the random property
    * */
   constructor() {
     super();
