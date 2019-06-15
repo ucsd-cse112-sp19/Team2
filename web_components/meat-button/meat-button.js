@@ -15,7 +15,7 @@ export class MeatButton extends HTMLElement {
    * @description displays a stylized button
    * @example <meat-button></meat-button>
    * @see [Demo]{@link https://meat-space.org/web_components/meat-button/meat-button-demo.html} for working example.
-   * @property {attribute} autofocus -Enables button to automatically get focus when the page loads.
+   * @property {attribute} autofocus -Enables button to automatically get focus when the page loads. Add a change to docs
    * @property {string} bootstrap -Enables bootstrap as styling of the button.
    * @property {attribute} circle -Enables a circle shaped button.
    * @property {attribute} disabled -Disables button from accepting events.
