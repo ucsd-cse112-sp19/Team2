@@ -39,6 +39,53 @@ describe("meat-button basic requirements", function() {
     assert.notEqual(tagName, "CORE-HELLO");
   });
 });
+describe("Tests meat-button default values", function() {
+  it("it should be defaulted to medium size", function(done) {
+    this.timeout(1000);
+    setTimeout(function() {
+      sr = comp.shadowRoot;
+      const green_inner = sr.querySelector("button");
+      const hi = getComputedStyle(green_inner);
+      assert.equal(hi.width, "90px");
+      assert.equal(hi.height, "40px");
+      done();
+    }, 500);
+  });
+  it("it should be defaulted to white color", function(done) {
+    this.timeout(1000);
+    setTimeout(function() {
+      sr = comp.shadowRoot;
+      const green_inner = sr.querySelector("button");
+      const hi = getComputedStyle(green_inner);
+      assert.equal(hi.backgroundColor, "rgb(255, 255, 255)");
+      done();
+    }, 500);
+  });
+  it("it should be defaulted to enabled", function(done) {
+    this.timeout(1000);
+    setTimeout(function() {
+      clicked = false;
+      comp.addEventListener("click", function() {
+        clicked = true;
+        console.log("clicked!");
+      });
+      comp.click();
+      assert.equal(clicked, true);
+      done();
+    }, 500);
+  });
+  it("it should be defaulted to a rectangle", function(done) {
+    this.timeout(1000);
+    setTimeout(function() {
+      sr = comp.shadowRoot;
+      const green_inner = sr.querySelector("button");
+      const hi = getComputedStyle(green_inner);
+      assert.equal(hi.borderRadius, "0px");
+      done();
+    }, 500);
+  });
+
+});
 describe("Tests meat-button disabled functionality", function() {
   it("should be that disabled is false when getter is called", function(done) {
     assert.equal(comp.disabled, false);
@@ -137,18 +184,6 @@ describe("Tests meat-button size functionality", function() {
       const hi = getComputedStyle(green_inner);
       assert.equal(hi.width, "100px");
       assert.equal(hi.height, "44px");
-      done();
-    }, 500);
-  });
-  it("it should be defaulted to medium size", function(done) {
-    comp.size = "";
-    this.timeout(1000);
-    setTimeout(function() {
-      sr = comp.shadowRoot;
-      const green_inner = sr.querySelector("button");
-      const hi = getComputedStyle(green_inner);
-      assert.equal(hi.width, "90px");
-      assert.equal(hi.height, "40px");
       done();
     }, 500);
   });

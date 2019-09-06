@@ -4,15 +4,19 @@ let sr;
 let divHead;
 let divBody;
 let span;
+function checkStyle(_attribute, _value) { 
+  style = getComputedStyle(comp);
+  assert.include(style[_attribute], _value);
+}
 
 before(done => {
   setTimeout(function() {
     comp = document.createElement("meat-card");
     comp.innerHTML =
-      ' <div slot="header">\
+      ' <div id="h" slot="header">\
         <span>Default</span>\
     </div>\
-    <div slot="body" class="card-body">\
+    <div id="b" slot="body" class="card-body">\
         <div>Item 1</div>\
         <div>Item 2</div>\
     </div>';
@@ -41,6 +45,29 @@ describe("meat-card basic requirements", function() {
     done();
   });
 });
+
+describe("Check header and body", function() {
+  it("Should have header Default", function(done) {
+    assert.equal(comp.querySelector("#h").innerText, "Default");
+    done();
+  });
+  it("Should have body as Item 1 Item 2", function(done) {
+    assert.equal(comp.querySelector("#b").innerText, "Item 1\nItem 2");
+    done();
+  });
+
+});
+
+describe("Test default CSS", function() { 
+  it("Should have correct background-color", function(done) {
+    checkStyle("background-color", "rgb(255, 255, 255)")
+    done();
+  });
+  it("Should have correct box-shadow", function(done) {
+    checkStyle("box-shadow", "rgba(0, 0, 0, 0.15) 0px 2px 12px 0px")
+    done();
+  });
+})
 
 describe("Tests Shadow functionality", function() {
   it("Should initially not have shadow attribute", function(done) {
@@ -75,8 +102,7 @@ describe("Tests Shadow functionality", function() {
     comp.shadow = "never";
     this.timeout(2000);
     setTimeout(function() {
-      const shadow = getComputedStyle(comp);
-      assert.equal(shadow.boxShadow, "none");
+      checkStyle("boxShadow", "none")
       done();
     }, 500);
   });

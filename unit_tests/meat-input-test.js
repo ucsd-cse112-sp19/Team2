@@ -1,7 +1,14 @@
 var assert = chai.assert;
 let comp;
 let sr;
-
+let inner; 
+let style; 
+function checkStyle(_attribute, _value) { 
+  sr = comp.shadowRoot;
+  inner = sr.querySelector("input");
+  style = getComputedStyle(inner);
+  assert.equal(style[_attribute], _value);
+}
 before(done => {
   setTimeout(function() {
     comp = document.createElement("meat-input");
@@ -34,7 +41,48 @@ describe("meat-input existence", function() {
     done();
   });
 });
+describe("Tests default meat-input CSS", function() {
+  it("should be default CSS for cursor", function(done) {
+    this.timeout(2000);
+    setTimeout(function() {
+      checkStyle("cursor", "text")
+      done();
+    }, 500);
+  });
+  it("should have default color", function(done) {
+    checkStyle("color", "rgb(68, 68, 68)")
+    done()
+  });
+  it("should have default height", function(done) {
+    checkStyle("height", "38px")
+    done()
+  });
+  it("should have default height", function(done) {
+    checkStyle("font-size", "14px")
+    done()
+  });
+  it("should have default border-radius", function(done) {
+    checkStyle("border-radius", "3px")
+    done()
+  });
+  it("should have default outline", function(done) {
+    checkStyle("outline", "rgb(68, 68, 68) none 0px")
+    done()
+  });
+  it("should have default background color", function(done) {
+    checkStyle("background-color", "rgb(255, 255, 255)")
+    done()
+  });
+  it("should have default focus-border", function(done) {
+    checkStyle("border", "1px solid rgb(204, 204, 204)")
+    done()
+  });
+  it("should have default focus-border", function(done) {
+    checkStyle("transition", "border 0.3s ease 0s")
+    done()
+  });
 
+}); 
 describe("Tests meat-input placeholder functionality", function() {
   it("should be that placeholder initially does exist", function(done) {
     assert.equal(comp.hasAttribute("placeholder"), false);
@@ -87,11 +135,7 @@ describe("Tests meat-input disabled functionality", function() {
     comp.setAttribute("disabled", "");
     this.timeout(2000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      document.body.append(comp);
-      const green_inner = sr.querySelector("input");
-      const hi = getComputedStyle(green_inner);
-      assert.equal(hi.cursor, "not-allowed");
+      checkStyle("cursor", "not-allowed")
       done();
     }, 500);
   });
@@ -182,11 +226,8 @@ describe("Tests size attributes", function() {
     comp.size = "small";
     this.timeout(1000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      const green_inner = sr.querySelector("input");
-      const hi = getComputedStyle(green_inner);
-      assert.equal(hi.width, "100px");
-      assert.equal(hi.height, "38px");
+      checkStyle("width", "100px")
+      checkStyle("height", "38px")
       done();
     }, 500);
   });
@@ -194,11 +235,8 @@ describe("Tests size attributes", function() {
     comp.size = "medium";
     this.timeout(1000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      const green_inner = sr.querySelector("input");
-      const hi = getComputedStyle(green_inner);
-      assert.equal(hi.width, "200px");
-      assert.equal(hi.height, "38px");
+      checkStyle("width", "200px")
+      checkStyle("height", "38px")
       done();
     }, 500);
   });
@@ -206,26 +244,12 @@ describe("Tests size attributes", function() {
     comp.size = "large";
     this.timeout(1000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      const green_inner = sr.querySelector("input");
-      const hi = getComputedStyle(green_inner);
-      assert.equal(hi.width, "300px");
-      assert.equal(hi.height, "38px");
+      checkStyle("width", "300px")
+      checkStyle("height", "38px")
       done();
     }, 500);
   });
-  // it ("it should be defaulted to medium size", function(done) {
-  //   comp.size = "";
-  //   this.timeout(1000);
-  //   setTimeout(function(){
-  //     sr = comp.shadowRoot;
-  //     const green_inner = sr.querySelector("input");
-  //     const hi = getComputedStyle(green_inner);
-  //     assert.equal(hi.width, "166px");
-  //     assert.equal(hi.height, "38px")
-  //     done();
-  //   },500);
-  // })
+
   it("should be that removing size attribute will make it not exist", function(done) {
     comp.removeAttribute("size");
     assert.equal(comp.hasAttribute("size"), false);
@@ -314,14 +338,8 @@ describe("Tests bootstrap functionality", function() {
     comp.setAttribute("bootstrap", "form-control");
     this.timeout(1000);
     setTimeout(function() {
-      sr = comp.shadowRoot;
-      const green_inner = sr.querySelector("input");
-      const hi = getComputedStyle(green_inner);
-      assert.equal(
-        hi["transition"],
-        "border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s"
-      );
-      assert.equal(hi["display"], "block");
+      checkStyle("transition", "border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s")
+      checkStyle("display", "block")
       done();
     }, 500);
   });

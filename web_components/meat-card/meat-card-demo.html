@@ -6,9 +6,9 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>meat-card-demo</title>
         <link rel="shortcut icon" href="/img/logo.png">
-        <script type="module" src="../meat-button/meat-button.js"></script>
-        <script type="module" src="../meat-link/meat-link.js"></script>
-        <script type="module" src="./meat-card.js"></script>
+        <script type="module" src="/lib/meat-button.js"></script>
+        <script type="module" src="/lib/meat-link.js"></script>
+        <script type="module" src="/lib/meat-card.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <style>
@@ -23,16 +23,16 @@
     <body>
         <div style="padding: 20px;">
             <label>Basic Cards</label><br>
-            <meat-card>
-                <div slot="header">
+            <meat-card id="basic-test">
+                <div id="b-header" slot="header">
                     <span>Default</span>
                 </div>
-                <div slot="body" class="card-body">
+                <div id="b-body" slot="body" class="card-body">
                     <div>Item 1</div>
                     <div>Item 2</div>
                 </div>
             </meat-card>
-            <meat-card shadow="hover">
+            <meat-card id="hover-test" shadow="hover">
                 <div slot="header">
                     <span>shadow="hover"</span>
                 </div>
@@ -41,7 +41,7 @@
                     <div>Item 2</div>
                 </div>
             </meat-card>
-            <meat-card shadow="never">
+            <meat-card id="never-test" shadow="never">
                 <div slot="header">
                     <span>shadow="never"</span>
                 </div>
@@ -53,8 +53,8 @@
         </div>
         <div style="padding: 20px;">
             <label>No Header</label><br>
-            <meat-card>
-                <div slot="body" class="card-body">
+            <meat-card id="no-header">
+                <div id="no-header-b" slot="body" class="card-body">
                     <div>Item 1</div>
                     <div>Item 2</div>
                 </div>
@@ -96,7 +96,7 @@
                     </div>
                 </div>
             </meat-card>
-            <meat-card>
+            <meat-card id="link-integration">
                 <div slot="header" style="background-color: #2db2ff">
                     <div style="color: white;">I am an example card!</div>
                     <meat-button color="white">Does Nothing!</meat-button>
@@ -107,7 +107,7 @@
                     </div>
                     <br>
                     <div>
-                        <meat-link color="blue" href="https://element.eleme.io/#/en-US/component/card">Click here to go to Element's Card Docs</meat-link>
+                        <meat-link id="link-test" color="blue" href="https://element.eleme.io/#/en-US/component/card">Click here to go to Element's Card Docs</meat-link>
                     </div>
                 </div>
             </meat-card>

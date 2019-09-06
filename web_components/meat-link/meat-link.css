@@ -3,7 +3,7 @@
 :host {
     display: inline-block;
     position: relative;
-    color: black;
+    color: #000000;
     text-decoration: none;
     
   }
@@ -59,7 +59,7 @@
   }
   
   a[color="grey"] {
-    color: #777777;
+    color: rgb(119, 119, 119);
   }
   
   a[color="red"] {
@@ -67,7 +67,7 @@
   }
   
   a[color="orange"] {
-    color: #df8a40;
+    color: rgb(223, 138, 64);
   }
   
   a[color="yellow"] {
